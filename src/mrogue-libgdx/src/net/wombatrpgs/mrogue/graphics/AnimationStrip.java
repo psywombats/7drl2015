@@ -18,6 +18,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 /**
@@ -187,16 +188,16 @@ public class AnimationStrip implements 	Renderable,
 			switch(mdo.mode) {
 			case REPEAT:
 				looping = true;
-				anim.setPlayMode(Animation.LOOP);
+				anim.setPlayMode(PlayMode.LOOP);
 				break;
 			case DO_NOTHING:
 				// TODO: that's not right! Do nothing. Make it do nothing.
 				looping = false;
-				anim.setPlayMode(Animation.LOOP);
+				anim.setPlayMode(PlayMode.LOOP);
 				break;
 			case PLAY_ONCE:
 				looping = false;
-				anim.setPlayMode(Animation.NORMAL);
+				anim.setPlayMode(PlayMode.NORMAL);
 				break;
 			}
 		} else {

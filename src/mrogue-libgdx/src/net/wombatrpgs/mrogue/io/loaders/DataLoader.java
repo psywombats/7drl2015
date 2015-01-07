@@ -13,6 +13,7 @@ import com.badlogic.gdx.assets.AssetLoaderParameters;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.FileHandleResolver;
 import com.badlogic.gdx.assets.loaders.SynchronousAssetLoader;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Array;
 
 /**
@@ -23,23 +24,23 @@ import com.badlogic.gdx.utils.Array;
  */
 public class DataLoader extends SynchronousAssetLoader<DataEntry, DataLoader.DataParameter> {
 	
-	@Override
-	@SuppressWarnings("rawtypes") // it was like this in the original, okay?
-	public Array<AssetDescriptor> getDependencies (String fileName, DataParameter parameter) {
-		return null;
-	}
-	
 	public DataLoader (FileHandleResolver resolver) {
 		super(resolver);
-	}
-
-	@Override
-	public DataEntry load(AssetManager assetManager, String fileName, DataParameter parameter) {
-		return new DataEntry(resolve(fileName));
 	}
 	
 	static public class DataParameter extends AssetLoaderParameters<DataEntry> {
 		
+	}
+
+	@Override
+	public DataEntry load(AssetManager assetManager, String fileName, FileHandle file, DataParameter parameter) {
+		return new DataEntry(resolve(fileName));
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public Array<AssetDescriptor> getDependencies(String fileName, FileHandle file, DataParameter parameter) {
+		return null;
 	}
 
 }

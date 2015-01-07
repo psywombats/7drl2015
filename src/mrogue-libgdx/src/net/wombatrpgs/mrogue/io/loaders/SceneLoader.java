@@ -13,6 +13,7 @@ import com.badlogic.gdx.assets.AssetLoaderParameters;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.FileHandleResolver;
 import com.badlogic.gdx.assets.loaders.SynchronousAssetLoader;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Array;
 
 /**
@@ -25,20 +26,20 @@ public class SceneLoader extends SynchronousAssetLoader<SceneData, SceneLoader.S
 	public SceneLoader (FileHandleResolver resolver) {
 		super(resolver);
 	}
-
-	@Override
-	public SceneData load(AssetManager assetManager, String fileName, SceneParameter parameter) {
-		return new SceneData(resolve(fileName));
-	}
-
-	@Override
-	@SuppressWarnings("rawtypes") // it was like this in the original, okay?
-	public Array<AssetDescriptor> getDependencies (String fileName, SceneParameter parameter) {
-		return null;
-	}
 	
 	static public class SceneParameter extends AssetLoaderParameters<SceneData> {
 		
+	}
+
+	@Override
+	public SceneData load(AssetManager assetManager, String fileName, FileHandle file, SceneParameter parameter) {
+		return new SceneData(resolve(fileName));
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public Array<AssetDescriptor> getDependencies(String fileName, FileHandle file, SceneParameter parameter) {
+		return null;
 	}
 
 }
