@@ -1,12 +1,12 @@
 ================================================================================
-= ZSII v. 20131030  -public release candidate 1.0-                             =
+= ZSII v. 20140106  -public release 1.1          -                             =
 = running on MGNENGINE v. 20131013                                             =
 = contact: aking (psy_wombats@wombatrpgs.net)                                  =
 ================================================================================
 
 TO RUN:
-Double-click ZephyrSkies2.bat. If you're not running windows, feel free to run
-the executable jar also provided.
+Double-click ZephyrSkies2.jar (or .bat if you're on windows, both should work).
+Java is required.
 
 REPORTING PROBLEMS:
 The game produces an info.log and error.log. Send these to our bug collector,
