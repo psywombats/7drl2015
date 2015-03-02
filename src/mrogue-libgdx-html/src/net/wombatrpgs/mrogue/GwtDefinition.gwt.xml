@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <entry-point class="net.wombatrpgs.rainfall.client.GwtLauncher"/>
+    <set-configuration-property name="gdx.assetpath" value="../rainfall-libgdx-android/assets"/>
+    <inherits name="MyGdxGame"/>
+    <inherits name="com.badlogic.gdx.backends.gdx_backends_gwt"/>
+</module>

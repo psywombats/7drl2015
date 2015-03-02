@@ -13,17 +13,13 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-# MGNE logs etc #
+# MGNE junk     #
 #################
+<<<<<<< HEAD
 *.log
 *.sav
 *.kryo
 doc/*
 saga/savedata/*
-*.sav
-
-
-# MGN binaries #
-################
 saga/game.jar
 saga/res/jar/SagaSchema.jar

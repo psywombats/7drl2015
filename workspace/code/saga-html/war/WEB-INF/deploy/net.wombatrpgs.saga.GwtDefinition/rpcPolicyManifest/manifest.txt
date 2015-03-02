@@ -1,2 +1,0 @@
-# Module net.wombatrpgs.saga.GwtDefinition
-# RPC service class, partial path of RPC policy file
