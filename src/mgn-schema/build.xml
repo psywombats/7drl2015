@@ -3,29 +3,17 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="MRogueSchema">
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="mgne-schema">
     <property environment="env"/>
+    <property name="mgndbe.location" value="../mgndbe"/>
+    <property name="mrogue-schema.location" value="../mrogue-schema"/>
     <property name="mrogue-libgdx.location" value="../mrogue-libgdx"/>
     <property name="mrogue-libgdx-desktop.location" value="../mrogue-libgdx-desktop"/>
-    <property name="MGNSchema.location" value="../MGNSchema"/>
-    <property name="MGNDBE.location" value="../MGNDBE"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
-    <path id="MGNSchema.classpath">
-        <pathelement location="${MGNSchema.location}/bin"/>
-    </path>
-    <path id="MGNDBE.classpath">
-        <pathelement location="${MGNDBE.location}/bin"/>
-        <pathelement location="${MGNDBE.location}/lib/jackson-annotations-2.0.4.jar"/>
-        <pathelement location="${MGNDBE.location}/lib/jackson-core-2.0.4.jar"/>
-        <pathelement location="${MGNDBE.location}/lib/jackson-databind-2.0.4.jar"/>
-        <path refid="MGNSchema.classpath"/>
-    </path>
-    <path id="MRogueSchema.classpath">
+    <path id="mgne-schema.classpath">
         <pathelement location="bin"/>
-        <path refid="MGNSchema.classpath"/>
-        <path refid="MGNDBE.classpath"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -39,31 +27,29 @@
     <target name="clean">
         <delete dir="bin"/>
     </target>
-    <target depends="clean" name="cleanall">
-        <ant antfile="build.xml" dir="${MGNSchema.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${MGNDBE.location}" inheritAll="false" target="clean"/>
-    </target>
+    <target depends="clean" name="cleanall"/>
     <target depends="build-subprojects,build-project" name="build"/>
-    <target name="build-subprojects">
-        <ant antfile="build.xml" dir="${MGNSchema.location}" inheritAll="false" target="build-project">
-            <propertyset>
-                <propertyref name="build.compiler"/>
-            </propertyset>
-        </ant>
-        <ant antfile="build.xml" dir="${MGNDBE.location}" inheritAll="false" target="build-project">
-            <propertyset>
-                <propertyref name="build.compiler"/>
-            </propertyset>
-        </ant>
-    </target>
+    <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
-            <classpath refid="MRogueSchema.classpath"/>
+            <classpath refid="mgne-schema.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="build.xml" dir="${mgndbe.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${mgndbe.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${mrogue-schema.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${mrogue-schema.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
         <ant antfile="build.xml" dir="${mrogue-libgdx.location}" inheritAll="false" target="clean"/>
         <ant antfile="build.xml" dir="${mrogue-libgdx.location}" inheritAll="false" target="build">
             <propertyset>
@@ -76,5 +62,9 @@
                 <propertyref name="build.compiler"/>
             </propertyset>
         </ant>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
     </target>
 </project>

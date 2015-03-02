@@ -3,22 +3,22 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="MGNDBE">
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="mgndbe">
     <property environment="env"/>
-    <property name="MRogueSchema.location" value="../MRogueSchema"/>
-    <property name="MGNSchema.location" value="../MGNSchema"/>
+    <property name="mrogue-schema.location" value="../mrogue-schema"/>
+    <property name="mgne-schema.location" value="../mgne-schema"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
-    <path id="MGNSchema.classpath">
-        <pathelement location="${MGNSchema.location}/bin"/>
+    <path id="mgne-schema.classpath">
+        <pathelement location="${mgne-schema.location}/bin"/>
     </path>
-    <path id="MGNDBE.classpath">
+    <path id="mgndbe.classpath">
         <pathelement location="bin"/>
         <pathelement location="lib/jackson-annotations-2.0.4.jar"/>
         <pathelement location="lib/jackson-core-2.0.4.jar"/>
         <pathelement location="lib/jackson-databind-2.0.4.jar"/>
-        <path refid="MGNSchema.classpath"/>
+        <path refid="mgne-schema.classpath"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -33,11 +33,11 @@
         <delete dir="bin"/>
     </target>
     <target depends="clean" name="cleanall">
-        <ant antfile="build.xml" dir="${MGNSchema.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${mgne-schema.location}" inheritAll="false" target="clean"/>
     </target>
     <target depends="build-subprojects,build-project" name="build"/>
     <target name="build-subprojects">
-        <ant antfile="build.xml" dir="${MGNSchema.location}" inheritAll="false" target="build-project">
+        <ant antfile="build.xml" dir="${mgne-schema.location}" inheritAll="false" target="build-project">
             <propertyset>
                 <propertyref name="build.compiler"/>
             </propertyset>
@@ -47,7 +47,7 @@
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
-            <classpath refid="MGNDBE.classpath"/>
+            <classpath refid="mgndbe.classpath"/>
         </javac>
         <jar destfile="../../game/res/DatabaseEditor.jar" filesetmanifest="mergewithoutmain">
             <manifest>
@@ -58,12 +58,12 @@
             <zipfileset excludes="META-INF/*.SF" src="lib/jackson-annotations-2.0.4.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="lib/jackson-core-2.0.4.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="lib/jackson-databind-2.0.4.jar"/>
-            <fileset dir="../MGNSchema/bin"/>
+            <fileset dir="../mgne-schema/bin"/>
         </jar>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
-        <ant antfile="build.xml" dir="${MRogueSchema.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${MRogueSchema.location}" inheritAll="false" target="build">
+        <ant antfile="build.xml" dir="${mrogue-schema.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${mrogue-schema.location}" inheritAll="false" target="build">
             <propertyset>
                 <propertyref name="build.compiler"/>
             </propertyset>
@@ -71,7 +71,7 @@
     </target>
     <target name="7DRL Database">
         <java classname="net.wombatrpgs.mgnse.Main" dir="../../game/res" failonerror="true" fork="yes">
-            <classpath refid="MGNDBE.classpath"/>
+            <classpath refid="mgndbe.classpath"/>
         </java>
     </target>
 </project>

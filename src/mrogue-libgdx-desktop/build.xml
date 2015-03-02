@@ -5,42 +5,42 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="mrogue-libgdx-desktop">
     <property environment="env"/>
-    <property name="MGNDBE.location" value="../MGNDBE"/>
-    <property name="MGNSchema.location" value="../MGNSchema"/>
-    <property name="MRogueSchema.location" value="../MRogueSchema"/>
+    <property name="mgndbe.location" value="../mgndbe"/>
+    <property name="mgne-schema.location" value="../mgne-schema"/>
+    <property name="mrogue-schema.location" value="../mrogue-schema"/>
     <property name="mrogue-libgdx.location" value="../mrogue-libgdx"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
-    <path id="MGNSchema.classpath">
-        <pathelement location="${MGNSchema.location}/bin"/>
+    <path id="mgne-schema.classpath">
+        <pathelement location="${mgne-schema.location}/bin"/>
     </path>
-    <path id="MGNDBE.classpath">
-        <pathelement location="${MGNDBE.location}/bin"/>
-        <pathelement location="${MGNDBE.location}/lib/jackson-annotations-2.0.4.jar"/>
-        <pathelement location="${MGNDBE.location}/lib/jackson-core-2.0.4.jar"/>
-        <pathelement location="${MGNDBE.location}/lib/jackson-databind-2.0.4.jar"/>
-        <path refid="MGNSchema.classpath"/>
+    <path id="mgndbe.classpath">
+        <pathelement location="${mgndbe.location}/bin"/>
+        <pathelement location="${mgndbe.location}/lib/jackson-annotations-2.0.4.jar"/>
+        <pathelement location="${mgndbe.location}/lib/jackson-core-2.0.4.jar"/>
+        <pathelement location="${mgndbe.location}/lib/jackson-databind-2.0.4.jar"/>
+        <path refid="mgne-schema.classpath"/>
     </path>
-    <path id="MRogueSchema.classpath">
-        <pathelement location="${MRogueSchema.location}/bin"/>
-        <path refid="MGNSchema.classpath"/>
-        <path refid="MGNDBE.classpath"/>
+    <path id="mrogue-schema.classpath">
+        <pathelement location="${mrogue-schema.location}/bin"/>
+        <path refid="mgne-schema.classpath"/>
+        <path refid="mgndbe.classpath"/>
     </path>
     <path id="mrogue-libgdx.classpath">
         <pathelement location="${mrogue-libgdx.location}/bin"/>
-        <path refid="MGNSchema.classpath"/>
-        <path refid="MRogueSchema.classpath"/>
+        <path refid="mgne-schema.classpath"/>
+        <path refid="mrogue-schema.classpath"/>
         <pathelement location="${mrogue-libgdx.location}/libs/gdx.jar"/>
-        <pathelement location="${MGNDBE.location}/lib/jackson-annotations-2.0.4.jar"/>
-        <pathelement location="${MGNDBE.location}/lib/jackson-core-2.0.4.jar"/>
-        <pathelement location="${MGNDBE.location}/lib/jackson-databind-2.0.4.jar"/>
+        <pathelement location="${mgndbe.location}/lib/jackson-annotations-2.0.4.jar"/>
+        <pathelement location="${mgndbe.location}/lib/jackson-core-2.0.4.jar"/>
+        <pathelement location="${mgndbe.location}/lib/jackson-databind-2.0.4.jar"/>
     </path>
     <path id="mrogue-libgdx-desktop.classpath">
         <pathelement location="bin"/>
         <path refid="mrogue-libgdx.classpath"/>
-        <path refid="MGNSchema.classpath"/>
-        <path refid="MRogueSchema.classpath"/>
+        <path refid="mgne-schema.classpath"/>
+        <path refid="mrogue-schema.classpath"/>
         <pathelement location="libs/gdx-backend-lwjgl-natives.jar"/>
         <pathelement location="libs/gdx-backend-lwjgl.jar"/>
         <pathelement location="libs/gdx-natives.jar"/>
@@ -61,24 +61,24 @@
         <delete dir="bin"/>
     </target>
     <target depends="clean" name="cleanall">
-        <ant antfile="build.xml" dir="${MGNSchema.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${MGNDBE.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${MRogueSchema.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${mgne-schema.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${mgndbe.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${mrogue-schema.location}" inheritAll="false" target="clean"/>
         <ant antfile="build.xml" dir="${mrogue-libgdx.location}" inheritAll="false" target="clean"/>
     </target>
     <target depends="build-subprojects,build-project" name="build"/>
     <target name="build-subprojects">
-        <ant antfile="build.xml" dir="${MGNSchema.location}" inheritAll="false" target="build-project">
+        <ant antfile="build.xml" dir="${mgne-schema.location}" inheritAll="false" target="build-project">
             <propertyset>
                 <propertyref name="build.compiler"/>
             </propertyset>
         </ant>
-        <ant antfile="build.xml" dir="${MGNDBE.location}" inheritAll="false" target="build-project">
+        <ant antfile="build.xml" dir="${mgndbe.location}" inheritAll="false" target="build-project">
             <propertyset>
                 <propertyref name="build.compiler"/>
             </propertyset>
         </ant>
-        <ant antfile="build.xml" dir="${MRogueSchema.location}" inheritAll="false" target="build-project">
+        <ant antfile="build.xml" dir="${mrogue-schema.location}" inheritAll="false" target="build-project">
             <propertyset>
                 <propertyref name="build.compiler"/>
             </propertyset>
@@ -102,12 +102,12 @@
             </manifest>
             <fileset dir="../mrogue-libgdx-desktop/bin"/>
             <fileset dir="../mrogue-libgdx/bin"/>
-            <fileset dir="../MGNSchema/bin"/>
-            <fileset dir="../MRogueSchema/bin"/>
-            <fileset dir="../MGNDBE/bin"/>
-            <zipfileset excludes="META-INF/*.SF" src="../MGNDBE/lib/jackson-annotations-2.0.4.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="../MGNDBE/lib/jackson-core-2.0.4.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="../MGNDBE/lib/jackson-databind-2.0.4.jar"/>
+            <fileset dir="../mgne-schema/bin"/>
+            <fileset dir="../mrogue-schema/bin"/>
+            <fileset dir="../mgndbe/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="../mgndbe/lib/jackson-annotations-2.0.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="../mgndbe/lib/jackson-core-2.0.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="../mgndbe/lib/jackson-databind-2.0.4.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="../mrogue-libgdx/libs/gdx.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="../mrogue-libgdx-desktop/libs/gdx-backend-lwjgl-natives.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="../mrogue-libgdx-desktop/libs/gdx-backend-lwjgl.jar"/>
