@@ -116,6 +116,10 @@
             <zipfileset excludes="META-INF/*.SF" src="../mrogue-libgdx-desktop/libs/jackson-core-2.0.4.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="../mrogue-libgdx-desktop/libs/jackson-databind-2.0.4.jar"/>
         </jar>
+		<jar destfile="../../game/res/jar/schema.jar" filesetmanifest="mergewithoutmain">
+            <fileset dir="../mgne-schema/bin"/>
+            <fileset dir="../mrogue-schema/bin"/>
+        </jar>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
     <target name="7DRL">
