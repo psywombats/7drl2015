@@ -20,6 +20,7 @@ Thumbs.db
 *.sav
 *.kryo
 doc/*
-saga/savedata/*
-saga/game.jar
-saga/res/jar/SagaSchema.jar
+game/savedata/*
+game/game.jar
+game/res/jar/schema.jar
+game/res/DatabaseEditor.jar

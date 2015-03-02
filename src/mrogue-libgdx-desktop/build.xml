@@ -3,13 +3,12 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="mrogue-libgdx">
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="mrogue-libgdx-desktop">
     <property environment="env"/>
     <property name="MGNDBE.location" value="../MGNDBE"/>
-    <property name="mrogue-libgdx-desktop.location" value="../mrogue-libgdx-desktop"/>
-    <property name="ECLIPSE_HOME" value="../../../Desktop/portable_executables/eclipse"/>
     <property name="MGNSchema.location" value="../MGNSchema"/>
     <property name="MRogueSchema.location" value="../MRogueSchema"/>
+    <property name="mrogue-libgdx.location" value="../mrogue-libgdx"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
@@ -29,13 +28,25 @@
         <path refid="MGNDBE.classpath"/>
     </path>
     <path id="mrogue-libgdx.classpath">
-        <pathelement location="bin"/>
+        <pathelement location="${mrogue-libgdx.location}/bin"/>
         <path refid="MGNSchema.classpath"/>
         <path refid="MRogueSchema.classpath"/>
-        <pathelement location="libs/gdx.jar"/>
+        <pathelement location="${mrogue-libgdx.location}/libs/gdx.jar"/>
         <pathelement location="${MGNDBE.location}/lib/jackson-annotations-2.0.4.jar"/>
         <pathelement location="${MGNDBE.location}/lib/jackson-core-2.0.4.jar"/>
         <pathelement location="${MGNDBE.location}/lib/jackson-databind-2.0.4.jar"/>
+    </path>
+    <path id="mrogue-libgdx-desktop.classpath">
+        <pathelement location="bin"/>
+        <path refid="mrogue-libgdx.classpath"/>
+        <path refid="MGNSchema.classpath"/>
+        <path refid="MRogueSchema.classpath"/>
+        <pathelement location="libs/gdx-backend-lwjgl-natives.jar"/>
+        <pathelement location="libs/gdx-backend-lwjgl.jar"/>
+        <pathelement location="libs/gdx-natives.jar"/>
+        <pathelement location="libs/jackson-annotations-2.0.4.jar"/>
+        <pathelement location="libs/jackson-core-2.0.4.jar"/>
+        <pathelement location="libs/jackson-databind-2.0.4.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -53,6 +64,7 @@
         <ant antfile="build.xml" dir="${MGNSchema.location}" inheritAll="false" target="clean"/>
         <ant antfile="build.xml" dir="${MGNDBE.location}" inheritAll="false" target="clean"/>
         <ant antfile="build.xml" dir="${MRogueSchema.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${mrogue-libgdx.location}" inheritAll="false" target="clean"/>
     </target>
     <target depends="build-subprojects,build-project" name="build"/>
     <target name="build-subprojects">
@@ -71,20 +83,44 @@
                 <propertyref name="build.compiler"/>
             </propertyset>
         </ant>
+        <ant antfile="build.xml" dir="${mrogue-libgdx.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
     </target>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
-            <classpath refid="mrogue-libgdx.classpath"/>
+            <classpath refid="mrogue-libgdx-desktop.classpath"/>
         </javac>
+		<jar destfile="../../game/game.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="net.wombatrpgs.mrogue.Main"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="../mrogue-libgdx-desktop/bin"/>
+            <fileset dir="../mrogue-libgdx/bin"/>
+            <fileset dir="../MGNSchema/bin"/>
+            <fileset dir="../MRogueSchema/bin"/>
+            <fileset dir="../MGNDBE/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="../MGNDBE/lib/jackson-annotations-2.0.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="../MGNDBE/lib/jackson-core-2.0.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="../MGNDBE/lib/jackson-databind-2.0.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="../mrogue-libgdx/libs/gdx.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="../mrogue-libgdx-desktop/libs/gdx-backend-lwjgl-natives.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="../mrogue-libgdx-desktop/libs/gdx-backend-lwjgl.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="../mrogue-libgdx-desktop/libs/gdx-natives.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="../mrogue-libgdx-desktop/libs/jackson-annotations-2.0.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="../mrogue-libgdx-desktop/libs/jackson-core-2.0.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="../mrogue-libgdx-desktop/libs/jackson-databind-2.0.4.jar"/>
+        </jar>
     </target>
-    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
-        <ant antfile="build.xml" dir="${mrogue-libgdx-desktop.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${mrogue-libgdx-desktop.location}" inheritAll="false" target="build">
-            <propertyset>
-                <propertyref name="build.compiler"/>
-            </propertyset>
-        </ant>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="7DRL">
+        <java classname="net.wombatrpgs.mrogue.Main" dir="../../game" failonerror="true" fork="yes">
+            <classpath refid="mrogue-libgdx-desktop.classpath"/>
+        </java>
     </target>
 </project>
