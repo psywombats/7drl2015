@@ -214,5 +214,10 @@ public class MGlobal {
 		assetManager.setLoader(DataEntry.class, new DataLoader(new InternalFileHandleResolver()));
 		assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
 	}
+	
+	public static VersionInfo getVersionInfo() {
+		VersionInfo info = new VersionInfo("0.1", 1, "7drl2015");
+		return info;
+	}
 
 }
