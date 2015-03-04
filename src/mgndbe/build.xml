@@ -5,7 +5,7 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="mgndbe">
     <property environment="env"/>
-    <property name="mrogue-schema.location" value="../mrogue-schema"/>
+    <property name="7drl2015-schema.location" value="../7drl2015-schema"/>
     <property name="mgne-schema.location" value="../mgne-schema"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
@@ -62,8 +62,8 @@
         </jar>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
-        <ant antfile="build.xml" dir="${mrogue-schema.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${mrogue-schema.location}" inheritAll="false" target="build">
+        <ant antfile="build.xml" dir="${7drl2015-schema.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${7drl2015-schema.location}" inheritAll="false" target="build">
             <propertyset>
                 <propertyref name="build.compiler"/>
             </propertyset>

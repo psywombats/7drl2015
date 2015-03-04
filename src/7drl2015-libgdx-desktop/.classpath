@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mrogue-libgdx"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/7drl2015-libgdx"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/mgne-schema"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mrogue-schema"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/7drl2015-schema"/>
 	<classpathentry kind="lib" path="libs/gdx-backend-lwjgl-natives.jar"/>
 	<classpathentry kind="lib" path="libs/gdx-backend-lwjgl.jar" sourcepath="libs/gdx-backend-lwjgl-sources.jar"/>
 	<classpathentry kind="lib" path="libs/gdx-natives.jar"/>

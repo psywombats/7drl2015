@@ -3,10 +3,10 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="mrogue-schema">
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="7drl2015-schema">
     <property environment="env"/>
-    <property name="mrogue-libgdx.location" value="../mrogue-libgdx"/>
-    <property name="mrogue-libgdx-desktop.location" value="../mrogue-libgdx-desktop"/>
+    <property name="7drl2015-libgdx.location" value="../7drl2015-libgdx"/>
+    <property name="7drl2015-libgdx-desktop.location" value="../7drl2015-libgdx-desktop"/>
     <property name="mgne-schema.location" value="../mgne-schema"/>
     <property name="mgndbe.location" value="../mgndbe"/>
     <property name="debuglevel" value="source,lines,vars"/>
@@ -22,7 +22,7 @@
         <pathelement location="${mgndbe.location}/lib/jackson-databind-2.0.4.jar"/>
         <path refid="mgne-schema.classpath"/>
     </path>
-    <path id="mrogue-schema.classpath">
+    <path id="7drl2015-schema.classpath">
         <pathelement location="bin"/>
         <path refid="mgne-schema.classpath"/>
         <path refid="mgndbe.classpath"/>
@@ -60,18 +60,18 @@
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
-            <classpath refid="mrogue-schema.classpath"/>
+            <classpath refid="7drl2015-schema.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
-        <ant antfile="build.xml" dir="${mrogue-libgdx.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${mrogue-libgdx.location}" inheritAll="false" target="build">
+        <ant antfile="build.xml" dir="${7drl2015-libgdx.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${7drl2015-libgdx.location}" inheritAll="false" target="build">
             <propertyset>
                 <propertyref name="build.compiler"/>
             </propertyset>
         </ant>
-        <ant antfile="build.xml" dir="${mrogue-libgdx-desktop.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${mrogue-libgdx-desktop.location}" inheritAll="false" target="build">
+        <ant antfile="build.xml" dir="${7drl2015-libgdx-desktop.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${7drl2015-libgdx-desktop.location}" inheritAll="false" target="build">
             <propertyset>
                 <propertyref name="build.compiler"/>
             </propertyset>
