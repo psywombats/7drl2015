@@ -1,7 +1,7 @@
 package net.wombatrpgs.mrogue;
 
-import net.wombatrpgs.mrogue.core.MRogueGame;
-import net.wombatrpgs.mrogue.core.Platform;
+import net.wombatrpgs.sdrl2015.core.SdrlGame;
+import net.wombatrpgs.sdrl2015.core.Platform;
 
 import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
@@ -34,7 +34,7 @@ public class Main {
 		cfg.addIcon("res/ui/icon_32.png", FileType.Internal);
 		cfg.addIcon("res/ui/icon_16.png", FileType.Internal);
 		
-		new LwjglApplication(new MRogueGame(new Platform() {
+		new LwjglApplication(new SdrlGame(new Platform() {
 			@Override public void setIcon(Pixmap[] icons) {
 				
 			}

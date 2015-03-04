@@ -1,0 +1,40 @@
+/**
+ *  GibParticleSet.java
+ *  Created on Jan 31, 2013 12:57:44 PM for project rainfall-libgdx
+ *  Author: psy_wombats
+ *  Contact: psy_wombats@wombatrpgs.net
+ */
+package net.wombatrpgs.sdrl2015.graphics.particles;
+
+import net.wombatrpgs.mrogueschema.graphics.GibsetMDO;
+import net.wombatrpgs.sdrl2015.core.Constants;
+import net.wombatrpgs.sdrl2015.core.MGlobal;
+
+/**
+ * Generates particles from gibs.
+ */
+public class GibParticleSet extends ParticleSet {
+	
+	protected GibsetMDO mdo;
+	
+	/**
+	 * Creates a gibset from data. Remember to tell this thing to queue!
+	 * @param 	mdo				The MDO to get data from
+	 */
+	public GibParticleSet(GibsetMDO mdo) {
+		super(Constants.GIBS_DIR+mdo.file, mdo.count, mdo.frameWidth, mdo.frameHeight);
+		this.mdo = mdo;
+	}
+
+	/**
+	 * @see net.wombatrpgs.mrogue.graphics.particles.ParticleSet#generateParticle
+	 * (net.wombatrpgs.mrogue.graphics.particles.Emitter)
+	 */
+	@Override
+	public Particle generateParticle(Emitter source) {
+		Particle part = new Particle(source.mdo, source,
+				particleSources[MGlobal.rand.nextInt(mdo.count)]);
+		return part;
+	}
+
+}

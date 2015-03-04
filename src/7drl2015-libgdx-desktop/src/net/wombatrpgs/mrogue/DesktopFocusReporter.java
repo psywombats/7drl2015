@@ -8,7 +8,7 @@ package net.wombatrpgs.mrogue;
 
 import org.lwjgl.opengl.Display;
 
-import net.wombatrpgs.mrogue.io.FocusReporter;
+import net.wombatrpgs.sdrl2015.io.FocusReporter;
 
 /**
  * Desktop implementation of the focus reporter.
