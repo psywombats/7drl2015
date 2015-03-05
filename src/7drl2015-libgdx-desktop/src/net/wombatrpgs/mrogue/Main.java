@@ -38,6 +38,6 @@ public class Main {
 			@Override public void setIcon(Pixmap[] icons) {
 				
 			}
-		}, new DesktopFocusReporter()), cfg);
+		}), cfg);
 	}
 }

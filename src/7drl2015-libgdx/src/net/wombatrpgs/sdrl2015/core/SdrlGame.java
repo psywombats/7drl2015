@@ -1,20 +1,16 @@
 package net.wombatrpgs.sdrl2015.core;
 
-import net.wombatrpgs.sdrl2015.io.FocusListener;
-import net.wombatrpgs.sdrl2015.io.FocusReporter;
-
 import com.badlogic.gdx.ApplicationListener;
 
-public class SdrlGame implements ApplicationListener, FocusListener {
+public class SdrlGame implements ApplicationListener {
 	
 	private boolean paused;
 	
 	/**
 	 * Creates a new game. Requires a few setup tools that are platform
-	 * dependant.
-	 * @param 	focusReporter		The thing that tells if focus is lost
+	 * dependent.
 	 */
-	public SdrlGame(Platform platform, FocusReporter focusReporter) {
+	public SdrlGame(Platform platform) {
 		super();
 		MGlobal.platform = platform;
 		//focusReporter.registerListener(this);
@@ -67,22 +63,6 @@ public class SdrlGame implements ApplicationListener, FocusListener {
 	public void resume() {
 		paused = false;
 		MGlobal.keymap.onResume();
-	}
-
-	/**
-	 * @see net.wombatrpgs.mrogue.io.FocusListener#onFocusLost()
-	 */
-	@Override
-	public void onFocusLost() {
-		pause();
-	}
-
-	/**
-	 * @see net.wombatrpgs.mrogue.io.FocusListener#onFocusGained()
-	 */
-	@Override
-	public void onFocusGained() {
-		resume();
 	}
 
 }
