@@ -1,5 +1,7 @@
 {
 	"name" : "7drl2015 database",
 	"data" : "data",
-	"schema" : "jar/schema.jar"
+	"schema" : [
+		"jar/schema.jar"
+	]
 }

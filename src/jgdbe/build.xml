@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="jgdbe">
+    <property environment="env"/>
+    <property name="7drl2015-schema.location" value="../7drl2015-schema"/>
+    <property name="jgdb-schema.location" value="../jgdb-schema"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="jgdb-schema.classpath">
+        <pathelement location="${jgdb-schema.location}/bin"/>
+    </path>
+    <path id="jgdbe.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/jackson-annotations-2.0.4.jar"/>
+        <pathelement location="lib/jackson-core-2.0.4.jar"/>
+        <pathelement location="lib/jackson-databind-2.0.4.jar"/>
+        <path refid="jgdb-schema.classpath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall">
+        <ant antfile="build.xml" dir="${jgdb-schema.location}" inheritAll="false" target="clean"/>
+    </target>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects">
+        <ant antfile="build.xml" dir="${jgdb-schema.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="jgdbe.classpath"/>
+        </javac>
+        <jar destfile="../../game/res/DatabaseEditor.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="net.wombatrpgs.mgnse.Main"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jackson-annotations-2.0.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jackson-core-2.0.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jackson-databind-2.0.4.jar"/>
+            <fileset dir="../jgdb-schema/bin"/>
+        </jar>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="build.xml" dir="${7drl2015-schema.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${7drl2015-schema.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target name="7DRL Database">
+        <java classname="net.wombatrpgs.mgnse.Main" dir="../../game/res" failonerror="true" fork="yes">
+            <classpath refid="jgdbe.classpath"/>
+        </java>
+    </target>
+</project>

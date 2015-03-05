@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/7drl2015-libgdx"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mgne-schema"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/7drl2015-schema"/>
 	<classpathentry kind="lib" path="libs/gdx-backend-lwjgl-natives.jar"/>
 	<classpathentry kind="lib" path="libs/gdx-backend-lwjgl.jar" sourcepath="libs/gdx-backend-lwjgl-sources.jar"/>
@@ -11,5 +10,6 @@
 	<classpathentry kind="lib" path="libs/jackson-core-2.0.4.jar"/>
 	<classpathentry kind="lib" path="libs/jackson-databind-2.0.4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jgdb-schema"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

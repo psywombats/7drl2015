@@ -7,25 +7,25 @@
     <property environment="env"/>
     <property name="7drl2015-libgdx.location" value="../7drl2015-libgdx"/>
     <property name="7drl2015-libgdx-desktop.location" value="../7drl2015-libgdx-desktop"/>
-    <property name="mgne-schema.location" value="../mgne-schema"/>
-    <property name="mgndbe.location" value="../mgndbe"/>
+    <property name="jgdb-schema.location" value="../jgdb-schema"/>
+    <property name="jgdbe.location" value="../jgdbe"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
-    <path id="mgne-schema.classpath">
-        <pathelement location="${mgne-schema.location}/bin"/>
+    <path id="jgdb-schema.classpath">
+        <pathelement location="${jgdb-schema.location}/bin"/>
     </path>
-    <path id="mgndbe.classpath">
-        <pathelement location="${mgndbe.location}/bin"/>
-        <pathelement location="${mgndbe.location}/lib/jackson-annotations-2.0.4.jar"/>
-        <pathelement location="${mgndbe.location}/lib/jackson-core-2.0.4.jar"/>
-        <pathelement location="${mgndbe.location}/lib/jackson-databind-2.0.4.jar"/>
-        <path refid="mgne-schema.classpath"/>
+    <path id="jgdbe.classpath">
+        <pathelement location="${jgdbe.location}/bin"/>
+        <pathelement location="${jgdbe.location}/lib/jackson-annotations-2.0.4.jar"/>
+        <pathelement location="${jgdbe.location}/lib/jackson-core-2.0.4.jar"/>
+        <pathelement location="${jgdbe.location}/lib/jackson-databind-2.0.4.jar"/>
+        <path refid="jgdb-schema.classpath"/>
     </path>
     <path id="7drl2015-schema.classpath">
         <pathelement location="bin"/>
-        <path refid="mgne-schema.classpath"/>
-        <path refid="mgndbe.classpath"/>
+        <path refid="jgdb-schema.classpath"/>
+        <path refid="jgdbe.classpath"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -40,17 +40,17 @@
         <delete dir="bin"/>
     </target>
     <target depends="clean" name="cleanall">
-        <ant antfile="build.xml" dir="${mgne-schema.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${mgndbe.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${jgdb-schema.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${jgdbe.location}" inheritAll="false" target="clean"/>
     </target>
     <target depends="build-subprojects,build-project" name="build"/>
     <target name="build-subprojects">
-        <ant antfile="build.xml" dir="${mgne-schema.location}" inheritAll="false" target="build-project">
+        <ant antfile="build.xml" dir="${jgdb-schema.location}" inheritAll="false" target="build-project">
             <propertyset>
                 <propertyref name="build.compiler"/>
             </propertyset>
         </ant>
-        <ant antfile="build.xml" dir="${mgndbe.location}" inheritAll="false" target="build-project">
+        <ant antfile="build.xml" dir="${jgdbe.location}" inheritAll="false" target="build-project">
             <propertyset>
                 <propertyref name="build.compiler"/>
             </propertyset>
