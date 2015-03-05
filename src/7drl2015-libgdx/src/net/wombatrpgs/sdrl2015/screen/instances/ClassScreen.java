@@ -97,10 +97,7 @@ public class ClassScreen extends Screen {
 			assets.add(c);
 		}
 		classes.remove(op);
-		Collections.shuffle(classes);
-		if (MGlobal.deathCount >= 2) {
-			classes.add(0, op);
-		}
+		Collections.shuffle(classes);            
 		
 		format = new TextBoxFormat();
 		format.align = HAlignment.CENTER;

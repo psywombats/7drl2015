@@ -70,7 +70,6 @@ public class InventoryMenu extends Popup {
 	@Override
 	public void show() {
 		super.show();
-		if (MGlobal.raveMode) return;
 		flats = MGlobal.hero.getUnit().getInventory().flatten();
 		selected = 0;
 		scroll = 0;

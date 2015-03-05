@@ -13,7 +13,6 @@ import java.util.Comparator;
 import java.util.List;
 
 import net.wombatrpgs.mrogueschema.characters.ai.BehaviorListMDO;
-import net.wombatrpgs.mrogueschema.characters.ai.BossIntelligenceMDO;
 import net.wombatrpgs.mrogueschema.characters.ai.data.ActionMDO;
 import net.wombatrpgs.mrogueschema.characters.ai.data.IntelligenceMDO;
 import net.wombatrpgs.mrogueschema.characters.ai.intent.ActionAttackEnemiesMDO;
@@ -54,9 +53,7 @@ public class IntelligenceFactory {
 	 * @return					A BTNode based on that data
 	 */
 	public static BTNode createIntelligence(IntelligenceMDO mdo, CharacterEvent actor) {
-		if (BossIntelligenceMDO.class.isAssignableFrom(mdo.getClass())) {
-			return new BossAI(actor, (BossIntelligenceMDO) mdo);
-		} else if (BehaviorListMDO.class.isAssignableFrom(mdo.getClass())) {
+		if (BehaviorListMDO.class.isAssignableFrom(mdo.getClass())) {
 			return createBehaviorList((BehaviorListMDO) mdo, actor);
 		} else {
 			MGlobal.reporter.warn("Invalid intelligence mdo: " + mdo);

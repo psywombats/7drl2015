@@ -107,7 +107,6 @@ public class Hud extends UIElement {
 	 */
 	@Override
 	public void update(float elapsed) {
-		if (MGlobal.stasis) return;
 		if (awaitingReset) {
 			currentHPDisplay = MGlobal.hero.getStats().hp;
 			currentMPDisplay = MGlobal.hero.getStats().mp;
@@ -137,10 +136,6 @@ public class Hud extends UIElement {
 		hp = currentHPDisplay;
 		mmp = MGlobal.hero.getStats().mmp;
 		mp = currentMPDisplay;
-		if (MGlobal.raveMode) {
-			hp = MGlobal.rand.nextInt((int) (MGlobal.hero.getStats().mhp * 2.5f));
-			mp = MGlobal.rand.nextInt((int) (MGlobal.hero.getStats().mmp * 2.5f));
-		}
 	}
 
 	/**
@@ -204,7 +199,7 @@ public class Hud extends UIElement {
 			format.width = TEXT_WIDTH;
 			format.height = 32;
 			String text = "floor: " + MGlobal.hero.getParent().getFloor() + "/13";
-			if (!MGlobal.raveMode) font.draw(batch, format, text, 0);
+			font.draw(batch, format, text, 0);
 		}
 	}
 	

@@ -16,7 +16,6 @@ import net.wombatrpgs.mrogueschema.characters.data.AbilityTargetType;
 import net.wombatrpgs.mrogueschema.graphics.effects.data.AbilFxMDO;
 import net.wombatrpgs.mrogueschema.graphics.effects.data.TrackingType;
 import net.wombatrpgs.mrogueschema.graphics.effects.data.ZType;
-import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.graphics.Disposable;
 import net.wombatrpgs.sdrl2015.maps.Level;
@@ -106,7 +105,6 @@ public abstract class AbilFX extends MapEvent implements Disposable {
 	 */
 	@Override
 	public void update(float elapsed) {
-		if (MGlobal.stasis) return;
 		super.update(elapsed);
 		if (!initialized || mdo.tracking == TrackingType.TRACKS) {
 			MapEvent target = targets.get(0);

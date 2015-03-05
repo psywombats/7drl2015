@@ -277,7 +277,6 @@ public class Level extends ScreenObject implements Turnable {
 	@Override
 	public void update(float elapsed) {
 		updating = true;
-		if (MGlobal.stasis) return;
 		if (scene != null && !scene.hasExecuted()) {
 			scene.run();
 		}

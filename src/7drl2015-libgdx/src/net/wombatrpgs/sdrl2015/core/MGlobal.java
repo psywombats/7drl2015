@@ -72,23 +72,8 @@ public class MGlobal {
 	public static TileManager tiles;
 	/** Desktop mode */
 	public static Platform platform;
-	/** ZS2 weird shit */
-	public static boolean raveMode, stasis, won, won2;
-	public static int deathCount;
 	
 	private static List<Queueable> toLoad;
-	
-	/**
-	 * Can't override static methods, so this thing will have to do.
-	 */
-	@Deprecated
-	public static void setupRGlobalForTesting() {
-		MGlobal.assetManager = new AssetManager();
-		MGlobal.screens = new ScreenStack();
-		MGlobal.keymap = new DefaultKeymap();
-		MGlobal.rand = new Random(System.currentTimeMillis());
-		//Global.setupGlobalForTesting();
-	}
 	
 	/**
 	 * Called as part of the map game.
@@ -215,6 +200,11 @@ public class MGlobal {
 		assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
 	}
 	
+	/**
+	 * Version info, hacked backwards from SaGa's better system. This will be
+	 * axed in the next iteration of the engine.
+	 * @return					Versioning information for 7DRL
+	 */
 	public static VersionInfo getVersionInfo() {
 		VersionInfo info = new VersionInfo("0.1", 1, "7drl2015");
 		return info;

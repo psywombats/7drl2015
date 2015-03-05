@@ -72,19 +72,9 @@ public class SkillsBox extends UIElement {
 					batch.setColor(1, 1, 1, 1);
 				}
 				icon = abil.getIcon();
-				if (MGlobal.raveMode && !MGlobal.stasis) {
-					cost = String.valueOf((char)(MGlobal.rand.nextInt(26) + 'A')) +
-							String.valueOf((char)(MGlobal.rand.nextInt(26) + 'A')) +
-							": " + MGlobal.rand.nextInt(100);
-				} else {
-					cost = "  MP:" + String.valueOf(abil.getMP());
-				}
+				cost = "  MP:" + String.valueOf(abil.getMP());
 				// TODO: KEY INPUT HAX, look up the real key!
-				if (MGlobal.raveMode && !MGlobal.stasis) {
-					key = String.valueOf((char)(MGlobal.rand.nextInt(26) + 'a')) + MGlobal.rand.nextInt(10);
-				} else {
-					key = "F" + (i+1);
-				}
+				key = "F" + (i+1);
 			} else {
 				batch.setColor(1, .5f, .5f, .5f);
 				icon = noAbil;
@@ -107,9 +97,7 @@ public class SkillsBox extends UIElement {
 				} else {
 					format.y = (int) (atY + -mdo.textY + icon.getHeight() + font.getLineHeight()*1.2f);
 				}
-				if (!MGlobal.raveMode) {
-					font.draw(batch, format, name, 0);
-				}
+				font.draw(batch, format, name, 0);
 			}
 		}
 		batch.setColor(oldColor);

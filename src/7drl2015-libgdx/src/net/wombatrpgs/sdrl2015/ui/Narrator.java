@@ -79,7 +79,6 @@ public class Narrator extends UIElement implements Turnable {
 	 */
 	@Override
 	public void update(float elapsed) {
-		if (MGlobal.stasis) return;
 		for (Line line : lines) {
 			line.ttl -= elapsed;
 			line.mutant = mutate(line.line);

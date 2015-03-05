@@ -21,7 +21,6 @@ import net.wombatrpgs.sdrl2015.io.command.CMapGame;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.Loc;
 import net.wombatrpgs.sdrl2015.maps.events.Cursor;
-import net.wombatrpgs.sdrl2015.rpg.Boss;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 
@@ -158,11 +157,6 @@ public class GameScreen extends Screen {
 		}
 		if (introParser.hasExecuted() && !tutorialParser.isRunning() && !tutorialParser.hasExecuted()) {
 			tutorialParser.run();
-		}
-		if (MGlobal.stasis && !stasisMode) {
-			stasisMode = true;
-			Boss boss = (Boss) MGlobal.levelManager.getActive().getEventByName("boss");
-			boss.onStasis();
 		}
 	}
 
