@@ -6,16 +6,10 @@
  */
 package net.wombatrpgs.sdrl2015.screen.instances;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 
 import net.wombatrpgs.mrogueschema.io.data.InputCommand;
 import net.wombatrpgs.mrogueschema.settings.IntroSettingsMDO;
-import net.wombatrpgs.mrogueschema.test.FramerateTestMDO;
-import net.wombatrpgs.mrogueschema.test.ShaderTestMDO;
-import net.wombatrpgs.mrogueschema.test.data.TestState;
-import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.io.command.CMapGame;
 import net.wombatrpgs.sdrl2015.maps.Level;
@@ -33,13 +27,6 @@ public class GameScreen extends Screen {
 	protected Level map;
 	protected SceneParser introParser, tutorialParser;
 	protected Cursor cursor;
-	
-	protected boolean stasisMode;
-	
-	// tests
-	protected FramerateTestMDO fpsMDO;
-	protected ShaderTestMDO shaderMDO;
-	protected ShaderProgram testShader;
 	
 	/**
 	 * Constructs the introduction scene. This consists of simply setting up the
@@ -62,17 +49,6 @@ public class GameScreen extends Screen {
 		
 		addObject(map);
 		pushCommandContext(new CMapGame());
-		
-		fpsMDO = MGlobal.data.getEntryFor("test_fps", FramerateTestMDO.class);
-		
-		shaderMDO = MGlobal.data.getEntryFor("test_shader", ShaderTestMDO.class);
-		if (shaderMDO.enabled == TestState.ENABLED) {
-			testShader = new ShaderProgram(
-					MGlobal.loader.getText(Constants.SHADERS_DIR + shaderMDO.vertexFile),
-					MGlobal.loader.getText(Constants.SHADERS_DIR + shaderMDO.fragmentFile));
-			batch.setShader(testShader);
-			mapShader = (testShader);
-		}
 		
 		cursor = new Cursor();
 		assets.add(cursor);
@@ -127,23 +103,6 @@ public class GameScreen extends Screen {
 			getCamera().update(0);
 			MGlobal.hero.refreshVisibilityMap();
 		}
-	}
-	
-	/**
-	 * @see net.wombatrpgs.mrogue.screen.Screen#render()
-	 */
-	@Override
-	public void render() {
-		super.render();
-		batch.begin();
-		if (fpsMDO.enabled == TestState.ENABLED) {
-			float wr = MGlobal.window.getZoom();
-			float wh = MGlobal.window.getZoom();
-			defaultFont.draw(batch, "FPS: " + Gdx.graphics.getFramesPerSecond(),
-					cam.position.x - MGlobal.window.getWidth()/2*wh + 8,
-					cam.position.y + MGlobal.window.getHeight()/2*wr - 8);
-		}
-		batch.end();
 	}
 
 	/**
