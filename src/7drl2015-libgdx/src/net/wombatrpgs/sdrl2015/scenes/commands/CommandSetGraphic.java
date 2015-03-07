@@ -9,7 +9,6 @@ package net.wombatrpgs.sdrl2015.scenes.commands;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.wombatrpgs.mrogueschema.graphics.DirMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimation;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimationFactory;
@@ -17,6 +16,7 @@ import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.scenes.SceneCommand;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
+import net.wombatrpgs.sdrlschema.graphics.DirMDO;
 
 /**
  * Sets an event to look like something.

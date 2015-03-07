@@ -6,20 +6,20 @@
  */
 package net.wombatrpgs.sdrl2015.maps.gen.dec;
 
-import net.wombatrpgs.mrogueschema.maps.decorators.Decorator1x1MDO;
-import net.wombatrpgs.mrogueschema.maps.decorators.Decorator1x2MDO;
-import net.wombatrpgs.mrogueschema.maps.decorators.Decorator1x2SpecialMDO;
-import net.wombatrpgs.mrogueschema.maps.decorators.Decorator1x3SpecialMDO;
-import net.wombatrpgs.mrogueschema.maps.decorators.Decorator2x1MDO;
-import net.wombatrpgs.mrogueschema.maps.decorators.Decorator2x2MDO;
-import net.wombatrpgs.mrogueschema.maps.decorators.Decorator2x2SpecialMDO;
-import net.wombatrpgs.mrogueschema.maps.decorators.Decorator3x1MDO;
-import net.wombatrpgs.mrogueschema.maps.decorators.Decorator3x2MDO;
-import net.wombatrpgs.mrogueschema.maps.decorators.Decorator3x3MDO;
-import net.wombatrpgs.mrogueschema.maps.decorators.DecoratorSetMDO;
-import net.wombatrpgs.mrogueschema.maps.decorators.data.DecoratorMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.gen.MapGenerator;
+import net.wombatrpgs.sdrlschema.maps.decorators.Decorator1x1MDO;
+import net.wombatrpgs.sdrlschema.maps.decorators.Decorator1x2MDO;
+import net.wombatrpgs.sdrlschema.maps.decorators.Decorator1x2SpecialMDO;
+import net.wombatrpgs.sdrlschema.maps.decorators.Decorator1x3SpecialMDO;
+import net.wombatrpgs.sdrlschema.maps.decorators.Decorator2x1MDO;
+import net.wombatrpgs.sdrlschema.maps.decorators.Decorator2x2MDO;
+import net.wombatrpgs.sdrlschema.maps.decorators.Decorator2x2SpecialMDO;
+import net.wombatrpgs.sdrlschema.maps.decorators.Decorator3x1MDO;
+import net.wombatrpgs.sdrlschema.maps.decorators.Decorator3x2MDO;
+import net.wombatrpgs.sdrlschema.maps.decorators.Decorator3x3MDO;
+import net.wombatrpgs.sdrlschema.maps.decorators.DecoratorSetMDO;
+import net.wombatrpgs.sdrlschema.maps.decorators.data.DecoratorMDO;
 
 /**
  * Spits out decorators when fed MDOs.

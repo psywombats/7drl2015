@@ -12,14 +12,14 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureWrap;
 
-import net.wombatrpgs.mrogueschema.graphics.ShaderMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.AbilFxFlamesMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.graphics.ShaderFromData;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.screen.Screen;
+import net.wombatrpgs.sdrlschema.graphics.ShaderMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.AbilFxFlamesMDO;
 
 /**
  * Flame texture and noise thing. We'll see how this goes.

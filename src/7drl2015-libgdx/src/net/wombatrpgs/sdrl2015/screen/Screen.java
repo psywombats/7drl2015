@@ -24,8 +24,6 @@ import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
-import net.wombatrpgs.mrogueschema.io.data.InputButton;
-import net.wombatrpgs.mrogueschema.io.data.InputCommand;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.core.Updateable;
@@ -36,6 +34,8 @@ import net.wombatrpgs.sdrl2015.io.CommandListener;
 import net.wombatrpgs.sdrl2015.io.CommandMap;
 import net.wombatrpgs.sdrl2015.ui.BinaryChoice;
 import net.wombatrpgs.sdrl2015.ui.BinaryChoiceResultListener;
+import net.wombatrpgs.sdrlschema.io.data.InputButton;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 
 /**
  * A screen is the environment in which the game is now running. It's

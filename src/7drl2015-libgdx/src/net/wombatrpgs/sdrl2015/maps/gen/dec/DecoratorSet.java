@@ -11,9 +11,9 @@ import java.util.List;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.maps.decorators.DecoratorSetMDO;
 import net.wombatrpgs.sdrl2015.maps.Tile;
 import net.wombatrpgs.sdrl2015.maps.gen.MapGenerator;
+import net.wombatrpgs.sdrlschema.maps.decorators.DecoratorSetMDO;
 /**
  * A bunch of decorators applied back to back.
  */

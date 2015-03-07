@@ -6,12 +6,12 @@
  */
 package net.wombatrpgs.sdrl2015.graphics;
 
-import net.wombatrpgs.mrogueschema.graphics.AnimationMDO;
-import net.wombatrpgs.mrogueschema.graphics.data.AnimationType;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Updateable;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
+import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
+import net.wombatrpgs.sdrlschema.graphics.data.AnimationType;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;

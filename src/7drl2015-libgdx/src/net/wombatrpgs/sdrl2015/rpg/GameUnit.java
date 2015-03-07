@@ -12,9 +12,6 @@ import java.util.List;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 
-import net.wombatrpgs.mrogueschema.characters.AbilityMDO;
-import net.wombatrpgs.mrogueschema.characters.data.CharacterMDO;
-import net.wombatrpgs.mrogueschema.characters.data.Relation;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.core.Turnable;
@@ -23,6 +20,9 @@ import net.wombatrpgs.sdrl2015.rpg.ai.Allegiance;
 import net.wombatrpgs.sdrl2015.rpg.item.Inventory;
 import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.ui.Narrator;
+import net.wombatrpgs.sdrlschema.characters.AbilityMDO;
+import net.wombatrpgs.sdrlschema.characters.data.CharacterMDO;
+import net.wombatrpgs.sdrlschema.characters.data.Relation;
 
 /**
  * A GameUnit is designed to factor out some of that shittiness that happens

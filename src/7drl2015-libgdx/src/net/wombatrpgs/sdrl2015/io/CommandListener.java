@@ -6,7 +6,7 @@
  */
 package net.wombatrpgs.sdrl2015.io;
 
-import net.wombatrpgs.mrogueschema.io.data.InputCommand;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 
 /**
  * Anything that listens to intentions and commands from the player. These

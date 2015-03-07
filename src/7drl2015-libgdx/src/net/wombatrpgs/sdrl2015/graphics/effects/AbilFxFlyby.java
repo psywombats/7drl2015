@@ -11,12 +11,12 @@ import java.util.List;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
-import net.wombatrpgs.mrogueschema.graphics.effects.AbilFxFlybyMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.maps.objects.Picture;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
+import net.wombatrpgs.sdrlschema.graphics.effects.AbilFxFlybyMDO;
 
 /**
  * A bunch of pictures mob the enemy.

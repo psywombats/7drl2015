@@ -11,9 +11,9 @@ import java.util.List;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
-import net.wombatrpgs.mrogueschema.graphics.EmitterMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
+import net.wombatrpgs.sdrlschema.graphics.EmitterMDO;
 
 /**
  * A simple particle emitter. Generate one from MDO, then fill it with something

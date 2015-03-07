@@ -14,8 +14,6 @@ import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 
-import net.wombatrpgs.mrogueschema.graphics.ShaderMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.EffectRealityMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Disposable;
@@ -26,6 +24,8 @@ import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrl2015.screen.WindowSettings;
+import net.wombatrpgs.sdrlschema.graphics.ShaderMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.EffectRealityMDO;
 
 /**
  * Not a real effect.

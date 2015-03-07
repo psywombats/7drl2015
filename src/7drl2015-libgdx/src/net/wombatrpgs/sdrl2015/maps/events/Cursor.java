@@ -11,8 +11,6 @@ import java.util.List;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
-import net.wombatrpgs.mrogueschema.io.data.InputCommand;
-import net.wombatrpgs.mrogueschema.maps.data.EightDir;
 import net.wombatrpgs.sdrl2015.core.FinishListener;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.AnimationStrip;
@@ -20,6 +18,8 @@ import net.wombatrpgs.sdrl2015.io.CommandListener;
 import net.wombatrpgs.sdrl2015.io.CommandMap;
 import net.wombatrpgs.sdrl2015.io.command.CMapDirections;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
+import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 
 /**
  * Thing that moves around on the map for Look mode.

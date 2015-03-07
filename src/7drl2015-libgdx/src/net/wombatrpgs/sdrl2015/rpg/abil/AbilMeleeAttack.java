@@ -8,10 +8,10 @@ package net.wombatrpgs.sdrl2015.rpg.abil;
 
 import java.util.List;
 
-import net.wombatrpgs.mrogueschema.characters.effects.AbilMeleeAttackMDO;
-import net.wombatrpgs.mrogueschema.maps.data.OrthoDir;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.travel.Step;
+import net.wombatrpgs.sdrlschema.characters.effects.AbilMeleeAttackMDO;
+import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
 
 /**
  * Like you walked into something.

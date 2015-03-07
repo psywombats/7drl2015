@@ -12,11 +12,11 @@ import java.util.List;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont.HAlignment;
 
-import net.wombatrpgs.mrogueschema.ui.NarratorMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.ui.text.FontHolder;
 import net.wombatrpgs.sdrl2015.ui.text.TextBoxFormat;
+import net.wombatrpgs.sdrlschema.ui.NarratorMDO;
 
 /**
  * A UI element that happily spits out game info as it happens.

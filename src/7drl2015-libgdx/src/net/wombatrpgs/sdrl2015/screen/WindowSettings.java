@@ -6,7 +6,7 @@
  */
 package net.wombatrpgs.sdrl2015.screen;
 
-import net.wombatrpgs.mrogueschema.settings.WindowSettingsMDO;
+import net.wombatrpgs.sdrlschema.settings.WindowSettingsMDO;
 
 /**
  * Thing that holds and calculates window values.

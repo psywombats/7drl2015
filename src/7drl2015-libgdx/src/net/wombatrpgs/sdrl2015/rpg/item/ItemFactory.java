@@ -6,12 +6,12 @@
  */
 package net.wombatrpgs.sdrl2015.rpg.item;
 
-import net.wombatrpgs.mrogueschema.items.GeneratedPotionMDO;
-import net.wombatrpgs.mrogueschema.items.GeneratedSpellbookMDO;
-import net.wombatrpgs.mrogueschema.items.PotionMDO;
-import net.wombatrpgs.mrogueschema.items.SpellbookMDO;
-import net.wombatrpgs.mrogueschema.items.data.ItemMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
+import net.wombatrpgs.sdrlschema.items.GeneratedPotionMDO;
+import net.wombatrpgs.sdrlschema.items.GeneratedSpellbookMDO;
+import net.wombatrpgs.sdrlschema.items.PotionMDO;
+import net.wombatrpgs.sdrlschema.items.SpellbookMDO;
+import net.wombatrpgs.sdrlschema.items.data.ItemMDO;
 
 /**
  * Converts MDOs to items.

@@ -11,12 +11,12 @@ import java.util.List;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.io.data.InputCommand;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.io.CommandListener;
 import net.wombatrpgs.sdrl2015.scenes.commands.UnblockedListener;
 import net.wombatrpgs.sdrl2015.screen.Screen;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 
 /**
  * A command that is typically denoted by one line in a scene file. That line is

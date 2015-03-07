@@ -13,10 +13,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-import net.wombatrpgs.mrogueschema.characters.data.CharacterMDO;
-import net.wombatrpgs.mrogueschema.graphics.DirMDO;
-import net.wombatrpgs.mrogueschema.maps.data.EightDir;
-import net.wombatrpgs.mrogueschema.maps.data.OrthoDir;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimation;
@@ -29,6 +25,10 @@ import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.rpg.travel.Step;
 import net.wombatrpgs.sdrl2015.rpg.travel.StepBump;
 import net.wombatrpgs.sdrl2015.rpg.travel.StepMove;
+import net.wombatrpgs.sdrlschema.characters.data.CharacterMDO;
+import net.wombatrpgs.sdrlschema.graphics.DirMDO;
+import net.wombatrpgs.sdrlschema.maps.data.EightDir;
+import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
 
 /**
  * A character event is an event with an MDO and an animation that looks kind of

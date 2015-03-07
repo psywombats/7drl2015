@@ -12,11 +12,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-import net.wombatrpgs.mrogueschema.maps.data.TileMDO;
-import net.wombatrpgs.mrogueschema.maps.data.TileType;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
+import net.wombatrpgs.sdrlschema.maps.data.TileMDO;
+import net.wombatrpgs.sdrlschema.maps.data.TileType;
 
 /**
  * A flyweight-style tile. The idea is that a gridlayer can just keep track of a

@@ -11,8 +11,6 @@ import java.util.List;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.cutscene.SceneMDO;
-import net.wombatrpgs.mrogueschema.cutscene.data.TriggerRepeatType;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.FinishListener;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
@@ -23,6 +21,8 @@ import net.wombatrpgs.sdrl2015.io.command.CMapScene;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.screen.Screen;
+import net.wombatrpgs.sdrlschema.cutscene.SceneMDO;
+import net.wombatrpgs.sdrlschema.cutscene.data.TriggerRepeatType;
 
 /**
  * This thing takes a scene and then hijacks its parent level into doing its

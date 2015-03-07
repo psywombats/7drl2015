@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.wombatrpgs.mgns.core.MainSchema;
-import net.wombatrpgs.mrogueschema.settings.GameSpeedMDO;
-import net.wombatrpgs.mrogueschema.settings.TitleSettingsMDO;
-import net.wombatrpgs.mrogueschema.settings.UISettingsMDO;
-import net.wombatrpgs.mrogueschema.settings.WindowSettingsMDO;
+import net.wombatrpgs.sdrlschema.settings.GameSpeedMDO;
+import net.wombatrpgs.sdrlschema.settings.TitleSettingsMDO;
+import net.wombatrpgs.sdrlschema.settings.UISettingsMDO;
+import net.wombatrpgs.sdrlschema.settings.WindowSettingsMDO;
 
 /**
  * Access to a bunch of magic numbers that are needed in a bunch of different

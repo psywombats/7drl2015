@@ -12,9 +12,9 @@ import java.util.List;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-import net.wombatrpgs.mrogueschema.graphics.AnimationMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.AnimationStrip;
+import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
 
 /**
  * Plays an animation at a spot on the map. Does not do collisions, but can be

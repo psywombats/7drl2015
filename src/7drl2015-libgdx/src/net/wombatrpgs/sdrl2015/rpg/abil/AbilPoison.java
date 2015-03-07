@@ -8,10 +8,10 @@ package net.wombatrpgs.sdrl2015.rpg.abil;
 
 import java.util.List;
 
-import net.wombatrpgs.mrogueschema.characters.effects.AbilPoisonMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
+import net.wombatrpgs.sdrlschema.characters.effects.AbilPoisonMDO;
 
 /**
  * Deals damage like a magic attack.

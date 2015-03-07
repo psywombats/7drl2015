@@ -13,8 +13,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 
-import net.wombatrpgs.mrogueschema.graphics.ShaderMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.AbilFxDistortMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
@@ -23,6 +21,8 @@ import net.wombatrpgs.sdrl2015.graphics.ShaderFromData;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrl2015.screen.WindowSettings;
+import net.wombatrpgs.sdrlschema.graphics.ShaderMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.AbilFxDistortMDO;
 
 /**
  * Some really cool proof of concept.

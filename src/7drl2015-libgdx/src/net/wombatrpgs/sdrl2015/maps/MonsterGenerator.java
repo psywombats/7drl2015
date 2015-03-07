@@ -11,16 +11,16 @@ import java.util.List;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.characters.EnemyMDO;
-import net.wombatrpgs.mrogueschema.characters.EnemyModMDO;
-import net.wombatrpgs.mrogueschema.characters.GlobalMonsterListMDO;
-import net.wombatrpgs.mrogueschema.characters.data.EnemyModEntryMDO;
-import net.wombatrpgs.mrogueschema.characters.data.MonsterNameMDO;
-import net.wombatrpgs.mrogueschema.maps.MonsterGeneratorMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.rpg.Enemy;
+import net.wombatrpgs.sdrlschema.characters.EnemyMDO;
+import net.wombatrpgs.sdrlschema.characters.EnemyModMDO;
+import net.wombatrpgs.sdrlschema.characters.GlobalMonsterListMDO;
+import net.wombatrpgs.sdrlschema.characters.data.EnemyModEntryMDO;
+import net.wombatrpgs.sdrlschema.characters.data.MonsterNameMDO;
+import net.wombatrpgs.sdrlschema.maps.MonsterGeneratorMDO;
 
 /**
  * Generates random enemies from given text files and weights for danger and the

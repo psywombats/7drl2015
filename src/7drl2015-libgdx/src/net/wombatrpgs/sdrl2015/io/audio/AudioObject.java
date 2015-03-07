@@ -8,11 +8,11 @@ package net.wombatrpgs.sdrl2015.io.audio;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.audio.data.AudioMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.core.Updateable;
 import net.wombatrpgs.sdrl2015.graphics.Disposable;
+import net.wombatrpgs.sdrlschema.audio.data.AudioMDO;
 
 /**
  * Any old sound that can be played and stopped at will. ...well sort of? Maybe?

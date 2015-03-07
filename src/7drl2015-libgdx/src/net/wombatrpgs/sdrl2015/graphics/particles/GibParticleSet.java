@@ -6,9 +6,9 @@
  */
 package net.wombatrpgs.sdrl2015.graphics.particles;
 
-import net.wombatrpgs.mrogueschema.graphics.GibsetMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
+import net.wombatrpgs.sdrlschema.graphics.GibsetMDO;
 
 /**
  * Generates particles from gibs.

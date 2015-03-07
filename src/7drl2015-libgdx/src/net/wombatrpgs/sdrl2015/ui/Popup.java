@@ -6,13 +6,13 @@
  */
 package net.wombatrpgs.sdrl2015.ui;
 
-import net.wombatrpgs.mrogueschema.io.data.InputCommand;
-import net.wombatrpgs.mrogueschema.maps.data.OrthoDir;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.io.CommandListener;
 import net.wombatrpgs.sdrl2015.io.CommandMap;
 import net.wombatrpgs.sdrl2015.io.command.CMapDialog;
 import net.wombatrpgs.sdrl2015.screen.Screen;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
+import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
 
 /**
  * A dialog box that preempts things basically? I don't know. It has its own

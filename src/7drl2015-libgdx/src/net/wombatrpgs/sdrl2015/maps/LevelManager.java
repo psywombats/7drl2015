@@ -9,14 +9,14 @@ package net.wombatrpgs.sdrl2015.maps;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.wombatrpgs.mrogueschema.cutscene.data.SceneParentMDO;
-import net.wombatrpgs.mrogueschema.maps.MapMDO;
-import net.wombatrpgs.mrogueschema.settings.TeleportSettingsMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.scenes.SceneFactory;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.scenes.TeleportManager;
 import net.wombatrpgs.sdrl2015.screen.Screen;
+import net.wombatrpgs.sdrlschema.cutscene.data.SceneParentMDO;
+import net.wombatrpgs.sdrlschema.maps.MapMDO;
+import net.wombatrpgs.sdrlschema.settings.TeleportSettingsMDO;
 
 /**
  * Manages levels so that they don't have to be created multiple times. It

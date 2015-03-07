@@ -9,11 +9,11 @@ package net.wombatrpgs.sdrl2015.rpg.item;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-import net.wombatrpgs.mrogueschema.items.data.ItemMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
+import net.wombatrpgs.sdrlschema.items.data.ItemMDO;
 
 /**
  * The representation of an item lying on the ground.

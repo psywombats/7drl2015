@@ -11,9 +11,9 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-import net.wombatrpgs.mrogueschema.maps.data.OrthoDir;
 import net.wombatrpgs.sdrl2015.core.Updateable;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
+import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
 
 /**
  * Any animation used to represent a moving entity on the map. Generally it's

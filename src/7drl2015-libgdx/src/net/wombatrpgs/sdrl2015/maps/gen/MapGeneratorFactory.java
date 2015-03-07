@@ -6,9 +6,9 @@
  */
 package net.wombatrpgs.sdrl2015.maps.gen;
 
-import net.wombatrpgs.mrogueschema.maps.MapGeneratorMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.Level;
+import net.wombatrpgs.sdrlschema.maps.MapGeneratorMDO;
 
 /**
  * Maps makin' maps... I don't like it. But really this thing just creates the

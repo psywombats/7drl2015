@@ -2,14 +2,14 @@ package net.wombatrpgs.sdrl2015.screen.instances;
 
 import com.badlogic.gdx.Gdx;
 
-import net.wombatrpgs.mrogueschema.io.data.InputCommand;
-import net.wombatrpgs.mrogueschema.settings.DeathSettingsMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.io.command.CMapSplash;
 import net.wombatrpgs.sdrl2015.maps.objects.Picture;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.Screen;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
+import net.wombatrpgs.sdrlschema.settings.DeathSettingsMDO;
 
 /**
  * FALL INTO DEATH.

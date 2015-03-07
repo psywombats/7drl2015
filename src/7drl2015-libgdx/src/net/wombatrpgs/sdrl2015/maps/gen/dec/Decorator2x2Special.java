@@ -8,11 +8,11 @@ package net.wombatrpgs.sdrl2015.maps.gen.dec;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.maps.decorators.Decorator2x2SpecialMDO;
-import net.wombatrpgs.mrogueschema.maps.decorators.data.ShelfMode;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.Tile;
 import net.wombatrpgs.sdrl2015.maps.gen.MapGenerator;
+import net.wombatrpgs.sdrlschema.maps.decorators.Decorator2x2SpecialMDO;
+import net.wombatrpgs.sdrlschema.maps.decorators.data.ShelfMode;
 
 /**
  * Generates a 2x2 with specific-er tile requirements.

@@ -12,13 +12,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import net.wombatrpgs.mrogueschema.characters.ai.BehaviorListMDO;
-import net.wombatrpgs.mrogueschema.characters.ai.data.ActionMDO;
-import net.wombatrpgs.mrogueschema.characters.ai.data.IntelligenceMDO;
-import net.wombatrpgs.mrogueschema.characters.ai.intent.ActionAttackEnemiesMDO;
-import net.wombatrpgs.mrogueschema.characters.ai.intent.ActionHeroStepMDO;
-import net.wombatrpgs.mrogueschema.characters.ai.intent.ActionWanderMDO;
-import net.wombatrpgs.mrogueschema.characters.ai.intent.IntentMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.act.ActStepHero;
@@ -26,6 +19,13 @@ import net.wombatrpgs.sdrl2015.rpg.act.ActWait;
 import net.wombatrpgs.sdrl2015.rpg.act.ActWander;
 import net.wombatrpgs.sdrl2015.rpg.ai.seq.RoutineMeleeEnemies;
 import net.wombatrpgs.sdrl2015.rpg.ai.seq.RoutineOffenseAbility;
+import net.wombatrpgs.sdrlschema.characters.ai.BehaviorListMDO;
+import net.wombatrpgs.sdrlschema.characters.ai.data.ActionMDO;
+import net.wombatrpgs.sdrlschema.characters.ai.data.IntelligenceMDO;
+import net.wombatrpgs.sdrlschema.characters.ai.intent.ActionAttackEnemiesMDO;
+import net.wombatrpgs.sdrlschema.characters.ai.intent.ActionHeroStepMDO;
+import net.wombatrpgs.sdrlschema.characters.ai.intent.ActionWanderMDO;
+import net.wombatrpgs.sdrlschema.characters.ai.intent.IntentMDO;
 
 /**
  * Constructs behavior trees from a variety of MDOs. This is different from

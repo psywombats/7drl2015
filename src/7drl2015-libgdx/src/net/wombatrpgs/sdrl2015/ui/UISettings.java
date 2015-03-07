@@ -11,22 +11,22 @@ import java.util.List;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.graphics.AnimationMDO;
-import net.wombatrpgs.mrogueschema.graphics.IconSetMDO;
-import net.wombatrpgs.mrogueschema.settings.UISettingsMDO;
-import net.wombatrpgs.mrogueschema.ui.FontMDO;
-import net.wombatrpgs.mrogueschema.ui.HudMDO;
-import net.wombatrpgs.mrogueschema.ui.InventoryMenuMDO;
-import net.wombatrpgs.mrogueschema.ui.NarratorMDO;
-import net.wombatrpgs.mrogueschema.ui.PromptMDO;
-import net.wombatrpgs.mrogueschema.ui.SkillsBoxMDO;
-import net.wombatrpgs.mrogueschema.ui.TextBoxMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.graphics.AnimationStrip;
 import net.wombatrpgs.sdrl2015.maps.MapThing;
 import net.wombatrpgs.sdrl2015.ui.text.FontHolder;
 import net.wombatrpgs.sdrl2015.ui.text.TextBox;
+import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
+import net.wombatrpgs.sdrlschema.graphics.IconSetMDO;
+import net.wombatrpgs.sdrlschema.settings.UISettingsMDO;
+import net.wombatrpgs.sdrlschema.ui.FontMDO;
+import net.wombatrpgs.sdrlschema.ui.HudMDO;
+import net.wombatrpgs.sdrlschema.ui.InventoryMenuMDO;
+import net.wombatrpgs.sdrlschema.ui.NarratorMDO;
+import net.wombatrpgs.sdrlschema.ui.PromptMDO;
+import net.wombatrpgs.sdrlschema.ui.SkillsBoxMDO;
+import net.wombatrpgs.sdrlschema.ui.TextBoxMDO;
 
 /**
  * Holds current settings for cutscene UI and other HUD things. These things

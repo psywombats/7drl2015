@@ -14,15 +14,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 
-import net.wombatrpgs.mrogueschema.graphics.AnimationMDO;
-import net.wombatrpgs.mrogueschema.graphics.ShaderMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.EffectLoSMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.AnimationStrip;
 import net.wombatrpgs.sdrl2015.graphics.ShaderFromData;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.screen.TrackerCam;
 import net.wombatrpgs.sdrl2015.screen.WindowSettings;
+import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
+import net.wombatrpgs.sdrlschema.graphics.ShaderMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.EffectLoSMDO;
 
 /**
  * An obscuring effect for line of sight.

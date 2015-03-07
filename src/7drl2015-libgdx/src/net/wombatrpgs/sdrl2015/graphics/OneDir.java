@@ -6,8 +6,8 @@
  */
 package net.wombatrpgs.sdrl2015.graphics;
 
-import net.wombatrpgs.mrogueschema.graphics.AnimationMDO;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
+import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
 
 /**
  * snickersnickersnicker A very thin wrapper for an animation strip. Looks like

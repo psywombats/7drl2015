@@ -17,14 +17,6 @@ import java.util.Set;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.maps.CeilTilesMDO;
-import net.wombatrpgs.mrogueschema.maps.MapGeneratorMDO;
-import net.wombatrpgs.mrogueschema.maps.StairTilesMDO;
-import net.wombatrpgs.mrogueschema.maps.WallTilesMDO;
-import net.wombatrpgs.mrogueschema.maps.data.DoorSetMDO;
-import net.wombatrpgs.mrogueschema.maps.data.TileMDO;
-import net.wombatrpgs.mrogueschema.maps.data.TileType;
-import net.wombatrpgs.mrogueschema.maps.decorators.data.DecoratorMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.maps.Level;
@@ -35,6 +27,14 @@ import net.wombatrpgs.sdrl2015.maps.events.TeleportEvent;
 import net.wombatrpgs.sdrl2015.maps.gen.dec.Decorator;
 import net.wombatrpgs.sdrl2015.maps.gen.dec.DecoratorFactory;
 import net.wombatrpgs.sdrl2015.maps.layers.GridLayer;
+import net.wombatrpgs.sdrlschema.maps.CeilTilesMDO;
+import net.wombatrpgs.sdrlschema.maps.MapGeneratorMDO;
+import net.wombatrpgs.sdrlschema.maps.StairTilesMDO;
+import net.wombatrpgs.sdrlschema.maps.WallTilesMDO;
+import net.wombatrpgs.sdrlschema.maps.data.DoorSetMDO;
+import net.wombatrpgs.sdrlschema.maps.data.TileMDO;
+import net.wombatrpgs.sdrlschema.maps.data.TileType;
+import net.wombatrpgs.sdrlschema.maps.decorators.data.DecoratorMDO;
 
 /**
  * The thing that y'know generates maps. Each one is created with a specific

@@ -9,7 +9,6 @@ package net.wombatrpgs.sdrl2015.maps.events;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-import net.wombatrpgs.mrogueschema.maps.data.EightDir;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.PreRenderable;
 import net.wombatrpgs.sdrl2015.maps.Level;
@@ -17,6 +16,7 @@ import net.wombatrpgs.sdrl2015.maps.MapThing;
 import net.wombatrpgs.sdrl2015.maps.PositionSetable;
 import net.wombatrpgs.sdrl2015.maps.layers.EventLayer;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
+import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 
 /**
  * A map event is any map object defined in Tiled, including characters and

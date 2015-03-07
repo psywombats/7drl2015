@@ -6,8 +6,8 @@
  */
 package net.wombatrpgs.sdrl2015.io;
 
-import net.wombatrpgs.mrogueschema.io.data.InputButton;
-import net.wombatrpgs.mrogueschema.io.data.InputCommand;
+import net.wombatrpgs.sdrlschema.io.data.InputButton;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 
 /**
  * Okay, this is a little weird, but this maps virtual button presses to command

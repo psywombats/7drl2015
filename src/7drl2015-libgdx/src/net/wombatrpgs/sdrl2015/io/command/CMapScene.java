@@ -9,9 +9,9 @@ package net.wombatrpgs.sdrl2015.io.command;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.wombatrpgs.mrogueschema.io.data.InputButton;
-import net.wombatrpgs.mrogueschema.io.data.InputCommand;
 import net.wombatrpgs.sdrl2015.io.CommandMap;
+import net.wombatrpgs.sdrlschema.io.data.InputButton;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 
 /**
  * Map used when cutscenes are in play.

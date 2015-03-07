@@ -9,10 +9,10 @@ package net.wombatrpgs.sdrl2015.graphics.effects;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 
-import net.wombatrpgs.mrogueschema.graphics.effects.AbilFxTestMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
+import net.wombatrpgs.sdrlschema.graphics.effects.AbilFxTestMDO;
 
 /**
  * Some dumb proof of concept.

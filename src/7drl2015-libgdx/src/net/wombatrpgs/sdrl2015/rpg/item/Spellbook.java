@@ -6,10 +6,10 @@
  */
 package net.wombatrpgs.sdrl2015.rpg.item;
 
-import net.wombatrpgs.mrogueschema.characters.AbilityMDO;
-import net.wombatrpgs.mrogueschema.items.SpellbookMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
+import net.wombatrpgs.sdrlschema.characters.AbilityMDO;
+import net.wombatrpgs.sdrlschema.items.SpellbookMDO;
 
 /**
  * It's a thing you learn an ability. RPGs have been around for like 30 years

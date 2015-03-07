@@ -6,13 +6,13 @@
  */
 package net.wombatrpgs.sdrl2015.graphics.effects;
 
-import net.wombatrpgs.mrogueschema.graphics.effects.AbilFxDistortMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.AbilFxFlamesMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.AbilFxFlybyMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.AbilFxTestMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.data.AbilFxMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
+import net.wombatrpgs.sdrlschema.graphics.effects.AbilFxDistortMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.AbilFxFlamesMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.AbilFxFlybyMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.AbilFxTestMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.data.AbilFxMDO;
 
 /**
  * Converts arbitrary abilfxmdo into actual effects. Wheeee getClass()!

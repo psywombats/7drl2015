@@ -15,12 +15,6 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import net.wombatrpgs.mrogueschema.audio.MusicMDO;
-import net.wombatrpgs.mrogueschema.characters.data.CharacterMDO;
-import net.wombatrpgs.mrogueschema.items.ItemGeneratorMDO;
-import net.wombatrpgs.mrogueschema.maps.MapGeneratorMDO;
-import net.wombatrpgs.mrogueschema.maps.MapMDO;
-import net.wombatrpgs.mrogueschema.maps.MonsterGeneratorMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.graphics.effects.Effect;
@@ -37,6 +31,12 @@ import net.wombatrpgs.sdrl2015.rpg.Enemy;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrl2015.screen.ScreenObject;
+import net.wombatrpgs.sdrlschema.audio.MusicMDO;
+import net.wombatrpgs.sdrlschema.characters.data.CharacterMDO;
+import net.wombatrpgs.sdrlschema.items.ItemGeneratorMDO;
+import net.wombatrpgs.sdrlschema.maps.MapGeneratorMDO;
+import net.wombatrpgs.sdrlschema.maps.MapMDO;
+import net.wombatrpgs.sdrlschema.maps.MonsterGeneratorMDO;
 
 /**
  * A Level is comprised of a .tmx tiled map background and a bunch of events

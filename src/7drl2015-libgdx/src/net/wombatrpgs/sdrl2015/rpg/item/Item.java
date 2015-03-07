@@ -11,12 +11,12 @@ import java.util.List;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.items.data.ItemMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
+import net.wombatrpgs.sdrlschema.items.data.ItemMDO;
 
 /**
  * Woahhh this game has items now! These are things on the ground that you can

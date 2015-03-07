@@ -8,11 +8,11 @@ package net.wombatrpgs.sdrl2015.maps.gen.dec;
 
 import java.util.List;
 
-import net.wombatrpgs.mrogueschema.maps.data.EightDir;
-import net.wombatrpgs.mrogueschema.maps.data.TileType;
-import net.wombatrpgs.mrogueschema.maps.decorators.data.SingleDecoratorMDO;
 import net.wombatrpgs.sdrl2015.maps.Tile;
 import net.wombatrpgs.sdrl2015.maps.gen.MapGenerator;
+import net.wombatrpgs.sdrlschema.maps.data.EightDir;
+import net.wombatrpgs.sdrlschema.maps.data.TileType;
+import net.wombatrpgs.sdrlschema.maps.decorators.data.SingleDecoratorMDO;
 
 /**
  * Yep that's right this thing relates to the MDO now. Cool!

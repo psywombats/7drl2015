@@ -11,10 +11,10 @@ import java.util.Map;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.maps.data.TileMDO;
-import net.wombatrpgs.mrogueschema.maps.data.TileType;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.Tile;
+import net.wombatrpgs.sdrlschema.maps.data.TileMDO;
+import net.wombatrpgs.sdrlschema.maps.data.TileType;
 
 /**
  * Just a simple thing to keep track of which tiles are in memory yet.

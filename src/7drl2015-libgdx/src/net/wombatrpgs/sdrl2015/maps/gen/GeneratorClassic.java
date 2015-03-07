@@ -6,11 +6,11 @@
  */
 package net.wombatrpgs.sdrl2015.maps.gen;
 
-import net.wombatrpgs.mrogueschema.maps.MapGeneratorMDO;
-import net.wombatrpgs.mrogueschema.maps.data.TileType;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.Tile;
 import net.wombatrpgs.sdrl2015.maps.gen.dec.Decorator;
+import net.wombatrpgs.sdrlschema.maps.MapGeneratorMDO;
+import net.wombatrpgs.sdrlschema.maps.data.TileType;
 
 /**
  * Generates maps like GA:ED.

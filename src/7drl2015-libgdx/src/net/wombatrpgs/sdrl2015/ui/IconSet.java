@@ -9,10 +9,10 @@ package net.wombatrpgs.sdrl2015.ui;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Pixmap;
 
-import net.wombatrpgs.mrogueschema.graphics.IconSetMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
+import net.wombatrpgs.sdrlschema.graphics.IconSetMDO;
 
 /**
  * This thing takes an MDO and sets up its icons appropriately.

@@ -8,9 +8,9 @@ package net.wombatrpgs.sdrl2015.graphics;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.settings.GraphicsSettingsMDO;
-import net.wombatrpgs.mrogueschema.settings.data.ShaderEnabledState;
 import net.wombatrpgs.sdrl2015.core.Queueable;
+import net.wombatrpgs.sdrlschema.settings.GraphicsSettingsMDO;
+import net.wombatrpgs.sdrlschema.settings.data.ShaderEnabledState;
 
 /**
  * Settings for graphics? These probably shouldn't get changed much in-game,

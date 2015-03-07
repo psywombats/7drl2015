@@ -6,12 +6,12 @@
  */
 package net.wombatrpgs.sdrl2015.rpg.item;
 
-import net.wombatrpgs.mrogueschema.characters.AbilityMDO;
-import net.wombatrpgs.mrogueschema.items.GeneratedSpellbookMDO;
-import net.wombatrpgs.mrogueschema.items.SpellbookMDO;
-import net.wombatrpgs.mrogueschema.items.SpellbookPrefixMDO;
-import net.wombatrpgs.mrogueschema.items.SpellbookTypeMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
+import net.wombatrpgs.sdrlschema.characters.AbilityMDO;
+import net.wombatrpgs.sdrlschema.items.GeneratedSpellbookMDO;
+import net.wombatrpgs.sdrlschema.items.SpellbookMDO;
+import net.wombatrpgs.sdrlschema.items.SpellbookPrefixMDO;
+import net.wombatrpgs.sdrlschema.items.SpellbookTypeMDO;
 
 /**
  * A spellbook that was pieced together from the spellbook generator.

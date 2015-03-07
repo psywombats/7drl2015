@@ -6,12 +6,12 @@
  */
 package net.wombatrpgs.sdrl2015.graphics.effects;
 
-import net.wombatrpgs.mrogueschema.graphics.effects.EffectFogMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.EffectLoSMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.EffectRealityMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.data.EffectMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.Level;
+import net.wombatrpgs.sdrlschema.graphics.effects.EffectFogMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.EffectLoSMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.EffectRealityMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.data.EffectMDO;
 
 /**
  * Creates effects from MDOs.

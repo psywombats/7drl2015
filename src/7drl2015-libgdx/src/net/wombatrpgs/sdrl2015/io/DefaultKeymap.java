@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.wombatrpgs.mrogueschema.io.data.InputButton;
+import net.wombatrpgs.sdrlschema.io.data.InputButton;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;

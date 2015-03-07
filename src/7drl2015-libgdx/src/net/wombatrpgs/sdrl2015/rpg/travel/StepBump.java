@@ -6,9 +6,9 @@
  */
 package net.wombatrpgs.sdrl2015.rpg.travel;
 
-import net.wombatrpgs.mrogueschema.maps.data.EightDir;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
+import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 
 /**
  * Bump into a wall or into a hostile enemy!!

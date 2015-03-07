@@ -11,12 +11,12 @@ import java.util.List;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.items.ItemGeneratorMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.rpg.item.ItemEvent;
 import net.wombatrpgs.sdrl2015.rpg.item.ItemFactory;
+import net.wombatrpgs.sdrlschema.items.ItemGeneratorMDO;
 
 /**
  * Generates items for a level.

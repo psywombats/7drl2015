@@ -13,14 +13,14 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import net.wombatrpgs.mrogueschema.ui.FontMDO;
-import net.wombatrpgs.mrogueschema.ui.SkillsBoxMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.rpg.Hero;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.ui.text.FontHolder;
 import net.wombatrpgs.sdrl2015.ui.text.TextBoxFormat;
+import net.wombatrpgs.sdrlschema.ui.FontMDO;
+import net.wombatrpgs.sdrlschema.ui.SkillsBoxMDO;
 
 /**
  * UI for skills etc.

@@ -8,12 +8,12 @@ package net.wombatrpgs.sdrl2015.scenes;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.cutscene.SceneMDO;
-import net.wombatrpgs.mrogueschema.settings.TeleportSettingsMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
+import net.wombatrpgs.sdrlschema.cutscene.SceneMDO;
+import net.wombatrpgs.sdrlschema.settings.TeleportSettingsMDO;
 
 /**
  * A thing to keep track of which scene scripts play before/after teleports

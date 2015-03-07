@@ -6,15 +6,15 @@
  */
 package net.wombatrpgs.sdrl2015.ui;
 
-import net.wombatrpgs.mrogueschema.maps.data.OrthoDir;
-import net.wombatrpgs.mrogueschema.ui.FontMDO;
-import net.wombatrpgs.mrogueschema.ui.InventoryMenuMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.rpg.item.FlatInventory;
 import net.wombatrpgs.sdrl2015.rpg.item.FlatInventory.FlatItem;
 import net.wombatrpgs.sdrl2015.ui.text.FontHolder;
 import net.wombatrpgs.sdrl2015.ui.text.TextBoxFormat;
+import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
+import net.wombatrpgs.sdrlschema.ui.FontMDO;
+import net.wombatrpgs.sdrlschema.ui.InventoryMenuMDO;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;

@@ -8,11 +8,11 @@ package net.wombatrpgs.sdrl2015.scenes.commands;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.audio.SoundMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.io.audio.SoundObject;
 import net.wombatrpgs.sdrl2015.scenes.SceneCommand;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
+import net.wombatrpgs.sdrlschema.audio.SoundMDO;
 
 /**
  *

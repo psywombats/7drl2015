@@ -8,9 +8,9 @@ package net.wombatrpgs.sdrl2015.graphics.effects;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import net.wombatrpgs.mrogueschema.graphics.effects.data.EffectMDO;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.screen.ScreenObject;
+import net.wombatrpgs.sdrlschema.graphics.effects.data.EffectMDO;
 
 /**
  * A thing that represents a graphical effect on a map such as weather, fog,

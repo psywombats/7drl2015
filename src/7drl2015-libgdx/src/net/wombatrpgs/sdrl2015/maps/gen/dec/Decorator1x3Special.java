@@ -8,10 +8,10 @@ package net.wombatrpgs.sdrl2015.maps.gen.dec;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.maps.decorators.Decorator1x3SpecialMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.Tile;
 import net.wombatrpgs.sdrl2015.maps.gen.MapGenerator;
+import net.wombatrpgs.sdrlschema.maps.decorators.Decorator1x3SpecialMDO;
 
 /**
  * Generates a window thing.

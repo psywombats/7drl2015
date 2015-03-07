@@ -11,13 +11,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.wombatrpgs.mrogueschema.cutscene.CharacterSetMDO;
-import net.wombatrpgs.mrogueschema.cutscene.SceneMDO;
-import net.wombatrpgs.mrogueschema.cutscene.SceneSetMDO;
-import net.wombatrpgs.mrogueschema.cutscene.data.HeadlessSceneMDO;
-import net.wombatrpgs.mrogueschema.cutscene.data.SceneParentMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.screen.Screen;
+import net.wombatrpgs.sdrlschema.cutscene.CharacterSetMDO;
+import net.wombatrpgs.sdrlschema.cutscene.SceneMDO;
+import net.wombatrpgs.sdrlschema.cutscene.SceneSetMDO;
+import net.wombatrpgs.sdrlschema.cutscene.data.HeadlessSceneMDO;
+import net.wombatrpgs.sdrlschema.cutscene.data.SceneParentMDO;
 
 /**
  * Converts scene MDO into full-fledged scenes. This is not a singleton because

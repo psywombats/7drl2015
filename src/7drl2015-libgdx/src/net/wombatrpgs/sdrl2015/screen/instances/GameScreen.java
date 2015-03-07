@@ -8,8 +8,6 @@ package net.wombatrpgs.sdrl2015.screen.instances;
 
 import com.badlogic.gdx.assets.AssetManager;
 
-import net.wombatrpgs.mrogueschema.io.data.InputCommand;
-import net.wombatrpgs.mrogueschema.settings.IntroSettingsMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.io.command.CMapGame;
 import net.wombatrpgs.sdrl2015.maps.Level;
@@ -17,6 +15,8 @@ import net.wombatrpgs.sdrl2015.maps.Loc;
 import net.wombatrpgs.sdrl2015.maps.events.Cursor;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.Screen;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
+import net.wombatrpgs.sdrlschema.settings.IntroSettingsMDO;
 
 /**
  * This is the default screen that appears when the game is first loaded. Once

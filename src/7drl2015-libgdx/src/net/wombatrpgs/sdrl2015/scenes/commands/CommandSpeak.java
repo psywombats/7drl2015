@@ -14,7 +14,6 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import net.wombatrpgs.mrogueschema.cutscene.SpeakerMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.maps.objects.Picture;
@@ -22,6 +21,7 @@ import net.wombatrpgs.sdrl2015.maps.objects.TimerListener;
 import net.wombatrpgs.sdrl2015.maps.objects.TimerObject;
 import net.wombatrpgs.sdrl2015.scenes.SceneCommand;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
+import net.wombatrpgs.sdrlschema.cutscene.SpeakerMDO;
 
 /**
  * An individual character speaks. As of 2013-02-14 this thing is a designated

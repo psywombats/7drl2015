@@ -11,13 +11,13 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont.HAlignment;
 
-import net.wombatrpgs.mrogueschema.maps.data.OrthoDir;
-import net.wombatrpgs.mrogueschema.ui.PromptMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.screen.WindowSettings;
 import net.wombatrpgs.sdrl2015.ui.text.FontHolder;
 import net.wombatrpgs.sdrl2015.ui.text.TextBoxFormat;
+import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
+import net.wombatrpgs.sdrlschema.ui.PromptMDO;
 
 /**
  * Binary selection box.

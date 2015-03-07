@@ -13,15 +13,15 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont.HAlignment;
 
-import net.wombatrpgs.mrogueschema.audio.SoundMDO;
-import net.wombatrpgs.mrogueschema.ui.AnchorType;
-import net.wombatrpgs.mrogueschema.ui.TextBoxMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.io.audio.SoundObject;
 import net.wombatrpgs.sdrl2015.maps.MapThing;
 import net.wombatrpgs.sdrl2015.maps.objects.Picture;
 import net.wombatrpgs.sdrl2015.screen.WindowSettings;
+import net.wombatrpgs.sdrlschema.audio.SoundMDO;
+import net.wombatrpgs.sdrlschema.ui.AnchorType;
+import net.wombatrpgs.sdrlschema.ui.TextBoxMDO;
 
 /**
  * A box that appears on-screen and does its dirty business. Hmph. Actually it

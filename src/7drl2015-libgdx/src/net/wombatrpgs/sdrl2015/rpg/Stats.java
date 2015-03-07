@@ -6,8 +6,8 @@
  */
 package net.wombatrpgs.sdrl2015.rpg;
 
-import net.wombatrpgs.mrogueschema.characters.data.StatsMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
+import net.wombatrpgs.sdrlschema.characters.data.StatsMDO;
 
 /**
  * A collection of RPG stats associated with a character, item, etc. The idea is

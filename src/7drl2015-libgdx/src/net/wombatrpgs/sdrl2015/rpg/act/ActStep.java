@@ -6,9 +6,9 @@
  */
 package net.wombatrpgs.sdrl2015.rpg.act;
 
-import net.wombatrpgs.mrogueschema.maps.data.EightDir;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
+import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 
 /**
  * Step in the appropriate direction, attacking whatever's there if necessary.

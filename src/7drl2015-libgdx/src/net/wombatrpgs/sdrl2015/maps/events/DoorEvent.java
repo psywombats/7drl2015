@@ -8,13 +8,13 @@ package net.wombatrpgs.sdrl2015.maps.events;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
-import net.wombatrpgs.mrogueschema.maps.data.DoorSetMDO;
-import net.wombatrpgs.mrogueschema.maps.data.OrthoDir;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimation;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimationFactory;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
+import net.wombatrpgs.sdrlschema.maps.data.DoorSetMDO;
+import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
 
 /**
  * creaaaaaaak... TENSION ROOM OF RATS AUGHHHH!!!

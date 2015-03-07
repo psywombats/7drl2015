@@ -12,11 +12,11 @@ import java.util.List;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 
-import net.wombatrpgs.mrogueschema.characters.AbilityMDO;
-import net.wombatrpgs.mrogueschema.characters.EnemyModMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
+import net.wombatrpgs.sdrlschema.characters.AbilityMDO;
+import net.wombatrpgs.sdrlschema.characters.EnemyModMDO;
 
 /**
  * Modifier unit for enemies.

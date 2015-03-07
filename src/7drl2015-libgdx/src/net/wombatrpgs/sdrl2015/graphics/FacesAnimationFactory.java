@@ -6,12 +6,12 @@
  */
 package net.wombatrpgs.sdrl2015.graphics;
 
-import net.wombatrpgs.mrogueschema.graphics.AnimationMDO;
-import net.wombatrpgs.mrogueschema.graphics.DirMDO;
-import net.wombatrpgs.mrogueschema.graphics.FourDirMDO;
-import net.wombatrpgs.mrogueschema.graphics.TwoDirMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
+import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
+import net.wombatrpgs.sdrlschema.graphics.DirMDO;
+import net.wombatrpgs.sdrlschema.graphics.FourDirMDO;
+import net.wombatrpgs.sdrlschema.graphics.TwoDirMDO;
 
 /**
  * Generates the right subclass of an animation factory based on an MDO.

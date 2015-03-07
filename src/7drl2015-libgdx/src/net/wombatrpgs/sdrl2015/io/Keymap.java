@@ -11,10 +11,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.wombatrpgs.mrogueschema.io.data.InputButton;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Updateable;
 import net.wombatrpgs.sdrl2015.screen.ScreenStack;
+import net.wombatrpgs.sdrlschema.io.data.InputButton;
 
 import com.badlogic.gdx.InputProcessor;
 

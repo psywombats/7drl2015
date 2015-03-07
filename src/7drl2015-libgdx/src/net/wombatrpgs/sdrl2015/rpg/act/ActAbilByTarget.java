@@ -9,9 +9,9 @@ package net.wombatrpgs.sdrl2015.rpg.act;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.wombatrpgs.mrogueschema.characters.data.AbilityTargetType;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
+import net.wombatrpgs.sdrlschema.characters.data.AbilityTargetType;
 
 /**
  * Randomly uses an ability with the specified targeting type, assuming such a

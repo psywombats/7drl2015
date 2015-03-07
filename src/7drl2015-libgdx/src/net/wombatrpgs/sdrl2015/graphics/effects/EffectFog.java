@@ -8,9 +8,6 @@ package net.wombatrpgs.sdrl2015.graphics.effects;
 
 import java.util.List;
 
-import net.wombatrpgs.mrogueschema.graphics.AnimationMDO;
-import net.wombatrpgs.mrogueschema.graphics.ShaderMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.EffectFogMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.AnimationStrip;
 import net.wombatrpgs.sdrl2015.graphics.ShaderFromData;
@@ -18,6 +15,9 @@ import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.screen.TrackerCam;
 import net.wombatrpgs.sdrl2015.screen.WindowSettings;
+import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
+import net.wombatrpgs.sdrlschema.graphics.ShaderMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.EffectFogMDO;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;

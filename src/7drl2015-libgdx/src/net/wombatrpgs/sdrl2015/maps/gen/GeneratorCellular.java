@@ -9,14 +9,14 @@ package net.wombatrpgs.sdrl2015.maps.gen;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.wombatrpgs.mrogueschema.maps.MapGeneratorMDO;
-import net.wombatrpgs.mrogueschema.maps.data.OrthoDir;
-import net.wombatrpgs.mrogueschema.maps.data.TileType;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.Tile;
 import net.wombatrpgs.sdrl2015.maps.events.DoorEvent;
 import net.wombatrpgs.sdrl2015.maps.gen.dec.Decorator;
 import net.wombatrpgs.sdrl2015.rpg.Enemy;
+import net.wombatrpgs.sdrlschema.maps.MapGeneratorMDO;
+import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
+import net.wombatrpgs.sdrlschema.maps.data.TileType;
 
 /**
  * Uses a cellular automata algorithm to generate a building interior.

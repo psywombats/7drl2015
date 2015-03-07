@@ -14,11 +14,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont.HAlignment;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-import net.wombatrpgs.mrogueschema.characters.ClassMDO;
-import net.wombatrpgs.mrogueschema.io.data.InputCommand;
-import net.wombatrpgs.mrogueschema.settings.ClassSettingsMDO;
-import net.wombatrpgs.mrogueschema.settings.IntroSettingsMDO;
-import net.wombatrpgs.mrogueschema.ui.FontMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
@@ -31,6 +26,11 @@ import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrl2015.ui.text.FontHolder;
 import net.wombatrpgs.sdrl2015.ui.text.TextBoxFormat;
+import net.wombatrpgs.sdrlschema.characters.ClassMDO;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
+import net.wombatrpgs.sdrlschema.settings.ClassSettingsMDO;
+import net.wombatrpgs.sdrlschema.settings.IntroSettingsMDO;
+import net.wombatrpgs.sdrlschema.ui.FontMDO;
 
 /**
  * Thing for selecting what class you want to be!

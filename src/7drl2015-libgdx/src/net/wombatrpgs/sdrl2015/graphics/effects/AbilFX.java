@@ -12,10 +12,6 @@ import java.util.List;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import net.wombatrpgs.mrogueschema.characters.data.AbilityTargetType;
-import net.wombatrpgs.mrogueschema.graphics.effects.data.AbilFxMDO;
-import net.wombatrpgs.mrogueschema.graphics.effects.data.TrackingType;
-import net.wombatrpgs.mrogueschema.graphics.effects.data.ZType;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.graphics.Disposable;
 import net.wombatrpgs.sdrl2015.maps.Level;
@@ -25,6 +21,10 @@ import net.wombatrpgs.sdrl2015.maps.objects.TimerObject;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
+import net.wombatrpgs.sdrlschema.characters.data.AbilityTargetType;
+import net.wombatrpgs.sdrlschema.graphics.effects.data.AbilFxMDO;
+import net.wombatrpgs.sdrlschema.graphics.effects.data.TrackingType;
+import net.wombatrpgs.sdrlschema.graphics.effects.data.ZType;
 
 /**
  * A special effect designed for use with an ability.

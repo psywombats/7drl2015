@@ -8,10 +8,10 @@ package net.wombatrpgs.sdrl2015.rpg.act;
 
 import java.util.List;
 
-import net.wombatrpgs.mrogueschema.maps.data.EightDir;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.ai.AStarPathfinder;
+import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 
 /**
  * Smart move towards character!

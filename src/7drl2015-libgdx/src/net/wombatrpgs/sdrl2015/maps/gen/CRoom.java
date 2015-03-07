@@ -6,7 +6,7 @@
  */
 package net.wombatrpgs.sdrl2015.maps.gen;
 
-import net.wombatrpgs.mrogueschema.maps.data.OrthoDir;
+import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
 
 /**
  * A room used by cellular generation.

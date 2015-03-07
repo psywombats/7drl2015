@@ -12,10 +12,10 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
 
-import net.wombatrpgs.mrogueschema.characters.data.Faction;
-import net.wombatrpgs.mrogueschema.characters.data.Relation;
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
+import net.wombatrpgs.sdrlschema.characters.data.Faction;
+import net.wombatrpgs.sdrlschema.characters.data.Relation;
 
 /**
  * A GameUnit owns one of these. It tells the unit what to attack, what not to

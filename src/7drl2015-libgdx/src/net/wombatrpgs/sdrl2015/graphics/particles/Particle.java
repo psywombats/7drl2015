@@ -9,11 +9,11 @@ package net.wombatrpgs.sdrl2015.graphics.particles;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-import net.wombatrpgs.mrogueschema.graphics.EmitterMDO;
-import net.wombatrpgs.mrogueschema.graphics.data.BounceType;
-import net.wombatrpgs.mrogueschema.graphics.data.ReflectionType;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
+import net.wombatrpgs.sdrlschema.graphics.EmitterMDO;
+import net.wombatrpgs.sdrlschema.graphics.data.BounceType;
+import net.wombatrpgs.sdrlschema.graphics.data.ReflectionType;
 
 /**
  * A particle of something or other that's going to be spat across the scene.

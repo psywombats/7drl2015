@@ -6,11 +6,11 @@
  */
 package net.wombatrpgs.sdrl2015.graphics;
 
-import net.wombatrpgs.mrogueschema.graphics.AnimationMDO;
-import net.wombatrpgs.mrogueschema.graphics.FourDirMDO;
-import net.wombatrpgs.mrogueschema.maps.data.OrthoDir;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
+import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
+import net.wombatrpgs.sdrlschema.graphics.FourDirMDO;
+import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
 
 /**
  * A holder for four different animations that make up a character's up, right,

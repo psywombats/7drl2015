@@ -8,12 +8,12 @@ package net.wombatrpgs.sdrl2015.rpg.abil;
 
 import java.util.List;
 
-import net.wombatrpgs.mrogueschema.characters.data.AbilityEffectMDO;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.travel.Step;
 import net.wombatrpgs.sdrl2015.rpg.travel.StepWait;
+import net.wombatrpgs.sdrlschema.characters.data.AbilityEffectMDO;
 
 /**
  * This is the core thing behind an ability.

@@ -10,10 +10,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import net.wombatrpgs.mrogueschema.cutscene.CharacterSetMDO;
-import net.wombatrpgs.mrogueschema.cutscene.data.ArchetypeEntryMDO;
-import net.wombatrpgs.mrogueschema.cutscene.data.ArchetypeMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
+import net.wombatrpgs.sdrlschema.cutscene.CharacterSetMDO;
+import net.wombatrpgs.sdrlschema.cutscene.data.ArchetypeEntryMDO;
+import net.wombatrpgs.sdrlschema.cutscene.data.ArchetypeMDO;
 
 /**
  * Manages a subset of a bunch of characters.

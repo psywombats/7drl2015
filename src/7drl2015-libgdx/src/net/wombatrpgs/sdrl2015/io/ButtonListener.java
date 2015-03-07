@@ -6,7 +6,7 @@
  */
 package net.wombatrpgs.sdrl2015.io;
 
-import net.wombatrpgs.mrogueschema.io.data.InputButton;
+import net.wombatrpgs.sdrlschema.io.data.InputButton;
 
 /**
  * Listens to meta-buttons. Simple use of observer pattern. Listeners can expect

@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import net.wombatrpgs.mrogueschema.maps.data.DirVector;
-import net.wombatrpgs.mrogueschema.maps.data.EightDir;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.scenes.SceneCommand;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
+import net.wombatrpgs.sdrlschema.maps.data.DirVector;
+import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 
 /**
  * A command to move a character a certain distance a certain direction,

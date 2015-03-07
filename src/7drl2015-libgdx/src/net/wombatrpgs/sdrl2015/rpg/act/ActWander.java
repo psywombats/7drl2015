@@ -7,9 +7,9 @@
 package net.wombatrpgs.sdrl2015.rpg.act;
 
 import net.wombatrpgs.mgns.core.Annotations.Path;
-import net.wombatrpgs.mrogueschema.maps.data.EightDir;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
+import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 
 /**
  * Wanders aimlessly.

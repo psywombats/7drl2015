@@ -10,11 +10,11 @@ import java.util.Stack;
 
 import com.badlogic.gdx.Gdx;
 
-import net.wombatrpgs.mrogueschema.io.data.InputButton;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Disposable;
 import net.wombatrpgs.sdrl2015.io.ButtonListener;
 import net.wombatrpgs.sdrl2015.io.audio.MusicObject;
+import net.wombatrpgs.sdrlschema.io.data.InputButton;
 
 /**
  * A bunch of screens stacked on top of each other that make up the game

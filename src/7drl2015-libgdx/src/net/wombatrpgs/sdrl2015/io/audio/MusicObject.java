@@ -6,7 +6,7 @@
  */
 package net.wombatrpgs.sdrl2015.io.audio;
 
-import net.wombatrpgs.mrogueschema.audio.MusicMDO;
+import net.wombatrpgs.sdrlschema.audio.MusicMDO;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;

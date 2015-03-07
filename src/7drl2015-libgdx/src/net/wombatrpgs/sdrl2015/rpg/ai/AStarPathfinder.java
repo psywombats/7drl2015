@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import net.wombatrpgs.mrogueschema.maps.data.DirVector;
-import net.wombatrpgs.mrogueschema.maps.data.EightDir;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
+import net.wombatrpgs.sdrlschema.maps.data.DirVector;
+import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 
 /**
  * Pathfinds towards a destination. Ooooh, spooky! It uses black magic to work

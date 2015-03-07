@@ -6,13 +6,13 @@
  */
 package net.wombatrpgs.sdrl2015.rpg.item;
 
-import net.wombatrpgs.mrogueschema.items.GeneratedPotionMDO;
-import net.wombatrpgs.mrogueschema.items.PotionPrefixMDO;
-import net.wombatrpgs.mrogueschema.items.PotionTypeMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.StatsModifier;
+import net.wombatrpgs.sdrlschema.items.GeneratedPotionMDO;
+import net.wombatrpgs.sdrlschema.items.PotionPrefixMDO;
+import net.wombatrpgs.sdrlschema.items.PotionTypeMDO;
 
 /**
  * A potion that was pieced together from the potion generator.

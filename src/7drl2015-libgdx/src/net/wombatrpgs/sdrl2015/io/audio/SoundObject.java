@@ -9,8 +9,8 @@ package net.wombatrpgs.sdrl2015.io.audio;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
 
-import net.wombatrpgs.mrogueschema.audio.SoundMDO;
-import net.wombatrpgs.mrogueschema.audio.data.RepeatType;
+import net.wombatrpgs.sdrlschema.audio.SoundMDO;
+import net.wombatrpgs.sdrlschema.audio.data.RepeatType;
 
 /**
  * A sound effect map object.

@@ -6,11 +6,11 @@
  */
 package net.wombatrpgs.sdrl2015.rpg;
 
-import net.wombatrpgs.mrogueschema.characters.EnemyMDO;
-import net.wombatrpgs.mrogueschema.characters.HeroMDO;
-import net.wombatrpgs.mrogueschema.characters.data.CharacterMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.Level;
+import net.wombatrpgs.sdrlschema.characters.EnemyMDO;
+import net.wombatrpgs.sdrlschema.characters.HeroMDO;
+import net.wombatrpgs.sdrlschema.characters.data.CharacterMDO;
 
 /**
  * A factory for creating characters from a generic MDO.

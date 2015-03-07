@@ -6,12 +6,12 @@
  */
 package net.wombatrpgs.sdrl2015.rpg.ai.seq;
 
-import net.wombatrpgs.mrogueschema.characters.data.AbilityTargetType;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.act.ActAbilByTarget;
 import net.wombatrpgs.sdrl2015.rpg.ai.BTAction;
 import net.wombatrpgs.sdrl2015.rpg.ai.BTCondition;
 import net.wombatrpgs.sdrl2015.rpg.ai.BTSequence;
+import net.wombatrpgs.sdrlschema.characters.data.AbilityTargetType;
 
 /**
  * Randomly use an ability with the specified target type if available.

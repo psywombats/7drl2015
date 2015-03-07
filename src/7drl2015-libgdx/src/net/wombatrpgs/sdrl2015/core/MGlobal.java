@@ -16,9 +16,6 @@ import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 
-import net.wombatrpgs.mrogueschema.settings.GraphicsSettingsMDO;
-import net.wombatrpgs.mrogueschema.settings.UISettingsMDO;
-import net.wombatrpgs.mrogueschema.settings.WindowSettingsMDO;
 import net.wombatrpgs.sdrl2015.core.reporters.*;
 import net.wombatrpgs.sdrl2015.graphics.GraphicsSettings;
 import net.wombatrpgs.sdrl2015.io.DefaultKeymap;
@@ -34,6 +31,9 @@ import net.wombatrpgs.sdrl2015.screen.ScreenStack;
 import net.wombatrpgs.sdrl2015.screen.WindowSettings;
 import net.wombatrpgs.sdrl2015.screen.instances.TitleScreen;
 import net.wombatrpgs.sdrl2015.ui.UISettings;
+import net.wombatrpgs.sdrlschema.settings.GraphicsSettingsMDO;
+import net.wombatrpgs.sdrlschema.settings.UISettingsMDO;
+import net.wombatrpgs.sdrlschema.settings.WindowSettingsMDO;
 
 /**
  * Rainfall's version of the MGNDB global.

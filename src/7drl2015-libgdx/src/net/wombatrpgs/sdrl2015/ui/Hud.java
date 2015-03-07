@@ -13,14 +13,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.BitmapFont.HAlignment;
 
-import net.wombatrpgs.mrogueschema.maps.data.OrthoDir;
-import net.wombatrpgs.mrogueschema.ui.FontMDO;
-import net.wombatrpgs.mrogueschema.ui.HudMDO;
-import net.wombatrpgs.mrogueschema.ui.NumberSetMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.ui.text.FontHolder;
 import net.wombatrpgs.sdrl2015.ui.text.TextBoxFormat;
+import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
+import net.wombatrpgs.sdrlschema.ui.FontMDO;
+import net.wombatrpgs.sdrlschema.ui.HudMDO;
+import net.wombatrpgs.sdrlschema.ui.NumberSetMDO;
 
 /**
  * Heads-up display! Everybody's favorite piece of UI. This version is stuck

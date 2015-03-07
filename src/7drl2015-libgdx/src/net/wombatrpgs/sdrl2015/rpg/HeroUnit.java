@@ -6,8 +6,8 @@
  */
 package net.wombatrpgs.sdrl2015.rpg;
 
-import net.wombatrpgs.mrogueschema.characters.data.CharacterMDO;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
+import net.wombatrpgs.sdrlschema.characters.data.CharacterMDO;
 
 /**
  * Overrides the hero unit because heroes are **special**.

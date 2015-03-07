@@ -3,10 +3,6 @@ package net.wombatrpgs.sdrl2015.screen.instances;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 
-import net.wombatrpgs.mrogueschema.audio.MusicMDO;
-import net.wombatrpgs.mrogueschema.io.data.InputCommand;
-import net.wombatrpgs.mrogueschema.settings.IntroSettingsMDO;
-import net.wombatrpgs.mrogueschema.settings.TitleSettingsMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.io.audio.MusicObject;
@@ -17,6 +13,10 @@ import net.wombatrpgs.sdrl2015.maps.objects.TimerListener;
 import net.wombatrpgs.sdrl2015.maps.objects.TimerObject;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.Screen;
+import net.wombatrpgs.sdrlschema.audio.MusicMDO;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
+import net.wombatrpgs.sdrlschema.settings.IntroSettingsMDO;
+import net.wombatrpgs.sdrlschema.settings.TitleSettingsMDO;
 
 /**
  * FALL INTO MADNESS.

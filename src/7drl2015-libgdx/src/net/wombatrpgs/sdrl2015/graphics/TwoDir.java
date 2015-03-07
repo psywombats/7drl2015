@@ -6,11 +6,11 @@
  */
 package net.wombatrpgs.sdrl2015.graphics;
 
-import net.wombatrpgs.mrogueschema.graphics.AnimationMDO;
-import net.wombatrpgs.mrogueschema.graphics.TwoDirMDO;
-import net.wombatrpgs.mrogueschema.maps.data.OrthoDir;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
+import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
+import net.wombatrpgs.sdrlschema.graphics.TwoDirMDO;
+import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
 
 /**
  * The same thing as a FourDir, but with a left/right facing only.

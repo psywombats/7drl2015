@@ -9,7 +9,7 @@ package net.wombatrpgs.sdrl2015.rpg.ai;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.wombatrpgs.mrogueschema.maps.data.EightDir;
+import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 
 /**
  * A partial path to a destination on a map. Only stores destination, not

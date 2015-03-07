@@ -13,10 +13,6 @@ import com.badlogic.gdx.graphics.Pixmap.Blending;
 import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.Texture.TextureWrap;
 
-import net.wombatrpgs.mrogueschema.characters.HeroMDO;
-import net.wombatrpgs.mrogueschema.io.data.InputCommand;
-import net.wombatrpgs.mrogueschema.maps.data.EightDir;
-import net.wombatrpgs.mrogueschema.settings.DeathSettingsMDO;
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.io.CommandListener;
@@ -26,6 +22,10 @@ import net.wombatrpgs.sdrl2015.rpg.act.ActStep;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.instances.GameOverScreen;
+import net.wombatrpgs.sdrlschema.characters.HeroMDO;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
+import net.wombatrpgs.sdrlschema.maps.data.EightDir;
+import net.wombatrpgs.sdrlschema.settings.DeathSettingsMDO;
 
 /**
  * Placeholder class for the protagonist player.
