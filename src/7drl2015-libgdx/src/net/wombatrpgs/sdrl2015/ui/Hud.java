@@ -18,6 +18,7 @@ import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.ui.text.FontHolder;
 import net.wombatrpgs.sdrl2015.ui.text.TextBoxFormat;
 import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
+import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 import net.wombatrpgs.sdrlschema.ui.FontMDO;
 import net.wombatrpgs.sdrlschema.ui.HudMDO;
 import net.wombatrpgs.sdrlschema.ui.NumberSetMDO;
@@ -108,8 +109,8 @@ public class Hud extends UIElement {
 	@Override
 	public void update(float elapsed) {
 		if (awaitingReset) {
-			currentHPDisplay = MGlobal.hero.getStats().hp;
-			currentMPDisplay = MGlobal.hero.getStats().mp;
+			currentHPDisplay = MGlobal.hero.getUnit().get(Stat.HP);
+			currentMPDisplay = MGlobal.hero.getUnit().get(Stat.MHP);
 			awaitingReset = false;
 			timeToDigitHP = 0;
 			timeToDigitMP = 0;
@@ -118,23 +119,23 @@ public class Hud extends UIElement {
 		timeToDigitMP += elapsed;
 		while (timeToDigitHP > mdo.digitDelay) {
 			timeToDigitHP -= mdo.digitDelay;
-			if (currentHPDisplay > MGlobal.hero.getStats().hp) {
+			if (currentHPDisplay > MGlobal.hero.getUnit().get(Stat.HP)) {
 				currentHPDisplay -= 1;
-			} else if (currentHPDisplay < MGlobal.hero.getStats().hp){
+			} else if (currentHPDisplay < MGlobal.hero.getUnit().get(Stat.HP)) {
 				currentHPDisplay += 1;
 			}
 		}
 		while (timeToDigitMP > mdo.mpDigitDelay) {
 			timeToDigitMP -= mdo.mpDigitDelay;
-			if (currentMPDisplay > MGlobal.hero.getStats().mp) {
+			if (currentMPDisplay > MGlobal.hero.getUnit().get(Stat.MP)) {
 				currentMPDisplay -= 1;
-			} else if (currentMPDisplay < MGlobal.hero.getStats().mp){
+			} else if (currentMPDisplay < MGlobal.hero.getUnit().get(Stat.MP)){
 				currentMPDisplay += 1;
 			}
 		}
-		mhp = MGlobal.hero.getStats().mhp;
+		mhp = MGlobal.hero.getUnit().get(Stat.HP);
 		hp = currentHPDisplay;
-		mmp = MGlobal.hero.getStats().mmp;
+		mmp = MGlobal.hero.getUnit().get(Stat.MMP);
 		mp = currentMPDisplay;
 	}
 
@@ -218,8 +219,8 @@ public class Hud extends UIElement {
 	 * Forces the HUD to update its numerical displays.
 	 */
 	public void forceReset() {
-		currentHPDisplay = MGlobal.hero.getStats().hp;
-		currentMPDisplay = MGlobal.hero.getStats().mp;
+		currentHPDisplay = MGlobal.hero.getUnit().get(Stat.HP);
+		currentMPDisplay = MGlobal.hero.getUnit().get(Stat.MHP);
 	}
 	
 	/** A huge awful method for HP bars */

@@ -23,6 +23,7 @@ import net.wombatrpgs.sdrl2015.screen.instances.GameOverScreen;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 import net.wombatrpgs.sdrlschema.rpg.HeroMDO;
+import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
 /**
  * Placeholder class for the protagonist player.
@@ -183,15 +184,16 @@ public class Hero extends CharacterEvent implements CommandListener {
 		if (viewTex != null) {
 			p.dispose();
 		}
+		int vision = getUnit().get(Stat.VISION);
 		p = new Pixmap(parent.getWidth(), parent.getHeight(), Format.RGBA8888);
 		viewCache = new boolean[parent.getHeight()][parent.getWidth()];
 		Pixmap.setBlending(Blending.SourceOver);
 		p.setColor(Color.BLACK);
 		p.fillRectangle(0, 0, parent.getWidth(), parent.getHeight());
-		int startTX = tileX - getStats().vision;
-		int startTY = tileY - getStats().vision;
-		int endTX = tileX + getStats().vision;
-		int endTY = tileY + getStats().vision;
+		int startTX = tileX - vision;
+		int startTY = tileY - vision;
+		int endTX = tileX + vision;
+		int endTY = tileY + vision;
 		if (startTX < 0) startTX = 0;
 		if (startTY < 0) startTY = 0;
 		if (endTX > parent.getWidth()) endTX = parent.getWidth();

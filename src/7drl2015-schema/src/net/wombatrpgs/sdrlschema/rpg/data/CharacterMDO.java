@@ -14,6 +14,7 @@ import net.wombatrpgs.mgns.core.Annotations.SchemaLink;
 import net.wombatrpgs.mgns.core.MainSchema;
 import net.wombatrpgs.sdrlschema.graphics.DirMDO;
 import net.wombatrpgs.sdrlschema.rpg.AbilityMDO;
+import net.wombatrpgs.sdrlschema.rpg.stats.StatSetMDO;
 
 /**
  * An interactive component on the map is called an "Event." (it's an entity,
@@ -35,9 +36,8 @@ public class CharacterMDO extends MainSchema {
 //	@Nullable
 //	public String soundHurt;
 	
-	@Desc("Stats - RPG-like character base stats")
-	@InlineSchema(StatsMDO.class)
-	public StatsMDO stats;
+	@InlineSchema(StatSetMDO.class)
+	public StatSetMDO stats;
 	
 	@Desc("Abilities - available to the player, maybe used by AI?")
 	@SchemaLink(AbilityMDO.class)

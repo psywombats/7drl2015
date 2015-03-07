@@ -8,14 +8,12 @@ package net.wombatrpgs.sdrl2015.rpg.act;
 
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 
-
-
 /**
  * An action that a character can perform to consume its turn.
  */
 public abstract class Action {
 	
-	protected static final int BASE_COST = 1000;
+	public static final int BASE_COST = 1000;
 	
 	protected CharacterEvent actor;
 	
@@ -53,7 +51,7 @@ public abstract class Action {
 	 * @return					The cost associated with this action, in ticks
 	 */
 	public final int getCost() {
-		return (int) Math.ceil((float) baseCost() * actor.getStats().getSpeedMod());
+		return (int) Math.ceil((float) baseCost() * actor.getUnit().calcSpeedMod());
 	}
 	
 	/**

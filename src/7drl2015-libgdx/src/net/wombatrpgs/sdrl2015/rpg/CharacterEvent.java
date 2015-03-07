@@ -29,6 +29,7 @@ import net.wombatrpgs.sdrlschema.graphics.DirMDO;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
 import net.wombatrpgs.sdrlschema.rpg.data.CharacterMDO;
+import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
 /**
  * A character event is an event with an MDO and an animation that looks kind of
@@ -124,9 +125,6 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	/**
 	 * @return The current appearance of this character */
 	public FacesAnimation getAppearance() { return appearance; }
-	
-	/** @return The RPG-like stats of this character */
-	public Stats getStats() { return unit.getStats(); }
 	
 	/** @return The RPG representation of this character */
 	public GameUnit getUnit() { return unit; }
@@ -449,8 +447,11 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	 * @return					True if that tile is visible, false otherwise
 	 */
 	public boolean inLoS(int targetX, int targetY) {
-		if (euclideanTileDistanceTo(targetX, targetY) > getStats().vision) return false;
-		return rayExistsTo(targetX, targetY, rayLoS);
+		if (euclideanTileDistanceTo(targetX, targetY) > unit.get(Stat.VISION)) {
+			return false;
+		} else {
+			return rayExistsTo(targetX, targetY, rayLoS);
+		}
 	}
 	
 	/**
