@@ -8,15 +8,6 @@ package net.wombatrpgs.sdrl2015.rpg.abil;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrlschema.rpg.data.AbilityEffectMDO;
-import net.wombatrpgs.sdrlschema.rpg.effects.AbilArmorPierceMDO;
-import net.wombatrpgs.sdrlschema.rpg.effects.AbilFixedDamageMDO;
-import net.wombatrpgs.sdrlschema.rpg.effects.AbilHalveHpMDO;
-import net.wombatrpgs.sdrlschema.rpg.effects.AbilMagicDamageMDO;
-import net.wombatrpgs.sdrlschema.rpg.effects.AbilMeleeAttackMDO;
-import net.wombatrpgs.sdrlschema.rpg.effects.AbilPhysicalDamageMDO;
-import net.wombatrpgs.sdrlschema.rpg.effects.AbilPoisonMDO;
-import net.wombatrpgs.sdrlschema.rpg.effects.AbilTeleportMDO;
-import net.wombatrpgs.sdrlschema.rpg.effects.AbilVampirismMDO;
 
 /**
  * Another one of these shitty instanceof/getclass constructions for MDOs.
@@ -41,28 +32,8 @@ public class AbilEffectFactory {
 	 * @return
 	 */
 	public static AbilEffect createEffect(AbilityEffectMDO mdo, Ability abil) {
-		if (AbilMeleeAttackMDO.class.isAssignableFrom(mdo.getClass())) {
-			return new AbilMeleeAttack((AbilMeleeAttackMDO) mdo, abil);
-		} else if (AbilVampirismMDO.class.isAssignableFrom(mdo.getClass())) {
-			return new AbilVampirism((AbilVampirismMDO) mdo, abil);
-		} else if (AbilFixedDamageMDO.class.isAssignableFrom(mdo.getClass())) {
-			return new AbilFixedDamage((AbilFixedDamageMDO) mdo, abil);
-		} else if (AbilPoisonMDO.class.isAssignableFrom(mdo.getClass())) {
-			return new AbilPoison((AbilPoisonMDO) mdo, abil);
-		} else if (AbilTeleportMDO.class.isAssignableFrom(mdo.getClass())) {
-			return new AbilTeleport((AbilTeleportMDO) mdo, abil);
-		} else if (AbilHalveHpMDO.class.isAssignableFrom(mdo.getClass())) {
-			return new AbilHalveHP((AbilHalveHpMDO) mdo, abil);
-		} else if (AbilPhysicalDamageMDO.class.isAssignableFrom(mdo.getClass())) {
-			return new AbilPhysicalDamage((AbilPhysicalDamageMDO) mdo, abil);
-		} else if (AbilMagicDamageMDO.class.isAssignableFrom(mdo.getClass())) {
-			return new AbilMagicDamage((AbilMagicDamageMDO) mdo, abil);
-		} else if (AbilArmorPierceMDO.class.isAssignableFrom(mdo.getClass())) {
-			return new AbilArmorPierce((AbilArmorPierceMDO) mdo, abil);
-		} else {
-			MGlobal.reporter.err("Unknown ability type " + mdo);
-			return null;
-		}
+		MGlobal.reporter.err("Unknown ability type " + mdo);
+		return null;
 	}
 
 }
