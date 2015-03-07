@@ -6,16 +6,18 @@
 	"mapWidth" : 35,
 	"mapHeight" : 30,
 	"danger" : 0,
-	"generator" : "generator_furnished",
+	"generator" : "generator_nodecs",
 	"enemies" : "monstergen_default",
 	"items" : "itemgen_standard",
 	"goodItems" : "itemgen_loot",
 	"effect" : "effect_los",
-	"floor" : "1",
+	"floor" : "-1",
 	"bgm" : "None",
 	"characters" : [ ],
-	"pathsUp" : [ ],
+	"pathsUp" : [
+		"map_test"
+	],
 	"pathsDown" : [
-		"map_01"
+		"map_test"
 	]
 }
