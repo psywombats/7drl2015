@@ -3,6 +3,6 @@
 	"subfolder" : "",
 	"name" : "",
 	"description" : "Engine gets this by name",
-	"pre" : "scene_pre",
-	"post" : "scene_post"
+	"pre" : "teleport_pre.scene",
+	"post" : "teleport_post.scene"
 }

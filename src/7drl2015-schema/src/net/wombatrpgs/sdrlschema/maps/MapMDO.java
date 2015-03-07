@@ -13,7 +13,6 @@ import net.wombatrpgs.mgns.core.MainSchema;
 import net.wombatrpgs.mgns.core.Annotations.Desc;
 import net.wombatrpgs.sdrlschema.audio.MusicMDO;
 import net.wombatrpgs.sdrlschema.characters.data.CharacterMDO;
-import net.wombatrpgs.sdrlschema.cutscene.data.SceneParentMDO;
 import net.wombatrpgs.sdrlschema.graphics.effects.data.EffectMDO;
 import net.wombatrpgs.sdrlschema.items.ItemGeneratorMDO;
 
@@ -56,11 +55,6 @@ public class MapMDO extends MainSchema {
 	@SchemaLink(EffectMDO.class)
 	@Nullable
 	public String effect;
-	
-	@Desc("Cutscene - scene or set of scenes that play on first entry")
-	@SchemaLink(SceneParentMDO.class)
-	@Nullable
-	public String scene;
 	
 	@Desc("Floor # - displays in UI")
 	public String floor;

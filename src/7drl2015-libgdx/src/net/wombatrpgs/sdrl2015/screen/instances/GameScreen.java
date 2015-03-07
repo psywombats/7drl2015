@@ -7,13 +7,13 @@
 package net.wombatrpgs.sdrl2015.screen.instances;
 
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Color;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.io.command.CMapGame;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.Loc;
 import net.wombatrpgs.sdrl2015.maps.events.Cursor;
-import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.settings.IntroSettingsMDO;
@@ -25,7 +25,6 @@ import net.wombatrpgs.sdrlschema.settings.IntroSettingsMDO;
 public class GameScreen extends Screen {
 	
 	protected Level map;
-	protected SceneParser introParser, tutorialParser;
 	protected Cursor cursor;
 	
 	/**
@@ -35,6 +34,7 @@ public class GameScreen extends Screen {
 	public GameScreen() {
 		super();
 		MGlobal.levelManager.setScreen(this);
+		tint = new Color(1, 1, 1, 1);
 		
 		IntroSettingsMDO introMDO=MGlobal.data.getEntryFor("default_intro", IntroSettingsMDO.class);
 		map = MGlobal.levelManager.getLevel(introMDO.map);
@@ -42,10 +42,6 @@ public class GameScreen extends Screen {
 		if (map.getBGM() != null) {
 			MGlobal.screens.playMusic(map.getBGM(), false);
 		}
-		introParser = MGlobal.levelManager.getCutscene(introMDO.scene);
-		assets.add(introParser);
-		tutorialParser = MGlobal.levelManager.getCutscene(introMDO.tutorialScene);
-		assets.add(tutorialParser);
 		
 		addObject(map);
 		pushCommandContext(new CMapGame());
@@ -102,20 +98,6 @@ public class GameScreen extends Screen {
 			getCamera().track(MGlobal.hero);
 			getCamera().update(0);
 			MGlobal.hero.refreshVisibilityMap();
-		}
-	}
-
-	/**
-	 * @see net.wombatrpgs.mrogue.screen.Screen#update(float)
-	 */
-	@Override
-	public void update(float elapsed) {
-		super.update(elapsed);
-		if (!introParser.isRunning() && !introParser.hasExecuted()) {
-			introParser.run();
-		}
-		if (introParser.hasExecuted() && !tutorialParser.isRunning() && !tutorialParser.hasExecuted()) {
-			tutorialParser.run();
 		}
 	}
 

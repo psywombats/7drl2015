@@ -12,7 +12,6 @@ import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
-import net.wombatrpgs.sdrlschema.cutscene.SceneMDO;
 import net.wombatrpgs.sdrlschema.settings.TeleportSettingsMDO;
 
 /**
@@ -32,10 +31,10 @@ public class TeleportManager implements Queueable {
 	public TeleportManager(TeleportSettingsMDO mdo) {
 		this.mdo = mdo;
 		preParser = new SceneParser(
-				MGlobal.data.getEntryFor(mdo.pre, SceneMDO.class),
+				mdo.pre,
 				MGlobal.levelManager.getScreen());
 		postParser = new SceneParser(
-				MGlobal.data.getEntryFor(mdo.post, SceneMDO.class),
+				mdo.post,
 				MGlobal.levelManager.getScreen());
 	}
 	

@@ -13,19 +13,16 @@ import com.badlogic.gdx.graphics.Pixmap.Blending;
 import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.Texture.TextureWrap;
 
-import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.io.CommandListener;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.rpg.act.ActStep;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
-import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.instances.GameOverScreen;
 import net.wombatrpgs.sdrlschema.characters.HeroMDO;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
-import net.wombatrpgs.sdrlschema.settings.DeathSettingsMDO;
 
 /**
  * Placeholder class for the protagonist player.
@@ -35,8 +32,6 @@ public class Hero extends CharacterEvent implements CommandListener {
 	public static final int ABILITIES_MAX = 6;
 	
 	protected static final String HERO_DEFAULT = "hero_default";
-	
-	protected SceneParser deathScene;
 	
 	protected ActStep step;
 	// to facilitate shader calls, viewtex is like a b/w image version of cache
@@ -59,10 +54,6 @@ public class Hero extends CharacterEvent implements CommandListener {
 		this.parent = parent;
 		MGlobal.hero = this;
 		step = new ActStep(this);
-		DeathSettingsMDO deathMDO = MGlobal.data.getEntryFor(
-				Constants.KEY_DEATH, DeathSettingsMDO.class);
-		deathScene = MGlobal.levelManager.getCutscene(deathMDO.scene);
-		assets.add(deathScene);
 	}
 	
 	/**
@@ -134,16 +125,9 @@ public class Hero extends CharacterEvent implements CommandListener {
 	public void update(float elapsed) {
 		super.update(elapsed);
 		if (unit.isDead()) {
-			if (!deathScene.hasExecuted()) {
-				if (!deathScene.isRunning()) {
-					deathScene.run();
-					MGlobal.screens.playMusic(null, false);
-				}
-			} else {
-				MGlobal.screens.pop();
-				MGlobal.screens.push(new GameOverScreen());
-				MGlobal.screens.playMusic(null, false);
-			}
+			MGlobal.screens.pop();
+			MGlobal.screens.push(new GameOverScreen());
+			MGlobal.screens.playMusic(null, false);
 		}
 		if (blockingAbil != null) {
 			if (blockingAbil.useAndBlock()) {

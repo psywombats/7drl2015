@@ -124,10 +124,6 @@ public class Level extends ScreenObject implements Turnable {
 		} else if (itemGen != null) {
 			lootGen = itemGen;
 		}
-		if (MapThing.mdoHasProperty(mdo.scene)) {
-			scene = MGlobal.levelManager.getCutscene(mdo.scene);
-			assets.add(scene);
-		}
 		if (MapThing.mdoHasProperty(mdo.bgm)) {
 			bgm = new MusicObject(MGlobal.data.getEntryFor(mdo.bgm, MusicMDO.class));
 			assets.add(bgm);

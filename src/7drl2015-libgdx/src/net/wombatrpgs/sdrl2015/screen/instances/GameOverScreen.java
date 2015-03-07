@@ -6,7 +6,6 @@ import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.io.command.CMapSplash;
 import net.wombatrpgs.sdrl2015.maps.objects.Picture;
-import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.settings.DeathSettingsMDO;
@@ -19,7 +18,6 @@ public class GameOverScreen extends Screen {
 	protected DeathSettingsMDO mdo;
 	
 	protected Picture screen;
-	protected SceneParser immParser;
 	protected boolean shouldIntroduce;
 
 	/**
@@ -33,9 +31,6 @@ public class GameOverScreen extends Screen {
 		addObject(screen);
 		pushCommandContext(new CMapSplash());
 		shouldIntroduce = false;
-		
-		immParser = MGlobal.levelManager.getCutscene(mdo.immScene, this);
-		assets.add(immParser);
 		
 		init();
 	}
@@ -67,13 +62,8 @@ public class GameOverScreen extends Screen {
 	@Override
 	public void update(float elapsed) {
 		super.update(elapsed);
-		if (!immParser.isRunning() && !immParser.hasExecuted()) {
-			immParser.run();
-		}
 		if (shouldIntroduce) {
-			if (immParser.hasExecuted()) {
-				MGlobal.newGame();
-			}
+			MGlobal.newGame();
 		}
 	}
 

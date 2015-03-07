@@ -9,8 +9,6 @@ package net.wombatrpgs.sdrl2015.scenes;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.badlogic.gdx.assets.AssetManager;
-
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.FinishListener;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
@@ -21,8 +19,8 @@ import net.wombatrpgs.sdrl2015.io.command.CMapScene;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.screen.Screen;
-import net.wombatrpgs.sdrlschema.cutscene.SceneMDO;
-import net.wombatrpgs.sdrlschema.cutscene.data.TriggerRepeatType;
+
+import com.badlogic.gdx.assets.AssetManager;
 
 /**
  * This thing takes a scene and then hijacks its parent level into doing its
@@ -31,7 +29,6 @@ import net.wombatrpgs.sdrlschema.cutscene.data.TriggerRepeatType;
 public class SceneParser implements	Updateable,
 									Queueable {
 	
-	protected SceneMDO mdo;
 	protected Screen parent;
 	
 	protected SceneParser childParser;
@@ -39,21 +36,9 @@ public class SceneParser implements	Updateable,
 	protected List<MapEvent> controlledEvents;
 	protected List<FinishListener> listeners;
 	protected CommandMap ourMap;
-	protected CharacterSet charas;
 	protected String filename;
 	protected boolean executed, running;
 	protected float timeSinceStart;
-	
-	/**
-	 * Creates a new scene parser from data. Does not autoplay.
-	 * @param 	mdo				The data to create from
-	 * @param	parent			The screen we'll be parsing on
-	 */
-	public SceneParser(SceneMDO mdo, Screen parent) {
-		this.mdo = mdo;
-		this.parent = parent;
-		init();
-	}
 	
 	/**
 	 * Creates a new scene parser for a given file. No autoplay. Assumes no
@@ -62,27 +47,17 @@ public class SceneParser implements	Updateable,
 	 * @param	parent			The screen to make for
 	 */
 	public SceneParser(String filename, Screen parent) {
-		this.mdo = new SceneMDO();
 		this.parent = parent;
-		mdo.file = filename;
-		mdo.repeat = TriggerRepeatType.RUN_ONLY_ONCE;
-		init();
+		this.filename = Constants.SCENES_DIR + filename;
+		
+		this.executed = false;
+		this.running = false;
+		this.controlledEvents = new ArrayList<MapEvent>();
+		this.listeners = new ArrayList<FinishListener>();
+		this.timeSinceStart = 0;
+		
+		parent.addUChild(this);
 	}
-	
-	/**
-	 * Creates a new scene parser for a given file. No autoplay. Assumes no
-	 * repeat. Substitutes character names on the supplied list.
-	 * @param	fileName		The filename to load, relative to scenes dir
-	 * @param	parent			The screen to make for
-	 * @param	charas			The character substitutions to make
-	 */
-	public SceneParser(String filename, Screen parent, CharacterSet charas) {
-		this(filename, parent);
-		this.charas = charas;
-	}
-	
-	/** @retrun The character substitutions to make in these commands */
-	public CharacterSet getCharas() { return charas; }
 	
 	/** @return The screen we're running on */
 	public Screen getScreen() { return parent; }
@@ -93,7 +68,7 @@ public class SceneParser implements	Updateable,
 	 */
 	@Override
 	public void queueRequiredAssets(AssetManager manager) {
-		manager.load(Constants.SCENES_DIR + mdo.file, SceneData.class);
+		manager.load(filename, SceneData.class);
 	}
 
 	/**
@@ -188,7 +163,7 @@ public class SceneParser implements	Updateable,
 	 * @param	level			The level this command was executed on
 	 */
 	public void run() {
-		if (!running && (!executed || mdo.repeat == TriggerRepeatType.RUN_EVERY_TIME)) {
+		if (!running) {
 			if (executed) reset();
 			forceRun();
 		}
@@ -246,20 +221,6 @@ public class SceneParser implements	Updateable,
 			listener.onFinish();
 		}
 		listeners.clear();
-	}
-	
-	/**
-	 * Common post-constructor.
-	 */
-	protected void init() {
-		this.executed = false;
-		this.running = false;
-		this.filename = Constants.SCENES_DIR + mdo.file;
-		this.controlledEvents = new ArrayList<MapEvent>();
-		this.listeners = new ArrayList<FinishListener>();
-		this.timeSinceStart = 0;
-		
-		parent.addUChild(this);
 	}
 
 }

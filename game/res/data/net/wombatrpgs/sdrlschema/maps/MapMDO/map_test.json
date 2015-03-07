@@ -1,6 +1,6 @@
 {
-	"key" : "map_00",
-	"subfolder" : "part1",
+	"key" : "map_test",
+	"subfolder" : "",
 	"name" : "",
 	"description" : "                   ",
 	"mapWidth" : 35,
@@ -11,9 +11,8 @@
 	"items" : "itemgen_standard",
 	"goodItems" : "itemgen_loot",
 	"effect" : "effect_los",
-	"scene" : "None",
 	"floor" : "1",
-	"bgm" : "music_ambient",
+	"bgm" : "None",
 	"characters" : [ ],
 	"pathsUp" : [ ],
 	"pathsDown" : [

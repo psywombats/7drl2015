@@ -9,23 +9,13 @@ package net.wombatrpgs.sdrlschema.settings;
 import net.wombatrpgs.mgns.core.Annotations.Desc;
 import net.wombatrpgs.mgns.core.Annotations.FileLink;
 import net.wombatrpgs.mgns.core.Annotations.Path;
-import net.wombatrpgs.mgns.core.Annotations.SchemaLink;
 import net.wombatrpgs.mgns.core.MainSchema;
-import net.wombatrpgs.sdrlschema.cutscene.data.SceneParentMDO;
 
 /**
  * What happens when you bite it.
  */
 @Path("settings/")
 public class DeathSettingsMDO extends MainSchema {
-	
-	@Desc("Drama scene - the scene to play when you croak")
-	@SchemaLink(SceneParentMDO.class)
-	public String scene;
-	
-	@Desc("Tech scene - the scene to play when you arrive on the go screen")
-	@SchemaLink(SceneParentMDO.class)
-	public String immScene;
 	
 	@Desc("Death image")
 	@FileLink("ui")

@@ -11,7 +11,7 @@ import net.wombatrpgs.sdrl2015.maps.MapThing;
 import net.wombatrpgs.sdrl2015.maps.objects.Picture;
 import net.wombatrpgs.sdrl2015.maps.objects.TimerListener;
 import net.wombatrpgs.sdrl2015.maps.objects.TimerObject;
-import net.wombatrpgs.sdrl2015.scenes.SceneParser;
+import net.wombatrpgs.sdrl2015.rpg.Hero;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrlschema.audio.MusicMDO;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
@@ -25,7 +25,6 @@ public class TitleScreen extends Screen {
 	
 	protected TitleSettingsMDO mdo;
 	protected Picture screen, prompt;
-	protected SceneParser introParser, inParser, outParser;
 	protected TimerObject timer;
 	protected MusicObject music;
 	protected boolean shouldIntroduce;
@@ -35,6 +34,7 @@ public class TitleScreen extends Screen {
 	 */
 	public TitleScreen() {
 		super();
+		tint = new Color(1, 1, 1, 1);
 		mdo = MGlobal.data.getEntryFor(Constants.KEY_TITLE, TitleSettingsMDO.class);
 		screen = new Picture(mdo.bg, 0, 0, 0);
 		assets.add(screen);
@@ -43,17 +43,14 @@ public class TitleScreen extends Screen {
 		shouldIntroduce = false;
 		
 		IntroSettingsMDO introMDO=MGlobal.data.getEntryFor(Constants.KEY_INTRO, IntroSettingsMDO.class);
-		introParser = MGlobal.levelManager.getCutscene(introMDO.titleScene, this);
-		inParser = MGlobal.levelManager.getCutscene(introMDO.immScene, this);
-		outParser = MGlobal.levelManager.getCutscene(introMDO.outScene, this);
-		assets.add(introParser);
-		assets.add(inParser);
-		assets.add(outParser);
 		
 		if (MapThing.mdoHasProperty(introMDO.music)) {
 			music = new MusicObject(MGlobal.data.getEntryFor(introMDO.music, MusicMDO.class));
 			assets.add(music);
 		}
+		
+		MGlobal.hero = new Hero(MGlobal.levelManager.getActive());
+		assets.add(MGlobal.hero);
 		
 		prompt = new Picture(mdo.prompt, mdo.promptX, mdo.promptY, 1);
 		prompt.setColor(new Color(1, 1, 1, 0));
@@ -109,37 +106,12 @@ public class TitleScreen extends Screen {
 	@Override
 	public void update(float elapsed) {
 		super.update(elapsed);
-		if (!inParser.isRunning() && !inParser.hasExecuted()) {
-			inParser.run();
-			if (music != null) {
-				MGlobal.screens.playMusic(music, false);
-			}
-		}
 		if (shouldIntroduce) {
-			if (introParser.hasExecuted()) {
-				if (outParser.hasExecuted()) {
-					MGlobal.screens.pop();
-					Screen classScreen = new ClassScreen();
-					MGlobal.screens.push(classScreen);
-				} else if (!outParser.isRunning()) {
-					outParser.run();
-				}
-			} else if (!introParser.isRunning()) {
-				introParser.run();
-				removeObject(prompt);
-			}
+			MGlobal.screens.pop();
+			Screen gameScreen = new GameScreen();
+			MGlobal.screens.push(gameScreen);
+			gameScreen.init();
 		}
-	}
-
-	/**
-	 * @see net.wombatrpgs.mrogue.screen.Screen#dispose()
-	 */
-	@Override
-	public void dispose() {
-		super.dispose();
-//		if (music != null) {
-//			music.dispose();
-//		}
 	}
 
 }

@@ -6,7 +6,6 @@
  */
 package net.wombatrpgs.sdrl2015.rpg;
 
-import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrlschema.characters.data.CharacterMDO;
 
 /**
@@ -21,7 +20,6 @@ public class HeroUnit extends GameUnit {
 	 */
 	public HeroUnit(CharacterMDO mdo, Hero hero) {
 		super(mdo, hero);
-		setName(MGlobal.levelManager.getHeroName());
 	}
 
 	/**
