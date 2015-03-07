@@ -16,22 +16,12 @@ import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
-import net.wombatrpgs.sdrlschema.items.data.ItemMDO;
 
 /**
- * Woahhh this game has items now! These are things on the ground that you can
- * pick up and add to your inventory. Rather, this is the in-world
- * representation of that item. There's a separation between the logical item
- * that an RPG character uses and an ItemEvent that dies when the item is
- * picked up and spawned when dropped. This is a rather general superclass, and
- * it's abstract because all items will be things like potions, book, weapons,
- * etc.<br><br>
- * 
- * It extends action as it can be used as an action during a character's turn.
+ * Completely and totally gutted for 7DRL.
  */
 public abstract class Item extends Action implements Queueable {
 	
-	protected ItemMDO mdo;
 	protected GameUnit owner;
 	protected ItemEvent parent;
 	protected Graphic icon;
@@ -42,15 +32,11 @@ public abstract class Item extends Action implements Queueable {
 	 * Creates a new item from data.
 	 * @param	mdo				The data to generate from
 	 */
-	public Item(ItemMDO mdo) {
-		this.mdo = mdo;
+	public Item() {
 		assets = new ArrayList<Queueable>();
-		icon = new Graphic(Constants.ITEMS_DIR, mdo.icon);
+		icon = new Graphic(Constants.ITEMS_DIR, "potion_red.png");
 		assets.add(icon);
 	}
-	
-	/** @return The data this item generated from */
-	public ItemMDO getMDO() { return mdo; }
 	
 	/** @return The chara that has this item in their inventory */
 	public GameUnit getOwner() { return owner; }
@@ -64,14 +50,9 @@ public abstract class Item extends Action implements Queueable {
 	/** @param event The new in-map representation of this item */
 	public void setParent(ItemEvent event) { this.parent = event; }
 	
-	/** @return The in-game name of this object */
-	public String getName() { return mdo.name; }
+	public String getName() { return "TODO"; }
 	
-	/** @return The in-game description of this object */
-	public String getDescription() { return mdo.gameDesc; }
-	
-	/** @return How often this item will be discarded */
-	public float getRarity() { return mdo.rarity; }
+	public String getDescription() { return "TODO"; }
 	
 	/**
 	 * @see net.wombatrpgs.mrogue.core.Queueable#queueRequiredAssets

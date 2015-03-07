@@ -14,7 +14,6 @@ import net.wombatrpgs.mgns.core.Annotations.Desc;
 import net.wombatrpgs.sdrlschema.audio.MusicMDO;
 import net.wombatrpgs.sdrlschema.characters.data.CharacterMDO;
 import net.wombatrpgs.sdrlschema.graphics.effects.data.EffectMDO;
-import net.wombatrpgs.sdrlschema.items.ItemGeneratorMDO;
 
 /**
  * A map contains not only a TMX but other vital data as well!
@@ -40,16 +39,6 @@ public class MapMDO extends MainSchema {
 	@SchemaLink(MonsterGeneratorMDO.class)
 	@Nullable
 	public String enemies;
-	
-	@Desc("Item generator")
-	@SchemaLink(ItemGeneratorMDO.class)
-	@Nullable
-	public String items;
-	
-	@Desc("Boss loot item generator")
-	@SchemaLink(ItemGeneratorMDO.class)
-	@Nullable
-	public String goodItems;
 	
 	@Desc("Effect - graphical effect that plays on map, or none")
 	@SchemaLink(EffectMDO.class)

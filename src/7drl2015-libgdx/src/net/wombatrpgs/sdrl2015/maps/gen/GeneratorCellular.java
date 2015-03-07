@@ -276,7 +276,6 @@ public class GeneratorCellular extends MapGenerator {
 					spawnX = cr.ctx() + r.nextInt(3)-2;
 					spawnY = cr.cty() + r.nextInt(3)-2;
 				}
-				parent.addEvent(parent.getLootGenerator().createEvent(), spawnX, spawnY);
 			}
 			break;
 		}

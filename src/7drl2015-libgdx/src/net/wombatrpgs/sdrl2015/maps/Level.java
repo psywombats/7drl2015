@@ -33,7 +33,6 @@ import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrl2015.screen.ScreenObject;
 import net.wombatrpgs.sdrlschema.audio.MusicMDO;
 import net.wombatrpgs.sdrlschema.characters.data.CharacterMDO;
-import net.wombatrpgs.sdrlschema.items.ItemGeneratorMDO;
 import net.wombatrpgs.sdrlschema.maps.MapGeneratorMDO;
 import net.wombatrpgs.sdrlschema.maps.MapMDO;
 import net.wombatrpgs.sdrlschema.maps.MonsterGeneratorMDO;
@@ -81,7 +80,6 @@ public class Level extends ScreenObject implements Turnable {
 	// MR mappy stuff
 	protected int mapWidth, mapHeight;
 	protected MapGenerator mapGen;
-	protected ItemGenerator itemGen, lootGen;
 	protected MonsterGenerator monGen;
 	protected SceneParser scene;
 	
@@ -111,18 +109,6 @@ public class Level extends ScreenObject implements Turnable {
 			monGen = new MonsterGenerator(this,
 					MGlobal.data.getEntryFor(mdo.enemies, MonsterGeneratorMDO.class));
 			assets.add(monGen);
-		}
-		if (MapThing.mdoHasProperty(mdo.items)) {
-			itemGen = new ItemGenerator(this,
-					MGlobal.data.getEntryFor(mdo.items, ItemGeneratorMDO.class));
-			assets.add(itemGen);
-		}
-		if (MapThing.mdoHasProperty(mdo.goodItems)) {
-			lootGen = new ItemGenerator(this,
-					MGlobal.data.getEntryFor(mdo.goodItems, ItemGeneratorMDO.class));
-			assets.add(lootGen);
-		} else if (itemGen != null) {
-			lootGen = itemGen;
 		}
 		if (MapThing.mdoHasProperty(mdo.bgm)) {
 			bgm = new MusicObject(MGlobal.data.getEntryFor(mdo.bgm, MusicMDO.class));
@@ -177,12 +163,6 @@ public class Level extends ScreenObject implements Turnable {
 	
 	/** @return The thing in charge of making monsters for us */
 	public MonsterGenerator getMonsterGenerator() { return monGen; }
-	
-	/** @reutrn The thing in charge of making items for us */
-	public ItemGenerator getItemGenerator() { return itemGen; }
-	
-	/** @reutrn The thing in charge of making good items for us */
-	public ItemGenerator getLootGenerator() { return lootGen; }
 	
 	/** @return The time since the move started, in s */
 	public float getMoveTimeElapsed() { return MGlobal.constants.getDelay() - moveTime; }
@@ -261,9 +241,6 @@ public class Level extends ScreenObject implements Turnable {
 		}
 		if (monGen != null) {
 			monGen.spawnToDensity();
-		}
-		if (itemGen != null) {
-			itemGen.spawnOnCreate();
 		}
 	}
 	

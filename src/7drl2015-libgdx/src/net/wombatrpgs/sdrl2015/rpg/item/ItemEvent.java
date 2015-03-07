@@ -13,14 +13,12 @@ import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
-import net.wombatrpgs.sdrlschema.items.data.ItemMDO;
 
 /**
  * The representation of an item lying on the ground.
  */
 public class ItemEvent extends MapEvent {
 	
-	protected ItemMDO mdo;
 	protected Item item;
 	
 	/**
@@ -33,7 +31,6 @@ public class ItemEvent extends MapEvent {
 	public ItemEvent(Level parent, Item me, int tileX, int tileY) {
 		super(parent);
 		this.item = me;
-		this.mdo = me.getMDO();
 		this.setTileX(tileX);
 		this.setTileY(tileY);
 		me.setParent(this);
@@ -81,7 +78,8 @@ public class ItemEvent extends MapEvent {
 	 */
 	@Override
 	public String mouseoverMessage() {
-		return item.getName() + " is lying here.";
+		//return item.getName() + " is lying here.";
+		return "TODO";
 	}
 
 	/**
