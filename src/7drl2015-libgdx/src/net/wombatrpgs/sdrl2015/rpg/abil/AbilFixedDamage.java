@@ -10,7 +10,7 @@ import java.util.List;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilFixedDamageMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilFixedDamageMDO;
 
 /**
  * Deals damage like uh something.

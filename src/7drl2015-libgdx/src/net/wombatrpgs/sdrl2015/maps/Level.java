@@ -27,15 +27,13 @@ import net.wombatrpgs.sdrl2015.maps.layers.EventLayer;
 import net.wombatrpgs.sdrl2015.maps.layers.GridLayer;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.CharacterFactory;
-import net.wombatrpgs.sdrl2015.rpg.Enemy;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrl2015.screen.ScreenObject;
 import net.wombatrpgs.sdrlschema.audio.MusicMDO;
-import net.wombatrpgs.sdrlschema.characters.data.CharacterMDO;
 import net.wombatrpgs.sdrlschema.maps.MapGeneratorMDO;
 import net.wombatrpgs.sdrlschema.maps.MapMDO;
-import net.wombatrpgs.sdrlschema.maps.MonsterGeneratorMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.CharacterMDO;
 
 /**
  * A Level is comprised of a .tmx tiled map background and a bunch of events
@@ -80,7 +78,6 @@ public class Level extends ScreenObject implements Turnable {
 	// MR mappy stuff
 	protected int mapWidth, mapHeight;
 	protected MapGenerator mapGen;
-	protected MonsterGenerator monGen;
 	protected SceneParser scene;
 	
 	/**
@@ -104,11 +101,6 @@ public class Level extends ScreenObject implements Turnable {
 		if (MapThing.mdoHasProperty(mdo.effect)) {
 			effect = EffectFactory.create(this, mdo.effect);
 			assets.add(effect);
-		}
-		if (MapThing.mdoHasProperty(mdo.enemies)) {
-			monGen = new MonsterGenerator(this,
-					MGlobal.data.getEntryFor(mdo.enemies, MonsterGeneratorMDO.class));
-			assets.add(monGen);
 		}
 		if (MapThing.mdoHasProperty(mdo.bgm)) {
 			bgm = new MusicObject(MGlobal.data.getEntryFor(mdo.bgm, MusicMDO.class));
@@ -160,9 +152,6 @@ public class Level extends ScreenObject implements Turnable {
 	
 	/** @return The time remaining in the current move update, in s */
 	public float getMoveTimeLeft() { return moveTime; }
-	
-	/** @return The thing in charge of making monsters for us */
-	public MonsterGenerator getMonsterGenerator() { return monGen; }
 	
 	/** @return The time since the move started, in s */
 	public float getMoveTimeElapsed() { return MGlobal.constants.getDelay() - moveTime; }
@@ -239,9 +228,6 @@ public class Level extends ScreenObject implements Turnable {
 				}
 			}
 		}
-		if (monGen != null) {
-			monGen.spawnToDensity();
-		}
 	}
 	
 	/**
@@ -291,9 +277,6 @@ public class Level extends ScreenObject implements Turnable {
 	 */
 	@Override
 	public void onTurn() {
-		if (monGen != null) {
-			monGen.onTurn();
-		}
 		startMoving();
 	}
 
@@ -539,15 +522,6 @@ public class Level extends ScreenObject implements Turnable {
 			if (object == other) return true;
 		}
 		return false;
-	}
-	
-	/**
-	 * Generates an enemy for this map.
-	 * @return					The enemy generated, or null if no generator
-	 */
-	public Enemy generateEnemy() {
-		if (monGen == null) return null;
-		return monGen.createEnemy();
 	}
 	
 	/**

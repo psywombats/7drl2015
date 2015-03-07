@@ -11,7 +11,7 @@ import net.wombatrpgs.sdrl2015.rpg.act.ActAbilByTarget;
 import net.wombatrpgs.sdrl2015.rpg.ai.BTAction;
 import net.wombatrpgs.sdrl2015.rpg.ai.BTCondition;
 import net.wombatrpgs.sdrl2015.rpg.ai.BTSequence;
-import net.wombatrpgs.sdrlschema.characters.data.AbilityTargetType;
+import net.wombatrpgs.sdrlschema.rpg.data.AbilityTargetType;
 
 /**
  * Randomly use an ability with the specified target type if available.

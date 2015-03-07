@@ -10,7 +10,7 @@ import java.util.List;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilHalveHpMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilHalveHpMDO;
 
 /**
  * Halves the HP of all targets, up to a max damage.

@@ -10,8 +10,8 @@ import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.rpg.ai.BTNode;
 import net.wombatrpgs.sdrl2015.rpg.ai.IntelligenceFactory;
-import net.wombatrpgs.sdrlschema.characters.EnemyMDO;
-import net.wombatrpgs.sdrlschema.characters.EnemyModMDO;
+import net.wombatrpgs.sdrlschema.rpg.EnemyMDO;
+import net.wombatrpgs.sdrlschema.rpg.EnemyModMDO;
 
 /**
  * The one and only class for those pesky badniks that hunt down the valiant

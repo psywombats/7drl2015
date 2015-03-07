@@ -10,7 +10,7 @@ import java.util.List;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilArmorPierceMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilArmorPierceMDO;
 
 /**
  * Most spell damage falls into this category.

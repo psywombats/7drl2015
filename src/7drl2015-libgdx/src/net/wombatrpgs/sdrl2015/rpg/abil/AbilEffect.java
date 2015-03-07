@@ -13,7 +13,7 @@ import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.travel.Step;
 import net.wombatrpgs.sdrl2015.rpg.travel.StepWait;
-import net.wombatrpgs.sdrlschema.characters.data.AbilityEffectMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.AbilityEffectMDO;
 
 /**
  * This is the core thing behind an ability.

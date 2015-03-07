@@ -7,7 +7,6 @@
 	"mapHeight" : 30,
 	"danger" : 0,
 	"generator" : "generator_furnished",
-	"enemies" : "monstergen_default",
 	"effect" : "effect_los",
 	"floor" : "1",
 	"bgm" : "None",

@@ -1,6 +1,6 @@
 package net.wombatrpgs.sdrl2015.rpg;
 
-import net.wombatrpgs.sdrlschema.characters.data.StatsMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.StatsMDO;
 
 /**
  * A version of stats, but this one's meant to be treated as something that

@@ -7,16 +7,16 @@
 package net.wombatrpgs.sdrl2015.rpg.abil;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
-import net.wombatrpgs.sdrlschema.characters.data.AbilityEffectMDO;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilArmorPierceMDO;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilFixedDamageMDO;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilHalveHpMDO;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilMagicDamageMDO;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilMeleeAttackMDO;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilPhysicalDamageMDO;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilPoisonMDO;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilTeleportMDO;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilVampirismMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.AbilityEffectMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilArmorPierceMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilFixedDamageMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilHalveHpMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilMagicDamageMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilMeleeAttackMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilPhysicalDamageMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilPoisonMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilTeleportMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilVampirismMDO;
 
 /**
  * Another one of these shitty instanceof/getclass constructions for MDOs.

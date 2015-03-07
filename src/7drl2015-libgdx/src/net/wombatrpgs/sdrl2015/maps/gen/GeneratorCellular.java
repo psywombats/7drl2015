@@ -13,7 +13,6 @@ import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.Tile;
 import net.wombatrpgs.sdrl2015.maps.events.DoorEvent;
 import net.wombatrpgs.sdrl2015.maps.gen.dec.Decorator;
-import net.wombatrpgs.sdrl2015.rpg.Enemy;
 import net.wombatrpgs.sdrlschema.maps.MapGeneratorMDO;
 import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
 import net.wombatrpgs.sdrlschema.maps.data.TileType;
@@ -259,23 +258,26 @@ public class GeneratorCellular extends MapGenerator {
 			if (r.nextFloat() < .6) continue;
 			if (parent.getDanger() < 2) continue;
 			cr.tensionSelected = true;
-			int count = (cr.x + cr.rw - 1) * (cr.y + cr.rh - 1);
-			List<Enemy> enemies = parent.getMonsterGenerator().createSet(count);
-			for (int x = cr.x; x < cr.x + cr.rw; x += 1) {
-				for (int y = cr.y; y < cr.y + cr.rh; y += 1) {
-					if (r.nextFloat() > .1 && parent.isTilePassable(null, x, y)) {
-						parent.addEvent(enemies.get(0), x, y);
-						enemies.remove(0);
-					}
-				}
-			}
+//			TODO: monstergen
+//			int count = (cr.x + cr.rw - 1) * (cr.y + cr.rh - 1);
+//			List<Enemy> enemies = parent.getMonsterGenerator().createSet(count);
+//			for (int x = cr.x; x < cr.x + cr.rw; x += 1) {
+//				for (int y = cr.y; y < cr.y + cr.rh; y += 1) {
+//					if (r.nextFloat() > .1 && parent.isTilePassable(null, x, y)) {
+//						parent.addEvent(enemies.get(0), x, y);
+//						enemies.remove(0);
+//					}
+//				}
+//			}
 			for (int loot = 0; loot <= 2 || r.nextBoolean(); loot += 1) {
 				int spawnX = 0;
 				int spawnY = 0;
+				// wow this algorithm sucks
 				while (!parent.isTilePassable(null, spawnX, spawnY)) {
 					spawnX = cr.ctx() + r.nextInt(3)-2;
 					spawnY = cr.cty() + r.nextInt(3)-2;
 				}
+				// TODO: place the loot on the floor
 			}
 			break;
 		}

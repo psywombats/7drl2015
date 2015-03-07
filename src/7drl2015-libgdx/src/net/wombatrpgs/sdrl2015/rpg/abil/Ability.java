@@ -27,10 +27,10 @@ import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent.RayCheck;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.rpg.travel.Step;
-import net.wombatrpgs.sdrlschema.characters.AbilityMDO;
-import net.wombatrpgs.sdrlschema.characters.data.AbilityTargetType;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
+import net.wombatrpgs.sdrlschema.rpg.AbilityMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.AbilityTargetType;
 
 /**
  * An ability is a special sort of action. It can be used by a character or a

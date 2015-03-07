@@ -20,9 +20,9 @@ import net.wombatrpgs.sdrl2015.rpg.ai.Allegiance;
 import net.wombatrpgs.sdrl2015.rpg.item.Inventory;
 import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.ui.Narrator;
-import net.wombatrpgs.sdrlschema.characters.AbilityMDO;
-import net.wombatrpgs.sdrlschema.characters.data.CharacterMDO;
-import net.wombatrpgs.sdrlschema.characters.data.Relation;
+import net.wombatrpgs.sdrlschema.rpg.AbilityMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.CharacterMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.Relation;
 
 /**
  * A GameUnit is designed to factor out some of that shittiness that happens

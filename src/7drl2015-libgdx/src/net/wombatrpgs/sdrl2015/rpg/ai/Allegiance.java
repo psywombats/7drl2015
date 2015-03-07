@@ -14,8 +14,8 @@ import java.util.Set;
 
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
-import net.wombatrpgs.sdrlschema.characters.data.Faction;
-import net.wombatrpgs.sdrlschema.characters.data.Relation;
+import net.wombatrpgs.sdrlschema.rpg.data.Faction;
+import net.wombatrpgs.sdrlschema.rpg.data.Relation;
 
 /**
  * A GameUnit owns one of these. It tells the unit what to attack, what not to
@@ -86,8 +86,7 @@ public class Allegiance implements Turnable {
 	}
 	
 	/**
-	 * Call this when some shithead attacks us. The meanie. Add him to the
-	 * hitlist if necessary.
+	 * Call this when some shithead attacks us.
 	 * @param	jerk			The idiot who hit us
 	 */
 	public void addToHitlist(GameUnit jerk) {

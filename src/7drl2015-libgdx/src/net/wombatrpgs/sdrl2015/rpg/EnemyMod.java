@@ -15,8 +15,8 @@ import com.badlogic.gdx.graphics.Color;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
-import net.wombatrpgs.sdrlschema.characters.AbilityMDO;
-import net.wombatrpgs.sdrlschema.characters.EnemyModMDO;
+import net.wombatrpgs.sdrlschema.rpg.AbilityMDO;
+import net.wombatrpgs.sdrlschema.rpg.EnemyModMDO;
 
 /**
  * Modifier unit for enemies.

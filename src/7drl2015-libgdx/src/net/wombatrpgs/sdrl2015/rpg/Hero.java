@@ -20,9 +20,9 @@ import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.rpg.act.ActStep;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.screen.instances.GameOverScreen;
-import net.wombatrpgs.sdrlschema.characters.HeroMDO;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
+import net.wombatrpgs.sdrlschema.rpg.HeroMDO;
 
 /**
  * Placeholder class for the protagonist player.

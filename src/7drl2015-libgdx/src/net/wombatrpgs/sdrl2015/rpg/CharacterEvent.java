@@ -25,10 +25,10 @@ import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.rpg.travel.Step;
 import net.wombatrpgs.sdrl2015.rpg.travel.StepBump;
 import net.wombatrpgs.sdrl2015.rpg.travel.StepMove;
-import net.wombatrpgs.sdrlschema.characters.data.CharacterMDO;
 import net.wombatrpgs.sdrlschema.graphics.DirMDO;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
+import net.wombatrpgs.sdrlschema.rpg.data.CharacterMDO;
 
 /**
  * A character event is an event with an MDO and an animation that looks kind of

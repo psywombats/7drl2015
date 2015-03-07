@@ -14,7 +14,7 @@ import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.travel.StepMove;
-import net.wombatrpgs.sdrlschema.characters.effects.AbilTeleportMDO;
+import net.wombatrpgs.sdrlschema.rpg.effects.AbilTeleportMDO;
 
 /**
  * Teleports some fool.

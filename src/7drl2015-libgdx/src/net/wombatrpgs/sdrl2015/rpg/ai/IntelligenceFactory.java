@@ -19,13 +19,13 @@ import net.wombatrpgs.sdrl2015.rpg.act.ActWait;
 import net.wombatrpgs.sdrl2015.rpg.act.ActWander;
 import net.wombatrpgs.sdrl2015.rpg.ai.seq.RoutineMeleeEnemies;
 import net.wombatrpgs.sdrl2015.rpg.ai.seq.RoutineOffenseAbility;
-import net.wombatrpgs.sdrlschema.characters.ai.BehaviorListMDO;
-import net.wombatrpgs.sdrlschema.characters.ai.data.ActionMDO;
-import net.wombatrpgs.sdrlschema.characters.ai.data.IntelligenceMDO;
-import net.wombatrpgs.sdrlschema.characters.ai.intent.ActionAttackEnemiesMDO;
-import net.wombatrpgs.sdrlschema.characters.ai.intent.ActionHeroStepMDO;
-import net.wombatrpgs.sdrlschema.characters.ai.intent.ActionWanderMDO;
-import net.wombatrpgs.sdrlschema.characters.ai.intent.IntentMDO;
+import net.wombatrpgs.sdrlschema.rpg.ai.BehaviorListMDO;
+import net.wombatrpgs.sdrlschema.rpg.ai.data.ActionMDO;
+import net.wombatrpgs.sdrlschema.rpg.ai.data.IntelligenceMDO;
+import net.wombatrpgs.sdrlschema.rpg.ai.intent.ActionAttackEnemiesMDO;
+import net.wombatrpgs.sdrlschema.rpg.ai.intent.ActionHeroStepMDO;
+import net.wombatrpgs.sdrlschema.rpg.ai.intent.ActionWanderMDO;
+import net.wombatrpgs.sdrlschema.rpg.ai.intent.IntentMDO;
 
 /**
  * Constructs behavior trees from a variety of MDOs. This is different from
