@@ -4,6 +4,5 @@
 	"name" : "",
 	"description" : " ",
 	"chunkingEnabled" : "DISABLED",
-	"shaderDebug" : "ENABLED",
 	"enabled" : "ENABLED"
 }
