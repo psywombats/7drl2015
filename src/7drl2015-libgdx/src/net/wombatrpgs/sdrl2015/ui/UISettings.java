@@ -22,7 +22,6 @@ import net.wombatrpgs.sdrlschema.graphics.IconSetMDO;
 import net.wombatrpgs.sdrlschema.settings.UISettingsMDO;
 import net.wombatrpgs.sdrlschema.ui.FontMDO;
 import net.wombatrpgs.sdrlschema.ui.HudMDO;
-import net.wombatrpgs.sdrlschema.ui.InventoryMenuMDO;
 import net.wombatrpgs.sdrlschema.ui.NarratorMDO;
 import net.wombatrpgs.sdrlschema.ui.PromptMDO;
 import net.wombatrpgs.sdrlschema.ui.SkillsBoxMDO;
@@ -34,6 +33,8 @@ import net.wombatrpgs.sdrlschema.ui.TextBoxMDO;
  * pasting it into RGlobal, changes here will affect everywhere. In fact, these
  * things are final because changing them would involve re-calling the asset
  * queue on this object.
+ * 
+ * 7DRL: this is in retrospect kind of terrible
  */
 public class UISettings implements Queueable {
 	
@@ -75,7 +76,7 @@ public class UISettings implements Queueable {
 		assets.add(icons);
 		narrator = new Narrator(MGlobal.data.getEntryFor(mdo.narrator, NarratorMDO.class), font);
 		assets.add(narrator);
-		inventory = new InventoryMenu(MGlobal.data.getEntryFor(mdo.inventory, InventoryMenuMDO.class));
+		inventory = new InventoryMenu();
 		assets.add(inventory);
 		cursor = new AnimationStrip(MGlobal.data.getEntryFor(mdo.cursor, AnimationMDO.class));
 		assets.add(cursor);

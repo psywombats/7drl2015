@@ -54,7 +54,7 @@ public class CMapGame extends CommandMap {
 		downMap.put(InputButton.ABIL_5,		InputCommand.ABIL_5);
 		downMap.put(InputButton.ABIL_6,		InputCommand.ABIL_6);
 		
-		downMap.put(InputButton.MENU,		InputCommand.INTENT_QUIT);
+		downMap.put(InputButton.MENU,		InputCommand.INTENT_INVENTORY);
 		downMap.put(InputButton.FULLSCREEN,	InputCommand.INTENT_FULLSCREEN);
 		downMap.put(InputButton.TAB,		InputCommand.INTENT_INVENTORY);
 		downMap.put(InputButton.LOOK,		InputCommand.INTENT_LOOK);

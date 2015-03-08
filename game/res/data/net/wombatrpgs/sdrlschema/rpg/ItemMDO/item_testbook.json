@@ -1,0 +1,16 @@
+{
+	"key" : "item_testbook",
+	"subfolder" : "test",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Black Tome of Assofuckus",
+	"itemDescription" : "Your favorite artifact is back!",
+	"icon" : "potion_red.png",
+	"carriedAbility" : null,
+	"equippedAbility" : null,
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

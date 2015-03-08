@@ -1,0 +1,21 @@
+{
+	"key" : "item_testarmor",
+	"subfolder" : "test",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Pleather Armor",
+	"itemDescription" : "Possibly not the most effective armor in the world.",
+	"icon" : "potion_red.png",
+	"carriedAbility" : null,
+	"equippedAbility" : null,
+	"slot" : "ARMOR",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "DV",
+				"value" : 5.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"key" : "item_testsword",
+	"subfolder" : "test",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Sward",
+	"itemDescription" : "Very shorp and pointy.",
+	"icon" : "potion_red.png",
+	"carriedAbility" : null,
+	"equippedAbility" : null,
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

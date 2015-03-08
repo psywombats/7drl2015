@@ -16,15 +16,21 @@ import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
+import net.wombatrpgs.sdrl2015.rpg.stats.SdrlStats;
+import net.wombatrpgs.sdrlschema.rpg.ItemMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.EquipmentSlot;
 
 /**
- * Completely and totally gutted for 7DRL.
+ * Completely and totally gutted for 7DRL. It probably shouldn't extend Action.
  */
 public abstract class Item extends Action implements Queueable {
+	
+	protected ItemMDO mdo;
 	
 	protected GameUnit owner;
 	protected ItemEvent parent;
 	protected Graphic icon;
+	protected SdrlStats stats;
 	
 	protected List<Queueable> assets;
 	
@@ -32,10 +38,11 @@ public abstract class Item extends Action implements Queueable {
 	 * Creates a new item from data.
 	 * @param	mdo				The data to generate from
 	 */
-	public Item() {
+	public Item(ItemMDO mdo) {
 		assets = new ArrayList<Queueable>();
-		icon = new Graphic(Constants.ITEMS_DIR, "potion_red.png");
+		icon = new Graphic(Constants.ITEMS_DIR, mdo.icon);
 		assets.add(icon);
+		stats = new SdrlStats(mdo.stats);
 	}
 	
 	/** @return The chara that has this item in their inventory */
@@ -50,9 +57,20 @@ public abstract class Item extends Action implements Queueable {
 	/** @param event The new in-map representation of this item */
 	public void setParent(ItemEvent event) { this.parent = event; }
 	
-	public String getName() { return "TODO"; }
+	/** @return The display name of the item */
+	public String getName() { return mdo.itemName; }
 	
-	public String getDescription() { return "TODO"; }
+	/** @return The in-game description of the item */
+	public String getDescription() { return mdo.itemDescription; }
+	
+	// TODO
+	public boolean isUseable() { return false; }
+	
+	/** @return The equipment slot of this item, or null for not equippable */
+	public EquipmentSlot getSlot() { return mdo.slot; }
+	
+	/** @return The stats gained by equipping this item */
+	public SdrlStats getStats() { return stats; }
 	
 	/**
 	 * @see net.wombatrpgs.mrogue.core.Queueable#queueRequiredAssets
@@ -84,6 +102,8 @@ public abstract class Item extends Action implements Queueable {
 		use();
 	}
 
+	
+	// TODO: 7DRL: this probably doesn't work right
 	/**
 	 * This should be called to simulate a character picking up this item. Is
 	 * called exlusively from its ItemEvent parent.

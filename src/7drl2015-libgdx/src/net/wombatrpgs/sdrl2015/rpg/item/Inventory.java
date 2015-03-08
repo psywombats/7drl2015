@@ -9,17 +9,15 @@ package net.wombatrpgs.sdrl2015.rpg.item;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 
 /**
- * A bag of infinite item holding. This represents the inventory of any game
- * unit. I forget why this isn't an array of items, but it certainly made sense
- * in the GAR engine so I'll use it here. The items list includes duplicate
- * items, ie, instead of containing HealPotionMDOx3 it contains HealPotion,
- * Healpotion, and another Healpotion. When the inventory is used for display
- * purposes, identical names get consolidated.
+ * 7DRL: overhauled from the old MRogue version, this one has limited capacity.
  */
 public class Inventory {
+	
+	protected static final int CAPACITY = 10;
 	
 	protected GameUnit parent;
 	protected List<Item> items;
@@ -37,45 +35,35 @@ public class Inventory {
 	public List<Item> getItems() { return items; }
 	
 	/**
-	 * Throws an item into the inventory.
+	 * Throws an item into the inventory. Always check to make sure the
+	 * inventory has room first!
 	 * @param	item			The item to add
 	 */
 	public void addItem(Item item) {
+		if (isFull()) {
+			MGlobal.reporter.warn("Adding to an inventory past capacity: " + item);
+		}
 		items.add(item);
 	}
 	
 	/**
-	 * Removes an item by reference. Shouldn't ne neeeded too often?
+	 * Removes an item by reference. Does not drop it on the floor or other
+	 * clever handling.
 	 * @param	item			The item to remove
 	 */
 	public void removeItem(Item item) {
+		if (!items.contains(item)) {
+			MGlobal.reporter.warn("Removing non-contained item: " + item);
+		}
 		items.remove(item);
 	}
 	
 	/**
-	 * Converts this inventory into a list of item names/img/amount. This
-	 * should be called once every time the inventory needs to be displayed,
-	 * because the order that the names are displayed in matters. Consolidates
-	 * duplicate items.
-	 * @return					A table matching item names to quantities
+	 * Checks if this inventory has room for further items.
+	 * @return					True if the inventory is full
 	 */
-	public FlatInventory flatten() {
-		return new FlatInventory(this);
-	}
-	
-	/**
-	 * Finds the first item with a matching name and returns it. Returns null if
-	 * nothing matches that name.
-	 * @param	name			The name of the item to fetch
-	 * @return					The first occurrence of an item with that name
-	 */
-	public Item getNamedItem(String name) {
-		for (Item item : items) {
-			if (item.getName().equals(name)) {
-				return item;
-			}
-		}
-		return null;
+	public boolean isFull() {
+		return items.size() >= CAPACITY;
 	}
 
 }

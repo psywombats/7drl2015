@@ -15,7 +15,6 @@ import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
 import net.wombatrpgs.sdrlschema.graphics.IconSetMDO;
 import net.wombatrpgs.sdrlschema.ui.FontMDO;
 import net.wombatrpgs.sdrlschema.ui.HudMDO;
-import net.wombatrpgs.sdrlschema.ui.InventoryMenuMDO;
 import net.wombatrpgs.sdrlschema.ui.NarratorMDO;
 import net.wombatrpgs.sdrlschema.ui.PromptMDO;
 import net.wombatrpgs.sdrlschema.ui.SkillsBoxMDO;
@@ -52,10 +51,6 @@ public class UISettingsMDO extends MainSchema {
 	@Desc("Default narrator")
 	@SchemaLink(NarratorMDO.class)
 	public String narrator;
-	
-	@Desc("Default inventory")
-	@SchemaLink(InventoryMenuMDO.class)
-	public String inventory;
 	
 	@Desc("Exit game prompt")
 	@SchemaLink(PromptMDO.class)
