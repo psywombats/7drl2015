@@ -1,0 +1,19 @@
+{
+	"key" : "stats_default",
+	"subfolder" : "",
+	"name" : "",
+	"description" : "Enemies have these stats by default.",
+	"stats" : {
+		"mhp" : 0,
+		"hp" : 0,
+		"mmp" : 0,
+		"mp" : 0,
+		"msp" : 0,
+		"sp" : 0,
+		"dv" : 5,
+		"pv" : 0,
+		"speed" : 100,
+		"vision" : 5,
+		"flags" : [ ]
+	}
+}

@@ -6,13 +6,37 @@
  */
 package net.wombatrpgs.sdrlschema.rpg;
 
+import net.wombatrpgs.mgns.core.Annotations.DefaultValue;
+import net.wombatrpgs.mgns.core.Annotations.Desc;
+import net.wombatrpgs.mgns.core.Annotations.InlineSchema;
+import net.wombatrpgs.mgns.core.Annotations.Nullable;
 import net.wombatrpgs.mgns.core.Annotations.Path;
+import net.wombatrpgs.mgns.core.Annotations.SchemaLink;
 import net.wombatrpgs.mgns.core.MainSchema;
+import net.wombatrpgs.sdrlschema.graphics.FourDirMDO;
+import net.wombatrpgs.sdrlschema.rpg.stats.StatSetMDO;
 
 /**
  * Subtypes of species that mostly provide stat modifiers.
  */
 @Path("rpg/")
 public class RaceMDO extends MainSchema {
+	
+	@Desc("Name - name of the race, precedes all other names, usually blank")
+	@DefaultValue("")
+	public String prefix;
+	
+	@Desc("Appearance - can be used to override appearance from species")
+	@SchemaLink(FourDirMDO.class)
+	@Nullable
+	public String appearance;
+	
+	@Desc("Stats modifier - applied to the default statset for enemies")
+	@InlineSchema(StatSetMDO.class)
+	public StatSetMDO statsMod;
+	
+	@Desc("Skills - innate, non-item-granted skills")
+	@SchemaLink(AbilityMDO.class)
+	public String[] abilities;
 
 }

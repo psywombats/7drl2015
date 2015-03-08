@@ -18,7 +18,6 @@ import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimation;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimationFactory;
-import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.maps.layers.EventLayer;
 import net.wombatrpgs.sdrl2015.rpg.act.ActWait;
@@ -53,14 +52,36 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	protected GameUnit unit;
 	
 	/**
+	 * Private shared constructor.
+	 */
+	private CharacterEvent() {
+		this.turnChildren = new ArrayList<Turnable>();
+		setPacing(true);
+		
+		travelPlan = new ArrayList<Step>();
+		
+		ticksRemaining = 0;
+		
+		// ugly static stuff left over from MRogue -- ew
+		if (defaultWait == null) {
+			defaultWait = new ActWait();
+		}
+		if (rayLoS == null) {
+			rayLoS = new RayCheck() {
+				@Override public boolean bad(int tileX, int tileY) {
+					return !MGlobal.hero.getParent().isTransparentAt(tileX, tileY);
+				}
+			};
+		}
+	}
+	
+	/**
 	 * Creates a new hero event associated with no map from the MDO.
 	 * @param 	mdo				The MDO to create the event from
 	 */
 	public CharacterEvent(HeroMDO mdo) {
-		
-		unit = new GameUnit(mdo, this);
-		
-		init();
+		this();
+		setUnit(new GameUnit(this, mdo));
 		if (mdoHasProperty(mdo.appearance)) {
 			DirMDO dirMDO = MGlobal.data.getEntryFor(mdo.appearance, DirMDO.class);
 			appearance = FacesAnimationFactory.create(dirMDO, this);
@@ -68,17 +89,19 @@ public class CharacterEvent extends MapEvent implements Turnable {
 		}
 	}
 	
-	// TODO: this is a constructor meant to be used by enemies
-	public CharacterEvent() {
-		
-	}
-	
 	/**
-	 * Creates a new character event with the specified level at the origin.
-	 * @param 	parent			The parent level of the event
+	 * Character event constructor for enemies.
+	 * @param	unit			The game unit for this event
+	 * @param	appearanceKey	The AnimationMDO key, or null
 	 */
-	protected CharacterEvent(Level parent) {
-		super(parent);
+	protected CharacterEvent(GameUnit unit, String appearanceKey) {
+		this();
+		setUnit(unit);
+		if (mdoHasProperty(appearanceKey)) {
+			DirMDO dirMDO = MGlobal.data.getEntryFor(appearanceKey, DirMDO.class);
+			appearance = FacesAnimationFactory.create(dirMDO, this);
+			assets.add(appearance);
+		}
 	}
 	
 	/** @return The cardinal direction the character is facing */
@@ -541,31 +564,15 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	public Action selectAction() {
 		return defaultWait;
 	}
-
+	
 	/**
-	 * Shared constructor stuff, common to explicit characters and to enemies.
+	 * A setter for RPG unit.
 	 */
-	protected void init() {
-		this.turnChildren = new ArrayList<Turnable>();
-		setPacing(true);
-		
-		travelPlan = new ArrayList<Step>();
-		
+	protected void setUnit(GameUnit unit) {
+		this.unit = unit;
 		assets.add(unit);
 		turnChildren.add(unit);
-		ticksRemaining = 0;
-		
-		// ugly static stuff left over from MRogue -- ew
-		if (defaultWait == null) {
-			defaultWait = new ActWait();
-		}
-		if (rayLoS == null) {
-			rayLoS = new RayCheck() {
-				@Override public boolean bad(int tileX, int tileY) {
-					return !MGlobal.hero.getParent().isTransparentAt(tileX, tileY);
-				}
-			};
-		}
+		unit.setParent(this);
 	}
 	
 	public abstract class RayCheck {

@@ -54,28 +54,52 @@ public class GameUnit implements Turnable, Queueable {
 	protected List<Ability> abilities;
 	
 	/**
-	 * Creates a new character from data.
-	 * @param	mdo				The data to create the character from
-	 * @param	parent			The owner of this character, ie, its body
+	 * Private shared constructor.
+	 * @param	parent			The parent event of this unit
 	 */
-	public GameUnit(HeroMDO mdo, CharacterEvent parent) {
-		this.parent = parent;
+	private GameUnit() {
 		this.turnChildren = new ArrayList<Turnable>();
 		this.toRemove = new ArrayList<Turnable>();
 		this.assets = new ArrayList<Queueable>();
-		stats = new SdrlStats(mdo.stats);
 		allegiance = new Allegiance(this);
 		inventory = new Inventory(this);
 		turnChildren.add(allegiance);
 		
 		abilities = new ArrayList<Ability>();
+		
+		if (out == null) out = MGlobal.ui.getNarrator();
+	}
+	
+	/**
+	 * Creates a new character from data.
+	 * @param	parent			The owner of this character, ie, its body
+	 * @param	mdo				The data to create the character from
+	 */
+	public GameUnit(CharacterEvent parent, HeroMDO mdo) {
+		this();
+		this.parent = parent;
+		stats = new SdrlStats(mdo.stats);
 		for (String mdoKey : mdo.abilities) {
 			abilities.add(new Ability(parent,
 					MGlobal.data.getEntryFor(mdoKey, AbilityMDO.class)));
 		}
 		assets.addAll(abilities);
-		
-		if (out == null) out = MGlobal.ui.getNarrator();
+	}
+	
+	/**
+	 * Creates a new character from a list of its stats and abilities. Meant to
+	 * be called by enemies.
+	 * @param	parent			The owner of this character, ie, its body
+	 * @param	stats			The stats of the unit
+	 * @param	abilityKeys		The keys to AbilityMDOs of the unit
+	 */
+	public GameUnit(SdrlStats stats, List<String> abilityKeys) {
+		this();
+		this.stats = stats;
+		for (String mdoKey : abilityKeys) {
+			abilities.add(new Ability(parent,
+					MGlobal.data.getEntryFor(mdoKey, AbilityMDO.class)));
+		}
 	}
 	
 	/** @return Laziness personified */
@@ -89,6 +113,9 @@ public class GameUnit implements Turnable, Queueable {
 	
 	/** @param name This unit's new player-facing name */
 	public void setName(String name) { this.name = name; }
+	
+	/** @param parent The new physical body of this game unit */
+	public void setParent(CharacterEvent parent) { this.parent = parent; }
 	
 	/** @return The political views of this unit */
 	public Allegiance getAllegiance() { return this.allegiance; }
