@@ -2,9 +2,8 @@
 	"key" : "hero_default",
 	"subfolder" : "",
 	"name" : "",
-	"description" : "                  ",
+	"description" : "",
 	"appearance" : "4dir_grandfather",
-	"faction" : "HERO",
 	"stats" : {
 		"mhp" : 100,
 		"hp" : 100,

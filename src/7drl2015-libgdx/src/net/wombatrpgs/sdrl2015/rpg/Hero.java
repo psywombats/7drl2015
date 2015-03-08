@@ -56,15 +56,6 @@ public class Hero extends CharacterEvent implements CommandListener {
 		MGlobal.hero = this;
 		step = new ActStep(this);
 	}
-	
-	/**
-	 * See above. Deprecated.
-	 * @param mdo
-	 * @param parent
-	 */
-	public Hero(HeroMDO mdo, Level parent) {
-		super(mdo, parent);
-	}
 
 	/**
 	 * @see net.wombatrpgs.mrogue.maps.MapThing#onAddedToMap
@@ -234,15 +225,6 @@ public class Hero extends CharacterEvent implements CommandListener {
 	public boolean seen(int tileX, int tileY) {
 		return seenCache[tileY][tileX];
 	}
-	
-	/**
-	 * @see net.wombatrpgs.mrogue.rpg.CharacterEvent#initUnit()
-	 */
-	@Override
-	protected void initUnit() {
-		this.unit = new HeroUnit(mdo, this);
-	}
-
 	/**
 	 * Movement subcommand.
 	 * @param	dir				The direction the hero was ordered in

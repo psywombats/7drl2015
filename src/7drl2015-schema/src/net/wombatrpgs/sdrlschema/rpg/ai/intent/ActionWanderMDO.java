@@ -12,7 +12,7 @@ import net.wombatrpgs.sdrlschema.rpg.ai.data.ActionMDO;
 /**
  * Wander aimlessly.
  */
-@Path("characters/ai/")
+@Path("rpg/ai/")
 public class ActionWanderMDO extends ActionMDO {
 
 }

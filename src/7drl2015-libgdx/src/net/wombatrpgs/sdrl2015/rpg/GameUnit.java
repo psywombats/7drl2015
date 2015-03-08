@@ -24,7 +24,7 @@ import net.wombatrpgs.sdrl2015.rpg.stats.SdrlStats;
 import net.wombatrpgs.sdrl2015.rpg.stats.Stats;
 import net.wombatrpgs.sdrl2015.ui.Narrator;
 import net.wombatrpgs.sdrlschema.rpg.AbilityMDO;
-import net.wombatrpgs.sdrlschema.rpg.data.CharacterMDO;
+import net.wombatrpgs.sdrlschema.rpg.HeroMDO;
 import net.wombatrpgs.sdrlschema.rpg.data.Relation;
 import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
@@ -40,9 +40,9 @@ import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 public class GameUnit implements Turnable, Queueable {
 	
 	/** lol this thing is because I'm too lazy to type MGlobal.ughhhh.nar ugh */
+	// ^ old me was stupid
 	protected static Narrator out;
 	
-	protected CharacterMDO mdo;
 	protected CharacterEvent parent;
 	protected List<Turnable> turnChildren, toRemove;
 	protected List<Queueable> assets;
@@ -58,14 +58,13 @@ public class GameUnit implements Turnable, Queueable {
 	 * @param	mdo				The data to create the character from
 	 * @param	parent			The owner of this character, ie, its body
 	 */
-	public GameUnit(CharacterMDO mdo, CharacterEvent parent) {
-		this.mdo = mdo;
+	public GameUnit(HeroMDO mdo, CharacterEvent parent) {
 		this.parent = parent;
 		this.turnChildren = new ArrayList<Turnable>();
 		this.toRemove = new ArrayList<Turnable>();
 		this.assets = new ArrayList<Queueable>();
 		stats = new SdrlStats(mdo.stats);
-		allegiance = new Allegiance(this, mdo.faction);
+		allegiance = new Allegiance(this);
 		inventory = new Inventory(this);
 		turnChildren.add(allegiance);
 		
@@ -223,7 +222,7 @@ public class GameUnit implements Turnable, Queueable {
 			int dealt = other.takePhysicalDamage(calcMeleeDamage());
 			if (visible(this, other)) {
 				if (dealt > 0) {
-					out.msg(us + " attacked " + them + " for " + dealt + " damages.");
+					out.msg(us + " attacked " + them + " for " + dealt + " damage.");
 				} else {
 					out.msg(us + " failed to harm " + them + ".");
 				}

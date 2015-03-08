@@ -12,7 +12,7 @@ import net.wombatrpgs.sdrlschema.rpg.ai.data.ActionMDO;
 /**
  * Step towards dumb enemies.
  */
-@Path("characters/ai/")
+@Path("rpg/ai/")
 public class ActionAttackEnemiesMDO extends ActionMDO {
 
 }

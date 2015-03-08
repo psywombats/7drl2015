@@ -9,7 +9,6 @@ package net.wombatrpgs.sdrl2015.rpg;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.rpg.ai.BTNode;
 import net.wombatrpgs.sdrl2015.rpg.ai.IntelligenceFactory;
-import net.wombatrpgs.sdrlschema.rpg.EnemyMDO;
 import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
 /**
@@ -18,10 +17,8 @@ import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
  */
 public class Enemy extends CharacterEvent {
 	
-	protected static final String KEY_MOD_DEFAULT = "mod_dummy";
-	protected static final String KEY_TYPE_DEFAULT = "enemy_dummy";
+	protected static final String KEY_DEFAULT_BEHAVIOR = "behavior_default";
 	
-	protected EnemyMDO mdo;
 	protected BTNode intelligence;
 	
 	/**
@@ -29,10 +26,9 @@ public class Enemy extends CharacterEvent {
 	 * @param 	mdo				The MDO with data to create from
 	 * @param 	parent			The parent map of the object
 	 */
-	public Enemy(EnemyMDO mdo, Level parent) {
-		super(mdo, parent);
-		this.mdo = mdo;
-		this.intelligence = IntelligenceFactory.createIntelligence(mdo.intelligence, this);
+	public Enemy(Level parent) {
+		// TODO: call the appropriate superconstructor
+		this.intelligence = IntelligenceFactory.createIntelligence(KEY_DEFAULT_BEHAVIOR, this);
 	}
 	
 	/**

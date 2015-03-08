@@ -2,7 +2,7 @@
 	"key" : "map_test",
 	"subfolder" : "",
 	"name" : "",
-	"description" : "                   ",
+	"description" : "",
 	"mapWidth" : 35,
 	"mapHeight" : 30,
 	"danger" : 0,
@@ -10,9 +10,10 @@
 	"effect" : "effect_los",
 	"floor" : "1",
 	"bgm" : "None",
-	"characters" : [ ],
-	"pathsUp" : [ ],
+	"pathsUp" : [
+		"map_test"
+	],
 	"pathsDown" : [
-		"map_01"
+		"map_test"
 	]
 }

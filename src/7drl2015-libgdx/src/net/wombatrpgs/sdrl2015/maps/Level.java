@@ -26,14 +26,12 @@ import net.wombatrpgs.sdrl2015.maps.gen.MapGeneratorFactory;
 import net.wombatrpgs.sdrl2015.maps.layers.EventLayer;
 import net.wombatrpgs.sdrl2015.maps.layers.GridLayer;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
-import net.wombatrpgs.sdrl2015.rpg.CharacterFactory;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrl2015.screen.ScreenObject;
 import net.wombatrpgs.sdrlschema.audio.MusicMDO;
 import net.wombatrpgs.sdrlschema.maps.MapGeneratorMDO;
 import net.wombatrpgs.sdrlschema.maps.MapMDO;
-import net.wombatrpgs.sdrlschema.rpg.data.CharacterMDO;
 
 /**
  * A Level is comprised of a .tmx tiled map background and a bunch of events
@@ -218,15 +216,7 @@ public class Level extends ScreenObject implements Turnable {
 		super.postProcessing(manager, 0);
 		if (pass == 0) {
 			mapGen.generateMe();
-			if (mdo.characters != null) {
-				for (String key : mdo.characters) {
-					CharacterMDO charaMDO = MGlobal.data.getEntryFor(key, CharacterMDO.class);
-					CharacterEvent chara = CharacterFactory.create(charaMDO, this);
-					chara.spawnUnseen();
-					assets.add(chara);
-					chara.queueRequiredAssets(manager);
-				}
-			}
+			// any required characters should spawn here
 		}
 	}
 	
@@ -445,7 +435,7 @@ public class Level extends ScreenObject implements Turnable {
 	 * @return					True if tile is transparent, false otherwise
 	 */
 	public boolean isTransparentAt(int tileX, int tileY) {
-		// TODO: precompute this
+		// in an ideal world this would be precomputed
 		if (tileX < 0 || tileY < 0 || tileX >= mapWidth || tileY >= mapHeight) {
 			return false;
 		}

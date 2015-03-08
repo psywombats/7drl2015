@@ -20,7 +20,7 @@ import net.wombatrpgs.sdrlschema.rpg.data.AbilityTargetType;
 /**
  * Something a little more subtle than walking into a character.
  */
-@Path("characters/")
+@Path("rpg/")
 public class AbilityMDO extends MainSchema {
 	
 	@Desc("Name - displayed in-game")
@@ -48,9 +48,13 @@ public class AbilityMDO extends MainSchema {
 	@DefaultValue("1000")
 	public Integer energyCost;
 	
-	@Desc("Resource cost - How much mp/mana/sp/stamina etc this takes")
+	@Desc("Mana cost - How much mp this takes")
 	@DefaultValue("0")
 	public Integer mpCost;
+	
+	@Desc("Stamina cost - How much sp this takes")
+	@DefaultValue("0")
+	public Integer spCost;
 	
 	@Desc("Graphical fx - Special animations for this ability!!")
 	@SchemaLink(AbilFxMDO.class)

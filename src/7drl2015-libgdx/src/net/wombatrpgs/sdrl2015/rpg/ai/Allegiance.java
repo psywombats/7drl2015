@@ -7,36 +7,31 @@
 package net.wombatrpgs.sdrl2015.rpg.ai;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.EnumSet;
 import java.util.List;
-import java.util.Set;
 
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
-import net.wombatrpgs.sdrlschema.rpg.data.Faction;
 import net.wombatrpgs.sdrlschema.rpg.data.Relation;
 
 /**
  * A GameUnit owns one of these. It tells the unit what to attack, what not to
  * attack, etc. An allegience represents relationships to multiple factions as
  * well as to individual enemies that have wrought us harm.
+ * 
+ * 7DRL update: no longer encompasses a faction, but instead a race.
  */
 public class Allegiance implements Turnable {
 	
 	protected GameUnit parent;
 	protected List<GameUnit> hitlist;
 	protected List<GameUnit> friendlist;
-	protected Set<Faction> factions;
 	
 	/**
 	 * Creates a new allegiance from a set of factions. Multi-faction support is
 	 * accomplished by taking the lowest of the relations.
 	 * @param	parent			The game unit with this allegiance
-	 * @param	factions		The factions to align with
 	 */
-	public Allegiance(GameUnit parent, Faction...factions) {
-		this.factions = EnumSet.copyOf(Arrays.asList(factions));
+	public Allegiance(GameUnit parent) {
 		this.parent = parent;
 		this.hitlist = new ArrayList<GameUnit>();
 		this.friendlist = new ArrayList<GameUnit>();
@@ -73,14 +68,7 @@ public class Allegiance implements Turnable {
 			return Relation.ALLIED;
 		} else {
 			Relation result = Relation.ALLIED;		// highest friendliness
-			for (Faction f1 : this.factions) {
-				for (Faction f2 : other.getAllegiance().factions) {
-					Relation newRelation = f1.getRelation(f2);
-					if (newRelation.getHostility() < result.getHostility()) {
-						result = newRelation;
-					}
-				}
-			}
+			// TODO: cycle through race relations and determine relation
 			return result;
 		}
 	}

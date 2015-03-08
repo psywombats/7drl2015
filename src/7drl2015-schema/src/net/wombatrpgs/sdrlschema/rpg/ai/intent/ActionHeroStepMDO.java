@@ -12,7 +12,7 @@ import net.wombatrpgs.sdrlschema.rpg.ai.data.ActionMDO;
 /**
  * Step in the direction of the hero if they're in sight.
  */
-@Path("characters/ai/")
+@Path("rpg/ai/")
 public class ActionHeroStepMDO extends ActionMDO {
 
 }

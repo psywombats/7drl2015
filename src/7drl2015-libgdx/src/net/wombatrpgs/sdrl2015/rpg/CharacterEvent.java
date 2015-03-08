@@ -9,6 +9,7 @@ package net.wombatrpgs.sdrl2015.rpg;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -28,7 +29,7 @@ import net.wombatrpgs.sdrl2015.rpg.travel.StepMove;
 import net.wombatrpgs.sdrlschema.graphics.DirMDO;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
-import net.wombatrpgs.sdrlschema.rpg.data.CharacterMDO;
+import net.wombatrpgs.sdrlschema.rpg.HeroMDO;
 import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
 /**
@@ -42,8 +43,6 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	protected static Action defaultWait;
 	protected static RayCheck rayLoS;
 	
-	protected CharacterMDO mdo;
-	
 	protected FacesAnimation appearance;
 	protected boolean pacing;
 	protected List<Turnable> turnChildren;
@@ -52,40 +51,26 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	protected int ticksRemaining;
 	
 	protected GameUnit unit;
-
-	/**
-	 * Creates a new char event with the specified data.
-	 * @param 	mdo				The data to create the event with
-	 * @param	parent			The parent level of the event
-	 */
-	public CharacterEvent(CharacterMDO mdo, Level parent) {
-		super(parent);
-		// TODO: CharacterEvent
-		init(mdo);
-	}
 	
 	/**
-	 * Creates a new char event with the specified data at the specified coords.
-	 * @param	mdo				The data to create the event with
-	 * @param	parent			The parent level of the event
-	 * @param	tileX			The x-coord of the event (in tiles)
-	 * @param	tileY			The y-coord of the event (in tiles)
-	 */
-	public CharacterEvent(CharacterMDO mdo, Level parent, int tileX, int tileY) {
-		this(mdo, parent);
-		this.tileX = tileX;
-		this.tileY = tileY;
-		this.x = tileX * parent.getTileWidth();
-		this.y = tileY * parent.getTileHeight();
-	}
-	
-	/**
-	 * Creates a new character event associated with no map from the MDO.
+	 * Creates a new hero event associated with no map from the MDO.
 	 * @param 	mdo				The MDO to create the event from
 	 */
-	public CharacterEvent(CharacterMDO mdo) {
-		super();
-		init(mdo);
+	public CharacterEvent(HeroMDO mdo) {
+		
+		unit = new GameUnit(mdo, this);
+		
+		init();
+		if (mdoHasProperty(mdo.appearance)) {
+			DirMDO dirMDO = MGlobal.data.getEntryFor(mdo.appearance, DirMDO.class);
+			appearance = FacesAnimationFactory.create(dirMDO, this);
+			assets.add(appearance);
+		}
+	}
+	
+	// TODO: this is a constructor meant to be used by enemies
+	public CharacterEvent() {
+		
 	}
 	
 	/**
@@ -205,6 +190,15 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	@Override
 	public String mouseoverMessage() {
 		return unit.getName() + " is standing here.";
+	}
+
+	/**
+	 * @see net.wombatrpgs.sdrl2015.maps.MapThing#postProcessing(com.badlogic.gdx.assets.AssetManager, int)
+	 */
+	@Override
+	public void postProcessing(AssetManager manager, int pass) {
+		super.postProcessing(manager, pass);
+		appearance.startMoving();
 	}
 
 	/**
@@ -549,26 +543,19 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	}
 
 	/**
-	 * Creates this event from an MDO.
-	 * @param 	mdo			The MDO to create the event from
+	 * Shared constructor stuff, common to explicit characters and to enemies.
 	 */
-	protected void init(CharacterMDO mdo) {
-		this.mdo = mdo;
+	protected void init() {
 		this.turnChildren = new ArrayList<Turnable>();
-		if (mdoHasProperty(mdo.appearance)) {
-			DirMDO dirMDO = MGlobal.data.getEntryFor(mdo.appearance, DirMDO.class);
-			appearance = FacesAnimationFactory.create(dirMDO, this);
-			assets.add(appearance);
-		}
 		setPacing(true);
 		
 		travelPlan = new ArrayList<Step>();
 		
-		initUnit();
 		assets.add(unit);
 		turnChildren.add(unit);
 		ticksRemaining = 0;
 		
+		// ugly static stuff left over from MRogue -- ew
 		if (defaultWait == null) {
 			defaultWait = new ActWait();
 		}
@@ -579,13 +566,6 @@ public class CharacterEvent extends MapEvent implements Turnable {
 				}
 			};
 		}
-	}
-	
-	/**
-	 * Creates the game unit. Separate for overriding purposes.
-	 */
-	protected void initUnit() {
-		unit = new GameUnit(mdo, this);
 	}
 	
 	public abstract class RayCheck {

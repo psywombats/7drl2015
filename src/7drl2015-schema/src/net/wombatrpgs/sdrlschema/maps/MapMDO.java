@@ -13,7 +13,6 @@ import net.wombatrpgs.mgns.core.MainSchema;
 import net.wombatrpgs.mgns.core.Annotations.Desc;
 import net.wombatrpgs.sdrlschema.audio.MusicMDO;
 import net.wombatrpgs.sdrlschema.graphics.effects.data.EffectMDO;
-import net.wombatrpgs.sdrlschema.rpg.data.CharacterMDO;
 
 /**
  * A map contains not only a TMX but other vital data as well!
@@ -47,10 +46,6 @@ public class MapMDO extends MainSchema {
 	@SchemaLink(MusicMDO.class)
 	@Nullable
 	public String bgm;
-	
-	@Desc("Characters to spawn here (offscreen)")
-	@SchemaLink(CharacterMDO.class)
-	public String[] characters;
 	
 	@Desc("All levels that can be reached by ascending")
 	@SchemaLink(MapMDO.class)
