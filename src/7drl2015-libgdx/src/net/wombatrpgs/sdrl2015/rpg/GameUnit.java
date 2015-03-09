@@ -18,6 +18,7 @@ import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.rpg.ai.Allegiance;
+import net.wombatrpgs.sdrl2015.rpg.item.EquippedItems;
 import net.wombatrpgs.sdrl2015.rpg.item.Inventory;
 import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.rpg.stats.SdrlStats;
@@ -51,6 +52,7 @@ public class GameUnit implements Turnable, Queueable {
 	protected SdrlStats stats;
 	protected Allegiance allegiance;
 	protected Inventory inventory;
+	protected EquippedItems equipment;
 	protected List<Ability> abilities;
 	
 	/**
@@ -63,6 +65,7 @@ public class GameUnit implements Turnable, Queueable {
 		this.assets = new ArrayList<Queueable>();
 		allegiance = new Allegiance(this);
 		inventory = new Inventory(this);
+		equipment = new EquippedItems(this);
 		turnChildren.add(allegiance);
 		
 		abilities = new ArrayList<Ability>();
@@ -128,6 +131,9 @@ public class GameUnit implements Turnable, Queueable {
 	
 	/** @return The inventory of all carried items */
 	public Inventory getInventory() { return inventory; }
+	
+	/** @return The equipped items of this game unit */
+	public EquippedItems getEquipment() { return equipment; }
 	
 	/** @param turn The new turn child to register */
 	public void addTurnChild(Turnable turn) { turnChildren.add(turn); }

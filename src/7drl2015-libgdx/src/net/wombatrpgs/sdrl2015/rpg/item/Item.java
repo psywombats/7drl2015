@@ -23,7 +23,7 @@ import net.wombatrpgs.sdrlschema.rpg.data.EquipmentSlot;
 /**
  * Completely and totally gutted for 7DRL. It probably shouldn't extend Action.
  */
-public abstract class Item extends Action implements Queueable {
+public class Item extends Action implements Queueable {
 	
 	protected ItemMDO mdo;
 	
@@ -39,6 +39,7 @@ public abstract class Item extends Action implements Queueable {
 	 * @param	mdo				The data to generate from
 	 */
 	public Item(ItemMDO mdo) {
+		this.mdo = mdo;
 		assets = new ArrayList<Queueable>();
 		icon = new Graphic(Constants.ITEMS_DIR, mdo.icon);
 		assets.add(icon);
@@ -121,16 +122,10 @@ public abstract class Item extends Action implements Queueable {
 	 */
 	public void use() {
 		owner.getInventory().removeItem(this);
-		internalUse();
+		// TODO: use the item
 		owner = null;
 		parent = null;
 		assets.clear();
 	}
-	
-	/**
-	 * Called by the item when it's time to apply whatever this item's effect
-	 * is. So do your main thing. Inventory is taken care of elsewhere.
-	 */
-	protected abstract void internalUse();
 
 }

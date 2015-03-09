@@ -11,6 +11,7 @@ import java.util.List;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
+import net.wombatrpgs.sdrlschema.rpg.ItemMDO;
 
 /**
  * 7DRL: overhauled from the old MRogue version, this one has limited capacity.
@@ -29,10 +30,31 @@ public class Inventory {
 	public Inventory(GameUnit parent) {
 		this.parent = parent;
 		items = new ArrayList<Item>();
+		
+		items.add(new Item(MGlobal.data.getEntryFor("item_testsword", ItemMDO.class)));
+		items.add(new Item(MGlobal.data.getEntryFor("item_testbook", ItemMDO.class)));
+		items.add(new Item(MGlobal.data.getEntryFor("item_testarmor", ItemMDO.class)));
 	}
 	
 	/** @return The raw item data of this inventory */
 	public List<Item> getItems() { return items; }
+	
+	/** @return The number of items this inventory can hold */
+	public int getCapacity()  { return CAPACITY; }
+	
+	/**
+	 * Returns the nth item in the inventory, or null the inventory doesn't have
+	 * that many items.
+	 * @param	n				The slot in the inventory to check
+	 * @return					The item in that slot, or null
+	 */
+	public Item at(int n) {
+		if (n >= items.size()) {
+			return null;
+		} else {
+			return items.get(n);
+		}
+	}
 	
 	/**
 	 * Throws an item into the inventory. Always check to make sure the

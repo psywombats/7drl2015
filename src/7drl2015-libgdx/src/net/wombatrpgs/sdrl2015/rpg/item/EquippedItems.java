@@ -32,6 +32,15 @@ public class EquippedItems {
 	}
 	
 	/**
+	 * Returns the equipped item at the given slot.
+	 * @param	slot			The slot to check at
+	 * @return					The item in that slot, or null if none
+	 */
+	public Item at(EquipmentSlot slot) {
+		return equipment.get(slot);
+	}
+	
+	/**
 	 * Equips the supplied item. Assumes the item is equippable. If something
 	 * else is already in its equipment slot, that item is removed first. Also
 	 * assumes the equipped item exists in the owner's inventory. Applies the
