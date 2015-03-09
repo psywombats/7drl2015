@@ -15,7 +15,6 @@ import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
-import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.rpg.stats.SdrlStats;
 import net.wombatrpgs.sdrlschema.rpg.ItemMDO;
 import net.wombatrpgs.sdrlschema.rpg.data.EquipmentSlot;
@@ -23,11 +22,10 @@ import net.wombatrpgs.sdrlschema.rpg.data.EquipmentSlot;
 /**
  * Completely and totally gutted for 7DRL. It probably shouldn't extend Action.
  */
-public class Item extends Action implements Queueable {
+public class Item implements Queueable {
 	
 	protected ItemMDO mdo;
 	
-	protected GameUnit owner;
 	protected ItemEvent parent;
 	protected Graphic icon;
 	protected SdrlStats stats;
@@ -46,9 +44,6 @@ public class Item extends Action implements Queueable {
 		stats = new SdrlStats(mdo.stats);
 	}
 	
-	/** @return The chara that has this item in their inventory */
-	public GameUnit getOwner() { return owner; }
-	
 	/** @return The in-map representation of this item */
 	public ItemEvent getEvent() { return parent; }
 	
@@ -66,6 +61,9 @@ public class Item extends Action implements Queueable {
 	
 	// TODO
 	public boolean isUseable() { return false; }
+	
+	/** @return True if the item can be equipped */
+	public boolean isEquippable() { return getSlot() != null; }
 	
 	/** @return The equipment slot of this item, or null for not equippable */
 	public EquipmentSlot getSlot() { return mdo.slot; }
@@ -95,14 +93,6 @@ public class Item extends Action implements Queueable {
 		}
 	}
 
-	/**
-	 * @see net.wombatrpgs.mrogue.rpg.act.Action#act()
-	 */
-	@Override
-	public void act() {
-		use();
-	}
-
 	
 	// TODO: 7DRL: this probably doesn't work right
 	/**
@@ -111,9 +101,7 @@ public class Item extends Action implements Queueable {
 	 * @param	unit			The chara picking us up
 	 */
 	public void onPickup(GameUnit unit) {
-		this.owner = unit;
 		parent = null;
-		setActor(unit.getParent());
 		unit.pickUp(this);
 	}
 	
@@ -121,11 +109,7 @@ public class Item extends Action implements Queueable {
 	 * Call this when the character opts to spend their turn and use the item.
 	 */
 	public void use() {
-		owner.getInventory().removeItem(this);
 		// TODO: use the item
-		owner = null;
-		parent = null;
-		assets.clear();
 	}
 
 }

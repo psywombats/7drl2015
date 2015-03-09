@@ -345,7 +345,8 @@ public abstract class Screen implements CommandListener,
 	 */
 	@Override
 	public boolean onCommand(InputCommand command) {
-		for (CommandListener listener : commandListeners) {
+		for (int i = 0; i < commandListeners.size(); i += 1) {
+			CommandListener listener = commandListeners.get(commandListeners.size() - i - 1); 
 			if (listener.onCommand(command)) return true;
 		}
 		switch (command) {

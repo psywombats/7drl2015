@@ -9,7 +9,6 @@ package net.wombatrpgs.sdrl2015.ui.text;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.BitmapFont.TextBounds;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import net.wombatrpgs.sdrl2015.core.Constants;
@@ -67,12 +66,9 @@ public class FontHolder implements Queueable {
 	 */
 	public void draw(SpriteBatch batch, TextBoxFormat format, String text, int offY) {
 		batch.begin();
-		TextBounds bounds = font.drawWrapped(batch, text, 
+		font.drawWrapped(batch, text, 
 				format.x, format.y + offY, 
 				format.width, format.align);
-		if (bounds.height > format.height + offY) {
-			MGlobal.reporter.warn("A string was oversized: \"" + text + "\"");
-		}
 		batch.end();
 	}
 	

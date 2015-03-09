@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont.HAlignment;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
+import net.wombatrpgs.sdrl2015.rpg.item.EquippedItems;
 import net.wombatrpgs.sdrl2015.rpg.item.Inventory;
 import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.screen.WindowSettings;
@@ -25,25 +26,35 @@ import net.wombatrpgs.sdrlschema.rpg.data.EquipmentSlot;
 public class InventoryMenu extends Popup {
 	
 	protected static final String BACKER_FILE = "black.png";
+	protected static final String CURSOR_FILE = "finger.png";
+	protected static final String SELECTION_DIALOG_FILE = "dialog_2.png";
 	
 	protected static final String BLANK_STRING = "--";
 	protected static final String EQUIP_DESC = "EQUIPMENT";
 	protected static final String INVENTORY_DESC = "INVENTORY";
 	
-	protected static final int EQUIP_WIDTH = 300;
+	protected static final int EQUIP_WIDTH = 200;
 	protected static final int SLOT_NAME_WIDTH = 120;
 	protected static final int INVENTORY_HORIZ_MARGIN = 20;
 	protected static final int LINE_HEIGHT = 16;
 	
-	protected Graphic backer;
+	protected Graphic backer, cursor;
 	protected TextBoxFormat slotFormat, descFormat, equipFormat, inventoryFormat;
+	protected SelectionDialog dialog;
+	protected int selected;
+	protected boolean equippedSide;
+	protected boolean asking;
 	
 	/**
 	 * Creates a new inventory menu. Hardcoded to hell and back.
 	 */
 	public InventoryMenu() {
+		
 		backer = new Graphic(BACKER_FILE);
 		assets.add(backer);
+		
+		cursor = new Graphic(CURSOR_FILE);
+		assets.add(cursor);
 		
 		WindowSettings win = MGlobal.window;
 		
@@ -74,6 +85,10 @@ public class InventoryMenu extends Popup {
 		inventoryFormat.height = 50;
 		inventoryFormat.x = win.getWidth() / 2 + INVENTORY_HORIZ_MARGIN;
 		inventoryFormat.y = win.getHeight() * 2 / 3;
+		
+		String options[] = { "Equip", "Use", "Drop" };
+		dialog = new SelectionDialog(SELECTION_DIALOG_FILE, options);
+		assets.add(dialog);
 	}
 	
 	/** @return True if this inventory menu is up on the screen */
@@ -86,6 +101,8 @@ public class InventoryMenu extends Popup {
 	public void show() {
 		super.show();
 		MGlobal.screens.peek().addObject(this);
+		equippedSide = false;
+		selected = 2;
 	}
 
 	/**
@@ -107,7 +124,16 @@ public class InventoryMenu extends Popup {
 		
 		FontHolder font = MGlobal.ui.getFont();
 		
-		font.draw(getBatch(), descFormat, "TEST DESC", 0);
+		Item selectedItem;
+		int index = selected-2;
+		if (equippedSide) {
+			EquipmentSlot slot = EquipmentSlot.values()[index];
+			selectedItem = MGlobal.hero.getUnit().getEquipment().at(slot);
+		} else {
+			selectedItem = MGlobal.hero.getUnit().getInventory().at(index);
+		}
+		String desc = (selectedItem == null) ? "" : selectedItem.getDescription();
+		font.draw(getBatch(), descFormat, desc, 0);
 		
 		for (int i = 0; i < EquipmentSlot.values().length + 2; i += 1) {
 			int offY = LINE_HEIGHT * -i;
@@ -135,6 +161,16 @@ public class InventoryMenu extends Popup {
 				font.draw(getBatch(), inventoryFormat, itemText, offY);
 			}
 		}
+		
+		if (equippedSide) {
+			cursor.renderAt(getBatch(),
+					slotFormat.x + 12,
+					slotFormat.y - selected * LINE_HEIGHT - LINE_HEIGHT/2 - cursor.getHeight()/2);
+		} else {
+			cursor.renderAt(getBatch(),
+					inventoryFormat.x - 12,
+					inventoryFormat.y - selected * LINE_HEIGHT - LINE_HEIGHT/2 - cursor.getHeight()/2);
+		}
 	}
 
 	/**
@@ -143,6 +179,27 @@ public class InventoryMenu extends Popup {
 	 */
 	@Override
 	protected boolean onCursorMove(OrthoDir dir) {
+		switch (dir) {
+		case EAST: case WEST:
+			equippedSide = !equippedSide;
+			break;
+		case NORTH:
+			selected -= 1;
+			break;
+		case SOUTH:
+			selected += 1;
+			break;
+		}
+		if (selected < 2) selected = 2;
+		if (equippedSide) {
+			if (selected >= EquipmentSlot.values().length+1) {
+				selected = EquipmentSlot.values().length+1;
+			}
+		} else {
+			if (selected >= MGlobal.hero.getUnit().getInventory().getCapacity()+1) {
+				selected = MGlobal.hero.getUnit().getInventory().getCapacity()+1;
+			}
+		}
 		return true;
 	}
 
@@ -151,6 +208,48 @@ public class InventoryMenu extends Popup {
 	 */
 	@Override
 	protected boolean confirm() {
+		if (asking) return true;
+		final Inventory inventory = MGlobal.hero.getUnit().getInventory();
+		final EquippedItems equipment = MGlobal.hero.getUnit().getEquipment();
+		if (equippedSide) {
+			EquipmentSlot slot = EquipmentSlot.values()[selected-2];
+			if (equipment.at(slot) != null) {
+				equipment.unequip(slot);
+			}
+		} else {
+			final Item item = inventory.at(selected-2);
+			if (item != null) {
+				int selectX = inventoryFormat.x;
+				int selectY = inventoryFormat.y + LINE_HEIGHT * -selected;
+				asking = true;
+				dialog.ask(new SelectionListener() {
+					@Override public void onResult(int selection) {
+						switch (selection) {
+						case 0:
+							// equip
+							if (item.isEquippable()) {
+								equipment.equip(item);
+							}
+							break;
+						case 1:
+							// use
+							item.use();
+							break;
+						case 2:
+							// drop
+							// TODO: 7DRL: drop the item on the floor
+							inventory.removeItem(item);
+							break;
+						}
+						asking = false;
+					}
+					@Override public void onCancel() {
+						// nothing happens
+						asking = false;
+					}
+				}, selectX, selectY);
+			}
+		}
 		return true;
 	}
 
