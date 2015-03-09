@@ -71,6 +71,12 @@ public class Item implements Queueable {
 	/** @return The stats gained by equipping this item */
 	public SdrlStats getStats() { return stats; }
 	
+	/** @return The key of the ability granted by equipping this item */
+	public String getEquipAbilityKey() { return mdo.equippedAbility; }
+	
+	/** @return The key of the ability granted by carrying this item */
+	public String getCarryAbilityKey() { return mdo.carriedAbility; }
+	
 	/**
 	 * @see net.wombatrpgs.mrogue.core.Queueable#queueRequiredAssets
 	 * (com.badlogic.gdx.assets.AssetManager)

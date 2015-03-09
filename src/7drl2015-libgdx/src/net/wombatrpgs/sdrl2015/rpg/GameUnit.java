@@ -15,6 +15,7 @@ import com.badlogic.gdx.graphics.Color;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.core.Turnable;
+import net.wombatrpgs.sdrl2015.maps.MapThing;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.rpg.ai.Allegiance;
@@ -53,7 +54,7 @@ public class GameUnit implements Turnable, Queueable {
 	protected Allegiance allegiance;
 	protected Inventory inventory;
 	protected EquippedItems equipment;
-	protected List<Ability> abilities;
+	protected List<AbilityEntry> abilities;
 	
 	/**
 	 * Private shared constructor.
@@ -68,7 +69,7 @@ public class GameUnit implements Turnable, Queueable {
 		equipment = new EquippedItems(this);
 		turnChildren.add(allegiance);
 		
-		abilities = new ArrayList<Ability>();
+		abilities = new ArrayList<AbilityEntry>();
 		
 		if (out == null) out = MGlobal.ui.getNarrator();
 	}
@@ -83,10 +84,9 @@ public class GameUnit implements Turnable, Queueable {
 		this.parent = parent;
 		stats = new SdrlStats(mdo.stats);
 		for (String mdoKey : mdo.abilities) {
-			abilities.add(new Ability(parent,
-					MGlobal.data.getEntryFor(mdoKey, AbilityMDO.class)));
+			abilities.add(new AbilityEntry(new Ability(parent,
+					MGlobal.data.getEntryFor(mdoKey, AbilityMDO.class))));
 		}
-		assets.addAll(abilities);
 	}
 	
 	/**
@@ -100,8 +100,8 @@ public class GameUnit implements Turnable, Queueable {
 		this();
 		this.stats = stats;
 		for (String mdoKey : abilityKeys) {
-			abilities.add(new Ability(parent,
-					MGlobal.data.getEntryFor(mdoKey, AbilityMDO.class)));
+			abilities.add(new AbilityEntry(new Ability(parent,
+					MGlobal.data.getEntryFor(mdoKey, AbilityMDO.class))));
 		}
 	}
 	
@@ -125,9 +125,6 @@ public class GameUnit implements Turnable, Queueable {
 	
 	/** @return True if this unit has fallen in mortal combat */
 	public boolean isDead() { return get(Stat.MHP) <= 0; }
-	
-	/** @return The list of all the abilities this unit can perform */
-	public List<Ability> getAbilities() { return abilities; }
 	
 	/** @return The inventory of all carried items */
 	public Inventory getInventory() { return inventory; }
@@ -243,7 +240,51 @@ public class GameUnit implements Turnable, Queueable {
 			stats.combine(stats);
 		}
 	}
-
+	
+	/**
+	 * Grants an ability to the unit, like one they gain from carrying an item.
+	 * If null, does nothing (represents no ability granted).
+	 * @param	abilityKey		The key of the ability to grant, or null
+	 */
+	public void grantAbility(String abilityKey) {
+		if (!MapThing.mdoHasProperty(abilityKey)) return;
+		for (AbilityEntry entry : abilities) {
+			if (entry.matches(abilityKey)) {
+				entry.incrementSources();
+				return;
+			}
+		}
+		abilities.add(new AbilityEntry(new Ability(getParent(),
+				MGlobal.data.getEntryFor(abilityKey, AbilityMDO.class))));
+	}
+	
+	/**
+	 * Revokes knowledge in an ability. If null, does nothing.
+	 * @param	ability			The key of the ability to revoke, or null
+	 */
+	public void revokeAbility(String abilityKey) {
+		if (!MapThing.mdoHasProperty(abilityKey)) return;
+		for (AbilityEntry entry : abilities) {
+			if (entry.matches(abilityKey)) {
+				entry.decrementSources();
+				return;
+			}
+		}
+		MGlobal.reporter.warn("Unknown ability revoked: " + abilityKey);
+	}
+	
+	/**
+	 * Flattens the ability entries of this unit into a list of all known abils.
+	 * @return					The list of all the abilities this unit knows
+	 */
+	public List<Ability> getAbilities() {
+		List<Ability> abilityList = new ArrayList<Ability>();
+		for (AbilityEntry entry : abilities) {
+			abilityList.add(entry.getAbility());
+		}
+		return abilityList;
+	}
+	
 	/**
 	 * Launches a basic melee attack against the other unit.
 	 * @param other

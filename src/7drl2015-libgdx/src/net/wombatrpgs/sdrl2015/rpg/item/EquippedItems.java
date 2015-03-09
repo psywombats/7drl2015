@@ -59,6 +59,7 @@ public class EquippedItems {
 		if (previous != null) {
 			owner.getInventory().addItem(previous);
 		}
+		owner.grantAbility(item.getEquipAbilityKey());
 	}
 	
 	/**
@@ -74,6 +75,7 @@ public class EquippedItems {
 			equipment.put(slot, null);
 			owner.getInventory().addItem(equipped);
 			owner.applyStatset(equipped.getStats(), true);
+			owner.revokeAbility(equipped.getEquipAbilityKey());
 			return true;
 		} else {
 			return false;

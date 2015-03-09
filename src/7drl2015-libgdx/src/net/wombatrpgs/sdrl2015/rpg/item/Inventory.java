@@ -66,6 +66,8 @@ public class Inventory {
 			MGlobal.reporter.warn("Adding to an inventory past capacity: " + item);
 		}
 		items.add(item);
+		// TODO: 7DRL: melee fastswap
+		parent.grantAbility(item.getCarryAbilityKey());
 	}
 	
 	/**
@@ -78,6 +80,7 @@ public class Inventory {
 			MGlobal.reporter.warn("Removing non-contained item: " + item);
 		}
 		items.remove(item);
+		parent.revokeAbility(item.getCarryAbilityKey());
 	}
 	
 	/**

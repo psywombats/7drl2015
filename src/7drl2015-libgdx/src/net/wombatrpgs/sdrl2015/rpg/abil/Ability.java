@@ -134,6 +134,9 @@ public class Ability extends Action implements Queueable, CommandListener {
 	/** @return The class of effect this ability has */
 	public Class<? extends AbilEffect> getEffectClass() { return effect.getClass(); }
 	
+	/** @return The unique ID of this ability's type */
+	public String getKey() { return mdo.key; }
+	
 	/**
 	 * @see java.lang.Object#toString()
 	 */
