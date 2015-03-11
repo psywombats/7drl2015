@@ -13,6 +13,7 @@ import net.wombatrpgs.mgns.core.Annotations.InlineSchema;
 import net.wombatrpgs.mgns.core.Annotations.Path;
 import net.wombatrpgs.mgns.core.Annotations.SchemaLink;
 import net.wombatrpgs.sdrlschema.graphics.FourDirMDO;
+import net.wombatrpgs.sdrlschema.rpg.stats.StatModMDO;
 import net.wombatrpgs.sdrlschema.rpg.stats.StatSetMDO;
 
 /**
@@ -29,9 +30,12 @@ public class SpeciesMDO extends MainSchema {
 	@SchemaLink(FourDirMDO.class)
 	public String appearance;
 	
+	@InlineSchema(DangerRequirementMDO.class)
+	public DangerRequirementMDO dangerLevel;
+	
 	@Desc("Stats modifier - applied to the default statset for enemies")
 	@InlineSchema(StatSetMDO.class)
-	public StatSetMDO statsMod;
+	public StatModMDO statsMod;
 	
 	@Desc("Skills - innate, non-item-granted skills")
 	@SchemaLink(AbilityMDO.class)

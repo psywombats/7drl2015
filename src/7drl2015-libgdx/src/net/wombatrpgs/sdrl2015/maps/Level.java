@@ -26,6 +26,7 @@ import net.wombatrpgs.sdrl2015.maps.gen.MapGeneratorFactory;
 import net.wombatrpgs.sdrl2015.maps.layers.EventLayer;
 import net.wombatrpgs.sdrl2015.maps.layers.GridLayer;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
+import net.wombatrpgs.sdrl2015.rpg.enemy.EnemyEvent;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrl2015.screen.ScreenObject;
@@ -530,6 +531,26 @@ public class Level extends ScreenObject implements Turnable {
 	protected void internalRemoveObject(MapThing toRemove) {
 		toRemove.onRemovedFromMap(this);
 		objects.remove(toRemove);
+	}
+	
+	/**
+	 * Spawns enemies up to the neck.
+	 */
+	protected void spawnToCapacity() {
+		while (getPopulation() < getCapacity()) {
+			EnemyEvent enemy = MGlobal.levelManager.getEnemyGen().generate(getDanger());
+			MGlobal.assetManager.loadAsset(enemy, enemy.getName());
+			enemy.spawnUnseen();
+		}
+	}
+	
+	/**
+	 * Calculates how many monsters should max be on this map.
+	 * @return					The max monsters supported by this map
+	 */
+	protected int getCapacity() {
+		int density = 30; // not quite sure what the meaning is here
+		return (int) Math.ceil(density * (float)(getWidth()*getHeight() / (100f*100f)));
 	}
 
 }

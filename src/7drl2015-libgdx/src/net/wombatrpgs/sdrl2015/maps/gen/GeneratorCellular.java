@@ -252,13 +252,13 @@ public class GeneratorCellular extends MapGenerator {
 		}
 		addLayer(upperTiles, .5f);
 		
-		for (CRoom cr : allrooms) {
-			if (!cr.tensionAvailable) continue;
-			if (cr.rw * cr.rh > 30) continue;
-			if (r.nextFloat() < .6) continue;
-			if (parent.getDanger() < 2) continue;
-			cr.tensionSelected = true;
-//			TODO: monstergen
+		// tension room bullshit from mrogue
+//		for (CRoom cr : allrooms) {
+//			if (!cr.tensionAvailable) continue;
+//			if (cr.rw * cr.rh > 30) continue;
+//			if (r.nextFloat() < .6) continue;
+//			if (parent.getDanger() < 2) continue;
+//			cr.tensionSelected = true;
 //			int count = (cr.x + cr.rw - 1) * (cr.y + cr.rh - 1);
 //			List<Enemy> enemies = parent.getMonsterGenerator().createSet(count);
 //			for (int x = cr.x; x < cr.x + cr.rw; x += 1) {
@@ -269,18 +269,18 @@ public class GeneratorCellular extends MapGenerator {
 //					}
 //				}
 //			}
-			for (int loot = 0; loot <= 2 || r.nextBoolean(); loot += 1) {
-				int spawnX = 0;
-				int spawnY = 0;
-				// wow this algorithm sucks
-				while (!parent.isTilePassable(null, spawnX, spawnY)) {
-					spawnX = cr.ctx() + r.nextInt(3)-2;
-					spawnY = cr.cty() + r.nextInt(3)-2;
-				}
-				// TODO: place the loot on the floor
-			}
-			break;
-		}
+//			for (int loot = 0; loot <= 2 || r.nextBoolean(); loot += 1) {
+//				int spawnX = 0;
+//				int spawnY = 0;
+//				// wow this algorithm sucks
+//				while (!parent.isTilePassable(null, spawnX, spawnY)) {
+//					spawnX = cr.ctx() + r.nextInt(3)-2;
+//					spawnY = cr.cty() + r.nextInt(3)-2;
+//				}
+//				// TODO: place the loot on the floor
+//			}
+//			break;
+//		}
 	}
 
 }

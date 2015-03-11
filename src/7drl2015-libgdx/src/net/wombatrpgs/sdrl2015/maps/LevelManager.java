@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
+import net.wombatrpgs.sdrl2015.rpg.enemy.EnemyGenerator;
 import net.wombatrpgs.sdrl2015.scenes.TeleportManager;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrlschema.maps.MapMDO;
@@ -27,12 +28,14 @@ public class LevelManager {
 	protected Screen screen;
 	protected Level active;
 	protected TeleportManager teleport;
+	protected EnemyGenerator enemyGen;
 	
 	/**
 	 * Creates and initializes a new level manager.
 	 */
 	public LevelManager() {
 		levels = new HashMap<String, Level>();
+		enemyGen = new EnemyGenerator();
 	}
 	
 	/** @param screen The screen that will be showing levels */
@@ -49,6 +52,9 @@ public class LevelManager {
 	
 	/** @return The teleport processor for these levels */
 	public TeleportManager getTele() { return this.teleport; }
+	
+	/** @return The enemy generator for these levels */
+	public EnemyGenerator getEnemyGen() { return this.enemyGen; }
 	
 	/**
 	 * Resets like it's a new game.

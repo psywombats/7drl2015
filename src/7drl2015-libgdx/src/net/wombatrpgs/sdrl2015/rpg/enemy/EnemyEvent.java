@@ -4,7 +4,7 @@
  *  Author: psy_wombats
  *  Contact: psy_wombats@wombatrpgs.net
  */
-package net.wombatrpgs.sdrl2015.rpg;
+package net.wombatrpgs.sdrl2015.rpg.enemy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +12,8 @@ import java.util.List;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.MapThing;
+import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
+import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.ai.BTNode;
 import net.wombatrpgs.sdrl2015.rpg.ai.IntelligenceFactory;
 import net.wombatrpgs.sdrl2015.rpg.stats.SdrlStats;
