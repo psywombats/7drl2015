@@ -5,7 +5,6 @@
 	"description" : " MGNE looks for this MDO by key ",
 	"font" : "font_c64mrogue",
 	"box" : "textbox_insert",
-	"hud" : "hud_default",
 	"skills" : "skillsbox_default",
 	"icons" : "iconset_default",
 	"narrator" : "narrator_default",

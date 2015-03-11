@@ -14,7 +14,6 @@ import net.wombatrpgs.mgns.core.MainSchema;
 import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
 import net.wombatrpgs.sdrlschema.graphics.IconSetMDO;
 import net.wombatrpgs.sdrlschema.ui.FontMDO;
-import net.wombatrpgs.sdrlschema.ui.HudMDO;
 import net.wombatrpgs.sdrlschema.ui.NarratorMDO;
 import net.wombatrpgs.sdrlschema.ui.PromptMDO;
 import net.wombatrpgs.sdrlschema.ui.SkillsBoxMDO;
@@ -33,11 +32,6 @@ public class UISettingsMDO extends MainSchema {
 	@Desc("Default text box")
 	@SchemaLink(TextBoxMDO.class)
 	public String box;
-	
-	@Desc("Default HUD")
-	@SchemaLink(HudMDO.class)
-	@Nullable
-	public String hud;
 	
 	@Desc("Default skills HUD")
 	@SchemaLink(SkillsBoxMDO.class)

@@ -1,0 +1,17 @@
+{
+	"key" : "map_03",
+	"subfolder" : "",
+	"name" : "",
+	"description" : "",
+	"mapWidth" : 35,
+	"mapHeight" : 30,
+	"danger" : 0,
+	"generator" : "generator_furnished",
+	"effect" : "effect_los",
+	"floor" : "3",
+	"bgm" : "None",
+	"pathsUp" : [
+		"map_02"
+	],
+	"pathsDown" : [ ]
+}

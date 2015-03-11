@@ -21,7 +21,6 @@ import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
 import net.wombatrpgs.sdrlschema.graphics.IconSetMDO;
 import net.wombatrpgs.sdrlschema.settings.UISettingsMDO;
 import net.wombatrpgs.sdrlschema.ui.FontMDO;
-import net.wombatrpgs.sdrlschema.ui.HudMDO;
 import net.wombatrpgs.sdrlschema.ui.NarratorMDO;
 import net.wombatrpgs.sdrlschema.ui.PromptMDO;
 import net.wombatrpgs.sdrlschema.ui.SkillsBoxMDO;
@@ -64,10 +63,8 @@ public class UISettings implements Queueable {
 		assets.add(font);
 		box = new TextBox(MGlobal.data.getEntryFor(mdo.box, TextBoxMDO.class), font);
 		assets.add(box);
-		if (MapThing.mdoHasProperty(mdo.hud)) {
-			hud = new Hud(MGlobal.data.getEntryFor(mdo.hud, HudMDO.class));
-			assets.add(hud);
-		}
+		hud = new Hud();
+		assets.add(hud);
 		if (MapThing.mdoHasProperty(mdo.skills)) {
 			skills = new SkillsBox(MGlobal.data.getEntryFor(mdo.skills, SkillsBoxMDO.class));
 			assets.add(skills);

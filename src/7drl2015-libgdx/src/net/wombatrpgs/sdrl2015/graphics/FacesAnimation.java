@@ -188,7 +188,7 @@ public abstract class FacesAnimation implements Renderable,
 	 * @return					The texture region for that frame
 	 */
 	public TextureRegion getFrame(int dirOrdinal, int frame) {
-		return animations[currentDirOrdinal()].getFrame(frame);
+		return animations[dirOrdinal].getFrame(frame);
 	}
 	
 	/**
