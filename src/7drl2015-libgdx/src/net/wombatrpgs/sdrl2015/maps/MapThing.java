@@ -184,7 +184,7 @@ public abstract class MapThing implements	Renderable,
 	 * @return					True if it's a value, false it it's none
 	 */
 	public static boolean mdoHasProperty(String property) {
-		return (property != null && !property.equals(Constants.NULL_MDO));
+		return (property != null && !property.equals(Constants.NULL_MDO) && !property.equals(""));
 	}
 
 }

@@ -18,6 +18,7 @@ import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimation;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimationFactory;
+import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.maps.layers.EventLayer;
 import net.wombatrpgs.sdrl2015.rpg.act.ActWait;
@@ -263,8 +264,9 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	/**
 	 * Adds itself to its parent map in a position not viewable by the hero.
 	 * This is kind of a dumb implementation that relies on rand, be warned.
+	 * @param	parent			The level to spawn on
 	 */
-	public void spawnUnseen() {
+	public void spawnUnseen(Level parent) {
 		// 100 tries max
 		for (int i = 0; i < 100; i++) {
 			int tileX = MGlobal.rand.nextInt(parent.getWidth());

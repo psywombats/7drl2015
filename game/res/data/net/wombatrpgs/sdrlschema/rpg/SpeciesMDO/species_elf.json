@@ -1,0 +1,34 @@
+{
+	"key" : "species_elf",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"raceName" : "Elf",
+	"appearance" : "4dir_mage",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 30.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 5.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ],
+	"races" : [
+		"race_elf_dark",
+		"race_elf_high"
+	],
+	"units" : [
+		"unit_elf_archer",
+		"unit_elf_lord",
+		"unit_elf_spearman"
+	]
+}

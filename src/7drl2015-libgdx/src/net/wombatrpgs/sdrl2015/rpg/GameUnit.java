@@ -27,6 +27,7 @@ import net.wombatrpgs.sdrl2015.rpg.stats.Stats;
 import net.wombatrpgs.sdrl2015.ui.Narrator;
 import net.wombatrpgs.sdrlschema.rpg.AbilityMDO;
 import net.wombatrpgs.sdrlschema.rpg.HeroMDO;
+import net.wombatrpgs.sdrlschema.rpg.RaceMDO;
 import net.wombatrpgs.sdrlschema.rpg.data.Relation;
 import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
@@ -54,6 +55,7 @@ public class GameUnit implements Turnable, Queueable {
 	protected Allegiance allegiance;
 	protected Inventory inventory;
 	protected EquippedItems equipment;
+	protected RaceMDO race;
 	protected List<AbilityEntry> abilities;
 	
 	/**
@@ -92,12 +94,13 @@ public class GameUnit implements Turnable, Queueable {
 	/**
 	 * Creates a new character from a list of its stats and abilities. Meant to
 	 * be called by enemies.
-	 * @param	parent			The owner of this character, ie, its body
 	 * @param	stats			The stats of the unit
 	 * @param	abilityKeys		The keys to AbilityMDOs of the unit
+	 * @param	race			The race of this game unit, or null for no care
 	 */
-	public GameUnit(SdrlStats stats, List<String> abilityKeys) {
+	public GameUnit(SdrlStats stats, List<String> abilityKeys, RaceMDO race) {
 		this();
+		this.race = race;
 		this.stats = stats;
 		for (String mdoKey : abilityKeys) {
 			abilities.add(new AbilityEntry(new Ability(parent,
@@ -138,6 +141,9 @@ public class GameUnit implements Turnable, Queueable {
 	/** @param turn The old turn child to remove */
 	public void removeTurnChild(Turnable turn) { toRemove.add(turn); }
 	
+	/** @return The race of this unit, or null for raceless weirdo */
+	public RaceMDO getRace() { return race; }
+	
 	/**
 	 * @see net.wombatrpgs.mrogue.core.Queueable#queueRequiredAssets
 	 * (com.badlogic.gdx.assets.AssetManager)
@@ -158,6 +164,7 @@ public class GameUnit implements Turnable, Queueable {
 		for (Queueable asset : assets) {
 			asset.postProcessing(manager, pass);
 		}
+		stats.setStat(Stat.HP, get(Stat.MHP));
 	}
 	
 	/**
@@ -350,6 +357,7 @@ public class GameUnit implements Turnable, Queueable {
 	public int takePhysicalDamage(int damage) {
 		int dealt = calcPhysicalDamageTaken(damage);
 		if (dealt > 0) {
+			takeRawDamage(dealt);
 			parent.flash(Color.RED, MGlobal.constants.getDelay()*1.6f);
 		}
 		return dealt;
@@ -365,6 +373,7 @@ public class GameUnit implements Turnable, Queueable {
 	public int takeMagicDamage(int damage) {
 		int dealt = calcMagicDamageTaken(damage);
 		if (dealt > 0) {
+			takeRawDamage(dealt);
 			parent.flash(Color.RED, MGlobal.constants.getDelay()*1.6f);
 		}
 		return dealt;
@@ -426,7 +435,10 @@ public class GameUnit implements Turnable, Queueable {
 			out.msg(getName() + " was killed.");
 		}
 		for (Item i : inventory.getItems()) {
-			parent.getParent().addEvent(i.getEvent(), parent.getTileX(), parent.getTileY());
+			i.onDrop(this);
+		}
+		for (Item i : equipment.getItems()) {
+			i.onDrop(this);
 		}
 	}
 	

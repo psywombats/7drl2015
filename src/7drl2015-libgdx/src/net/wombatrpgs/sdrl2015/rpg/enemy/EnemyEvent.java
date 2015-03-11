@@ -43,6 +43,15 @@ public class EnemyEvent extends CharacterEvent {
 	public EnemyEvent(SpeciesMDO species, RaceMDO race, UnitMDO unit) {
 		super(generateUnit(species, race, unit), generateAppearance(species, race, unit));
 		this.intelligence = IntelligenceFactory.createIntelligence(KEY_DEFAULT_BEHAVIOR, this);
+		String name = species.raceName;
+		if (race != null && MapThing.mdoHasProperty(race.prefix)) {
+			name = race.prefix + " " + name;
+		}
+		if (unit != null && MapThing.mdoHasProperty(unit.suffix)) {
+			name = name + " " + unit.suffix;
+		}
+		name = name.toLowerCase();
+		getUnit().setName(name);
 	}
 	
 	/**
@@ -95,7 +104,7 @@ public class EnemyEvent extends CharacterEvent {
 			abilities.addAll(Arrays.asList(unit.abilities));
 		}
 		
-		return new GameUnit(stats, abilities);
+		return new GameUnit(stats, abilities, race);
 	}
 	
 	/**

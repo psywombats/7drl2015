@@ -12,6 +12,7 @@ import java.util.List;
 import com.badlogic.gdx.assets.AssetManager;
 
 import net.wombatrpgs.sdrl2015.core.Constants;
+import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
@@ -43,9 +44,6 @@ public class Item implements Queueable {
 		assets.add(icon);
 		stats = new SdrlStats(mdo.stats);
 	}
-	
-	/** @return The in-map representation of this item */
-	public ItemEvent getEvent() { return parent; }
 	
 	/** @return The visual for this item */
 	public Graphic getIcon() { return icon; }
@@ -98,17 +96,31 @@ public class Item implements Queueable {
 			asset.postProcessing(manager, pass);
 		}
 	}
-
 	
-	// TODO: 7DRL: this probably doesn't work right
 	/**
 	 * This should be called to simulate a character picking up this item. Is
 	 * called exlusively from its ItemEvent parent.
 	 * @param	unit			The chara picking us up
 	 */
 	public void onPickup(GameUnit unit) {
-		parent = null;
 		unit.pickUp(this);
+	}
+	
+	/**
+	 * Called when a character unit drops this item.
+	 * @param	unit			The unit dropping the item
+	 */
+	public void onDrop(GameUnit unit) {
+		if (parent == null) {
+			parent = new ItemEvent(unit.getParent().getParent(),
+					this,
+					unit.getParent().getTileX(),
+					unit.getParent().getTileY());
+			MGlobal.assetManager.loadAsset(parent, this.toString());
+		}
+		unit.getParent().getParent().addEvent(parent,
+				parent.getTileX(),
+				parent.getTileY());
 	}
 	
 	/**

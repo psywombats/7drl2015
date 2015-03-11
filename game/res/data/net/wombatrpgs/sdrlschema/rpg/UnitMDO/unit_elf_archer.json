@@ -1,0 +1,26 @@
+{
+	"key" : "unit_elf_archer",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Archer",
+	"appearance" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 5.0
+			},
+			{
+				"stat" : "VISION",
+				"value" : 1.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ],
+	"rivalry" : "NO_REQUIREMENT"
+}

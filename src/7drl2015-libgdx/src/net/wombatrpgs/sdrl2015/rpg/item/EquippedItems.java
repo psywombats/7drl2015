@@ -6,7 +6,9 @@
  */
 package net.wombatrpgs.sdrl2015.rpg.item;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
@@ -80,6 +82,19 @@ public class EquippedItems {
 		} else {
 			return false;
 		}
+	}
+	
+	/**
+	 * Returns a list of all equipped items. Useful to check if an item exists
+	 * or to drop them on the ground or something.
+	 * @return					A list of all equipped items
+	 */
+	public List<Item> getItems() { 
+		List<Item> items = new ArrayList<Item>();
+		for (Item item : equipment.values()) {
+			items.add(item);
+		}
+		return items;
 	}
 
 }

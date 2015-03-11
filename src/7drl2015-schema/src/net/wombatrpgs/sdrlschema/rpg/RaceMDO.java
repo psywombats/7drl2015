@@ -15,7 +15,6 @@ import net.wombatrpgs.mgns.core.Annotations.SchemaLink;
 import net.wombatrpgs.mgns.core.MainSchema;
 import net.wombatrpgs.sdrlschema.graphics.FourDirMDO;
 import net.wombatrpgs.sdrlschema.rpg.stats.StatModMDO;
-import net.wombatrpgs.sdrlschema.rpg.stats.StatSetMDO;
 
 /**
  * Subtypes of species that mostly provide stat modifiers.
@@ -36,7 +35,7 @@ public class RaceMDO extends MainSchema {
 	public DangerRequirementMDO dangerLevel;
 	
 	@Desc("Stats modifier - applied to the default statset for enemies")
-	@InlineSchema(StatSetMDO.class)
+	@InlineSchema(StatModMDO.class)
 	public StatModMDO statsMod;
 	
 	@Desc("Skills - innate, non-item-granted skills")

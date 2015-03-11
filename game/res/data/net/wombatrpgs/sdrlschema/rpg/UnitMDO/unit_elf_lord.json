@@ -1,0 +1,26 @@
+{
+	"key" : "unit_elf_lord",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Lord",
+	"appearance" : "None",
+	"dangerLevel" : {
+		"boundsString" : "1-100"
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 20.0
+			},
+			{
+				"stat" : "SPEED",
+				"value" : 25.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ],
+	"rivalry" : "NO_REQUIREMENT"
+}

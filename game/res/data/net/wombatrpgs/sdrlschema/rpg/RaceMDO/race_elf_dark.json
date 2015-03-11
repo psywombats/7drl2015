@@ -1,0 +1,25 @@
+{
+	"key" : "race_elf_dark",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Dark",
+	"appearance" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 5.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 1.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ]
+}

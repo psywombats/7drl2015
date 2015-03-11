@@ -14,7 +14,6 @@ import net.wombatrpgs.mgns.core.Annotations.Path;
 import net.wombatrpgs.mgns.core.Annotations.SchemaLink;
 import net.wombatrpgs.sdrlschema.graphics.FourDirMDO;
 import net.wombatrpgs.sdrlschema.rpg.stats.StatModMDO;
-import net.wombatrpgs.sdrlschema.rpg.stats.StatSetMDO;
 
 /**
  * Top-level monster type for 7DRL.
@@ -34,7 +33,7 @@ public class SpeciesMDO extends MainSchema {
 	public DangerRequirementMDO dangerLevel;
 	
 	@Desc("Stats modifier - applied to the default statset for enemies")
-	@InlineSchema(StatSetMDO.class)
+	@InlineSchema(StatModMDO.class)
 	public StatModMDO statsMod;
 	
 	@Desc("Skills - innate, non-item-granted skills")

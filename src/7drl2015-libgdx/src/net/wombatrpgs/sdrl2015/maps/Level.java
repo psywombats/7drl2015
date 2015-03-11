@@ -217,6 +217,7 @@ public class Level extends ScreenObject implements Turnable {
 		super.postProcessing(manager, 0);
 		if (pass == 0) {
 			mapGen.generateMe();
+			spawnToCapacity();
 			// any required characters should spawn here
 		}
 	}
@@ -540,7 +541,7 @@ public class Level extends ScreenObject implements Turnable {
 		while (getPopulation() < getCapacity()) {
 			EnemyEvent enemy = MGlobal.levelManager.getEnemyGen().generate(getDanger());
 			MGlobal.assetManager.loadAsset(enemy, enemy.getName());
-			enemy.spawnUnseen();
+			enemy.spawnUnseen(this);
 		}
 	}
 	

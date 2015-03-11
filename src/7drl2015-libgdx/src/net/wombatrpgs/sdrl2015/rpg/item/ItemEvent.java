@@ -34,6 +34,7 @@ public class ItemEvent extends MapEvent {
 		this.setTileX(tileX);
 		this.setTileY(tileY);
 		me.setParent(this);
+		assets.add(item.getIcon());
 	}
 	
 	/** @return The item that we're holding */

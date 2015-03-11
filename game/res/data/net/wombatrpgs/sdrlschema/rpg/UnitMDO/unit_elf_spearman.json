@@ -1,0 +1,26 @@
+{
+	"key" : "unit_elf_spearman",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Spearman",
+	"appearance" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 5.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 1.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ],
+	"rivalry" : "NO_REQUIREMENT"
+}

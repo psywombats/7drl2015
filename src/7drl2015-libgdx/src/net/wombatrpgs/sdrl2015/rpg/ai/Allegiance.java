@@ -9,6 +9,7 @@ package net.wombatrpgs.sdrl2015.rpg.ai;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrlschema.rpg.data.Relation;
@@ -66,10 +67,15 @@ public class Allegiance implements Turnable {
 			return Relation.HOSTILE;
 		} else if (friendlist.contains(other)) {
 			return Relation.ALLIED;
+		} else if (parent == MGlobal.hero.getUnit()) {
+			return Relation.HOSTILE;
+		} else if (other == MGlobal.hero.getUnit()) {
+			return Relation.HOSTILE;
+		} else if (parent.getRace() == other.getRace()) {
+			return Relation.ALLIED;
 		} else {
-			Relation result = Relation.ALLIED;		// highest friendliness
-			// TODO: cycle through race relations and determine relation
-			return result;
+			// TODO: maybe only ally with certain races?
+			return Relation.NEUTRAL;
 		}
 	}
 	

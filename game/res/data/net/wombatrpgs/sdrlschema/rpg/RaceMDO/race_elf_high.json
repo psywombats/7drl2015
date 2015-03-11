@@ -1,0 +1,25 @@
+{
+	"key" : "race_elf_high",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"prefix" : "High",
+	"appearance" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "VISION",
+				"value" : 1.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ]
+}

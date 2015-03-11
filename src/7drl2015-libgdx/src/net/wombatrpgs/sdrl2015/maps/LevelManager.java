@@ -35,7 +35,6 @@ public class LevelManager {
 	 */
 	public LevelManager() {
 		levels = new HashMap<String, Level>();
-		enemyGen = new EnemyGenerator();
 	}
 	
 	/** @param screen The screen that will be showing levels */
@@ -54,7 +53,13 @@ public class LevelManager {
 	public TeleportManager getTele() { return this.teleport; }
 	
 	/** @return The enemy generator for these levels */
-	public EnemyGenerator getEnemyGen() { return this.enemyGen; }
+	public EnemyGenerator getEnemyGen() {
+		// deferred init
+		if (enemyGen == null) {
+			enemyGen = new EnemyGenerator();
+		}
+		return this.enemyGen;
+	}
 	
 	/**
 	 * Resets like it's a new game.

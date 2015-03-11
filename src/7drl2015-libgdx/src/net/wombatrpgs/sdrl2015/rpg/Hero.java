@@ -55,6 +55,7 @@ public class Hero extends CharacterEvent implements CommandListener {
 		this.parent = parent;
 		MGlobal.hero = this;
 		step = new ActStep(this);
+		getUnit().setName("you");
 	}
 
 	/**
