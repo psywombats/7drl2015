@@ -7,7 +7,6 @@
 package net.wombatrpgs.sdrlschema.settings;
 
 import net.wombatrpgs.mgns.core.Annotations.Desc;
-import net.wombatrpgs.mgns.core.Annotations.Nullable;
 import net.wombatrpgs.mgns.core.Annotations.Path;
 import net.wombatrpgs.mgns.core.Annotations.SchemaLink;
 import net.wombatrpgs.mgns.core.MainSchema;
@@ -16,7 +15,6 @@ import net.wombatrpgs.sdrlschema.graphics.IconSetMDO;
 import net.wombatrpgs.sdrlschema.ui.FontMDO;
 import net.wombatrpgs.sdrlschema.ui.NarratorMDO;
 import net.wombatrpgs.sdrlschema.ui.PromptMDO;
-import net.wombatrpgs.sdrlschema.ui.SkillsBoxMDO;
 import net.wombatrpgs.sdrlschema.ui.TextBoxMDO;
 
 /**
@@ -32,11 +30,6 @@ public class UISettingsMDO extends MainSchema {
 	@Desc("Default text box")
 	@SchemaLink(TextBoxMDO.class)
 	public String box;
-	
-	@Desc("Default skills HUD")
-	@SchemaLink(SkillsBoxMDO.class)
-	@Nullable
-	public String skills;
 	
 	@Desc("Default icon set")
 	@SchemaLink(IconSetMDO.class)

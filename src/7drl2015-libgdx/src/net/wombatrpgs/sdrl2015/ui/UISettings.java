@@ -14,7 +14,6 @@ import com.badlogic.gdx.assets.AssetManager;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.graphics.AnimationStrip;
-import net.wombatrpgs.sdrl2015.maps.MapThing;
 import net.wombatrpgs.sdrl2015.ui.text.FontHolder;
 import net.wombatrpgs.sdrl2015.ui.text.TextBox;
 import net.wombatrpgs.sdrlschema.graphics.AnimationMDO;
@@ -23,7 +22,6 @@ import net.wombatrpgs.sdrlschema.settings.UISettingsMDO;
 import net.wombatrpgs.sdrlschema.ui.FontMDO;
 import net.wombatrpgs.sdrlschema.ui.NarratorMDO;
 import net.wombatrpgs.sdrlschema.ui.PromptMDO;
-import net.wombatrpgs.sdrlschema.ui.SkillsBoxMDO;
 import net.wombatrpgs.sdrlschema.ui.TextBoxMDO;
 
 /**
@@ -43,7 +41,6 @@ public class UISettings implements Queueable {
 	protected FontHolder font;
 	protected TextBox box;
 	protected Hud hud;
-	protected SkillsBox skills;
 	protected IconSet icons;
 	protected Narrator narrator;
 	protected InventoryMenu inventory;
@@ -65,10 +62,6 @@ public class UISettings implements Queueable {
 		assets.add(box);
 		hud = new Hud();
 		assets.add(hud);
-		if (MapThing.mdoHasProperty(mdo.skills)) {
-			skills = new SkillsBox(MGlobal.data.getEntryFor(mdo.skills, SkillsBoxMDO.class));
-			assets.add(skills);
-		}
 		icons = new IconSet(MGlobal.data.getEntryFor(mdo.icons, IconSetMDO.class));
 		assets.add(icons);
 		narrator = new Narrator(MGlobal.data.getEntryFor(mdo.narrator, NarratorMDO.class), font);
@@ -112,9 +105,6 @@ public class UISettings implements Queueable {
 	
 	/** return The narrator associated with these settings */
 	public Narrator getNarrator() { return this.narrator; }
-	
-	/** @return The skills associated with these settings */
-	public SkillsBox getSkills() { return this.skills; }
 	
 	/** @return The HUD associated with these settings */
 	public Hud getHud() { return this.hud; }

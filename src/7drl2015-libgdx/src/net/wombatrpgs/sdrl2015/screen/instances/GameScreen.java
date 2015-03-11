@@ -51,7 +51,6 @@ public class GameScreen extends Screen {
 		
 		addObject(MGlobal.ui.getNarrator());
 		addObject(MGlobal.ui.getHud());
-		addObject(MGlobal.ui.getSkills());
 	}
 	
 	/**
