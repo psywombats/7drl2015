@@ -7,7 +7,8 @@
 package net.wombatrpgs.sdrl2015.rpg.abil;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
-import net.wombatrpgs.sdrlschema.rpg.data.AbilityEffectMDO;
+import net.wombatrpgs.sdrlschema.rpg.abil.AbilityEffectMDO;
+import net.wombatrpgs.sdrlschema.rpg.abil.EffectArmorPierceMDO;
 
 /**
  * Another one of these shitty instanceof/getclass constructions for MDOs.
@@ -32,7 +33,11 @@ public class AbilEffectFactory {
 	 * @return
 	 */
 	public static AbilEffect createEffect(AbilityEffectMDO mdo, Ability abil) {
-		MGlobal.reporter.err("Unknown ability type " + mdo);
+		if (EffectArmorPierceMDO.class.isAssignableFrom(mdo.getClass())) {
+			return new EffectArmorPierce((EffectArmorPierceMDO) mdo, abil);
+		} else {
+			MGlobal.reporter.err("Unknown ability type " + mdo.key);
+		}
 		return null;
 	}
 

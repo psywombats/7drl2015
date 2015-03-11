@@ -6,8 +6,8 @@
 	"itemName" : "Sward",
 	"itemDescription" : "Very shorp and pointy.",
 	"icon" : "potion_red.png",
-	"carriedAbility" : null,
-	"equippedAbility" : null,
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_armorpierce",
 	"slot" : "WEAPON",
 	"stats" : {
 		"stats" : [ ],

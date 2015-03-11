@@ -11,7 +11,7 @@ import java.util.List;
 
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
-import net.wombatrpgs.sdrlschema.rpg.data.AbilityTargetType;
+import net.wombatrpgs.sdrlschema.rpg.abil.AbilityTargetType;
 
 /**
  * Randomly uses an ability with the specified targeting type, assuming such a

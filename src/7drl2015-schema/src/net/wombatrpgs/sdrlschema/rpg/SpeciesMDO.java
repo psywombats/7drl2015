@@ -13,6 +13,7 @@ import net.wombatrpgs.mgns.core.Annotations.InlineSchema;
 import net.wombatrpgs.mgns.core.Annotations.Path;
 import net.wombatrpgs.mgns.core.Annotations.SchemaLink;
 import net.wombatrpgs.sdrlschema.graphics.FourDirMDO;
+import net.wombatrpgs.sdrlschema.rpg.abil.AbilityMDO;
 import net.wombatrpgs.sdrlschema.rpg.stats.StatModMDO;
 
 /**

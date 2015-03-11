@@ -14,7 +14,7 @@ import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.ai.BTSequence;
 import net.wombatrpgs.sdrl2015.rpg.ai.RandomSelector;
 import net.wombatrpgs.sdrl2015.rpg.ai.cond.CondChance;
-import net.wombatrpgs.sdrlschema.rpg.data.AbilityTargetType;
+import net.wombatrpgs.sdrlschema.rpg.abil.AbilityTargetType;
 
 /**
  * Randomly use an offensive ability if targets are in range.

@@ -4,7 +4,7 @@
  *  Author: psy_wombats
  *  Contact: psy_wombats@wombatrpgs.net
  */
-package net.wombatrpgs.sdrlschema.rpg.data;
+package net.wombatrpgs.sdrlschema.rpg.abil;
 
 /**
  * What can abilities target? This is more of a character-spatial thing.

@@ -111,7 +111,7 @@ public class InventoryMenu extends Popup {
 	@Override
 	public void hide() {
 		super.hide();
-		MGlobal.screens.peek().addObject(this);
+		MGlobal.screens.peek().removeObject(this);
 	}
 
 	/**

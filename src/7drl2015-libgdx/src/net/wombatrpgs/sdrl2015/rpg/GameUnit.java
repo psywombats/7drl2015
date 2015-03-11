@@ -25,9 +25,9 @@ import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.rpg.stats.SdrlStats;
 import net.wombatrpgs.sdrl2015.rpg.stats.Stats;
 import net.wombatrpgs.sdrl2015.ui.Narrator;
-import net.wombatrpgs.sdrlschema.rpg.AbilityMDO;
 import net.wombatrpgs.sdrlschema.rpg.HeroMDO;
 import net.wombatrpgs.sdrlschema.rpg.RaceMDO;
+import net.wombatrpgs.sdrlschema.rpg.abil.AbilityMDO;
 import net.wombatrpgs.sdrlschema.rpg.data.Relation;
 import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
@@ -552,7 +552,7 @@ public class GameUnit implements Turnable, Queueable {
 	 * and equipment. It's fine to use the RNG.
 	 * @return					A randomized melee damage output, in HP
 	 */
-	protected int calcMeleeDamage() {
+	public int calcMeleeDamage() {
 		// TODO: obvious
 		return 10;
 	}

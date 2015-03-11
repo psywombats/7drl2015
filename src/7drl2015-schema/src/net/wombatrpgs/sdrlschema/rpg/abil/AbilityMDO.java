@@ -4,18 +4,18 @@
  *  Author: psy_wombats
  *  Contact: psy_wombats@wombatrpgs.net
  */
-package net.wombatrpgs.sdrlschema.rpg;
+package net.wombatrpgs.sdrlschema.rpg.abil;
 
 import net.wombatrpgs.mgns.core.Annotations.DefaultValue;
 import net.wombatrpgs.mgns.core.Annotations.Desc;
 import net.wombatrpgs.mgns.core.Annotations.FileLink;
+import net.wombatrpgs.mgns.core.Annotations.InlinePolymorphic;
 import net.wombatrpgs.mgns.core.Annotations.Nullable;
 import net.wombatrpgs.mgns.core.Annotations.Path;
 import net.wombatrpgs.mgns.core.Annotations.SchemaLink;
 import net.wombatrpgs.mgns.core.MainSchema;
+import net.wombatrpgs.mgns.core.PolymorphicLink;
 import net.wombatrpgs.sdrlschema.graphics.effects.data.AbilFxMDO;
-import net.wombatrpgs.sdrlschema.rpg.data.AbilityEffectMDO;
-import net.wombatrpgs.sdrlschema.rpg.data.AbilityTargetType;
 
 /**
  * Something a little more subtle than walking into a character.
@@ -35,12 +35,13 @@ public class AbilityMDO extends MainSchema {
 	@Desc("Range - In tiles, could be used for some targeting types")
 	public Float range;
 	
-	@Desc("Effect - The code operating behind this ability")
-	@SchemaLink(AbilityEffectMDO.class)
-	public String effect;
+	@Desc("Effect - what happens when this applies")
+	@InlinePolymorphic(AbilityEffectMDO.class)
+	@Nullable
+	public PolymorphicLink warhead;
 	
 	@Desc("Icon - file used for this ability in the UI")
-	@FileLink("ui")
+	@FileLink("items")
 	@Nullable
 	public String icon;
 	
