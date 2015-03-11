@@ -6,13 +6,18 @@
  */
 package net.wombatrpgs.sdrl2015.ui;
 
+import java.util.List;
+
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.BitmapFont.HAlignment;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
+import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.ui.text.FontHolder;
+import net.wombatrpgs.sdrl2015.ui.text.TextBoxFormat;
 import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 import net.wombatrpgs.sdrlschema.ui.FontMDO;
 import net.wombatrpgs.sdrlschema.ui.NumberSetMDO;
@@ -54,9 +59,18 @@ public class Hud extends UIElement {
 	protected static final int BAR2_X = 936;
 	protected static final int BAR2_Y = 716;
 	
+	protected static final int ABIL_START_X = 11;
+	protected static final int ABIL_START_Y = 709;
+	protected static final int ABIL_WIDTH = 78;
+	protected static final int ABIL_SPRITE_X = 17;
+	protected static final int ABIL_SPRITE_Y = -32;
+	protected static final int ABIL_TEXT_X = 8;
+	protected static final int ABIL_TEXT_Y = -20;
+	
 	protected Graphic frame, frameBacker;
 	protected Graphic hpBlob, mpBlob, spBlob;
 	protected NumberSet numbersBig, numbersSmall;
+	protected TextBoxFormat abilFormat;
 	
 	protected FontHolder font;
 	protected float mp, mmp, hp, mhp, sp, msp;
@@ -91,6 +105,8 @@ public class Hud extends UIElement {
 		
 		font = new FontHolder(MGlobal.data.getEntryFor(FONT_DEFAULT, FontMDO.class));
 		assets.add(font);
+		
+		abilFormat = new TextBoxFormat();
 	}
 	
 	/** @return True if the hud is displaying right now */
@@ -205,6 +221,25 @@ public class Hud extends UIElement {
 		batch.end();
 		
 		frame.renderAt(batch, 0, 0);
+		
+		List<Ability> abilities = MGlobal.hero.getUnit().getAbilities();
+		for (int i = 0; i < abilities.size(); i += 1) {
+			Ability abil = abilities.get(i);
+			abil.getIcon().renderAt(batch,
+					ABIL_START_X + ABIL_WIDTH*i + ABIL_SPRITE_X,
+					MGlobal.window.getHeight() - (ABIL_START_Y + ABIL_SPRITE_Y));
+			abilFormat.align = HAlignment.LEFT;
+			abilFormat.width = 100;
+			abilFormat.height = 50;
+			abilFormat.x = ABIL_START_X + ABIL_WIDTH*i + ABIL_TEXT_X;
+			abilFormat.y = MGlobal.window.getHeight() - (ABIL_START_Y + ABIL_TEXT_Y);
+			font.draw(batch, abilFormat, "F"+(i+1), (int) font.getLineHeight());
+			if (abil.getMP() > 0) {
+				font.draw(batch, abilFormat, "MP: " + abil.getMP(), 0);
+			} else if (abil.getSP() > 0) {
+				font.draw(batch, abilFormat, "SP: " + abil.getSP(), 0);
+			}
+		}
 		
 //		format.align = HAlignment.LEFT;
 //		format.x = mdo.offX - 14;

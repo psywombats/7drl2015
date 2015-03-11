@@ -11,6 +11,7 @@ import java.util.List;
 
 import com.badlogic.gdx.assets.AssetManager;
 
+import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.FinishListener;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
@@ -69,10 +70,8 @@ public class Ability extends Action implements Queueable, CommandListener {
 			fx = AbilFxFactory.createFX(mdo.fx, this);
 			assets.add(fx);
 		}
-		if (MapThing.mdoHasProperty(mdo.icon)) {
-			icon = new Graphic(mdo.icon);
-			assets.add(icon);
-		}
+		icon = new Graphic(Constants.ITEMS_DIR, mdo.icon);
+		assets.add(icon);
 		
 		final CharacterEvent actor2 = actor;
 		switch (mdo.target) {
@@ -109,6 +108,9 @@ public class Ability extends Action implements Queueable, CommandListener {
 	
 	/** @return The MP cost of this ability */
 	public int getMP() { return mdo.mpCost; }
+	
+	/** @return The SP cost of this ability */
+	public int getSP() { return mdo.spCost; }
 	
 	/** @return The in-game name of this ability */
 	public String getName() { return mdo.name; }

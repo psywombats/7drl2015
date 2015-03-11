@@ -261,8 +261,10 @@ public class GameUnit implements Turnable, Queueable {
 				return;
 			}
 		}
-		abilities.add(new AbilityEntry(new Ability(getParent(),
-				MGlobal.data.getEntryFor(abilityKey, AbilityMDO.class))));
+		AbilityEntry entry = new AbilityEntry(new Ability(getParent(),
+				MGlobal.data.getEntryFor(abilityKey, AbilityMDO.class)));
+		MGlobal.assetManager.loadAsset(entry.getAbility(), entry.toString());
+		abilities.add(entry);
 	}
 	
 	/**
@@ -409,7 +411,8 @@ public class GameUnit implements Turnable, Queueable {
 	 * @param	abil			The ability that was used
 	 */
 	public void onAbilityUsed(Ability abil) {
-		// TODO: deduct resource costs
+		stats.subtract(Stat.MP, abil.getMP());
+		stats.subtract(Stat.SP, abil.getSP());
 		if (visible(this)) {
 			out.msg(getName() + " used " + abil.getName() + ".");
 		}
