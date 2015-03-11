@@ -33,7 +33,7 @@ public class EnemyGenerator {
 	public EnemyGenerator() {
 		
 		definitionsByDL = new HashMap<Integer, List<EnemyDefinition>>();
-		List<SpeciesMDO> allSpecies = MGlobal.data.getEntriesByClass(SpeciesMDO.class);
+		List<SpeciesMDO> allSpecies = MGlobal.data.getAll(SpeciesMDO.class);
 		rivalSpecies = allSpecies.get(MGlobal.rand.nextInt(allSpecies.size()));
 		
 		allDefinitions = new ArrayList<EnemyDefinition>();

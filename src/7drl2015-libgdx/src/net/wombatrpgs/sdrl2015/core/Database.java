@@ -77,6 +77,36 @@ public class Database {
 	}
 	
 	/**
+	 * Checks if an MDO of a given name and type exists in the database.
+	 * @param	key				The key to check
+	 * @param	clazz			The expected class of the MDO
+	 * @return					True if an MDO with that name and class exists
+	 */
+	public <T extends MainSchema> boolean exists(String key, Class<T> clazz) {
+		MainSchema result = keyShelf.get(key);
+		if (result == null) return false;
+		if (!clazz.isAssignableFrom(result.getClass())) return false;
+		return true;
+	}
+	
+	/**
+	 * Fetches the entry with the supplied key from the database if it exists.
+	 * If so, casts it to the appropriate type. If no entry is found, will
+	 * return null.
+	 * @param 	<T>		The type of schema expected
+	 * @param 	key		The key of the schema
+	 * @param 	clazz	The type of schema expected
+	 * @return			The schema with that key of that type, or null if none
+	 */
+	public <T extends MainSchema> T getIfExists(String key, Class<T> clazz) {
+		if (exists(key, clazz)) {
+			return getEntryFor(key, clazz);
+		} else {
+			return null;
+		}
+	}
+	
+	/**
 	 * Fetches the entry with the supplied key from the database, then casts it
 	 * to the appropriate type for you. How convenient!
 	 * @param 	<T>		The type of schema expected
@@ -102,7 +132,7 @@ public class Database {
 	 * @return			All entries of that class
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends MainSchema> List<T> getEntriesByClass(Class<T> clazz) {
+	public <T extends MainSchema> List<T> getAll(Class<T> clazz) {
 		List<T> result = (List<T>) classShelf.get(clazz);
 		if (result == null) return new ArrayList<T>();
 		else return result;
@@ -123,7 +153,7 @@ public class Database {
 				name = name.substring(name.indexOf('.') + 1);
 			}
 			path += name;
-			queueFilesInDir(manager, Gdx.files.local(path));
+			queueFilesInDir(manager, Gdx.files.internal(path));
 		}
 	}
 	
@@ -166,14 +196,16 @@ public class Database {
 				queueFilesInDir(manager, child);
 			}
 		} else {
-			manager.load(dir.path(), DataEntry.class);
+			if (dir.extension().equals("json")) {
+				manager.load(dir.path(), DataEntry.class);
+			}
 		}
 	}
 	
 	/**
 	 * Fetches the entry with the supplied key from the database.
-	 * @param 	key		The key to look up
-	 * @return			The entry with that key
+	 * @param 	key				The key to look up
+	 * @return					The entry with that key
 	 */
 	protected MainSchema getEntryByKey(String key) {
 		MainSchema result = keyShelf.get(key);

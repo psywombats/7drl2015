@@ -42,6 +42,7 @@ public class DataEntry {
 		String className = ourPath.substring(Constants.DATA_DIR.length(), ourPath.length());
 		className = className.replace('\\', '/');
 		if (className.startsWith("/")) className = className.substring(1);
+		System.out.println(ourPath);
 		if (!dataFile.isDirectory()) {
 			className = className.substring(0, className.lastIndexOf('/'));
 		}
@@ -57,6 +58,9 @@ public class DataEntry {
 			return (Class<? extends MainSchema>) rawClass;
 		} catch (ClassNotFoundException e) {
 			MGlobal.reporter.err("Couldn't find a class " + className, e);
+			return null;
+		} catch (Exception e) {
+			MGlobal.reporter.err("Something went wrong while parsing type " + className, e);
 			return null;
 		}
 	}
