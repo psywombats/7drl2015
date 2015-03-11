@@ -4,7 +4,7 @@
 	"name" : "",
 	"description" : "",
 	"raceName" : "Elf",
-	"appearance" : "4dir_mage",
+	"appearance" : "4dir_freelancer_gray",
 	"dangerLevel" : {
 		"boundsString" : ""
 	},

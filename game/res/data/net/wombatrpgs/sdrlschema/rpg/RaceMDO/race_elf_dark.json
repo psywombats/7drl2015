@@ -4,7 +4,7 @@
 	"name" : "",
 	"description" : "",
 	"prefix" : "Dark",
-	"appearance" : "None",
+	"appearance" : "4dir_darkelf",
 	"dangerLevel" : {
 		"boundsString" : ""
 	},

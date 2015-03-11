@@ -110,7 +110,7 @@ public class Hud extends UIElement {
 	public void update(float elapsed) {
 		if (awaitingReset) {
 			currentHPDisplay = MGlobal.hero.getUnit().get(Stat.HP);
-			currentMPDisplay = MGlobal.hero.getUnit().get(Stat.MHP);
+			currentMPDisplay = MGlobal.hero.getUnit().get(Stat.MP);
 			awaitingReset = false;
 			timeToDigitHP = 0;
 			timeToDigitMP = 0;
@@ -133,7 +133,7 @@ public class Hud extends UIElement {
 				currentMPDisplay += 1;
 			}
 		}
-		mhp = MGlobal.hero.getUnit().get(Stat.HP);
+		mhp = MGlobal.hero.getUnit().get(Stat.MHP);
 		hp = currentHPDisplay;
 		mmp = MGlobal.hero.getUnit().get(Stat.MMP);
 		mp = currentMPDisplay;
@@ -199,8 +199,10 @@ public class Hud extends UIElement {
 			format.y = (int) (mdo.offY - font.getLineHeight());
 			format.width = TEXT_WIDTH;
 			format.height = 32;
-			String text = "floor: " + MGlobal.hero.getParent().getFloor() + "/13";
-			font.draw(batch, format, text, 0);
+			if (MGlobal.hero.getParent() != null) {
+				String text = "floor: " + MGlobal.hero.getParent().getFloor() + "/13";
+				font.draw(batch, format, text, 0);
+			}
 		}
 	}
 	

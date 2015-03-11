@@ -4,7 +4,7 @@
 	"name" : "",
 	"description" : "",
 	"prefix" : "High",
-	"appearance" : "None",
+	"appearance" : "4dir_highelf",
 	"dangerLevel" : {
 		"boundsString" : ""
 	},

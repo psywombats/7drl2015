@@ -127,7 +127,7 @@ public class GameUnit implements Turnable, Queueable {
 	public Allegiance getAllegiance() { return this.allegiance; }
 	
 	/** @return True if this unit has fallen in mortal combat */
-	public boolean isDead() { return get(Stat.MHP) <= 0; }
+	public boolean isDead() { return get(Stat.HP) <= 0; }
 	
 	/** @return The inventory of all carried items */
 	public Inventory getInventory() { return inventory; }
@@ -430,15 +430,17 @@ public class GameUnit implements Turnable, Queueable {
 	 * kill credits and whatever should go here.
 	 */
 	public void die() {
-		parent.getParent().removeEvent(parent);
-		if (visible(this)) {
-			out.msg(getName() + " was killed.");
-		}
-		for (Item i : inventory.getItems()) {
-			i.onDrop(this);
-		}
-		for (Item i : equipment.getItems()) {
-			i.onDrop(this);
+		if (MGlobal.hero.getUnit() != this) {
+			parent.getParent().removeEvent(parent);
+			if (visible(this)) {
+				out.msg(getName() + " was killed.");
+			}
+			for (Item i : inventory.getItems()) {
+				i.onDrop(this);
+			}
+			for (Item i : equipment.getItems()) {
+				i.onDrop(this);
+			}
 		}
 	}
 	

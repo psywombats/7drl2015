@@ -1,6 +1,7 @@
 package net.wombatrpgs.sdrl2015.screen.instances;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 
 import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
@@ -25,6 +26,7 @@ public class GameOverScreen extends Screen {
 	 */
 	public GameOverScreen() {
 		super();
+		tint = new Color(1, 1, 1, 1);
 		mdo = MGlobal.data.getEntryFor(Constants.KEY_DEATH, DeathSettingsMDO.class);
 		screen = new Picture(mdo.bg, 0, 0, 0);
 		assets.add(screen);
