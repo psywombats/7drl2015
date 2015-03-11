@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -45,7 +44,7 @@ public class MGlobal {
 	/** Storage container for data entries */
 	public static Database data;
 	/** Manages all in-game assets */
-	public static AssetManager assetManager;
+	public static MAssets assetManager;
 	/** The stack of screeeeeeens */
 	public static ScreenStack screens;
 	/** Current mapper of the keyys */
@@ -85,7 +84,7 @@ public class MGlobal {
 		try {
 			long startTime = System.currentTimeMillis();
 			MGlobal.reporter.inform("Initialized error reporting");
-			MGlobal.assetManager = new AssetManager();
+			MGlobal.assetManager = new MAssets();
 			MGlobal.reporter.inform("Initializing primary globals");
 			long seed = System.currentTimeMillis();
 			MGlobal.rand = new Random(seed);
