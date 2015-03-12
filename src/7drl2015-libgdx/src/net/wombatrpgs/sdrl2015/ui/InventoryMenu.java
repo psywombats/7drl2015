@@ -233,12 +233,12 @@ public class InventoryMenu extends Popup {
 							break;
 						case 1:
 							// use
-							item.use();
+							// TODO
 							break;
 						case 2:
 							// drop
-							// TODO: 7DRL: drop the item on the floor
 							inventory.removeItem(item);
+							item.onDrop(MGlobal.hero.getUnit());
 							break;
 						}
 						asking = false;

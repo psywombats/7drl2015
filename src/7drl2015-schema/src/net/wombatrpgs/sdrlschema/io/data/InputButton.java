@@ -47,5 +47,6 @@ public enum InputButton {
 	FULLSCREEN,
 	TAB,
 	LOOK,
+	CAMP,
 
 }

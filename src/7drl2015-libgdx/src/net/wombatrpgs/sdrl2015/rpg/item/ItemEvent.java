@@ -82,6 +82,15 @@ public class ItemEvent extends MapEvent {
 		//return item.getName() + " is lying here.";
 		return "TODO";
 	}
+	
+	/**
+	 * @see net.wombatrpgs.sdrl2015.maps.events.MapEvent#onCampMoved()
+	 */
+	@Override
+	public void onCampMoved() {
+		super.onCampMoved();
+		MGlobal.hero.placeItemNear(this);
+	}
 
 	/**
 	 * Simulates being picked up by a character event. This should be called

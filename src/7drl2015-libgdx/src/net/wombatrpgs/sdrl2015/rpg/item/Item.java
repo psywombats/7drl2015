@@ -15,6 +15,7 @@ import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
+import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.stats.SdrlStats;
 import net.wombatrpgs.sdrlschema.rpg.ItemMDO;
@@ -119,15 +120,36 @@ public class Item implements Queueable {
 			MGlobal.assetManager.loadAsset(parent, this.toString());
 		}
 		unit.getParent().getParent().addEvent(parent,
-				parent.getTileX(),
-				parent.getTileY());
+				unit.getParent().getTileX(),
+				unit.getParent().getTileY());
 	}
 	
 	/**
-	 * Call this when the character opts to spend their turn and use the item.
+	 * Spawns this item on the map in the vicinity of the given location.
+	 * @param	map				The parent map to spawn on
+	 * @param	tileX			The x-coord to spawn nearby
+	 * @param	tileY			The y-coord to spawn nearby
+	 * @param	radius			The radius to deviate from the given location
 	 */
-	public void use() {
-		// TODO: use the item
+	public void spawnNear(Level map, int tileX, int tileY, int radius) {
+		if (parent == null) {
+			parent = new ItemEvent(null, this, 0, 0);
+			MGlobal.assetManager.loadAsset(parent, "new item parent");
+		}
+		if (map != parent.getParent()) {
+			if (parent.getParent() != null) {
+				parent.getParent().removeEvent(parent);
+			}
+			map.addEvent(parent);
+		}
+		parent.setTileX(0);
+		parent.setTileY(0);
+		while(!map.isTilePassable(parent, parent.getTileX(), parent.getTileY())) {
+			parent.setTileX(tileX + MGlobal.rand.nextInt(radius*2) - radius);
+			parent.setTileY(tileY + MGlobal.rand.nextInt(radius*2) - radius);
+		}
+		parent.setX(parent.getTileX() * map.getTileWidth());
+		parent.setY(parent.getTileY() * map.getTileHeight());
 	}
 
 }

@@ -119,7 +119,6 @@ public abstract class MapEvent extends MapThing implements	PositionSetable,
 	
 	/** @return True if this object is moving towards a location */
 	public boolean isTracking() { return tracking; }
-
 	
 	/**
 	 * Determines if this object is "stuck" or not. This means it's tracking
@@ -440,6 +439,13 @@ public abstract class MapEvent extends MapThing implements	PositionSetable,
 	 */
 	public String mouseoverMessage() {
 		return "";
+	}
+	
+	/**
+	 * Called when the hero moves camp and this event is in the old camp radius.
+	 */
+	public void onCampMoved() {
+		// default does nothing
 	}
 	
 	/**

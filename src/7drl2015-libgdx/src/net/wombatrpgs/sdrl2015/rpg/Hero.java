@@ -6,7 +6,6 @@
  */
 package net.wombatrpgs.sdrl2015.rpg;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.Color;
@@ -19,14 +18,17 @@ import com.badlogic.gdx.graphics.Texture.TextureWrap;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.io.CommandListener;
 import net.wombatrpgs.sdrl2015.maps.Level;
+import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.rpg.act.ActStep;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.rpg.item.Item;
+import net.wombatrpgs.sdrl2015.rpg.item.ItemEvent;
 import net.wombatrpgs.sdrl2015.screen.instances.GameOverScreen;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 import net.wombatrpgs.sdrlschema.rpg.HeroMDO;
+import net.wombatrpgs.sdrlschema.rpg.ItemMDO;
 import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
 /**
@@ -39,7 +41,7 @@ public class Hero extends CharacterEvent implements CommandListener {
 	protected static final String HERO_DEFAULT = "hero_default";
 	
 	// terrible place to put these
-	protected static final int TURNS_PER_NIGHT = 100;
+	protected static final int TURNS_PER_NIGHT = 10;
 	protected static final int PEACEFUL_TURNS_REQUIRED = 10;
 	
 	protected ActStep step;
@@ -173,6 +175,9 @@ public class Hero extends CharacterEvent implements CommandListener {
 		case ABIL_4:			abil(3);					break;
 		case ABIL_5:			abil(4);					break;
 		case ABIL_6:			abil(5);					break;
+		
+		// ETC
+		case INTENT_CAMP:		tryCamp();					break;
 			
 		// DEFAULT
 		default:
@@ -206,10 +211,32 @@ public class Hero extends CharacterEvent implements CommandListener {
 		
 		if (baseMapKey == null) {
 			// drop the starter pack crap
-			
+			// TODO: drop real items maybe?
+			String[] keys = { "item_testarmor", "item_testbook", "item_testsword" };
+			for (String key : keys) {
+				Item item = new Item(MGlobal.data.getEntryFor(key, ItemMDO.class));
+				MGlobal.assetManager.loadAsset(item, item.toString());
+				item.spawnNear(MGlobal.hero.getParent(),
+						MGlobal.hero.getTileX(),
+						MGlobal.hero.getTileY(),
+						2);
+			}
 		} else {
-			
+			Level map = MGlobal.levelManager.getLevel(baseMapKey);
+			for (int x = baseX - 2; x <= baseX + 2; x += 1) {
+				for (int y = baseY - 2; y <= baseY + 2; y += 1) {
+					List<MapEvent> events = map.getEventsAt(x, y);
+					for (MapEvent event : events) {
+						event.onCampMoved();
+					}
+				}
+			}
 		}
+		baseMapKey = MGlobal.hero.getParent().getKey();
+		baseX = MGlobal.hero.getTileX();
+		baseY = MGlobal.hero.getTileY();
+		nightCount += 1;
+		turnsSinceNight = 0;
 	}
 	
 	/**
@@ -222,11 +249,12 @@ public class Hero extends CharacterEvent implements CommandListener {
 			int turnsNeeded = TURNS_PER_NIGHT - turnsSinceNight;
 			GameUnit.out().msg("Can't camp -- need to wait another " + 
 					turnsNeeded + " turns");
+			return false;
 		}
 		if (unit.getTurnsSinceCombat() < PEACEFUL_TURNS_REQUIRED) {
 			int turnsNeeded = PEACEFUL_TURNS_REQUIRED - unit.getTurnsSinceCombat();
 			GameUnit.out().msg("Can't camp now -- need to spend another " +
-					turnsNeeded + " out of combat");
+					turnsNeeded + " turns out of combat");
 			return false;
 		}
 		for (int x = getTileX()-1; x <= getTileX()+1; x += 1) {
@@ -298,6 +326,23 @@ public class Hero extends CharacterEvent implements CommandListener {
 	 */
 	public boolean seen(int tileX, int tileY) {
 		return seenCache[tileY][tileX];
+	}
+	
+	/**
+	 * Relocate an item to near the hero. Used for camping.
+	 * @param	item			The item event to move
+	 */
+	public void placeItemNear(ItemEvent item) {
+		item.getItem().spawnNear(getParent(), getTileX(), getTileY(), 2);
+	}
+	
+	/**
+	 * Called when the player tries to set up camp.
+	 */
+	protected void tryCamp() {
+		if (isEligibleForCamp()) {
+			setUpCamp();
+		}
 	}
 	
 	/**
