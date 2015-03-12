@@ -58,6 +58,9 @@ public class GameUnit implements Turnable, Queueable {
 	protected RaceMDO race;
 	protected List<AbilityEntry> abilities;
 	
+	// 7DRL ugly stuff
+	protected int turnsSinceCombat;
+	
 	/**
 	 * Private shared constructor.
 	 * @param	parent			The parent event of this unit
@@ -144,6 +147,9 @@ public class GameUnit implements Turnable, Queueable {
 	/** @return The race of this unit, or null for raceless weirdo */
 	public RaceMDO getRace() { return race; }
 	
+	/** @return The number of turns since this unit has attacked or been */
+	public int getTurnsSinceCombat() { return turnsSinceCombat; }
+	
 	/**
 	 * @see net.wombatrpgs.mrogue.core.Queueable#queueRequiredAssets
 	 * (com.badlogic.gdx.assets.AssetManager)
@@ -172,6 +178,7 @@ public class GameUnit implements Turnable, Queueable {
 	 */
 	@Override
 	public void onTurn() {
+		turnsSinceCombat += 1;
 		for (Turnable t : turnChildren) {
 			t.onTurn();
 		}
@@ -299,6 +306,7 @@ public class GameUnit implements Turnable, Queueable {
 	 * @param other
 	 */
 	public void attack(GameUnit other) {
+		turnsSinceCombat = 0;
 		String us = getName();
 		String them = other.getName();
 		if (other.calcDodgeChance() < MGlobal.rand.nextFloat()) {
@@ -325,6 +333,7 @@ public class GameUnit implements Turnable, Queueable {
 	 * @param	other			The unit that launched the attack
 	 */
 	public void onAttackBy(GameUnit other) {
+		turnsSinceCombat = 0;
 		allegiance.addToHitlist(other);
 		for (CharacterEvent chara : parent.getParent().getCharacters()) {
 			if (chara!= parent && chara.inLoS(parent) && chara.inLoS(other.parent)) {

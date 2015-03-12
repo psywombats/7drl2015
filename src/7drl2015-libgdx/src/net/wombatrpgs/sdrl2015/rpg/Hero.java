@@ -6,6 +6,9 @@
  */
 package net.wombatrpgs.sdrl2015.rpg;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
@@ -19,6 +22,7 @@ import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.rpg.act.ActStep;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
+import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.screen.instances.GameOverScreen;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
@@ -34,6 +38,10 @@ public class Hero extends CharacterEvent implements CommandListener {
 	
 	protected static final String HERO_DEFAULT = "hero_default";
 	
+	// terrible place to put these
+	protected static final int TURNS_PER_NIGHT = 100;
+	protected static final int PEACEFUL_TURNS_REQUIRED = 10;
+	
 	protected ActStep step;
 	// to facilitate shader calls, viewtex is like a b/w image version of cache
 	protected boolean[][] viewCache;
@@ -41,6 +49,12 @@ public class Hero extends CharacterEvent implements CommandListener {
 	protected Pixmap p;
 	protected Texture viewTex;
 	protected Ability blockingAbil;
+	
+	// 7DRL hacky stuff about nights goes here
+	protected int turnsSinceNight;
+	protected int nightCount;		 // starts at 0 for no nights elapsed yet
+	protected String baseMapKey;
+	protected int baseX, baseY;
 
 	/**
 	 * Placeholder constructor. When the hero is finally initialized properly
@@ -56,6 +70,7 @@ public class Hero extends CharacterEvent implements CommandListener {
 		MGlobal.hero = this;
 		step = new ActStep(this);
 		getUnit().setName("you");
+		turnsSinceNight = TURNS_PER_NIGHT;
 	}
 
 	/**
@@ -169,6 +184,64 @@ public class Hero extends CharacterEvent implements CommandListener {
 	}
 	
 	/**
+	 * @see net.wombatrpgs.sdrl2015.core.Turnable.onTurn()
+	 */
+	@Override
+	public void onTurn() {
+		super.onTurn();
+		turnsSinceNight += 1;
+	}
+	
+	/**
+	 * Sets up a new camp for the night. If no camp has yet been created, this
+	 * assumes that the camp setup is happening and airdrops a couple random
+	 * items as a starter pack. Otherwise, it moves items from the old camp to
+	 * the new one. Should also handle levelling up? Make sure to check if PC
+	 * is eligible first.
+	 */
+	public void setUpCamp() {
+		if (!isEligibleForCamp()) {
+			MGlobal.reporter.warn("Ineligible for camp but camping anyway?");
+		}
+		
+		if (baseMapKey == null) {
+			// drop the starter pack crap
+			
+		} else {
+			
+		}
+	}
+	
+	/**
+	 * Checks if the hero is eligible to set up a campsite, and if not, spits
+	 * the reason why out to the player. Not particularly elegant.
+	 * @return					True if PC is can camp at the moment
+	 */
+	public boolean isEligibleForCamp() {
+		if (turnsSinceNight < TURNS_PER_NIGHT) {
+			int turnsNeeded = TURNS_PER_NIGHT - turnsSinceNight;
+			GameUnit.out().msg("Can't camp -- need to wait another " + 
+					turnsNeeded + " turns");
+		}
+		if (unit.getTurnsSinceCombat() < PEACEFUL_TURNS_REQUIRED) {
+			int turnsNeeded = PEACEFUL_TURNS_REQUIRED - unit.getTurnsSinceCombat();
+			GameUnit.out().msg("Can't camp now -- need to spend another " +
+					turnsNeeded + " out of combat");
+			return false;
+		}
+		for (int x = getTileX()-1; x <= getTileX()+1; x += 1) {
+			for (int y = getTileY() - 1; y <= getTileY()+1; y += 1) {
+				if (!parent.isTilePassable(this, x, y)) {
+					GameUnit.out().msg("Can't camp next to a wall -- try the "
+							+ "middle of a room");
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
 	 * Creates a cached table of which squares are in view. Call when things
 	 * move etc.
 	 */
@@ -226,6 +299,7 @@ public class Hero extends CharacterEvent implements CommandListener {
 	public boolean seen(int tileX, int tileY) {
 		return seenCache[tileY][tileX];
 	}
+	
 	/**
 	 * Movement subcommand.
 	 * @param	dir				The direction the hero was ordered in
