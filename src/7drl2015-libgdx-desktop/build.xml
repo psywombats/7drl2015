@@ -97,7 +97,7 @@
         </javac>
 		<jar destfile="../../game/game.jar" filesetmanifest="mergewithoutmain">
             <manifest>
-                <attribute name="Main-Class" value="net.wombatrpgs.7drl2015.Main"/>
+                <attribute name="Main-Class" value="net.wombatrpgs.7drl2015.core.Main"/>
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="../7drl2015-libgdx-desktop/bin"/>

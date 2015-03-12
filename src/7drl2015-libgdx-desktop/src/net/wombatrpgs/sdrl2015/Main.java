@@ -1,4 +1,4 @@
-package net.wombatrpgs.mrogue;
+package net.wombatrpgs.sdrl2015;
 
 import net.wombatrpgs.sdrl2015.core.SdrlGame;
 import net.wombatrpgs.sdrl2015.core.Platform;
