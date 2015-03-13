@@ -139,6 +139,9 @@ public class Ability extends Action implements Queueable, CommandListener {
 	/** @return The unique ID of this ability's type */
 	public String getKey() { return mdo.key; }
 	
+	/** @return A description of what happens when this abil is leveled */
+	public String getLevelText() { return mdo.levelDesc; }
+	
 	/**
 	 * @see java.lang.Object#toString()
 	 */

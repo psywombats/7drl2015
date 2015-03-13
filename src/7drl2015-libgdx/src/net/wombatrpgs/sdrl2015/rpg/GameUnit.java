@@ -7,7 +7,9 @@
 package net.wombatrpgs.sdrl2015.rpg;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
@@ -57,6 +59,7 @@ public class GameUnit implements Turnable, Queueable {
 	protected EquippedItems equipment;
 	protected RaceMDO race;
 	protected List<AbilityEntry> abilities;
+	protected Map<String, Integer> abilityLevels;
 	
 	// 7DRL ugly stuff
 	protected int turnsSinceCombat;
@@ -75,6 +78,7 @@ public class GameUnit implements Turnable, Queueable {
 		turnChildren.add(allegiance);
 		
 		abilities = new ArrayList<AbilityEntry>();
+		abilityLevels = new HashMap<String, Integer>();
 		
 		if (out == null) out = MGlobal.ui.getNarrator();
 	}
@@ -556,21 +560,32 @@ public class GameUnit implements Turnable, Queueable {
 	}
 	
 	/**
+	 * Checks the hero's learned level of the ability.
+	 * @param	key				The key of the ability to check
+	 * @return					The level of that ability
+	 */
+	public int getAbilityLevel(String key) {
+		Integer level = abilityLevels.get(key);
+		if (level == null) return 0;
+		return level;
+	}
+	
+	/**
+	 * Increases the learned level of an ability based on its MDO key.
+	 * @param	key				The key of the ability to check
+	 */
+	public void increaseAbilityLevel(String key) {
+		int previousLevel = getAbilityLevel(key);
+		abilityLevels.put(key, previousLevel + 1);
+	}
+	
+	/**
 	 * Calculates how fast this unit should move compared to average. Does this
 	 * with the speed stat.
 	 * @return					The speed mod, a multiplier centered around 1.0
 	 */
 	public float calcSpeedMod() {
 		return get(Stat.SPEED) / 100f;
-	}
-	
-	/**
-	 * Calculates the chance for this unit to dodge an arbitrary melee attack.
-	 * @return					The percent chance to dodge, from 0 to 1
-	 */
-	protected float calcDodgeChance() {
-		// Welp, this sure is balanced!
-		return get(Stat.DV) / 100f;
 	}
 	
 	/**
@@ -581,6 +596,15 @@ public class GameUnit implements Turnable, Queueable {
 	public int calcMeleeDamage() {
 		// TODO: obvious
 		return 10;
+	}
+	
+	/**
+	 * Calculates the chance for this unit to dodge an arbitrary melee attack.
+	 * @return					The percent chance to dodge, from 0 to 1
+	 */
+	protected float calcDodgeChance() {
+		// Welp, this sure is balanced!
+		return get(Stat.DV) / 100f;
 	}
 	
 	/**

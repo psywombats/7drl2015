@@ -4,6 +4,7 @@
 	"name" : "Pierce Armor",
 	"description" : "",
 	"abilDesc" : "Pierces through enemy armor",
+	"levelDesc" : "Leveling increases potential uses per night",
 	"target" : "MELEE",
 	"range" : 1.0,
 	"warhead" : {

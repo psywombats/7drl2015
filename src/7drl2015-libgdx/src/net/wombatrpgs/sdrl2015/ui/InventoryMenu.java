@@ -285,7 +285,7 @@ public class InventoryMenu extends Popup {
 	 * Tab from the inventory menu to the ability menu.
 	 */
 	protected void tabToAbils() {
-		AbilityMenu abils = new AbilityMenu();
+		AbilityMenu abils = new AbilityMenu(false);
 		MGlobal.assetManager.loadAsset(abils, "abil screen");
 		abils.show();
 		hide();

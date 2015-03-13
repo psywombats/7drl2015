@@ -25,6 +25,7 @@ import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.rpg.item.ItemEvent;
 import net.wombatrpgs.sdrl2015.screen.instances.GameOverScreen;
+import net.wombatrpgs.sdrl2015.ui.AbilityMenu;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 import net.wombatrpgs.sdrlschema.rpg.HeroMDO;
@@ -231,6 +232,10 @@ public class Hero extends CharacterEvent implements CommandListener {
 					}
 				}
 			}
+			
+			AbilityMenu menu = new AbilityMenu(true);
+			MGlobal.assetManager.loadAsset(menu, "abil level");
+			menu.show();
 		}
 		baseMapKey = MGlobal.hero.getParent().getKey();
 		baseX = MGlobal.hero.getTileX();

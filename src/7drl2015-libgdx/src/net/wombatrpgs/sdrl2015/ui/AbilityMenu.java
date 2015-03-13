@@ -12,6 +12,7 @@ import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.screen.WindowSettings;
 import net.wombatrpgs.sdrl2015.ui.text.FontHolder;
 import net.wombatrpgs.sdrl2015.ui.text.TextBoxFormat;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -27,23 +28,28 @@ public class AbilityMenu extends Popup {
 	protected static final String SELECTION_DIALOG_FILE = "dialog_2.png";
 	
 	protected static final String BLANK_STRING = "--";
+	protected static final String HINT_STRING = "TAB for items";
+	protected static final String TITLE_STRING = "SKILL LIST";
+	protected static final String LEVEL_STRING = "SELECT SKILL TO IMPROVE";
 	
 	protected static final int ABIL_WIDTH = 500;
-	protected static final int ABIL_NAME_WIDTH = 180;
+	protected static final int ABIL_NAME_WIDTH = 210;
 	protected static final int ABIL_ALIGN = 100;
-	protected static final int ABIL_MARGIN = 64;
+	protected static final int ABIL_MARGIN = 80;
 	protected static final int LINE_HEIGHT = 34;
 	
 	protected Graphic backer, cursor;
-	protected TextBoxFormat descFormat, abilFormat, abilNameFormat;
+	protected TextBoxFormat descFormat, abilFormat, abilNameFormat, tabHintFormat;
 	protected SelectionDialog dialog;
+	protected boolean levelMode;
 	protected int selected;
-	protected boolean asking;
 	
 	/**
 	 * Creates a new inventory menu. Hardcoded to hell and back.
+	 * @param	levelMode		True to ask player to level abil
 	 */
-	public AbilityMenu() {
+	public AbilityMenu(boolean levelMode) {
+		this.levelMode = levelMode;
 		
 		backer = new Graphic(BACKER_FILE);
 		assets.add(backer);
@@ -73,6 +79,13 @@ public class AbilityMenu extends Popup {
 		abilNameFormat.height = 100;
 		abilNameFormat.x = abilFormat.x - ABIL_NAME_WIDTH - ABIL_MARGIN;
 		abilNameFormat.y = win.getHeight() * 3 / 5;
+		
+		tabHintFormat = new TextBoxFormat();
+		tabHintFormat.align = HAlignment.CENTER;
+		tabHintFormat.width = 100;
+		tabHintFormat.height = 50;
+		tabHintFormat.x = MGlobal.window.getWidth() - tabHintFormat.width;
+		tabHintFormat.y = tabHintFormat.height;
 		
 		String options[] = { "Equip", "Use", "Drop" };
 		dialog = new SelectionDialog(SELECTION_DIALOG_FILE, options);
@@ -111,19 +124,18 @@ public class AbilityMenu extends Popup {
 		
 		FontHolder font = MGlobal.ui.getFont();
 		
-		Ability selectedAbil = MGlobal.hero.getUnit().abilityAt(selected);
-		String desc = (selectedAbil == null) ? "" : selectedAbil.getDescription();
-		font.draw(getBatch(), descFormat, desc, 0);
-		
 		for (int i = 0; i < 10; i += 1) {
 			int offY = i * -LINE_HEIGHT;
 			Ability abil = MGlobal.hero.getUnit().abilityAt(i);
 			if (abil != null) {
-				font.draw(getBatch(), abilNameFormat, abil.getName(), offY);
+				String name = abil.getName();
+				name = name + " (L" + MGlobal.hero.getUnit().getAbilityLevel(abil.getKey()) + ")";
+				font.draw(getBatch(), abilNameFormat, name, offY);
 				font.draw(getBatch(), abilFormat, abil.getDescription(), offY);
 				abil.getIcon().renderAt(getBatch(),
 						abilFormat.x - abil.getIcon().getWidth() - 8,
-						abilFormat.y - abil.getIcon().getHeight()/2);
+						abilFormat.y - abil.getIcon().getHeight()/2 - 
+						cursor.getHeight()/2);
 			} else {
 				font.draw(getBatch(), abilNameFormat, BLANK_STRING, offY);
 			}
@@ -132,6 +144,41 @@ public class AbilityMenu extends Popup {
 		cursor.renderAt(getBatch(),
 				abilNameFormat.x,
 				abilNameFormat.y - selected * LINE_HEIGHT - LINE_HEIGHT/2);
+		
+		Ability selectedAbil = MGlobal.hero.getUnit().abilityAt(selected);
+		if (levelMode) {
+			font.draw(getBatch(), descFormat, LEVEL_STRING, LINE_HEIGHT/2);
+			font.draw(getBatch(), descFormat, selectedAbil.getLevelText(), -LINE_HEIGHT/2);
+		} else {
+			font.draw(getBatch(), descFormat, TITLE_STRING, LINE_HEIGHT/2);
+			font.draw(getBatch(), tabHintFormat, HINT_STRING, 0);
+		}
+		String desc = (selectedAbil == null) ? "" : selectedAbil.getDescription();
+		font.draw(getBatch(), descFormat, desc, 0);
+	}
+
+	/**
+	 * @see net.wombatrpgs.sdrl2015.ui.Popup#onCommand
+	 * (net.wombatrpgs.sdrlschema.io.data.InputCommand)
+	 */
+	@Override
+	public boolean onCommand(InputCommand command) {
+		if (!levelMode) {
+			switch (command) {
+			case INTENT_TAB:
+				tabToAbils();
+				return true;
+			default:
+				return super.onCommand(command);
+			}
+		} else {
+			switch (command) {
+			case INTENT_CANCEL:
+				return true;
+			default:
+				return super.onCommand(command);
+			}
+		}
 	}
 
 	/**
@@ -151,8 +198,8 @@ public class AbilityMenu extends Popup {
 			break;
 		}
 		int max = MGlobal.hero.getUnit().getAbilities().size() - 1;
-		if (selected < 0) selected = 0;
 		if (selected > max) selected = max;
+		if (selected < 0) selected = 0;
 		return true;
 	}
 
@@ -161,7 +208,21 @@ public class AbilityMenu extends Popup {
 	 */
 	@Override
 	protected boolean confirm() {
-		if (asking) return true;
+		if (!levelMode) return true;
+		Ability selectedAbil = MGlobal.hero.getUnit().abilityAt(selected);
+		if (selectedAbil == null) return true;
+		MGlobal.hero.getUnit().increaseAbilityLevel(selectedAbil.getKey());
+		levelMode = false;
 		return true;
+	}
+	
+	/**
+	 * Tab from the inventory menu to the ability menu.
+	 */
+	protected void tabToAbils() {
+		InventoryMenu itemsMenu = new InventoryMenu();
+		MGlobal.assetManager.loadAsset(itemsMenu, "items screen");
+		itemsMenu.show();
+		hide();
 	}
 }

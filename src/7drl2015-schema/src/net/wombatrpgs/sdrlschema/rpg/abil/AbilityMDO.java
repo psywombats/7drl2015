@@ -29,6 +29,9 @@ public class AbilityMDO extends MainSchema {
 	@Desc("Description - displayed in-game only at the class select screen")
 	public String abilDesc;
 	
+	@Desc("Leveling desc - displayed in-game when skill is about to be leveled maybe")
+	public String levelDesc;
+	
 	@Desc("Target - What or where this ability targets")
 	public AbilityTargetType target;
 	
