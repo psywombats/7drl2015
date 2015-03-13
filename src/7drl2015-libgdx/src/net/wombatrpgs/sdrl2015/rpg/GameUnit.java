@@ -542,6 +542,20 @@ public class GameUnit implements Turnable, Queueable {
 	}
 	
 	/**
+	 * Gets the nth ability of this unit (used for UI) or null if less than n
+	 * abilities are known.
+	 * @param	n				The index of the ability to get
+	 * @return					The ability in that slot, or null if none
+	 */
+	public Ability abilityAt(int n) {
+		if (n < abilities.size()) {
+			return abilities.get(n).ability;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
 	 * Calculates how fast this unit should move compared to average. Does this
 	 * with the speed stat.
 	 * @return					The speed mod, a multiplier centered around 1.0

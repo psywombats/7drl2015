@@ -116,7 +116,7 @@ public class Ability extends Action implements Queueable, CommandListener {
 	public String getName() { return mdo.name; }
 	
 	/** @return The in-game desc of this ability */
-	public String getDesc() { return mdo.abilDesc; }
+	public String getDescription() { return mdo.abilDesc; }
 	
 	/** @return The step animation of this ability */
 	public Step getStep() { return effect.getStep(); }

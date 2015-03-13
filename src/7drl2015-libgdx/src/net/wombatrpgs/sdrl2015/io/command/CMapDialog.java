@@ -39,7 +39,7 @@ public class CMapDialog extends CommandMap {
 		downMap.put(InputButton.BUTTON_1,	InputCommand.INTENT_CONFIRM);
 		downMap.put(InputButton.BUTTON_2,	InputCommand.INTENT_CANCEL);
 		downMap.put(InputButton.MENU,		InputCommand.INTENT_CANCEL);
-		downMap.put(InputButton.TAB,		InputCommand.INTENT_CANCEL);
+		downMap.put(InputButton.TAB,		InputCommand.INTENT_TAB);
 	}
 
 	/**

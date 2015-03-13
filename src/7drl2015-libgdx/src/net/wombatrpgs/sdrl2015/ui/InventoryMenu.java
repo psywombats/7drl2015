@@ -17,6 +17,7 @@ import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.screen.WindowSettings;
 import net.wombatrpgs.sdrl2015.ui.text.FontHolder;
 import net.wombatrpgs.sdrl2015.ui.text.TextBoxFormat;
+import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.maps.data.OrthoDir;
 import net.wombatrpgs.sdrlschema.rpg.data.EquipmentSlot;
 
@@ -30,6 +31,7 @@ public class InventoryMenu extends Popup {
 	protected static final String SELECTION_DIALOG_FILE = "dialog_2.png";
 	
 	protected static final String BLANK_STRING = "--";
+	protected static final String HINT_STRING = "TAB for skills";
 	protected static final String EQUIP_DESC = "EQUIPMENT";
 	protected static final String INVENTORY_DESC = "INVENTORY";
 	
@@ -39,7 +41,8 @@ public class InventoryMenu extends Popup {
 	protected static final int LINE_HEIGHT = 16;
 	
 	protected Graphic backer, cursor;
-	protected TextBoxFormat slotFormat, descFormat, equipFormat, inventoryFormat;
+	protected TextBoxFormat slotFormat, descFormat, equipFormat,
+			inventoryFormat, tabHintFormat;
 	protected SelectionDialog dialog;
 	protected int selected;
 	protected boolean equippedSide;
@@ -85,6 +88,13 @@ public class InventoryMenu extends Popup {
 		inventoryFormat.height = 50;
 		inventoryFormat.x = win.getWidth() / 2 + INVENTORY_HORIZ_MARGIN;
 		inventoryFormat.y = win.getHeight() * 2 / 3;
+		
+		tabHintFormat = new TextBoxFormat();
+		tabHintFormat.align = HAlignment.CENTER;
+		tabHintFormat.width = 100;
+		tabHintFormat.height = 50;
+		tabHintFormat.x = MGlobal.window.getWidth() - tabHintFormat.width;
+		tabHintFormat.y = tabHintFormat.height;
 		
 		String options[] = { "Equip", "Use", "Drop" };
 		dialog = new SelectionDialog(SELECTION_DIALOG_FILE, options);
@@ -169,7 +179,25 @@ public class InventoryMenu extends Popup {
 		} else {
 			cursor.renderAt(getBatch(),
 					inventoryFormat.x - 12,
-					inventoryFormat.y - selected * LINE_HEIGHT - LINE_HEIGHT/2 - cursor.getHeight()/2);
+					inventoryFormat.y - selected * LINE_HEIGHT - LINE_HEIGHT/2 -
+					cursor.getHeight()/2);
+		}
+		
+		font.draw(getBatch(), tabHintFormat, HINT_STRING, 0);
+	}
+
+	/**
+	 * @see net.wombatrpgs.sdrl2015.ui.Popup#onCommand
+	 * (net.wombatrpgs.sdrlschema.io.data.InputCommand)
+	 */
+	@Override
+	public boolean onCommand(InputCommand command) {
+		switch (command) {
+		case INTENT_TAB:
+			tabToAbils();
+			return true;
+		default:
+			return super.onCommand(command);
 		}
 	}
 
@@ -251,6 +279,16 @@ public class InventoryMenu extends Popup {
 			}
 		}
 		return true;
+	}
+	
+	/**
+	 * Tab from the inventory menu to the ability menu.
+	 */
+	protected void tabToAbils() {
+		AbilityMenu abils = new AbilityMenu();
+		MGlobal.assetManager.loadAsset(abils, "abil screen");
+		abils.show();
+		hide();
 	}
 
 }
