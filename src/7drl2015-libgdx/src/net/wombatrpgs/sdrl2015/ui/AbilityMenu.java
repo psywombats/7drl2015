@@ -60,7 +60,7 @@ public class AbilityMenu extends Popup {
 		
 		descFormat = new TextBoxFormat();
 		descFormat.align = HAlignment.CENTER;
-		descFormat.width = win.getWidth() / 2;
+		descFormat.width = win.getWidth() * 3/4;
 		descFormat.height = 100;
 		descFormat.x = win.getWidth() / 2 - descFormat.width / 2;
 		descFormat.y = win.getHeight() * 4 / 5;
@@ -130,7 +130,7 @@ public class AbilityMenu extends Popup {
 				abil.getIcon().renderAt(getBatch(),
 						abilFormat.x - abil.getIcon().getWidth() - 8,
 						abilFormat.y - abil.getIcon().getHeight()/2 - 
-						cursor.getHeight()/2);
+						cursor.getHeight()/2 + offY);
 			} else {
 				font.draw(getBatch(), abilNameFormat, BLANK_STRING, offY);
 			}

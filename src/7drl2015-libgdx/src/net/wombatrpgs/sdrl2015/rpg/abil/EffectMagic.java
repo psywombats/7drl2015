@@ -42,9 +42,9 @@ public class EffectMagic extends AbilEffect {
 				GameUnit.out().msg(target.getName() + " resists.");
 			} else {
 				int dmg = (int) (actor.getUnit().calcMagicDamage(mdo.element) *
-						((float) mdo.damageRatio + (float) getLevel() / 5f));
+						((float) mdo.damageRatio));
 				if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {
-					dmg *= .2f * (float) getLevel();
+					dmg *= 1f + (.2f * (float) getLevel());
 				}
 				int dealt = target.takeMagicDamage(dmg);
 				if (MGlobal.hero.inLoS(target.getParent())) {

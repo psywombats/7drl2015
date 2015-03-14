@@ -42,7 +42,7 @@ public class EffectArmorPierce extends AbilEffect {
 			float pierce = (1f - mdo.pierce);
 			dmg -= Math.floor((float) target.get(Stat.PV) * (1f-pierce));
 			if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {
-				dmg *= .2f * (float) getLevel();
+				dmg *= 1f + (.2f * (float) getLevel());
 			}
 			target.takeRawDamage(dmg);
 			if (MGlobal.hero.inLoS(target.getParent())) {

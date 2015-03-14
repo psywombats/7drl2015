@@ -24,12 +24,12 @@ import net.wombatrpgs.sdrl2015.rpg.act.ActStep;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.rpg.item.ItemEvent;
+import net.wombatrpgs.sdrl2015.rpg.item.ItemList;
 import net.wombatrpgs.sdrl2015.screen.instances.GameOverScreen;
 import net.wombatrpgs.sdrl2015.ui.AbilityMenu;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 import net.wombatrpgs.sdrlschema.rpg.HeroMDO;
-import net.wombatrpgs.sdrlschema.rpg.ItemMDO;
 import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
 /**
@@ -40,9 +40,11 @@ public class Hero extends CharacterEvent implements CommandListener {
 	// terrible place to put these
 	public static final int TURNS_PER_NIGHT = 10;
 	public static final int PEACEFUL_TURNS_REQUIRED = 10;
-	public static final int ABILITIES_MAX = 6;
 	
 	protected static final String HERO_DEFAULT = "hero_default";
+	
+	protected static final String START_PACK_DEFAULT = "itemlist_starter";
+	protected static final int STARTER_ITEMS = 20;
 	
 	protected ActStep step;
 	// to facilitate shader calls, viewtex is like a b/w image version of cache
@@ -72,7 +74,7 @@ public class Hero extends CharacterEvent implements CommandListener {
 		MGlobal.hero = this;
 		step = new ActStep(this);
 		getUnit().setName("you");
-		turnsSinceNight = TURNS_PER_NIGHT;
+		turnsSinceNight = Integer.MAX_VALUE;
 	}
 
 	/**
@@ -204,11 +206,9 @@ public class Hero extends CharacterEvent implements CommandListener {
 		
 		if (baseMapKey == null) {
 			// drop the starter pack crap
-			// TODO: drop real items maybe?
-			String[] keys = { "item_testarmor", "item_testbook", "item_testsword" };
-			for (String key : keys) {
-				Item item = new Item(MGlobal.data.getEntryFor(key, ItemMDO.class));
-				MGlobal.assetManager.loadAsset(item, item.toString());
+			ItemList starterPack = new ItemList(START_PACK_DEFAULT);
+			for (int i = 0; i < STARTER_ITEMS; i += 1) {
+				Item item = starterPack.generateItem();
 				item.spawnNear(MGlobal.hero.getParent(),
 						MGlobal.hero.getTileX(),
 						MGlobal.hero.getTileY(),

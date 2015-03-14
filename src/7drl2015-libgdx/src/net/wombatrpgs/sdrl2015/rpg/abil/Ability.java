@@ -256,9 +256,17 @@ public class Ability extends Action implements Queueable, CommandListener {
 		effect.act(targets);
 		actor.addStep(getStep());
 		
+		// awful hack for stacking consumables
 		used += 1;
 		if (item != null && item.getUses() > 0 && used >= item.getUses()) {
 			actor.getUnit().getInventory().removeItem(item);
+			for (Item item : actor.getUnit().getInventory().getItems()) {
+				if (item != this.item && item.getCarryAbilityKey().equals(getKey())) {
+					this.item = item;
+					resetUses();
+					break;
+				}
+			}
 		}
 		
 		targets = null;
@@ -351,7 +359,13 @@ public class Ability extends Action implements Queueable, CommandListener {
 	 */
 	public int getUses(GameUnit unit) {
 		if (item != null && item.getUses() > 0) {
-			return item.getUses() - used;
+			int uses = 0;
+			for (Item otherItem : unit.getInventory().getItems()) {
+				if (otherItem.getCarryAbilityKey().equals(getKey())) {
+					uses += otherItem.getUses();
+				}
+			}
+			return uses - used;
 		} else {
 			int uses = mdo.uses;
 			if (isLeveled(LevelingAttribute.INCREASE_USES)) {
@@ -360,6 +374,13 @@ public class Ability extends Action implements Queueable, CommandListener {
 			uses -= unit.getUsesSinceNight(getKey());
 			return uses;
 		}
+	}
+	
+	/**
+	 * Hack for having multiple consumables.
+	 */
+	public void resetUses() {
+		used = 0;
 	}
 	
 	/**

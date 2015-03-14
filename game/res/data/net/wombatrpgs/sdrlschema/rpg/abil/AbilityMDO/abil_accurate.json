@@ -12,7 +12,7 @@
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectMeleeMDO",
 		"key" : "anon_AbilityMDO_120058648"
 	},
-	"icon" : "None",
+	"icon" : "rapier1.png",
 	"energyCost" : 1000,
 	"leveling" : [
 		"INCREASE_USES",

@@ -82,11 +82,12 @@ public class GameScreen extends Screen {
 		super.postProcessing(manager, pass);
 		
 		if (pass == 0) {
-			while (!map.isTilePassable(MGlobal.hero, MGlobal.hero.getTileX(), MGlobal.hero.getTileY())) {
+			map.addEvent(MGlobal.hero);
+			while (!MGlobal.hero.isEligibleForCamp(true)) {
 				MGlobal.hero.setTileX(MGlobal.rand.nextInt(map.getWidth()));
 				MGlobal.hero.setTileY(MGlobal.rand.nextInt(map.getHeight()));
 			}
-			map.addEvent(MGlobal.hero);
+			MGlobal.hero.setUpCamp();
 			map.setTeleInLoc("hero", new Loc(MGlobal.hero.getTileX(), MGlobal.hero.getTileY()));
 			MGlobal.hero.setX(MGlobal.hero.getTileX()*map.getTileWidth());
 			MGlobal.hero.setY(MGlobal.hero.getTileY()*map.getTileHeight());

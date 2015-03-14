@@ -41,7 +41,7 @@ public class EffectHackBack extends AbilEffect {
 			if (target.calcDodgeChance(0) < MGlobal.rand.nextFloat()) {
 				int dmg = (int) (actor.getUnit().calcMeleeDamage() * (float) mdo.damageRatio);
 				if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {
-					dmg *= .2f * (float) getLevel();
+					dmg *= 1f + .2f * (float) getLevel();
 				}
 				int dealt = target.takePhysicalDamage(dmg);
 				if (MGlobal.hero.inLoS(target.getParent())) {

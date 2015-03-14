@@ -27,6 +27,7 @@ public class EffectHeal extends AbilEffect {
 	 */
 	public EffectHeal(EffectHealMDO mdo, Ability abil) {
 		super(mdo, abil);
+		this.mdo = mdo;
 	}
 
 	/**
@@ -36,7 +37,7 @@ public class EffectHeal extends AbilEffect {
 	protected void internalAct(List<GameUnit> targets) {
 		float ratio = mdo.magicPower;
 		if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {
-			ratio += .2f * (float) getLevel();
+			ratio += (.2f * (float) getLevel());
 		}
 		int healPower = (int) (ratio * actor.getUnit().calcMagicDamage(null));
 		healPower += mdo.healMin;

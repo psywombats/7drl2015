@@ -1,0 +1,17 @@
+{
+	"key" : "item_pot_heal",
+	"subfolder" : "item",
+	"name" : "",
+	"description" : "",
+	"itemName" : "heal potion",
+	"itemDescription" : "A one-dose potion. Heals by 80 hp.",
+	"icon" : "pot1.png",
+	"uses" : 1,
+	"carriedAbility" : "abil_healpot",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

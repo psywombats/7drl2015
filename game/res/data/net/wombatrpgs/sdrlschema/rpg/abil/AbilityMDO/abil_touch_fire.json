@@ -4,7 +4,7 @@
 	"name" : "Burning Hands",
 	"description" : "",
 	"abilDesc" : "Hits a nearby enemy with fire damage",
-	"levelDesc" : "Leveling will increase damage by 20%",
+	"levelDesc" : "Leveling increases damage by 20%",
 	"uses" : 4,
 	"target" : "MELEE",
 	"range" : 1.0,

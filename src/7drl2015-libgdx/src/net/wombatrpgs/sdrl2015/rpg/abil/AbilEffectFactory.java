@@ -12,6 +12,7 @@ import net.wombatrpgs.sdrlschema.rpg.abil.AbilityEffectMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectArmorPierceMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectChargeMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectHackBackMDO;
+import net.wombatrpgs.sdrlschema.rpg.abil.EffectHealMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectMeleeMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectTeleportMDO;
 
@@ -40,6 +41,8 @@ public class AbilEffectFactory {
 	public static AbilEffect createEffect(AbilityEffectMDO mdo, Ability abil) {
 		if (EffectArmorPierceMDO.class.isAssignableFrom(mdo.getClass())) {
 			return new EffectArmorPierce((EffectArmorPierceMDO) mdo, abil);
+		} else if (EffectHealMDO.class.isAssignableFrom(mdo.getClass())) {
+			return new EffectHeal((EffectHealMDO) mdo, abil);
 		} else if (EffectTeleportMDO.class.isAssignableFrom(mdo.getClass())) {
 			return new EffectTeleport((EffectTeleportMDO) mdo, abil);
 		} else if (EffectMagicMDO.class.isAssignableFrom(mdo.getClass())) {

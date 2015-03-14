@@ -84,6 +84,8 @@ public class GameUnit implements Turnable, Queueable {
 		abilityLevels = new HashMap<String, Integer>();
 		abilityUses = new HashMap<String, Integer>();
 		
+		turnsSinceCombat = 10000;
+		
 		if (out == null) out = MGlobal.ui.getNarrator();
 	}
 	
@@ -267,9 +269,9 @@ public class GameUnit implements Turnable, Queueable {
 	 */
 	public void applyStatset(SdrlStats stats, boolean decombine) {
 		if (decombine) {
-			stats.decombine(stats);
+			this.stats.decombine(stats);
 		} else {
-			stats.combine(stats);
+			this.stats.combine(stats);
 		}
 	}
 	
@@ -299,13 +301,18 @@ public class GameUnit implements Turnable, Queueable {
 	 */
 	public void revokeAbility(String abilityKey) {
 		if (!MapThing.mdoHasProperty(abilityKey)) return;
+		List<AbilityEntry> toRemove = new ArrayList<AbilityEntry>();
 		for (AbilityEntry entry : abilities) {
 			if (entry.matches(abilityKey)) {
 				entry.decrementSources();
-				return;
+				if (entry.sources <= 0) {
+					toRemove.add(entry);
+				}
 			}
 		}
-		MGlobal.reporter.warn("Unknown ability revoked: " + abilityKey);
+		for (AbilityEntry entry : toRemove) {
+			abilities.remove(entry);
+		}
 	}
 	
 	/**
@@ -652,6 +659,7 @@ public class GameUnit implements Turnable, Queueable {
 	 */
 	public int calcMagicDamage(MagicElement element) {
 		// awful
+		if (element == null) return 10;
 		switch (element) {
 		case EARTH:		return get(Stat.EARTH_DMG);
 		case FIRE:		return get(Stat.FIRE_DMG);
