@@ -1,0 +1,18 @@
+{
+	"key" : "abil_teleport",
+	"subfolder" : "spell",
+	"name" : "Teleport",
+	"description" : "",
+	"abilDesc" : "Teleports to a location at least 5 tiles away",
+	"levelDesc" : "Leveling will increase the minimum range of the teleport by 2 tiles",
+	"uses" : 2,
+	"target" : "USER",
+	"range" : 1.0,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectTeleportMDO",
+		"key" : "anon_AbilityMDO_-1374879458"
+	},
+	"icon" : "book6.png",
+	"energyCost" : 1000,
+	"fx" : "abilfx_distort"
+}

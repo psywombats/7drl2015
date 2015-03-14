@@ -207,15 +207,14 @@ public class Ability extends Action implements Queueable, CommandListener {
 		if (actor != MGlobal.hero) {
 			acquireTargets();
 		}
-		effect.act(targets);
-		actor.addStep(getStep());
-		
 		if (MapThing.mdoHasProperty(mdo.fx) &&
 				MGlobal.hero.inLoS(actor) &&
 				(targets.size() > 0 || mdo.target == AbilityTargetType.BALL)) {
 			fxSpawn();
 			fx = null;
 		}
+		effect.act(targets);
+		actor.addStep(getStep());
 		
 		targets = null;
 	}

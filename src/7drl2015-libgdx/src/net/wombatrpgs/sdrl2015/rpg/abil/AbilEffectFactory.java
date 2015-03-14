@@ -13,6 +13,7 @@ import net.wombatrpgs.sdrlschema.rpg.abil.EffectArmorPierceMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectChargeMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectHackBackMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectMeleeMDO;
+import net.wombatrpgs.sdrlschema.rpg.abil.EffectTeleportMDO;
 
 /**
  * Another one of these shitty instanceof/getclass constructions for MDOs.
@@ -39,6 +40,8 @@ public class AbilEffectFactory {
 	public static AbilEffect createEffect(AbilityEffectMDO mdo, Ability abil) {
 		if (EffectArmorPierceMDO.class.isAssignableFrom(mdo.getClass())) {
 			return new EffectArmorPierce((EffectArmorPierceMDO) mdo, abil);
+		} else if (EffectTeleportMDO.class.isAssignableFrom(mdo.getClass())) {
+			return new EffectTeleport((EffectTeleportMDO) mdo, abil);
 		} else if (EffectMagicMDO.class.isAssignableFrom(mdo.getClass())) {
 			return new EffectMagic((EffectMagicMDO) mdo, abil);
 		} else if (EffectChargeMDO.class.isAssignableFrom(mdo.getClass())) {

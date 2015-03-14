@@ -12,7 +12,7 @@
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO",
 		"key" : "anon_AbilityMDO_954389011"
 	},
-	"icon" : "book2_earth.png",
+	"icon" : "book2_ice.png",
 	"energyCost" : 1000,
-	"fx" : "abilfx_flames"
+	"fx" : "abilfx_ice"
 }

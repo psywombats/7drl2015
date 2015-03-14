@@ -1,0 +1,18 @@
+{
+	"key" : "abil_banish",
+	"subfolder" : "spell",
+	"name" : "Banish",
+	"description" : "",
+	"abilDesc" : "Teleports a nearby enemy at least 5 tiles away",
+	"levelDesc" : "Leveling will increase the minimum range of the teleport by 2 tiles",
+	"uses" : 2,
+	"target" : "MELEE",
+	"range" : 1.0,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectTeleportMDO",
+		"key" : "anon_AbilityMDO_-646603937"
+	},
+	"icon" : "book7.png",
+	"energyCost" : 1000,
+	"fx" : "abilfx_distort"
+}
