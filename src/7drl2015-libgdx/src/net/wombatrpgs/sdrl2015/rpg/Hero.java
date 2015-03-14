@@ -178,6 +178,7 @@ public class Hero extends CharacterEvent implements CommandListener {
 		
 		// ETC
 		case INTENT_CAMP:		tryCamp();					break;
+		case INTENT_INTERACT:	interact();					break;
 			
 		// DEFAULT
 		default:
@@ -395,6 +396,15 @@ public class Hero extends CharacterEvent implements CommandListener {
 			return;
 		}
 		blockingAbil = abil;
+	}
+	
+	/**
+	 * Try to interact with things on the map by picking them up etc.
+	 */
+	protected void interact() {
+		for (MapEvent event : parent.getEventsAt(getTileX(), getTileY())) {
+			if (event.onInteract()) break;
+		}
 	}
 
 }

@@ -13,6 +13,7 @@ import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
+import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 
 /**
  * The representation of an item lying on the ground.
@@ -68,10 +69,10 @@ public class ItemEvent extends MapEvent {
 	 */
 	@Override
 	public void collideWith(CharacterEvent character) {
-		if (character != MGlobal.hero) {
+		if (character == MGlobal.hero) {
+			GameUnit.out().msg("Press SPACE to pick up " + item.getName() + ".");
 			return;
 		}
-		pickUpBy(character);
 	}
 
 	/**
@@ -79,8 +80,7 @@ public class ItemEvent extends MapEvent {
 	 */
 	@Override
 	public String mouseoverMessage() {
-		//return item.getName() + " is lying here.";
-		return "TODO";
+		return "A " + item.getName() + " is lying here.";
 	}
 	
 	/**
@@ -90,6 +90,16 @@ public class ItemEvent extends MapEvent {
 	public void onCampMoved() {
 		super.onCampMoved();
 		MGlobal.hero.placeItemNear(this);
+	}
+
+	/**
+	 * @see net.wombatrpgs.sdrl2015.maps.events.MapEvent#onInteractAttempted()
+	 */
+	@Override
+	public boolean onInteract() {
+		if (super.onInteract()) return true;
+		pickUpBy(MGlobal.hero);
+		return true;
 	}
 
 	/**

@@ -449,6 +449,15 @@ public abstract class MapEvent extends MapThing implements	PositionSetable,
 	}
 	
 	/**
+	 * Called when the hero attempts to interact with this item. Default does
+	 * nothing.
+	 * @return					True to suppress further interactions (bubble)
+	 */
+	public boolean onInteract() {
+		return false;
+	}
+	
+	/**
 	 * Calculates the z-sort for this event.
 	 * @return					The z-layer of this event
 	 */

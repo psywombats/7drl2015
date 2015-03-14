@@ -55,6 +55,8 @@ public class DefaultKeymap extends Keymap {
 		map.put(Keys.Z, 		InputButton.BUTTON_1);
 		map.put(Keys.SPACE, 	InputButton.BUTTON_1);
 		map.put(Keys.ENTER, 	InputButton.BUTTON_1);
+		map.put(Keys.P,			InputButton.BUTTON_1);
+		map.put(Keys.COMMA,		InputButton.BUTTON_1);
 		map.put(Keys.X, 		InputButton.BUTTON_2);
 		map.put(Keys.BACKSPACE,	InputButton.BUTTON_2);
 		map.put(Keys.C, 		InputButton.BUTTON_3);
@@ -73,6 +75,10 @@ public class DefaultKeymap extends Keymap {
 		map.put(Keys.F4,		InputButton.ABIL_4);
 		map.put(Keys.F5,		InputButton.ABIL_5);
 		map.put(Keys.F6,		InputButton.ABIL_6);
+		map.put(Keys.F7,		InputButton.ABIL_7);
+		map.put(Keys.F8,		InputButton.ABIL_8);
+		map.put(Keys.F9,		InputButton.ABIL_9);
+		map.put(Keys.F10,		InputButton.ABIL_10);
 		
 		map.put(Keys.ESCAPE, 	InputButton.MENU);
 		map.put(Keys.F12,		InputButton.FULLSCREEN);
