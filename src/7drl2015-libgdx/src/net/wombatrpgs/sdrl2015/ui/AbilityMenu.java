@@ -40,7 +40,6 @@ public class AbilityMenu extends Popup {
 	
 	protected Graphic backer, cursor;
 	protected TextBoxFormat descFormat, abilFormat, abilNameFormat, tabHintFormat;
-	protected SelectionDialog dialog;
 	protected boolean levelMode;
 	protected int selected;
 	
@@ -86,10 +85,6 @@ public class AbilityMenu extends Popup {
 		tabHintFormat.height = 50;
 		tabHintFormat.x = MGlobal.window.getWidth() - tabHintFormat.width;
 		tabHintFormat.y = tabHintFormat.height;
-		
-		String options[] = { "Equip", "Use", "Drop" };
-		dialog = new SelectionDialog(SELECTION_DIALOG_FILE, options);
-		assets.add(dialog);
 	}
 	
 	/** @return True if this inventory menu is up on the screen */

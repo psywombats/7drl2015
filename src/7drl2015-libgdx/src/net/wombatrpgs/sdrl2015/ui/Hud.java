@@ -37,6 +37,8 @@ public class Hud extends UIElement {
 	protected static final String FONT_DEFAULT = "font_c64mrogue_small";
 	protected static final String NUMSET_BIG = "numberset_ghost";
 	protected static final String NUMSET_SMALL = "numberset_small";
+	
+	protected static final String CAMP_STRING = "press x to camp";
 
 	protected static final String IMG_FRAME = "hud.png";
 	protected static final String IMG_FRAME_BACK = "hud_backer.png";
@@ -47,7 +49,6 @@ public class Hud extends UIElement {
 	protected static final float DELAY_DIGIT = .03f;
 	
 	protected static final int BAR_HEIGHT = 134;
-	
 	protected static final int HP_TEXT_X = 866;
 	protected static final int HP_TEXT_Y = 680;
 	protected static final int SPRITE_X = 850;
@@ -70,16 +71,16 @@ public class Hud extends UIElement {
 	protected Graphic frame, frameBacker;
 	protected Graphic hpBlob, mpBlob, spBlob;
 	protected NumberSet numbersBig, numbersSmall;
-	protected TextBoxFormat abilFormat;
+	protected TextBoxFormat abilFormat, campFormat;
 	
 	protected FontHolder font;
-	protected float mp, mmp, hp, mhp, sp, msp;
+	protected float hp, mhp, toCamp, toCampMax;
 	
 	protected boolean enabled;
 	protected boolean ignoresTint;
 	protected boolean awaitingReset;
-	protected int currentHPDisplay, currentMPDisplay, currentSPDisplay;
-	protected float timeToDigitHP, timeToDigitMP, timeToDigitSP;
+	protected int currentHPDisplay;
+	protected float timeToDigitHP;
 
 	/**
 	 * Creates a new HUD from... thin air!
@@ -95,8 +96,6 @@ public class Hud extends UIElement {
 		
 		awaitingReset = true;
 		currentHPDisplay = 0;
-		currentMPDisplay = 0;
-		currentSPDisplay = 0;
 		
 		numbersBig = new NumberSet(MGlobal.data.getEntryFor(NUMSET_BIG, NumberSetMDO.class));
 		numbersSmall = new NumberSet(MGlobal.data.getEntryFor(NUMSET_SMALL, NumberSetMDO.class));
@@ -107,6 +106,13 @@ public class Hud extends UIElement {
 		assets.add(font);
 		
 		abilFormat = new TextBoxFormat();
+		
+		campFormat = new TextBoxFormat();
+		campFormat.align = HAlignment.RIGHT;
+		campFormat.height = 50;
+		campFormat.width = 100;
+		campFormat.x = MGlobal.window.getWidth() - 6 - campFormat.width;
+		campFormat.y = MGlobal.window.getHeight() - 562;
 	}
 	
 	/** @return True if the hud is displaying right now */
@@ -125,16 +131,10 @@ public class Hud extends UIElement {
 	public void update(float elapsed) {
 		if (awaitingReset) {
 			currentHPDisplay = MGlobal.hero.getUnit().get(Stat.HP);
-			currentMPDisplay = MGlobal.hero.getUnit().get(Stat.MP);
-			currentSPDisplay = MGlobal.hero.getUnit().get(Stat.SP);
 			awaitingReset = false;
 			timeToDigitHP = 0;
-			timeToDigitMP = 0;
-			timeToDigitSP = 0;
 		}
 		timeToDigitHP += elapsed;
-		timeToDigitMP += elapsed;
-		timeToDigitSP += elapsed;
 		while (timeToDigitHP > DELAY_DIGIT) {
 			timeToDigitHP -= DELAY_DIGIT;
 			if (currentHPDisplay > MGlobal.hero.getUnit().get(Stat.HP)) {
@@ -143,28 +143,8 @@ public class Hud extends UIElement {
 				currentHPDisplay += 1;
 			}
 		}
-		while (timeToDigitMP > DELAY_DIGIT) {
-			timeToDigitMP -= DELAY_DIGIT;
-			if (currentMPDisplay > MGlobal.hero.getUnit().get(Stat.MP)) {
-				currentMPDisplay -= 1;
-			} else if (currentMPDisplay < MGlobal.hero.getUnit().get(Stat.MP)){
-				currentMPDisplay += 1;
-			}
-		}
-		while (timeToDigitSP > DELAY_DIGIT) {
-			timeToDigitSP -= DELAY_DIGIT;
-			if (currentSPDisplay > MGlobal.hero.getUnit().get(Stat.SP)) {
-				currentSPDisplay -= 1;
-			} else if (currentSPDisplay < MGlobal.hero.getUnit().get(Stat.SP)){
-				currentSPDisplay += 1;
-			}
-		}
 		mhp = MGlobal.hero.getUnit().get(Stat.MHP);
 		hp = currentHPDisplay;
-		mmp = MGlobal.hero.getUnit().get(Stat.MMP);
-		mp = currentMPDisplay;
-		msp = MGlobal.hero.getUnit().get(Stat.MSP);
-		sp = currentSPDisplay;
 	}
 
 	/**
@@ -175,8 +155,7 @@ public class Hud extends UIElement {
 	public void render(OrthographicCamera camera) {
 		SpriteBatch batch = getBatch();
 		float ratioHP = hp/mhp;
-		float ratioMP = mp/mmp;
-		float ratioSP = sp/msp;
+		float ratioCamp = MGlobal.hero.getCampRatio();
 		
 		frameBacker.renderAt(batch, 0, 0);
 		
@@ -191,12 +170,13 @@ public class Hud extends UIElement {
 		blobX = BAR1_X;
 		blobY = BAR1_Y;
 		blobY = MGlobal.window.getHeight() - blobY;
-		mpBlob.renderAt(batch, blobX, blobY, 1f, (ratioMP * (float) BAR_HEIGHT) / mpBlob.getHeight());
+		mpBlob.renderAt(batch, blobX, blobY, 1f,
+				(ratioCamp * (float) BAR_HEIGHT) / mpBlob.getHeight());
 		
-		blobX = BAR2_X;
-		blobY = BAR2_Y;
-		blobY = MGlobal.window.getHeight() - blobY;
-		spBlob.renderAt(batch, blobX, blobY, 1f, (ratioSP * (float) BAR_HEIGHT) / spBlob.getHeight());
+//		blobX = BAR2_X;
+//		blobY = BAR2_Y;
+//		blobY = MGlobal.window.getHeight() - blobY;
+//		spBlob.renderAt(batch, blobX, blobY, 1f, (ratioSP * (float) BAR_HEIGHT) / spBlob.getHeight());
 		
 		int hpTextX = HP_TEXT_X;
 		int hpTextY = (MGlobal.window.getHeight() - HP_TEXT_Y);
@@ -233,12 +213,13 @@ public class Hud extends UIElement {
 			abilFormat.height = 50;
 			abilFormat.x = ABIL_START_X + ABIL_WIDTH*i + ABIL_TEXT_X;
 			abilFormat.y = MGlobal.window.getHeight() - (ABIL_START_Y + ABIL_TEXT_Y);
+			String useString = "left: " + abil.getUses(MGlobal.hero.getUnit());
+			font.draw(batch, abilFormat, useString, 0);
 			font.draw(batch, abilFormat, "F"+(i+1), (int) font.getLineHeight());
-			if (abil.getMP() > 0) {
-				font.draw(batch, abilFormat, "MP: " + abil.getMP(), 0);
-			} else if (abil.getSP() > 0) {
-				font.draw(batch, abilFormat, "SP: " + abil.getSP(), 0);
-			}
+		}
+		
+		if (MGlobal.hero.isEligibleForCamp(true)) {
+			font.draw(batch, campFormat, CAMP_STRING, 0);
 		}
 		
 //		format.align = HAlignment.LEFT;
@@ -268,7 +249,6 @@ public class Hud extends UIElement {
 	 */
 	public void forceReset() {
 		currentHPDisplay = MGlobal.hero.getUnit().get(Stat.HP);
-		currentMPDisplay = MGlobal.hero.getUnit().get(Stat.MHP);
 	}
 
 }

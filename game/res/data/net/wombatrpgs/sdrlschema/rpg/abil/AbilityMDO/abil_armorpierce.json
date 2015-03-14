@@ -4,7 +4,8 @@
 	"name" : "Pierce Armor",
 	"description" : "",
 	"abilDesc" : "Pierces through enemy armor",
-	"levelDesc" : "Leveling increases potential uses per night",
+	"levelDesc" : "Leveling will deal extra damage to armored enemies",
+	"uses" : 4,
 	"target" : "MELEE",
 	"range" : 1.0,
 	"warhead" : {
@@ -13,7 +14,5 @@
 	},
 	"icon" : "potion_red.png",
 	"energyCost" : 1000,
-	"mpCost" : 0,
-	"spCost" : 8,
 	"fx" : "None"
 }

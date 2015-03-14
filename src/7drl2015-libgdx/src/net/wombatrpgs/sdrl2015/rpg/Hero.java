@@ -37,13 +37,12 @@ import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
  */
 public class Hero extends CharacterEvent implements CommandListener {
 	
+	// terrible place to put these
+	public static final int TURNS_PER_NIGHT = 10;
+	public static final int PEACEFUL_TURNS_REQUIRED = 10;
 	public static final int ABILITIES_MAX = 6;
 	
 	protected static final String HERO_DEFAULT = "hero_default";
-	
-	// terrible place to put these
-	protected static final int TURNS_PER_NIGHT = 10;
-	protected static final int PEACEFUL_TURNS_REQUIRED = 10;
 	
 	protected ActStep step;
 	// to facilitate shader calls, viewtex is like a b/w image version of cache
@@ -206,7 +205,7 @@ public class Hero extends CharacterEvent implements CommandListener {
 	 * is eligible first.
 	 */
 	public void setUpCamp() {
-		if (!isEligibleForCamp()) {
+		if (!isEligibleForCamp(true)) {
 			MGlobal.reporter.warn("Ineligible for camp but camping anyway?");
 		}
 		
@@ -232,11 +231,14 @@ public class Hero extends CharacterEvent implements CommandListener {
 					}
 				}
 			}
-			
-			AbilityMenu menu = new AbilityMenu(true);
-			MGlobal.assetManager.loadAsset(menu, "abil level");
-			menu.show();
+			if (MGlobal.hero.getUnit().getAbilities().size() > 0) {
+				AbilityMenu menu = new AbilityMenu(true);
+				MGlobal.assetManager.loadAsset(menu, "abil level");
+				menu.show();
+			}
 		}
+		
+		getUnit().onNight();
 		baseMapKey = MGlobal.hero.getParent().getKey();
 		baseX = MGlobal.hero.getTileX();
 		baseY = MGlobal.hero.getTileY();
@@ -247,26 +249,33 @@ public class Hero extends CharacterEvent implements CommandListener {
 	/**
 	 * Checks if the hero is eligible to set up a campsite, and if not, spits
 	 * the reason why out to the player. Not particularly elegant.
+	 * @param	silent			True to suppress the reason messages
 	 * @return					True if PC is can camp at the moment
 	 */
-	public boolean isEligibleForCamp() {
+	public boolean isEligibleForCamp(boolean silent) {
 		if (turnsSinceNight < TURNS_PER_NIGHT) {
 			int turnsNeeded = TURNS_PER_NIGHT - turnsSinceNight;
-			GameUnit.out().msg("Can't camp -- need to wait another " + 
-					turnsNeeded + " turns");
+			if (!silent) {
+				GameUnit.out().msg("Can't camp -- need to wait another " + 
+						turnsNeeded + " turns");
+			}
 			return false;
 		}
 		if (unit.getTurnsSinceCombat() < PEACEFUL_TURNS_REQUIRED) {
 			int turnsNeeded = PEACEFUL_TURNS_REQUIRED - unit.getTurnsSinceCombat();
-			GameUnit.out().msg("Can't camp now -- need to spend another " +
-					turnsNeeded + " turns out of combat");
+			if (!silent) {
+				GameUnit.out().msg("Can't camp now -- need to spend another " +
+						turnsNeeded + " turns out of combat");
+			}
 			return false;
 		}
 		for (int x = getTileX()-1; x <= getTileX()+1; x += 1) {
 			for (int y = getTileY() - 1; y <= getTileY()+1; y += 1) {
 				if (!parent.isTilePassable(this, x, y)) {
-					GameUnit.out().msg("Can't camp next to a wall -- try the "
-							+ "middle of a room");
+					if (!silent) {
+						GameUnit.out().msg("Can't camp next to a wall -- try "
+								+ "the middle of a room");
+					}
 					return false;
 				}
 			}
@@ -342,10 +351,19 @@ public class Hero extends CharacterEvent implements CommandListener {
 	}
 	
 	/**
+	 * UI function, how long til camp?
+	 * @return 0-1
+	 */
+	public float getCampRatio() {
+		float r = turnsSinceNight / (float) TURNS_PER_NIGHT;
+		return (r > 1) ? 1 : r;
+	}
+	
+	/**
 	 * Called when the player tries to set up camp.
 	 */
 	protected void tryCamp() {
-		if (isEligibleForCamp()) {
+		if (isEligibleForCamp(false)) {
 			setUpCamp();
 		}
 	}

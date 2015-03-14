@@ -106,12 +106,6 @@ public class Ability extends Action implements Queueable, CommandListener {
 		}
 	}
 	
-	/** @return The MP cost of this ability */
-	public int getMP() { return mdo.mpCost; }
-	
-	/** @return The SP cost of this ability */
-	public int getSP() { return mdo.spCost; }
-	
 	/** @return The in-game name of this ability */
 	public String getName() { return mdo.name; }
 	
@@ -300,6 +294,18 @@ public class Ability extends Action implements Queueable, CommandListener {
 			if (actor.getUnit().getRelationTo(target).attackIfBored) return true;
 		}
 		return false;
+	}
+	
+	/**
+	 * Calculates the number of uses this abilities has for the given unit.
+	 * @param	unit			The unit to get uses for
+	 * @return					How many times this ability can be used
+	 */
+	public int getUses(GameUnit unit) {
+		int uses = mdo.uses;
+		uses += unit.getAbilityLevel(getKey());
+		uses -= unit.getUsesSinceNight(getKey());
+		return uses;
 	}
 	
 	/**

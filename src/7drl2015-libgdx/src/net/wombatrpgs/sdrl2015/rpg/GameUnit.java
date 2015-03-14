@@ -60,6 +60,7 @@ public class GameUnit implements Turnable, Queueable {
 	protected RaceMDO race;
 	protected List<AbilityEntry> abilities;
 	protected Map<String, Integer> abilityLevels;
+	protected Map<String, Integer> abilityUses;
 	
 	// 7DRL ugly stuff
 	protected int turnsSinceCombat;
@@ -79,6 +80,7 @@ public class GameUnit implements Turnable, Queueable {
 		
 		abilities = new ArrayList<AbilityEntry>();
 		abilityLevels = new HashMap<String, Integer>();
+		abilityUses = new HashMap<String, Integer>();
 		
 		if (out == null) out = MGlobal.ui.getNarrator();
 	}
@@ -413,8 +415,7 @@ public class GameUnit implements Turnable, Queueable {
 	 * @return					True if the ability can be used, false otherwise
 	 */
 	public boolean canUse(Ability abil) {
-		// TODO: canUse(Ability abil)
-		return true;
+		return abil.getUses(this) > 0;
 	}
 	
 	/**
@@ -424,8 +425,7 @@ public class GameUnit implements Turnable, Queueable {
 	 * @param	abil			The ability that was used
 	 */
 	public void onAbilityUsed(Ability abil) {
-		stats.subtract(Stat.MP, abil.getMP());
-		stats.subtract(Stat.SP, abil.getSP());
+		abilityUses.put(abil.getKey(), getUsesSinceNight(abil.getKey()) + 1);
 		if (visible(this)) {
 			out.msg(getName() + " used " + abil.getName() + ".");
 		}
@@ -577,6 +577,25 @@ public class GameUnit implements Turnable, Queueable {
 	public void increaseAbilityLevel(String key) {
 		int previousLevel = getAbilityLevel(key);
 		abilityLevels.put(key, previousLevel + 1);
+	}
+	
+	/**
+	 * Returns the number of times an ability has been used since last camp.
+	 * For enemies, this is irrelevant, hopefully?
+	 * @param	key				The key of the ability to get
+	 * @return					The number of times this ability has been used
+	 */
+	public int getUsesSinceNight(String key) {
+		Integer used = abilityUses.get(key);
+		if (used == null) return 0;
+		return used;
+	}
+	
+	/**
+	 * Called every time camping happens.
+	 */
+	public void onNight() {
+		abilityUses.clear();
 	}
 	
 	/**

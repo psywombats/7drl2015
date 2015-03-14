@@ -32,6 +32,9 @@ public class AbilityMDO extends MainSchema {
 	@Desc("Leveling desc - displayed in-game when skill is about to be leveled maybe")
 	public String levelDesc;
 	
+	@Desc("Uses - can be used this many times per night at level 0")
+	public Integer uses;
+	
 	@Desc("Target - What or where this ability targets")
 	public AbilityTargetType target;
 	
@@ -51,14 +54,6 @@ public class AbilityMDO extends MainSchema {
 	@Desc("Energy cost - How long it takes to use this action (1000 default, 2000 is twice as long, etc")
 	@DefaultValue("1000")
 	public Integer energyCost;
-	
-	@Desc("Mana cost - How much mp this takes")
-	@DefaultValue("0")
-	public Integer mpCost;
-	
-	@Desc("Stamina cost - How much sp this takes")
-	@DefaultValue("0")
-	public Integer spCost;
 	
 	@Desc("Graphical fx - Special animations for this ability!!")
 	@SchemaLink(AbilFxMDO.class)

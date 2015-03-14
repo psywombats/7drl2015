@@ -37,10 +37,6 @@ public class SdrlStats extends StatEnumLink {
 	public SdrlStats(StatSetMDO mdo) {
 		setStat(Stat.MHP,	mdo.mhp	);
 		setStat(Stat.HP,	mdo.hp	);
-		setStat(Stat.MMP,	mdo.mmp	);
-		setStat(Stat.MP,	mdo.mp	);
-		setStat(Stat.MSP,	mdo.msp	);
-		setStat(Stat.SP,	mdo.sp	);
 		setStat(Stat.PV,	mdo.pv	);
 		setStat(Stat.DV,	mdo.dv	);
 		setStat(Stat.SPEED,	mdo.speed);

@@ -14,10 +14,6 @@ public enum Stat implements NumericStatLinkable {
 	
 	MHP					("max health"),
 	HP					("health"),
-	MMP					("max mana"),
-	MP					("mana"),
-	MSP					("max stamina"),
-	SP					("stamina"),
 	PV					("armor"),
 	DV					("dodge"),
 	SPEED				("speed"),
