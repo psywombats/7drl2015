@@ -7,7 +7,7 @@
 	"itemDescription" : "Very shorp and pointy.",
 	"icon" : "potion_red.png",
 	"carriedAbility" : "None",
-	"equippedAbility" : "abil_charge",
+	"equippedAbility" : "abil_hackback",
 	"slot" : "WEAPON",
 	"stats" : {
 		"stats" : [ ],

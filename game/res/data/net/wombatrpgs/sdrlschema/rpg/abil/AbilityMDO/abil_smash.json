@@ -1,0 +1,18 @@
+{
+	"key" : "abil_smash",
+	"subfolder" : "weapon",
+	"name" : "Smash",
+	"description" : "",
+	"abilDesc" : "Deals triple damage, but takes twice as long",
+	"levelDesc" : "Leveling increases uses per night",
+	"uses" : 3,
+	"target" : "MELEE",
+	"range" : 1.0,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectMeleeMDO",
+		"key" : "anon_AbilityMDO_-1004668058"
+	},
+	"icon" : "potion_red.png",
+	"energyCost" : 2000,
+	"fx" : "None"
+}

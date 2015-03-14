@@ -10,22 +10,21 @@ import java.util.List;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
-import net.wombatrpgs.sdrlschema.rpg.abil.EffectArmorPierceMDO;
-import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
+import net.wombatrpgs.sdrlschema.rpg.abil.EffectMeleeMDO;
 
 /**
- * Pierces armor.
+ * Average melee attack.
  */
-public class EffectArmorPierce extends AbilEffect {
+public class EffectMelee extends AbilEffect {
 	
-	protected EffectArmorPierceMDO mdo;
+	protected EffectMeleeMDO mdo;
 
 	/**
 	 * Creates an effect given data, ability.
 	 * @param	mdo				The data to generate from
 	 * @param	abil			The ability to generate for
 	 */
-	public EffectArmorPierce(EffectArmorPierceMDO mdo, Ability abil) {
+	public EffectMelee(EffectMeleeMDO mdo, Ability abil) {
 		super(mdo, abil);
 		this.mdo = mdo;
 	}
@@ -37,15 +36,17 @@ public class EffectArmorPierce extends AbilEffect {
 	protected void internalAct(List<GameUnit> targets) {
 		for (GameUnit target : targets) {
 			actor.faceToward(target.getParent());
-			int dmg = actor.getUnit().calcMeleeDamage();
-			float pierce = (1f - mdo.pierce) + .1f * getLevel();
-			dmg -= Math.floor((float) target.get(Stat.PV) * (1f-pierce));
-			target.takeRawDamage(dmg);
-			if (MGlobal.hero.inLoS(target.getParent())) {
-				GameUnit.out().msg(target.getName() + " took " + dmg + " damage through armor.");
+			if (target.calcDodgeChance(-1 * mdo.accuracy) < MGlobal.rand.nextFloat()) {
+				GameUnit.out().msg(actor.getName() + " misses.");
+			} else {
+				int dmg = (int) (actor.getUnit().calcMeleeDamage() * (float) mdo.damageRatio);
+				int dealt = target.takePhysicalDamage(dmg);
+				if (MGlobal.hero.inLoS(target.getParent())) {
+					GameUnit.out().msg(target.getName() + " took " + dealt + " damage.");
+				}
+				target.ensureAlive();
 			}
 			target.onAttackBy(actor.getUnit());
-			target.ensureAlive();
 		}
 	}
 

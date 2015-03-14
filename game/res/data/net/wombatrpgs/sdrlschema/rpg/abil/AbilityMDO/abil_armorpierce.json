@@ -4,7 +4,7 @@
 	"name" : "Pierce Armor",
 	"description" : "",
 	"abilDesc" : "Pierces through enemy armor",
-	"levelDesc" : "Leveling will deal extra damage to armored enemies",
+	"levelDesc" : "Leveling will deal 10% extra damage to armored enemies",
 	"uses" : 4,
 	"target" : "MELEE",
 	"range" : 1.0,

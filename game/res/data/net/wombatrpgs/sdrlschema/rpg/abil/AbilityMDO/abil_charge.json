@@ -1,0 +1,18 @@
+{
+	"key" : "abil_charge",
+	"subfolder" : "weapon",
+	"name" : "Charge",
+	"description" : "",
+	"abilDesc" : "Rush across open up to 5 tiles and attack the enemy",
+	"levelDesc" : "Leveling increases uses per night",
+	"uses" : 2,
+	"target" : "PROJECTILE",
+	"range" : 5.0,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectChargeMDO",
+		"key" : "anon_AbilityMDO_-275302696"
+	},
+	"icon" : "potion_red.png",
+	"energyCost" : 1000,
+	"fx" : "None"
+}

@@ -1,0 +1,18 @@
+{
+	"key" : "abil_hackback",
+	"subfolder" : "weapon",
+	"name" : "Hack 'n Back",
+	"description" : "",
+	"abilDesc" : "Hits the enemy then jump backwards",
+	"levelDesc" : "Leveling will increase the range jumped backwards",
+	"uses" : 6,
+	"target" : "MELEE",
+	"range" : 1.0,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectHackBackMDO",
+		"key" : "anon_AbilityMDO_-1142230864"
+	},
+	"icon" : "potion_red.png",
+	"energyCost" : 1000,
+	"fx" : "None"
+}

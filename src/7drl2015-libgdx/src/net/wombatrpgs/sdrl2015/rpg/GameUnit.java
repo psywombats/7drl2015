@@ -315,7 +315,7 @@ public class GameUnit implements Turnable, Queueable {
 		turnsSinceCombat = 0;
 		String us = getName();
 		String them = other.getName();
-		if (other.calcDodgeChance() < MGlobal.rand.nextFloat()) {
+		if (other.calcDodgeChance(0) < MGlobal.rand.nextFloat()) {
 			int dealt = other.takePhysicalDamage(calcMeleeDamage());
 			if (visible(this, other)) {
 				if (dealt > 0) {
@@ -619,11 +619,12 @@ public class GameUnit implements Turnable, Queueable {
 	
 	/**
 	 * Calculates the chance for this unit to dodge an arbitrary melee attack.
+	 * @param	modifier		The amount to add to this unit's DV
 	 * @return					The percent chance to dodge, from 0 to 1
 	 */
-	protected float calcDodgeChance() {
+	public float calcDodgeChance(int modifier) {
 		// Welp, this sure is balanced!
-		return get(Stat.DV) / 100f;
+		return ((float) (get(Stat.DV) + modifier)) / 100f;
 	}
 	
 	/**
