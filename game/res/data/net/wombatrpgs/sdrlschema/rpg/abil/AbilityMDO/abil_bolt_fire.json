@@ -1,0 +1,18 @@
+{
+	"key" : "abil_bolt_fire",
+	"subfolder" : "spell",
+	"name" : "Fire Bolt",
+	"description" : "",
+	"abilDesc" : "Fires a bolt of fire that can hit multiple targets",
+	"levelDesc" : "Leveling will increase damage by 10% and range by 1 tile",
+	"uses" : 2,
+	"target" : "BEAM",
+	"range" : 5.0,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO",
+		"key" : "anon_AbilityMDO_656102245"
+	},
+	"icon" : "potion_red.png",
+	"energyCost" : 1000,
+	"fx" : "abilfx_flames"
+}

@@ -4,7 +4,7 @@
 	"name" : "Charge",
 	"description" : "",
 	"abilDesc" : "Rush across open up to 5 tiles and attack the enemy",
-	"levelDesc" : "Leveling increases uses per night",
+	"levelDesc" : "Leveling will increase damage by 20%",
 	"uses" : 2,
 	"target" : "PROJECTILE",
 	"range" : 5.0,

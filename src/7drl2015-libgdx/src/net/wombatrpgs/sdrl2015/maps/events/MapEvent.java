@@ -405,17 +405,26 @@ public abstract class MapEvent extends MapThing implements	PositionSetable,
 	 * Calculates the manhattan distance between this and some other location.
 	 * @param	tileX			The x-coord to calc distance to, in tiles
 	 * @param	tileY			The y-coord to calc distance to, in tiles
-	 * @return
+	 * @return					The distance between the two, in tiles
 	 */
 	public int tileDistanceTo(int tileX, int tileY) {
 		return Math.abs(tileX - this.tileX) + Math.abs(tileY - this.tileY); 
 	}
 	
 	/**
+	 * Calculates the manhattan distance between this and some other event.
+	 * @param	other			The event to calculate distance from
+	 * @return					The distance between the two, in tiles
+	 */
+	public int tileDistanceTo(MapEvent other) {
+		return tileDistanceTo(other.getTileX(), other.getTileY());
+	}
+	
+	/**
 	 * Calculates the euclidean distance between this and some other tile loc.
 	 * @param	tileX			The other's tile x-coord
 	 * @param	tileY			The other's tile y-coord
-	 * @return
+	 * @return					The distance between the two, in tile lengths
 	 */
 	public float euclideanTileDistanceTo(int tileX, int tileY) {
 		float dx = this.tileX - tileX;

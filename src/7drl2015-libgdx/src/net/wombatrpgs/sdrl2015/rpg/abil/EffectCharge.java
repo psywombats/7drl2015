@@ -55,9 +55,9 @@ public class EffectCharge extends AbilEffect {
 			}
 			int tileX = actor.getTileX();
 			int tileY = actor.getTileY();
+			EightDir dir = target.getParent().directionTo(tileX, tileY);
+			EightDir oppDir = EightDir.getOpposite(dir);
 			while (target.getParent().tileDistanceTo(tileX, tileY) > 1) {
-				EightDir dir = target.getParent().directionTo(tileX, tileY);
-				EightDir oppDir = EightDir.getOpposite(dir);
 				tileX += oppDir.getVector().x;
 				tileY += oppDir.getVector().y;
 				actor.addStep(new StepMove(actor, tileX, tileY));

@@ -37,6 +37,10 @@ import net.wombatrpgs.sdrlschema.rpg.abil.AbilityTargetType;
  * An ability is a special sort of action. It can be used by a character or a
  * hero, and it's not necessarily part of an AI routine. Actually it's kind of
  * a typical thing then... it's just constructed from a special ability MDO.
+ * 
+ * 7DRL: warning, kind of a mess... the main issue here is that an issue is
+ * constructed with a specific actor in mind, and ability targeting is not
+ * well designed
  */
 public class Ability extends Action implements Queueable, CommandListener {
 	
@@ -351,7 +355,7 @@ public class Ability extends Action implements Queueable, CommandListener {
 				}
 			}
 			break;
-		case PROJECTILE:
+		case PROJECTILE: case BEAM:
 			if (actor == MGlobal.hero) {
 				if (targets != null) {
 					return;
@@ -387,10 +391,24 @@ public class Ability extends Action implements Queueable, CommandListener {
 					targetCursor.registerFinishListener(new FinishListener() {
 						@Override public void onFinish() {
 							targets = new ArrayList<GameUnit>();
-							if (targetCursor.getLastTarget() != null) {
-								targets.add(targetCursor.getLastTarget().getUnit());
+							if (mdo.target == AbilityTargetType.BEAM) {
+								int tileX = actor.getTileX();
+								int tileY = actor.getTileY();
+								EightDir dir = actor.directionTo(targetCursor);
+								for (int i = 0; i <= actor.tileDistanceTo(targetCursor); i += 1) {
+									tileX += dir.getVector().x;
+									tileY += dir.getVector().y;
+									for (CharacterEvent other : actor.getParent().getCharacters()) {
+										if (other.getTileX() == tileX && other.getTileY() == tileY) {
+											targets.add(other.getUnit());
+										}
+									}
+								}
+							} else {
+								if (targetCursor.getLastTarget() != null) {
+									targets.add(targetCursor.getLastTarget().getUnit());
+								}
 							}
-							blocking = false;
 						}
 					});
 					MGlobal.ui.getNarrator().msg("Select a target...");

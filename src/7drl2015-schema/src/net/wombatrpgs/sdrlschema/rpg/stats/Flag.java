@@ -12,7 +12,8 @@ package net.wombatrpgs.sdrlschema.rpg.stats;
 public enum Flag implements FlagStatLinkable {
 	
 	RESIST_FIRE,
-	RESIST_ICE;
+	RESIST_ICE,
+	RESIST_EARTH;
 	// etc
 
 	private FlagStat flag;

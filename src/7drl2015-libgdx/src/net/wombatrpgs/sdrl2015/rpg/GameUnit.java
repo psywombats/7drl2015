@@ -30,7 +30,9 @@ import net.wombatrpgs.sdrl2015.ui.Narrator;
 import net.wombatrpgs.sdrlschema.rpg.HeroMDO;
 import net.wombatrpgs.sdrlschema.rpg.RaceMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.AbilityMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.MagicElement;
 import net.wombatrpgs.sdrlschema.rpg.data.Relation;
+import net.wombatrpgs.sdrlschema.rpg.stats.Flag;
 import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
 /**
@@ -203,6 +205,16 @@ public class GameUnit implements Turnable, Queueable {
 		int value = Math.round(stats.stat(stat));
 		// status effects apply here
 		return value;
+	}
+	
+	/**
+	 * Determines if this unit has the given flag, taking into account all
+	 * modifiers and equipment.
+	 * @param	flag			The flag to check for
+	 * @return					True if this unit has that flag
+	 */
+	public boolean is(Flag flag) {
+		return stats.flag(flag);
 	}
 	
 	/**
@@ -599,6 +611,21 @@ public class GameUnit implements Turnable, Queueable {
 	}
 	
 	/**
+	 * Checks if this unit resists a given element. Checks flag stats.
+	 * @param	element			The element to check
+	 * @return					True if the given element is resisted
+	 */
+	// SaGa does this much more elegantly, I swear
+	public boolean resists(MagicElement element) {
+		switch (element) {
+		case EARTH:		return is(Flag.RESIST_EARTH);
+		case FIRE:		return is(Flag.RESIST_FIRE);
+		case ICE:		return is(Flag.RESIST_ICE);
+		default:		return false;
+		}
+	}
+	
+	/**
 	 * Calculates how fast this unit should move compared to average. Does this
 	 * with the speed stat.
 	 * @return					The speed mod, a multiplier centered around 1.0
@@ -613,6 +640,16 @@ public class GameUnit implements Turnable, Queueable {
 	 * @return					A randomized melee damage output, in HP
 	 */
 	public int calcMeleeDamage() {
+		// TODO: obvious
+		return 10;
+	}
+	
+	/**
+	 * Calculates output magic damage of this unit, given its current stats
+	 * and equipment. It's fine to use the RNG.
+	 * @return					A randomized magic damage output, in HP
+	 */
+	public int calcMagicDamage() {
 		// TODO: obvious
 		return 10;
 	}

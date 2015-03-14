@@ -23,6 +23,7 @@ import net.wombatrpgs.sdrlschema.maps.data.EightDir;
  * idiot. (Actually it shouldn't be too bad because this isn't android) If there
  * are ever more ways of finding a path, this thing should implement the
  * Pathfinder interface.
+ * 7DRL note: jesus christ I don't think this actually uses a heuristic wtf
  */
 public class AStarPathfinder {
 	
