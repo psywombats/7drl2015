@@ -1,0 +1,16 @@
+{
+	"key" : "item_book_firetouch",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Burning Hands",
+	"itemDescription" : "A spellbook. Grants the Burning Hands skill.",
+	"icon" : "book2_fire.png",
+	"carriedAbility" : "abil_touch_fire",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"key" : "item_rapier_good",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "saber",
+	"itemDescription" : "A slashing rapier. Grants the Thrust skill. Inflicts +6 damage.",
+	"icon" : "rapier2.png",
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_accurate",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 6.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

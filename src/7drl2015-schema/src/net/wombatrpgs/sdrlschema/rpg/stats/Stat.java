@@ -17,8 +17,11 @@ public enum Stat implements NumericStatLinkable {
 	PV					("armor"),
 	DV					("dodge"),
 	SPEED				("speed"),
-	VISION				("vision");
-	
+	VISION				("vision"),
+	FIRE_DMG			("fire magic"),
+	ICE_DMG				("ice magic"),
+	EARTH_DMG			("earth magic"),
+	MELEE_DMG			("melee damage");
 	
 	private NumericStat stat;
 	private String name;

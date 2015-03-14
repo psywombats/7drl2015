@@ -1,0 +1,21 @@
+{
+	"key" : "item_mace_bad",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "mace",
+	"itemDescription" : "A heavy mace. Grants the Smash skill. Inflicts +3 damage.",
+	"icon" : "mace1.png",
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_smash",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

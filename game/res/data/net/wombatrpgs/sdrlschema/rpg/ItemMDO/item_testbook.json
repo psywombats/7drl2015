@@ -6,7 +6,7 @@
 	"itemName" : "Black Tome of Assofuckus",
 	"itemDescription" : "Your favorite artifact is back!",
 	"icon" : "potion_red.png",
-	"carriedAbility" : "abil_teleport",
+	"carriedAbility" : "abil_banish",
 	"equippedAbility" : "None",
 	"slot" : null,
 	"stats" : {

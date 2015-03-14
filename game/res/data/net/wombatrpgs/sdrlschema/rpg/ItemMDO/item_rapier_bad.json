@@ -1,0 +1,21 @@
+{
+	"key" : "item_rapier_bad",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "rapier",
+	"itemDescription" : "A basic rapier. Grants the Thrust skill. Inflicts +3 damage.",
+	"icon" : "rapier1.png",
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_accurate",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

@@ -17,6 +17,10 @@
 			{
 				"stat" : "DV",
 				"value" : 5.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 5.0
 			}
 		],
 		"flags" : [ ]

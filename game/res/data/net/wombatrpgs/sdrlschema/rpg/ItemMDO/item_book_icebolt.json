@@ -1,0 +1,16 @@
+{
+	"key" : "item_book_icebolt",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Ice Bolt",
+	"itemDescription" : "A spellbook. Grants the Ice Bolt skill.",
+	"icon" : "book1_ice.png",
+	"carriedAbility" : "abil_bolt_ice",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

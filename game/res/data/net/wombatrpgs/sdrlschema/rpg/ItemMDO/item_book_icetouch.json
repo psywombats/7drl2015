@@ -1,0 +1,16 @@
+{
+	"key" : "item_book_icetouch",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Freezing Hands",
+	"itemDescription" : "A spellbook. Grants the Freezing Hands skill.",
+	"icon" : "book2_ice.png",
+	"carriedAbility" : "abil_touch_ice",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"key" : "item_sword_bad",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "shortsword",
+	"itemDescription" : "A stubby sword. Grants the Hack 'n Back skill. Inflicts +3 damage.",
+	"icon" : "sword01.png",
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_hackback",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

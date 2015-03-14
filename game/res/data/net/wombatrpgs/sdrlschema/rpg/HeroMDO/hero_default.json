@@ -11,8 +11,12 @@
 		"mp" : 100,
 		"msp" : 100,
 		"sp" : 100,
-		"dv" : 0,
+		"dv" : 5,
 		"pv" : 0,
+		"fdmg" : 10,
+		"idmg" : 10,
+		"edmg" : 10,
+		"mdmg" : 7,
 		"speed" : 100,
 		"vision" : 6,
 		"flags" : [ ]

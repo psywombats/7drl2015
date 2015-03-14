@@ -1,0 +1,21 @@
+{
+	"key" : "item_knife_good",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "khukuri",
+	"itemDescription" : "A curved knife. Grants the Armor Pierce skill. Inflicts +6 damage.",
+	"icon" : "knife2.png",
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_armorpierce",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 6.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

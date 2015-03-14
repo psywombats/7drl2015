@@ -1,0 +1,16 @@
+{
+	"key" : "item_book_banish",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Banish",
+	"itemDescription" : "A spellbook. Grants the Banish skill.",
+	"icon" : "book7.png",
+	"carriedAbility" : "abil_banish",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"key" : "item_axe_good",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "battle axe",
+	"itemDescription" : "A double-bladed axe. Grants the Spin Attack skill. Inflicts +3 damage.",
+	"icon" : "axe2.png",
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_spinattack",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

@@ -38,6 +38,18 @@ public class StatSetMDO extends HeadlessSchema {
 	@Desc("PV - armor")
 	public Integer pv;
 	
+	@Desc("Fire damage")
+	public Integer fdmg;
+	
+	@Desc("Ice damage")
+	public Integer idmg;
+	
+	@Desc("Earth damage")
+	public Integer edmg;
+	
+	@Desc("Melee damage")
+	public Integer mdmg;
+	
 	@Desc("Speed - in speed points, usually 100")
 	public Integer speed;
 	

@@ -1,0 +1,16 @@
+{
+	"key" : "item_book_earthball",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Quake",
+	"itemDescription" : "A spellbook. Grants the Quake skill.",
+	"icon" : "book4_earth.png",
+	"carriedAbility" : "abil_ball_earth",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

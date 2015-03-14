@@ -1,0 +1,21 @@
+{
+	"key" : "item_spear_bad",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "spear",
+	"itemDescription" : "A narrow spear. Grants the Charge skill. Inflicts +3 damage.",
+	"icon" : "spear1.png",
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_charge",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

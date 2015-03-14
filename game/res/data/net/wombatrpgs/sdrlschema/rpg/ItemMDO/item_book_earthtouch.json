@@ -1,0 +1,16 @@
+{
+	"key" : "item_book_earthtouch",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Corrosive Hands",
+	"itemDescription" : "A spellbook. Grants the Corrosive Hands skill.",
+	"icon" : "book2_earth.png",
+	"carriedAbility" : "abil_touch_earth",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

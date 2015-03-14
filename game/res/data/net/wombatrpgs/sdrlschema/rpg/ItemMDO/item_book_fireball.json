@@ -1,0 +1,16 @@
+{
+	"key" : "item_book_fireball",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Flare",
+	"itemDescription" : "A spellbook. Grants the Flare skill.",
+	"icon" : "book4_fire.png",
+	"carriedAbility" : "abil_ball_fire",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

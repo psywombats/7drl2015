@@ -1,0 +1,16 @@
+{
+	"key" : "item_book_firebolt",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Fire Bolt",
+	"itemDescription" : "A spellbook. Grants the Fire Bolt skill.",
+	"icon" : "book1_fire.png",
+	"carriedAbility" : "abil_bolt_fire",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"key" : "item_book_acidbolt",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Acid Bolt",
+	"itemDescription" : "A spellbook. Grants the Acid Bolt skill.",
+	"icon" : "book1_earth.png",
+	"carriedAbility" : "abil_bolt_ice",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

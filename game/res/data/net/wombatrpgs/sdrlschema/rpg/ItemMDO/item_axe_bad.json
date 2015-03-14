@@ -1,0 +1,21 @@
+{
+	"key" : "item_axe_bad",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "hand axe",
+	"itemDescription" : "A woodcutting axe. Grants the Spin Attack skill. Inflicts +3 damage.",
+	"icon" : "axe1.png",
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_spinattack",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

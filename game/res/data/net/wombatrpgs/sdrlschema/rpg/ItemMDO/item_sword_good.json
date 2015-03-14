@@ -1,0 +1,21 @@
+{
+	"key" : "item_sword_good",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "bastard sword",
+	"itemDescription" : "A wide sword. Grants the Hack 'n Back skill. Inflicts +6 damage.",
+	"icon" : "sword02.png",
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_hackback",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 6.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

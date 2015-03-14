@@ -1,0 +1,16 @@
+{
+	"key" : "item_book_iceball",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Blizzard",
+	"itemDescription" : "A spellbook. Grants the Blizzard skill.",
+	"icon" : "book4_ice.png",
+	"carriedAbility" : "abil_ball_ice",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

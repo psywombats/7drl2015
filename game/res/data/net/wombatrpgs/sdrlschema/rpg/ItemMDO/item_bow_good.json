@@ -1,0 +1,21 @@
+{
+	"key" : "item_bow_good",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "long bow",
+	"itemDescription" : "A powerful bow. Grants the Shoot skill. Inflicts +6 damage.",
+	"icon" : "bow2.png",
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_shoot",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 6.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

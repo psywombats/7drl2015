@@ -1,0 +1,16 @@
+{
+	"key" : "item_book_teleport",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Teleport",
+	"itemDescription" : "A spellbook. Grants the Teleport skill.",
+	"icon" : "book6.png",
+	"carriedAbility" : "abil_teleport",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

@@ -640,18 +640,25 @@ public class GameUnit implements Turnable, Queueable {
 	 * @return					A randomized melee damage output, in HP
 	 */
 	public int calcMeleeDamage() {
-		// TODO: obvious
-		return 10;
+		return get(Stat.MELEE_DMG);
 	}
 	
 	/**
 	 * Calculates output magic damage of this unit, given its current stats
 	 * and equipment. It's fine to use the RNG.
+	 * @param	element			The element of the magic attack
 	 * @return					A randomized magic damage output, in HP
 	 */
-	public int calcMagicDamage() {
-		// TODO: obvious
-		return 10;
+	public int calcMagicDamage(MagicElement element) {
+		// awful
+		switch (element) {
+		case EARTH:		return get(Stat.EARTH_DMG);
+		case FIRE:		return get(Stat.FIRE_DMG);
+		case ICE:		return get(Stat.ICE_DMG);
+		default:
+			MGlobal.reporter.warn("Unknown element: " + element);
+			return 0;
+		}
 	}
 	
 	/**

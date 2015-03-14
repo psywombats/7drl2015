@@ -1,0 +1,21 @@
+{
+	"key" : "item_bow_bad",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "short bow",
+	"itemDescription" : "A wooden bow. Grants the Shoot skill. Inflicts +3 damage.",
+	"icon" : "bow1.png",
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_shoot",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

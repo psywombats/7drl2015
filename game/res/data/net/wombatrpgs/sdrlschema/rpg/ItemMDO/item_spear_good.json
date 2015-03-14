@@ -1,0 +1,21 @@
+{
+	"key" : "item_spear_good",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "trident",
+	"itemDescription" : "A three-pronged spear. Grants the Charge skill. Inflicts +6 damage.",
+	"icon" : "spear2.png",
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_charge",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 6.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

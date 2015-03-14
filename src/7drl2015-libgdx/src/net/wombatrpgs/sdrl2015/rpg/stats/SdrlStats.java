@@ -35,12 +35,16 @@ public class SdrlStats extends StatEnumLink {
 	 * @param	mdo				The data to read from
 	 */
 	public SdrlStats(StatSetMDO mdo) {
-		setStat(Stat.MHP,	mdo.mhp	);
-		setStat(Stat.HP,	mdo.hp	);
-		setStat(Stat.PV,	mdo.pv	);
-		setStat(Stat.DV,	mdo.dv	);
-		setStat(Stat.SPEED,	mdo.speed);
-		setStat(Stat.VISION,mdo.vision);
+		setStat(Stat.MHP,		mdo.mhp	);
+		setStat(Stat.HP,		mdo.hp	);
+		setStat(Stat.PV,		mdo.pv	);
+		setStat(Stat.DV,		mdo.dv	);
+		setStat(Stat.SPEED,		mdo.speed);
+		setStat(Stat.VISION,	mdo.vision);
+		setStat(Stat.FIRE_DMG,	mdo.fdmg);
+		setStat(Stat.ICE_DMG,	mdo.idmg);
+		setStat(Stat.EARTH_DMG,	mdo.edmg);
+		setStat(Stat.MELEE_DMG,	mdo.mdmg);
 		updateFlags(Arrays.asList(mdo.flags), true);
 	}
 	
