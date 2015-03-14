@@ -5,6 +5,7 @@
 	"description" : "",
 	"suffix" : "Spearman",
 	"appearance" : "None",
+	"overlay" : "4dir_overlay_spear",
 	"dangerLevel" : {
 		"boundsString" : ""
 	},

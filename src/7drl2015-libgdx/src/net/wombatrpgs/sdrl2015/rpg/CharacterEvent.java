@@ -44,6 +44,7 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	protected static RayCheck rayLoS;
 	
 	protected FacesAnimation appearance;
+	protected List<FacesAnimation> overlays;
 	protected boolean pacing;
 	protected List<Turnable> turnChildren;
 	protected List<Step> travelPlan;
@@ -57,9 +58,10 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	 */
 	private CharacterEvent() {
 		this.turnChildren = new ArrayList<Turnable>();
-		setPacing(true);
 		
 		travelPlan = new ArrayList<Step>();
+		overlays = new ArrayList<FacesAnimation>();
+		setPacing(true);
 		
 		ticksRemaining = 0;
 		
@@ -118,6 +120,9 @@ public class CharacterEvent extends MapEvent implements Turnable {
 		if (appearance != null) {
 			appearance.setFacing(dir);
 		}
+		for (FacesAnimation overlay : overlays) {
+			overlay.setFacing(dir);
+		}
 	}
 	
 	/**
@@ -151,6 +156,9 @@ public class CharacterEvent extends MapEvent implements Turnable {
 		if (pacing && appearance != null) {
 			appearance.update(elapsed);
 		}
+		for (FacesAnimation overlay : overlays) {
+			overlay.update(elapsed);
+		}
 		if (parent.isMoving()) {
 			if (travelPlan.size() > 0 ) {
 				int step = (int) Math.floor((float) travelPlan.size() *
@@ -176,6 +184,9 @@ public class CharacterEvent extends MapEvent implements Turnable {
 		super.render(camera);
 		if (appearance != null && MGlobal.hero.inLoS(this)) {
 			appearance.render(camera);
+			for (FacesAnimation overlay : overlays) {
+				overlay.render(camera);
+			}
 		}
 	}
 
@@ -222,7 +233,7 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	@Override
 	public void postProcessing(AssetManager manager, int pass) {
 		super.postProcessing(manager, pass);
-		appearance.startMoving();
+		setPacing(true);
 	}
 
 	/**
@@ -241,6 +252,13 @@ public class CharacterEvent extends MapEvent implements Turnable {
 		this.pacing = pacing;
 		if (pacing && appearance != null) {
 			appearance.startMoving();
+		}
+		for (FacesAnimation overlay : overlays) {
+			if (pacing) {
+				overlay.startMoving();
+			} else {
+				overlay.stopMoving();
+			}
 		}
 	}
 
@@ -300,6 +318,10 @@ public class CharacterEvent extends MapEvent implements Turnable {
 		if (!pacing) {
 			appearance.stopMoving();
 			appearance.update(0);
+			for (FacesAnimation overlay : overlays) {
+				overlay.stopMoving();
+				overlay.update(0);
+			}
 		}
 		targetLocation(getX(), getY());
 	}
@@ -446,6 +468,9 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	 */
 	public void flash(Color c, float duration) {
 		appearance.flash(c, duration);
+		for (FacesAnimation overlay : overlays) {
+			overlay.flash(c, duration);
+		}
 	}
 
 	/**

@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
+import net.wombatrpgs.sdrl2015.graphics.FacesAnimation;
+import net.wombatrpgs.sdrl2015.graphics.FacesAnimationFactory;
 import net.wombatrpgs.sdrl2015.maps.MapThing;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
@@ -52,6 +54,17 @@ public class EnemyEvent extends CharacterEvent {
 		}
 		name = name.toLowerCase();
 		getUnit().setName(name);
+		
+		if (race != null && MapThing.mdoHasProperty(race.overlay)) {
+			FacesAnimation overlay = FacesAnimationFactory.create(race.overlay, this);
+			overlays.add(overlay);
+			assets.add(overlay);
+		}
+		if (unit != null && MapThing.mdoHasProperty(unit.overlay)) {
+			FacesAnimation overlay = FacesAnimationFactory.create(unit.overlay, this);
+			overlays.add(overlay);
+			assets.add(overlay);
+		}
 	}
 	
 	/**

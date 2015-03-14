@@ -33,6 +33,11 @@ public class UnitMDO extends MainSchema {
 	@Nullable
 	public String appearance;
 	
+	@Desc("Overlay - displays on top of the base sprite")
+	@SchemaLink(FourDirMDO.class)
+	@Nullable
+	public String overlay;
+	
 	@InlineSchema(DangerRequirementMDO.class)
 	public DangerRequirementMDO dangerLevel;
 	
