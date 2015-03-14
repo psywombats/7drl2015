@@ -14,6 +14,7 @@ import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.travel.StepMove;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectChargeMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
 
 /**
  * TOME's Charge.
@@ -65,7 +66,10 @@ public class EffectCharge extends AbilEffect {
 			actor.setTileX(tileX);
 			actor.setTileY(tileY);
 			actor.faceToward(target.getParent());
-			float ratio = mdo.damageRatio + .2f * (float) getLevel();
+			float ratio = mdo.damageRatio;
+			if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {
+				ratio += .2f * (float) getLevel();
+			}
 			int dmg = (int) (actor.getUnit().calcMeleeDamage() * ratio);
 			if (target.calcDodgeChance(0) < MGlobal.rand.nextFloat()) {
 				GameUnit.out().msg(actor.getName() + " misses.");

@@ -4,7 +4,7 @@
 	"name" : "Acid Bomb",
 	"description" : "",
 	"abilDesc" : "Fires a projectile of caustic gas at a single enemy",
-	"levelDesc" : "Leveling will increase damage by 20%",
+	"levelDesc" : "Leveling increases damage by 20%",
 	"uses" : 5,
 	"target" : "PROJECTILE",
 	"range" : 5.0,
@@ -14,5 +14,9 @@
 	},
 	"icon" : "book2_earth.png",
 	"energyCost" : 1000,
+	"leveling" : [
+		"INCREASE_USES",
+		"INCREASE_DAMAGE"
+	],
 	"fx" : "abilfx_gas"
 }

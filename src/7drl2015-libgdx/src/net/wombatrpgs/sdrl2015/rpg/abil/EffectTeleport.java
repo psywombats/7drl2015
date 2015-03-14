@@ -11,6 +11,7 @@ import java.util.List;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectTeleportMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
 
 /**
  * Random teleportation.
@@ -34,8 +35,12 @@ public class EffectTeleport extends AbilEffect {
 	 */
 	@Override
 	protected void internalAct(List<GameUnit> targets) {
-		int minR = mdo.minRadius + getLevel() * 2;
-		int maxR = mdo.minRadius + getLevel() * 2;
+		int minR = mdo.minRadius;
+		int maxR = mdo.minRadius;
+		if (abil.isLeveled(LevelingAttribute.INCREASE_SECONDARY)) {
+			minR += getLevel() * 2;
+			maxR += getLevel() * 2;
+		}
 		for (GameUnit target : targets) {
 			int origX = target.getParent().getTileX();
 			int origY = target.getParent().getTileY();

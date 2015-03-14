@@ -4,7 +4,7 @@
 	"name" : "Flare",
 	"description" : "",
 	"abilDesc" : "Hits all enemies in radius 4 with fire damage",
-	"levelDesc" : "Leveling will increase damage by 20%",
+	"levelDesc" : "Leveling increases damage by 20%",
 	"uses" : 2,
 	"target" : "BALL",
 	"range" : 4.0,
@@ -14,5 +14,9 @@
 	},
 	"icon" : "book4_fire.png",
 	"energyCost" : 1000,
+	"leveling" : [
+		"INCREASE_USES",
+		"INCREASE_DAMAGE"
+	],
 	"fx" : "abilfx_flames"
 }

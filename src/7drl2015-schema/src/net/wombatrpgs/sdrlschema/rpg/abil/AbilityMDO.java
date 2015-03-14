@@ -16,6 +16,7 @@ import net.wombatrpgs.mgns.core.Annotations.SchemaLink;
 import net.wombatrpgs.mgns.core.MainSchema;
 import net.wombatrpgs.mgns.core.PolymorphicLink;
 import net.wombatrpgs.sdrlschema.graphics.effects.data.AbilFxMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
 
 /**
  * Something a little more subtle than walking into a character.
@@ -54,6 +55,9 @@ public class AbilityMDO extends MainSchema {
 	@Desc("Energy cost - How long it takes to use this action (1000 default, 2000 is twice as long, etc")
 	@DefaultValue("1000")
 	public Integer energyCost;
+	
+	@Desc("Leveling effects - Each level will have the following effects")
+	public LevelingAttribute[] leveling;
 	
 	@Desc("Graphical fx - Special animations for this ability!!")
 	@SchemaLink(AbilFxMDO.class)

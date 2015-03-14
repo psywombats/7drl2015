@@ -4,7 +4,7 @@
 	"name" : "Pierce Armor",
 	"description" : "",
 	"abilDesc" : "Pierces through enemy armor",
-	"levelDesc" : "Leveling will deal 10% extra damage to armored enemies",
+	"levelDesc" : "Leveling increases damage by 20%",
 	"uses" : 4,
 	"target" : "MELEE",
 	"range" : 1.0,
@@ -14,5 +14,9 @@
 	},
 	"icon" : "knife1.png",
 	"energyCost" : 1000,
+	"leveling" : [
+		"INCREASE_USES",
+		"INCREASE_DAMAGE"
+	],
 	"fx" : "None"
 }

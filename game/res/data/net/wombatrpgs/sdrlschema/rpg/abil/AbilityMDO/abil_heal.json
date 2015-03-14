@@ -1,0 +1,22 @@
+{
+	"key" : "abil_heal",
+	"subfolder" : "spell",
+	"name" : "Heal",
+	"description" : "",
+	"abilDesc" : "Heals a nearby unit.",
+	"levelDesc" : "Leveling increases the heal power by 20%",
+	"uses" : 2,
+	"target" : "PROJECTILE",
+	"range" : 4.0,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectHealMDO",
+		"key" : "anon_AbilityMDO_742604931"
+	},
+	"icon" : "staff1.png",
+	"energyCost" : 1000,
+	"leveling" : [
+		"INCREASE_USES",
+		"INCREASE_DAMAGE"
+	],
+	"fx" : "abilfx_holy"
+}

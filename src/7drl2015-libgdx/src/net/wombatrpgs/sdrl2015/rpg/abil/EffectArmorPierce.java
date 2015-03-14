@@ -11,6 +11,7 @@ import java.util.List;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectArmorPierceMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
 import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
 /**
@@ -38,8 +39,11 @@ public class EffectArmorPierce extends AbilEffect {
 		for (GameUnit target : targets) {
 			actor.faceToward(target.getParent());
 			int dmg = actor.getUnit().calcMeleeDamage();
-			float pierce = (1f - mdo.pierce) + .1f * getLevel();
+			float pierce = (1f - mdo.pierce);
 			dmg -= Math.floor((float) target.get(Stat.PV) * (1f-pierce));
+			if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {
+				dmg *= .2f * (float) getLevel();
+			}
 			target.takeRawDamage(dmg);
 			if (MGlobal.hero.inLoS(target.getParent())) {
 				GameUnit.out().msg(target.getName() + " took " + dmg + " damage through armor.");

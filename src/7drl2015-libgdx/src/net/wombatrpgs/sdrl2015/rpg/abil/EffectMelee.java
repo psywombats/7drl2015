@@ -11,6 +11,7 @@ import java.util.List;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectMeleeMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
 
 /**
  * Average melee attack.
@@ -40,6 +41,9 @@ public class EffectMelee extends AbilEffect {
 				GameUnit.out().msg(actor.getName() + " misses.");
 			} else {
 				int dmg = (int) (actor.getUnit().calcMeleeDamage() * (float) mdo.damageRatio);
+				if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {
+					dmg *= .2f * (float) getLevel();
+				}
 				int dealt = target.takePhysicalDamage(dmg);
 				if (MGlobal.hero.inLoS(target.getParent())) {
 					GameUnit.out().msg(target.getName() + " took " + dealt + " damage.");

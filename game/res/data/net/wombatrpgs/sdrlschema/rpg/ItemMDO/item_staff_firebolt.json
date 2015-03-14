@@ -1,0 +1,17 @@
+{
+	"key" : "item_staff_firebolt",
+	"subfolder" : "staff",
+	"name" : "",
+	"description" : "",
+	"itemName" : "staff of Firebolt",
+	"itemDescription" : "A magical staff. Grants 6 uses of the Firebolt skill.",
+	"icon" : "staff3.png",
+	"uses" : 6,
+	"carriedAbility" : "abil_bolt_fire",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

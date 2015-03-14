@@ -7,6 +7,8 @@
 package net.wombatrpgs.sdrl2015.rpg.abil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.List;
 
 import com.badlogic.gdx.assets.AssetManager;
@@ -27,11 +29,13 @@ import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent.RayCheck;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
+import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.rpg.travel.Step;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 import net.wombatrpgs.sdrlschema.rpg.abil.AbilityMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.AbilityTargetType;
+import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
 
 /**
  * An ability is a special sort of action. It can be used by a character or a
@@ -46,6 +50,8 @@ public class Ability extends Action implements Queueable, CommandListener {
 	
 	protected AbilityMDO mdo;
 	protected AbilEffect effect;
+	protected EnumSet<LevelingAttribute> levelingAttributes;
+	protected Item item;
 	protected RayCheck check;
 	protected MapEvent firstHit;
 	protected List<GameUnit> targets;
@@ -54,18 +60,25 @@ public class Ability extends Action implements Queueable, CommandListener {
 	protected List<Queueable> assets;
 	protected Graphic icon;
 	protected Cursor targetCursor;
+	protected int used;
 	protected boolean blocking;
 	
 	/**
 	 * Creates a new ability for a particular actor from data.
-	 * @param actor
+	 * @param	actor			The actor using the ability
+	 * @param	granter			The item granting the ability, or null
+	 * @param	mdo				The create data for the ability
 	 */
-	public Ability(CharacterEvent actor, AbilityMDO mdo) {
+	public Ability(CharacterEvent actor, Item granter, AbilityMDO mdo) {
 		super(actor);
 		this.mdo = mdo;
+		this.item = granter;
 		this.effect = AbilEffectFactory.createEffect(mdo.warhead.key, this);
 		this.assets = new ArrayList<Queueable>();
 		blocking = false;
+		
+		levelingAttributes = EnumSet.noneOf(LevelingAttribute.class);
+		levelingAttributes.addAll(Arrays.asList(mdo.leveling));
 		
 		targetCursor = new Cursor();
 		assets.add(targetCursor);
@@ -123,7 +136,13 @@ public class Ability extends Action implements Queueable, CommandListener {
 	public List<GameUnit> getTargets() { return targets; }
 	
 	/** @return The range of this ability, in fractional tiles (radius) */
-	public Float getRange() { return mdo.range; }
+	public Float getRange() {
+		Float range = mdo.range;
+		if (isLeveled(LevelingAttribute.INCREASE_RANGE)) {
+			range += getLevel();
+		}
+		return range;
+	}
 	
 	/** @return This ability's targeting type */
 	public AbilityTargetType getType() { return mdo.target; }
@@ -140,6 +159,21 @@ public class Ability extends Action implements Queueable, CommandListener {
 	/** @return A description of what happens when this abil is leveled */
 	public String getLevelText() { return mdo.levelDesc; }
 	
+	/** @return True if this ability can be leveled at all */
+	public boolean canBeLeveled() { return levelingAttributes.size() > 0; }
+	
+	/** @return The actor's level of this ability */
+	public int getLevel() { return actor.getUnit().getAbilityLevel(getKey()); }
+	
+	/**
+	 * Checks if an attribute is raised when this abil levels.
+	 * @param	attribute		The attribute to check
+	 * @return					True if that attribute is raised
+	 */
+	public boolean isLeveled(LevelingAttribute attribute) {
+		return levelingAttributes.contains(attribute);
+	}
+	
 	/**
 	 * @see java.lang.Object#toString()
 	 */
@@ -153,7 +187,13 @@ public class Ability extends Action implements Queueable, CommandListener {
 	 */
 	@Override
 	public int baseCost() {
-		return mdo.energyCost;
+		int cost = mdo.energyCost;
+		if (isLeveled(LevelingAttribute.DECREASE_ENERGY)) {
+			for (int i = 0; i < getLevel(); i += 1) {
+				cost *= .2f;
+			}
+		}
+		return cost;
 	}
 	
 	/**
@@ -215,6 +255,11 @@ public class Ability extends Action implements Queueable, CommandListener {
 		}
 		effect.act(targets);
 		actor.addStep(getStep());
+		
+		used += 1;
+		if (item != null && item.getUses() > 0 && used >= item.getUses()) {
+			actor.getUnit().getInventory().removeItem(item);
+		}
 		
 		targets = null;
 	}
@@ -305,10 +350,16 @@ public class Ability extends Action implements Queueable, CommandListener {
 	 * @return					How many times this ability can be used
 	 */
 	public int getUses(GameUnit unit) {
-		int uses = mdo.uses;
-		uses += unit.getAbilityLevel(getKey());
-		uses -= unit.getUsesSinceNight(getKey());
-		return uses;
+		if (item != null && item.getUses() > 0) {
+			return item.getUses() - used;
+		} else {
+			int uses = mdo.uses;
+			if (isLeveled(LevelingAttribute.INCREASE_USES)) {
+				uses += unit.getAbilityLevel(getKey());
+			}
+			uses -= unit.getUsesSinceNight(getKey());
+			return uses;
+		}
 	}
 	
 	/**

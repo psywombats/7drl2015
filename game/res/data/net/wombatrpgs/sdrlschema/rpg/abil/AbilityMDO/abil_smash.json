@@ -4,7 +4,7 @@
 	"name" : "Smash",
 	"description" : "",
 	"abilDesc" : "Hits an enemy for 300% damage, but takes 200% as long to use",
-	"levelDesc" : "Leveling increases uses per night",
+	"levelDesc" : "Leveling decreases time to use by 20%",
 	"uses" : 3,
 	"target" : "MELEE",
 	"range" : 1.0,
@@ -14,5 +14,9 @@
 	},
 	"icon" : "mace1.png",
 	"energyCost" : 2000,
+	"leveling" : [
+		"INCREASE_USES",
+		"DECREASE_ENERGY"
+	],
 	"fx" : "None"
 }

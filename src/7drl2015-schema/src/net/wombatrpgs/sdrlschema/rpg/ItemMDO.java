@@ -33,6 +33,9 @@ public class ItemMDO extends MainSchema {
 	@FileLink("items")
 	public String icon;
 	
+	@Desc("Uses - how many uses this item has, or 0 for infinite")
+	public Integer uses;
+	
 	@Desc("Carry skill - skill granted by lugging this item around")
 	@SchemaLink(AbilityMDO.class)
 	@Nullable

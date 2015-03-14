@@ -1,0 +1,19 @@
+{
+	"key" : "abil_healpot",
+	"subfolder" : "item",
+	"name" : "Drink Heal Potion",
+	"description" : "",
+	"abilDesc" : "Quaff a healing potion to heal by 80 hp",
+	"levelDesc" : "",
+	"uses" : 1,
+	"target" : "USER",
+	"range" : 0.0,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectHealMDO",
+		"key" : "anon_AbilityMDO_1978444986"
+	},
+	"icon" : "pot1.png",
+	"energyCost" : 1000,
+	"leveling" : [ ],
+	"fx" : "None"
+}

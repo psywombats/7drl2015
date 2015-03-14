@@ -58,8 +58,8 @@ public class Item implements Queueable {
 	/** @return The in-game description of the item */
 	public String getDescription() { return mdo.itemDescription; }
 	
-	// TODO
-	public boolean isUseable() { return false; }
+	/** @return The number of times this item's ability can be used, 0 for no limit */
+	public int getUses() { return mdo.uses != null ? mdo.uses : 0; }
 	
 	/** @return True if the item can be equipped */
 	public boolean isEquippable() { return getSlot() != null; }

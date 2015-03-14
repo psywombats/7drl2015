@@ -122,7 +122,7 @@ public class AbilityMenu extends Popup {
 		for (int i = 0; i < 10; i += 1) {
 			int offY = i * -LINE_HEIGHT;
 			Ability abil = MGlobal.hero.getUnit().abilityAt(i);
-			if (abil != null) {
+			if (abil != null && !(!abil.canBeLeveled() && levelMode)) {
 				String name = abil.getName();
 				name = name + " (L" + MGlobal.hero.getUnit().getAbilityLevel(abil.getKey()) + ")";
 				font.draw(getBatch(), abilNameFormat, name, offY);

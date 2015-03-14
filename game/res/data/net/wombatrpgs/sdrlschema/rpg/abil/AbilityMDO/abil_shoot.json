@@ -3,8 +3,8 @@
 	"subfolder" : "weapon",
 	"name" : "Shoot",
 	"description" : "",
-	"abilDesc" : "Fires an arrow at a distant enemy",
-	"levelDesc" : "Leveling increases uses per night",
+	"abilDesc" : "Fires an arrow at an enemy up to 5 tiles away",
+	"levelDesc" : "Leveling increases damage by 20% and range by 1 tile",
 	"uses" : 8,
 	"target" : "PROJECTILE",
 	"range" : 5.0,
@@ -14,5 +14,10 @@
 	},
 	"icon" : "bow1.png",
 	"energyCost" : 1000,
+	"leveling" : [
+		"INCREASE_USES",
+		"INCREASE_RANGE",
+		"INCREASE_DAMAGE"
+	],
 	"fx" : "None"
 }

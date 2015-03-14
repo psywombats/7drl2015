@@ -4,7 +4,7 @@
 	"name" : "Thrust",
 	"description" : "",
 	"abilDesc" : "Hits an enemy with 100% accuracy",
-	"levelDesc" : "Leveling increases uses per night",
+	"levelDesc" : "Leveling increases damage by 20%",
 	"uses" : 10,
 	"target" : "MELEE",
 	"range" : 1.0,
@@ -14,5 +14,9 @@
 	},
 	"icon" : "None",
 	"energyCost" : 1000,
+	"leveling" : [
+		"INCREASE_USES",
+		"INCREASE_DAMAGE"
+	],
 	"fx" : "None"
 }

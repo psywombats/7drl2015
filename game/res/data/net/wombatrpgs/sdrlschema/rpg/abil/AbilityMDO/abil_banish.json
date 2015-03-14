@@ -4,7 +4,7 @@
 	"name" : "Banish",
 	"description" : "",
 	"abilDesc" : "Teleports a nearby enemy at least 5 tiles away",
-	"levelDesc" : "Leveling will increase the minimum range of the teleport by 2 tiles",
+	"levelDesc" : "Leveling increases the minimum range of the teleport by 2 tiles",
 	"uses" : 2,
 	"target" : "MELEE",
 	"range" : 1.0,
@@ -14,5 +14,9 @@
 	},
 	"icon" : "book7.png",
 	"energyCost" : 1000,
+	"leveling" : [
+		"INCREASE_USES",
+		"INCREASE_SECONDARY"
+	],
 	"fx" : "abilfx_distort"
 }

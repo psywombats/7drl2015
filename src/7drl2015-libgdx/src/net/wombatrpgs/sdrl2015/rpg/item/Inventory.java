@@ -62,7 +62,7 @@ public class Inventory {
 		}
 		items.add(item);
 		// TODO: 7DRL: melee fastswap
-		parent.grantAbility(item.getCarryAbilityKey());
+		parent.grantAbility(item.getCarryAbilityKey(), item);
 	}
 	
 	/**

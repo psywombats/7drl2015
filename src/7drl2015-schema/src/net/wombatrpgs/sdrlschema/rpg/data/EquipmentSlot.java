@@ -12,7 +12,8 @@ package net.wombatrpgs.sdrlschema.rpg.data;
 public enum EquipmentSlot {
 	
 	WEAPON		("Weapon"),
-	ARMOR		("Armor");
+	ARMOR		("Armor"),
+	RING		("Ring");
 	
 	private String displayName;
 	

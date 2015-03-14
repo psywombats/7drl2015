@@ -4,7 +4,7 @@
 	"name" : "Hack 'n Back",
 	"description" : "",
 	"abilDesc" : "Hits the enemy then jump backwards by 1 tile",
-	"levelDesc" : "Leveling will increase the range jumped backwards by 1 tile",
+	"levelDesc" : "Leveling increases damage by 20% and jump by 1 tile",
 	"uses" : 6,
 	"target" : "MELEE",
 	"range" : 1.0,
@@ -14,5 +14,10 @@
 	},
 	"icon" : "sword01.png",
 	"energyCost" : 1000,
+	"leveling" : [
+		"INCREASE_USES",
+		"INCREASE_DAMAGE",
+		"INCREASE_SECONDARY"
+	],
 	"fx" : "None"
 }

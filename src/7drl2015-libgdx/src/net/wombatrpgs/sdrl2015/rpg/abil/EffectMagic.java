@@ -11,6 +11,7 @@ import java.util.List;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
 
 /**
  * Offensive magic.
@@ -40,7 +41,11 @@ public class EffectMagic extends AbilEffect {
 			} else if (target.resists(mdo.element)) {
 				GameUnit.out().msg(target.getName() + " resists.");
 			} else {
-				int dmg = (int) (actor.getUnit().calcMagicDamage() * ((float) mdo.damageRatio + (float) getLevel() / 5f));
+				int dmg = (int) (actor.getUnit().calcMagicDamage(mdo.element) *
+						((float) mdo.damageRatio + (float) getLevel() / 5f));
+				if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {
+					dmg *= .2f * (float) getLevel();
+				}
 				int dealt = target.takeMagicDamage(dmg);
 				if (MGlobal.hero.inLoS(target.getParent())) {
 					GameUnit.out().msg(target.getName() + " took " + dealt + " damage.");

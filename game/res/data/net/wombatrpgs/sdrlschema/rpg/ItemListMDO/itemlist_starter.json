@@ -1,0 +1,24 @@
+{
+	"key" : "itemlist_starter",
+	"subfolder" : "",
+	"name" : "",
+	"description" : "looked for by name",
+	"items" : [
+		"item_axe_bad",
+		"item_bow_bad",
+		"item_knife_bad",
+		"item_mace_bad",
+		"item_rapier_bad",
+		"item_spear_bad",
+		"item_sword_bad",
+		"item_book_acidbolt",
+		"item_book_earthball",
+		"item_book_earthtouch",
+		"item_book_fireball",
+		"item_book_firebolt",
+		"item_book_firetouch",
+		"item_book_iceball",
+		"item_book_icebolt",
+		"item_book_icetouch"
+	]
+}

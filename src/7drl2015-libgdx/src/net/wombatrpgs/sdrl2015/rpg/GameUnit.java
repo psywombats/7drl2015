@@ -97,7 +97,7 @@ public class GameUnit implements Turnable, Queueable {
 		this.parent = parent;
 		stats = new SdrlStats(mdo.stats);
 		for (String mdoKey : mdo.abilities) {
-			abilities.add(new AbilityEntry(new Ability(parent,
+			abilities.add(new AbilityEntry(new Ability(parent, null,
 					MGlobal.data.getEntryFor(mdoKey, AbilityMDO.class))));
 		}
 	}
@@ -114,7 +114,7 @@ public class GameUnit implements Turnable, Queueable {
 		this.race = race;
 		this.stats = stats;
 		for (String mdoKey : abilityKeys) {
-			abilities.add(new AbilityEntry(new Ability(parent,
+			abilities.add(new AbilityEntry(new Ability(parent, null,
 					MGlobal.data.getEntryFor(mdoKey, AbilityMDO.class))));
 		}
 	}
@@ -277,8 +277,9 @@ public class GameUnit implements Turnable, Queueable {
 	 * Grants an ability to the unit, like one they gain from carrying an item.
 	 * If null, does nothing (represents no ability granted).
 	 * @param	abilityKey		The key of the ability to grant, or null
+	 * @param	item			The item granting the ability, or null
 	 */
-	public void grantAbility(String abilityKey) {
+	public void grantAbility(String abilityKey, Item item) {
 		if (!MapThing.mdoHasProperty(abilityKey)) return;
 		for (AbilityEntry entry : abilities) {
 			if (entry.matches(abilityKey)) {
@@ -286,7 +287,7 @@ public class GameUnit implements Turnable, Queueable {
 				return;
 			}
 		}
-		AbilityEntry entry = new AbilityEntry(new Ability(getParent(),
+		AbilityEntry entry = new AbilityEntry(new Ability(getParent(), item,
 				MGlobal.data.getEntryFor(abilityKey, AbilityMDO.class)));
 		MGlobal.assetManager.loadAsset(entry.getAbility(), entry.toString());
 		abilities.add(entry);

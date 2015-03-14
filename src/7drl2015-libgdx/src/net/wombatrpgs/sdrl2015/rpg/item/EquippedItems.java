@@ -61,7 +61,7 @@ public class EquippedItems {
 		if (previous != null) {
 			owner.getInventory().addItem(previous);
 		}
-		owner.grantAbility(item.getEquipAbilityKey());
+		owner.grantAbility(item.getEquipAbilityKey(), item);
 	}
 	
 	/**

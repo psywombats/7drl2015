@@ -14,5 +14,9 @@
 	},
 	"icon" : "book3_earth.png",
 	"energyCost" : 1000,
+	"leveling" : [
+		"INCREASE_USES",
+		"INCREASE_DAMAGE"
+	],
 	"fx" : "abilfx_gas"
 }
