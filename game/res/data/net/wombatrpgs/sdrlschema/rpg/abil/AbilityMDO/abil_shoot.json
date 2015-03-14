@@ -1,0 +1,18 @@
+{
+	"key" : "abil_shoot",
+	"subfolder" : "weapon",
+	"name" : "Shoot",
+	"description" : "",
+	"abilDesc" : "Fires an arrow at a distant enemy",
+	"levelDesc" : "Leveling increases uses per night",
+	"uses" : 8,
+	"target" : "PROJECTILE",
+	"range" : 5.0,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectMeleeMDO",
+		"key" : "anon_AbilityMDO_-484439459"
+	},
+	"icon" : "bow1.png",
+	"energyCost" : 1000,
+	"fx" : "None"
+}

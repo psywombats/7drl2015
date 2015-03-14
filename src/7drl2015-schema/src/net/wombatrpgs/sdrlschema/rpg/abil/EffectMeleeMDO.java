@@ -16,7 +16,7 @@ public class EffectMeleeMDO extends AbilityEffectMDO {
 	@Desc("Damage ratio - 1.0 for normal melee damage, 2.0 for double etc")
 	public Float damageRatio;
 	
-	@Desc("Accuracy - 0-based, this is subtracted from enemy's DV, 100 never misses, -100 always hits")
+	@Desc("Accuracy - 0-based, this is subtracted from enemy's DV, 100 always hits, -100 always misses")
 	public Integer accuracy;
 
 }

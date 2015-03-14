@@ -1,8 +1,8 @@
 {
-	"key" : "anon_AbilityMDO_656102245",
+	"key" : "anon_AbilityMDO_120058648",
 	"subfolder" : "",
-	"name" : "anon_AbilityMDO_656102245",
+	"name" : "anon_AbilityMDO_120058648",
 	"description" : "auto-generated anonymous polymorph",
 	"damageRatio" : 1.0,
-	"element" : "FIRE"
+	"accuracy" : 100
 }

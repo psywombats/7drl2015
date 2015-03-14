@@ -1,18 +1,18 @@
 {
-	"key" : "abil_bolt_fire",
+	"key" : "abil_proj_fire",
 	"subfolder" : "spell",
-	"name" : "Fire Bolt",
+	"name" : "Fire Bomb",
 	"description" : "",
-	"abilDesc" : "Fires a bolt of fire that can hit multiple targets",
+	"abilDesc" : "Fires a projectile of fire at a single enemy",
 	"levelDesc" : "Leveling will increase damage by 20%",
-	"uses" : 2,
-	"target" : "BEAM",
+	"uses" : 5,
+	"target" : "PROJECTILE",
 	"range" : 5.0,
 	"warhead" : {
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO",
-		"key" : "anon_AbilityMDO_656102245"
+		"key" : "anon_AbilityMDO_954389011"
 	},
-	"icon" : "book1_fire.png",
+	"icon" : "book2_earth.png",
 	"energyCost" : 1000,
 	"fx" : "abilfx_flames"
 }

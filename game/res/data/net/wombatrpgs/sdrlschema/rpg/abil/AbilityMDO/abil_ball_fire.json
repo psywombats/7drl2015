@@ -1,18 +1,18 @@
 {
-	"key" : "abil_bolt_fire",
+	"key" : "abil_ball_fire",
 	"subfolder" : "spell",
-	"name" : "Fire Bolt",
+	"name" : "Flare",
 	"description" : "",
-	"abilDesc" : "Fires a bolt of fire that can hit multiple targets",
+	"abilDesc" : "Hits all enemies in radius 4 with fire damage",
 	"levelDesc" : "Leveling will increase damage by 20%",
 	"uses" : 2,
-	"target" : "BEAM",
-	"range" : 5.0,
+	"target" : "BALL",
+	"range" : 4.0,
 	"warhead" : {
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO",
-		"key" : "anon_AbilityMDO_656102245"
+		"key" : "anon_AbilityMDO_954389011"
 	},
-	"icon" : "book1_fire.png",
+	"icon" : "book4_fire.png",
 	"energyCost" : 1000,
 	"fx" : "abilfx_flames"
 }

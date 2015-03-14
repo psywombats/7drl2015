@@ -40,7 +40,7 @@ public class EffectMagic extends AbilEffect {
 			} else if (target.resists(mdo.element)) {
 				GameUnit.out().msg(target.getName() + " resists.");
 			} else {
-				int dmg = (int) (actor.getUnit().calcMagicDamage() * (float) mdo.damageRatio);
+				int dmg = (int) (actor.getUnit().calcMagicDamage() * ((float) mdo.damageRatio + (float) getLevel() / 5f));
 				int dealt = target.takeMagicDamage(dmg);
 				if (MGlobal.hero.inLoS(target.getParent())) {
 					GameUnit.out().msg(target.getName() + " took " + dealt + " damage.");

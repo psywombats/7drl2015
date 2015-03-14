@@ -12,7 +12,7 @@
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectChargeMDO",
 		"key" : "anon_AbilityMDO_-275302696"
 	},
-	"icon" : "potion_red.png",
+	"icon" : "spear1.png",
 	"energyCost" : 1000,
 	"fx" : "None"
 }

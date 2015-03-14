@@ -1,0 +1,18 @@
+{
+	"key" : "abil_touch_fire",
+	"subfolder" : "spell",
+	"name" : "Burning Hands",
+	"description" : "",
+	"abilDesc" : "Hits a nearby enemy with fire damage",
+	"levelDesc" : "Leveling will increase damage by 20%",
+	"uses" : 4,
+	"target" : "MELEE",
+	"range" : 1.0,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO",
+		"key" : "anon_AbilityMDO_954389011"
+	},
+	"icon" : "book3_fire.png",
+	"energyCost" : 1000,
+	"fx" : "abilfx_flames"
+}

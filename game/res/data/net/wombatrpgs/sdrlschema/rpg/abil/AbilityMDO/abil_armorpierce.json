@@ -12,7 +12,7 @@
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectArmorPierceMDO",
 		"key" : "anon_AbilityMDO_1159774922"
 	},
-	"icon" : "potion_red.png",
+	"icon" : "knife1.png",
 	"energyCost" : 1000,
 	"fx" : "None"
 }

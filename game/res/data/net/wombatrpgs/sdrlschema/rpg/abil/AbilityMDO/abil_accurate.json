@@ -1,18 +1,18 @@
 {
-	"key" : "abil_smash",
+	"key" : "abil_accurate",
 	"subfolder" : "weapon",
-	"name" : "Smash",
+	"name" : "Thrust",
 	"description" : "",
-	"abilDesc" : "Hits an enemy for 300% damage, but takes 200% as long to use",
+	"abilDesc" : "Hits an enemy with 100% accuracy",
 	"levelDesc" : "Leveling increases uses per night",
-	"uses" : 3,
+	"uses" : 10,
 	"target" : "MELEE",
 	"range" : 1.0,
 	"warhead" : {
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectMeleeMDO",
-		"key" : "anon_AbilityMDO_-1004668058"
+		"key" : "anon_AbilityMDO_120058648"
 	},
-	"icon" : "mace1.png",
-	"energyCost" : 2000,
+	"icon" : "None",
+	"energyCost" : 1000,
 	"fx" : "None"
 }

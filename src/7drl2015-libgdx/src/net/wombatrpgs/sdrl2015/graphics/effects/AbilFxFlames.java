@@ -70,7 +70,7 @@ public class AbilFxFlames extends AbilFX {
 		
 		float scale, restrict, atX, atY;
 		switch(abil.getType()) {
-		case BALL: case MELEE: case PROJECTILE:
+		case BALL: case MELEE: case PROJECTILE: case BEAM:
 			scale = abil.getRadius() * 2.5f * ((float) parent.getTileWidth() / (float) t.getWidth());
 			restrict = 1.f;
 			if (totalElapsed < mdo.fadein) {

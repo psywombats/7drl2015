@@ -3,8 +3,8 @@
 	"subfolder" : "weapon",
 	"name" : "Hack 'n Back",
 	"description" : "",
-	"abilDesc" : "Hits the enemy then jump backwards",
-	"levelDesc" : "Leveling will increase the range jumped backwards",
+	"abilDesc" : "Hits the enemy then jump backwards by 1 tile",
+	"levelDesc" : "Leveling will increase the range jumped backwards by 1 tile",
 	"uses" : 6,
 	"target" : "MELEE",
 	"range" : 1.0,
@@ -12,7 +12,7 @@
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectHackBackMDO",
 		"key" : "anon_AbilityMDO_-1142230864"
 	},
-	"icon" : "potion_red.png",
+	"icon" : "sword01.png",
 	"energyCost" : 1000,
 	"fx" : "None"
 }
