@@ -226,6 +226,14 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	}
 
 	/**
+	 * @see net.wombatrpgs.sdrl2015.maps.events.MapEvent#getName()
+	 */
+	@Override
+	public String getName() {
+		return getUnit().getName();
+	}
+
+	/**
 	 * Overrides the pacing action of this character.
 	 * @param 	pacing			True if character should pace, false otherwise
 	 */

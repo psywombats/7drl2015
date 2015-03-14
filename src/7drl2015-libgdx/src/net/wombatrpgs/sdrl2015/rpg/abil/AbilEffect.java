@@ -60,6 +60,14 @@ public abstract class AbilEffect {
 	}
 	
 	/**
+	 * Returns the numerical level of the parent ability as known by the owner.
+	 * @return					The level of this ability
+	 */
+	protected int getLevel() {
+		return actor.getUnit().getAbilityLevel(abil.getKey());
+	}
+	
+	/**
 	 * Actually perform the ability on some targets.
 	 * @param	targets			The dopes to affect
 	 */

@@ -94,14 +94,6 @@ public class Hero extends CharacterEvent implements CommandListener {
 	}
 
 	/**
-	 * @see net.wombatrpgs.mrogue.maps.events.MapEvent#getName()
-	 */
-	@Override
-	public String getName() {
-		return "hero";
-	}
-
-	/**
 	 * @see net.wombatrpgs.mrogue.rpg.CharacterEvent#inLoS(int, int)
 	 */
 	@Override

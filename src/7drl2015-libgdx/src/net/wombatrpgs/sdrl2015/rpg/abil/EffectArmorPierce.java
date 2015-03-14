@@ -36,8 +36,10 @@ public class EffectArmorPierce extends AbilEffect {
 	@Override
 	protected void internalAct(List<GameUnit> targets) {
 		for (GameUnit target : targets) {
+			actor.faceToward(target.getParent());
 			int dmg = actor.getUnit().calcMeleeDamage();
-			dmg -= Math.floor((float) target.get(Stat.PV) * (1f-mdo.pierce));
+			float pierce = (1f - mdo.pierce) + .1f * getLevel();
+			dmg -= Math.floor((float) target.get(Stat.PV) * (1f-pierce));
 			target.takeRawDamage(dmg);
 			if (MGlobal.hero.inLoS(target.getParent())) {
 				GameUnit.out().msg(target.getName() + " took " + dmg + " damage through armor.");

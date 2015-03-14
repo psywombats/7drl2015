@@ -7,7 +7,7 @@
 	"itemDescription" : "Very shorp and pointy.",
 	"icon" : "potion_red.png",
 	"carriedAbility" : "None",
-	"equippedAbility" : "abil_armorpierce",
+	"equippedAbility" : "abil_charge",
 	"slot" : "WEAPON",
 	"stats" : {
 		"stats" : [ ],

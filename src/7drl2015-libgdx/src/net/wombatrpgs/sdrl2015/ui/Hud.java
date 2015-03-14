@@ -8,6 +8,7 @@ package net.wombatrpgs.sdrl2015.ui;
 
 import java.util.List;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -205,6 +206,9 @@ public class Hud extends UIElement {
 		List<Ability> abilities = MGlobal.hero.getUnit().getAbilities();
 		for (int i = 0; i < abilities.size(); i += 1) {
 			Ability abil = abilities.get(i);
+			if (abil.getUses(MGlobal.hero.getUnit()) <= 0) {
+				batch.setColor(new Color(.5f, .5f, .5f, 1));
+			}
 			abil.getIcon().renderAt(batch,
 					ABIL_START_X + ABIL_WIDTH*i + ABIL_SPRITE_X,
 					MGlobal.window.getHeight() - (ABIL_START_Y + ABIL_SPRITE_Y));
@@ -216,6 +220,7 @@ public class Hud extends UIElement {
 			String useString = "left: " + abil.getUses(MGlobal.hero.getUnit());
 			font.draw(batch, abilFormat, useString, 0);
 			font.draw(batch, abilFormat, "F"+(i+1), (int) font.getLineHeight());
+			batch.setColor(1, 1, 1, 1);
 		}
 		
 		if (MGlobal.hero.isEligibleForCamp(true)) {
