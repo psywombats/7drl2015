@@ -6,6 +6,7 @@
 	"suffix" : "Wyrm",
 	"appearance" : "None",
 	"overlay" : "4dir_overlay_dragon",
+	"effect" : "HOLY",
 	"dangerLevel" : {
 		"boundsString" : ""
 	},

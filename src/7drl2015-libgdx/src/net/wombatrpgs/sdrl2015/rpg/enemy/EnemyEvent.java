@@ -11,9 +11,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import com.badlogic.gdx.graphics.OrthographicCamera;
+
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimation;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimationFactory;
+import net.wombatrpgs.sdrl2015.graphics.effects.AbilFX;
+import net.wombatrpgs.sdrl2015.graphics.effects.AbilFxFactory;
+import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.MapThing;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
@@ -28,6 +33,7 @@ import net.wombatrpgs.sdrlschema.rpg.RaceMDO;
 import net.wombatrpgs.sdrlschema.rpg.SpeciesMDO;
 import net.wombatrpgs.sdrlschema.rpg.UnitMDO;
 import net.wombatrpgs.sdrlschema.rpg.data.Relation;
+import net.wombatrpgs.sdrlschema.rpg.data.UniqueEffect;
 import net.wombatrpgs.sdrlschema.rpg.stats.SerializedStatsMDO;
 import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
@@ -45,6 +51,8 @@ public class EnemyEvent extends CharacterEvent {
 	
 	protected CharacterEvent lastTarget;
 	protected int targetX, targetY;
+	
+	protected AbilFX fx;
 	
 	/**
 	 * Creates a new enemy on a map from a database entry.
@@ -94,6 +102,12 @@ public class EnemyEvent extends CharacterEvent {
 			abilities.addAll(Arrays.asList(unit.abilities));
 		}
 		getUnit().innatelyLearnAbilities(abilities);
+		
+		if ((race != null && race.effect == UniqueEffect.HOLY) ||
+				(unit != null && unit.effect == UniqueEffect.HOLY)) {
+			fx = AbilFxFactory.createFX("abilfx_holy_sfx", null);
+			assets.add(fx);
+		}
 	}
 	
 	/** @return The unit data this enemy was created with */
@@ -119,6 +133,40 @@ public class EnemyEvent extends CharacterEvent {
 		}
 	}
 	
+	/**
+	 * @see net.wombatrpgs.sdrl2015.rpg.CharacterEvent#render
+	 * (com.badlogic.gdx.graphics.OrthographicCamera)
+	 */
+	@Override
+	public void render(OrthographicCamera camera) {
+		super.render(camera);
+
+	}
+
+	/**
+	 * @see net.wombatrpgs.sdrl2015.maps.MapThing#onAddedToMap(net.wombatrpgs.sdrl2015.maps.Level)
+	 */
+	@Override
+	public void onAddedToMap(Level map) {
+		super.onAddedToMap(map);
+		if (fx != null) {
+			fx.setParent(getParent());
+			fx.setOverride(this);
+			fx.spawn();
+		}
+	}
+
+	/**
+	 * @see net.wombatrpgs.sdrl2015.maps.MapThing#onRemovedFromMap(net.wombatrpgs.sdrl2015.maps.Level)
+	 */
+	@Override
+	public void onRemovedFromMap(Level map) {
+		super.onRemovedFromMap(map);
+		if (fx != null) {
+			map.removeEvent(fx);
+		}
+	}
+
 	/**
 	 * Stupid AI hacked together for 7DRL. Makes no use of the BTNode junk.
 	 */

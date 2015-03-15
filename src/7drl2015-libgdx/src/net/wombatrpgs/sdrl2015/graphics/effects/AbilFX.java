@@ -36,6 +36,7 @@ public abstract class AbilFX extends MapEvent implements Disposable {
 	protected Ability abil;
 	protected SpriteBatch privateBatch;
 	protected List<CharacterEvent> targets;
+	protected CharacterEvent override;
 	protected float totalElapsed;
 	protected float done;
 	protected boolean initialized;
@@ -49,12 +50,17 @@ public abstract class AbilFX extends MapEvent implements Disposable {
 		super();
 		this.mdo = mdo;
 		this.abil = abil;
-		this.parent = abil.getActor().getParent();
+		if (abil != null) {
+			this.parent = abil.getActor().getParent();
+		}
 		
 		privateBatch = new SpriteBatch();
 		assets = new ArrayList<Queueable>();
 		initialized = false;
 	}
+	
+	public void setParent(Level parent) { this.parent = parent; }
+	public void setOverride(CharacterEvent override) { this.override = override; }
 	
 	/**
 	 * This is called by the ability every time it wants us to show, usually
@@ -66,12 +72,16 @@ public abstract class AbilFX extends MapEvent implements Disposable {
 	 */
 	public void spawn() {
 		final AbilFX fx = this;
-		parent = abil.getActor().getParent();
+		if (parent == null) {
+			parent = abil.getActor().getParent();
+		}
 		parent.addEvent(this);
 		totalElapsed = 0;
 		
 		targets = new ArrayList<CharacterEvent>();
-		if (abil.getType() == AbilityTargetType.BALL) {
+		if (abil == null) {
+			targets.add(override);
+		} else if (abil.getType() == AbilityTargetType.BALL) {
 			targets.add(abil.getActor());
 		} else {
 			for (GameUnit target : abil.getTargets()) {

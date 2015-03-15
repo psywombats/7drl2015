@@ -20,6 +20,7 @@ import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrlschema.graphics.ShaderMDO;
 import net.wombatrpgs.sdrlschema.graphics.effects.AbilFxFlamesMDO;
+import net.wombatrpgs.sdrlschema.rpg.abil.AbilityTargetType;
 
 /**
  * Flame texture and noise thing. We'll see how this goes.
@@ -69,9 +70,19 @@ public class AbilFxFlames extends AbilFX {
 		Texture t = flames.getTexture();
 		
 		float scale, restrict, atX, atY;
-		switch(abil.getType()) {
-		case BALL: case MELEE: case PROJECTILE: case BEAM: case USER:
+		AbilityTargetType type;
+		
+		// ew
+		if (abil == null) {
+			type = AbilityTargetType.USER;
+			scale = .7f * 2.5f * ((float) parent.getTileWidth() / (float) t.getWidth());
+		} else {
+			type = abil.getType();
 			scale = abil.getRadius() * 2.5f * ((float) parent.getTileWidth() / (float) t.getWidth());
+		}
+		
+		switch(type) {
+		case BALL: case MELEE: case PROJECTILE: case BEAM: case USER:
 			restrict = 1.f;
 			if (totalElapsed < mdo.fadein) {
 				//restrict = totalElapsed/mdo.fadein;

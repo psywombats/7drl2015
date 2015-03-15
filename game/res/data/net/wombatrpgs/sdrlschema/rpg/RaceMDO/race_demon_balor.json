@@ -6,6 +6,7 @@
 	"prefix" : "Demon",
 	"appearance" : "4dir_demon",
 	"overlay" : "None",
+	"effect" : "HOLY",
 	"dangerLevel" : {
 		"boundsString" : "1-99"
 	},

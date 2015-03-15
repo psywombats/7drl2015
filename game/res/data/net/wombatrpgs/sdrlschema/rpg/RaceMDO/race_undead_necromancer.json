@@ -4,8 +4,9 @@
 	"name" : "",
 	"description" : "",
 	"prefix" : "Necromancer",
-	"appearance" : "4dir_darkelf",
+	"appearance" : "4dir_man",
 	"overlay" : "4dir_overlay_robe",
+	"effect" : "HOLY",
 	"dangerLevel" : {
 		"boundsString" : "1-99"
 	},

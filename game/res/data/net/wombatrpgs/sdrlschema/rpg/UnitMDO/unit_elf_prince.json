@@ -1,12 +1,12 @@
 {
-	"key" : "unit_elf_lord",
+	"key" : "unit_elf_prince",
 	"subfolder" : "elf",
 	"name" : "",
 	"description" : "",
 	"suffix" : "Lord",
 	"appearance" : "None",
-	"overlay" : "4dir_overlay_halo",
-	"effect" : null,
+	"overlay" : "4dir_overlay_sword",
+	"effect" : "HOLY",
 	"dangerLevel" : {
 		"boundsString" : "1-99"
 	},
@@ -14,7 +14,7 @@
 		"stats" : [
 			{
 				"stat" : "MHP",
-				"value" : 20.0
+				"value" : 40.0
 			},
 			{
 				"stat" : "SPEED",

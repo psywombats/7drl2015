@@ -16,6 +16,7 @@ import net.wombatrpgs.mgns.core.MainSchema;
 import net.wombatrpgs.sdrlschema.graphics.FourDirMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.AbilityMDO;
 import net.wombatrpgs.sdrlschema.rpg.data.RivalryRequirementType;
+import net.wombatrpgs.sdrlschema.rpg.data.UniqueEffect;
 import net.wombatrpgs.sdrlschema.rpg.data.UnitUseType;
 import net.wombatrpgs.sdrlschema.rpg.stats.StatModMDO;
 
@@ -38,6 +39,10 @@ public class RaceMDO extends MainSchema {
 	@SchemaLink(FourDirMDO.class)
 	@Nullable
 	public String overlay;
+	
+	@Desc("Unique effect - effects for the most powerful of monsters")
+	@Nullable
+	public UniqueEffect effect;
 	
 	@InlineSchema(DangerRequirementMDO.class)
 	public DangerRequirementMDO dangerLevel;
