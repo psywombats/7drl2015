@@ -92,7 +92,13 @@ public class EventLayer extends Layer {
 	 */
 	@Override
 	public boolean isPassable(MapEvent actor, final int x, final int y) {
-		// TODO: isPassable
+		for (MapEvent event : events) {
+			if (!event.isPassable() &&
+					event.getTileX() == x &&
+					event.getTileY() == y) {
+				return false;
+			}
+		}
 		return true;
 	}
 	
