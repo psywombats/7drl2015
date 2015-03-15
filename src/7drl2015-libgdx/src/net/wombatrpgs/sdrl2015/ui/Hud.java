@@ -179,19 +179,21 @@ public class Hud extends UIElement {
 //		blobY = MGlobal.window.getHeight() - blobY;
 //		spBlob.renderAt(batch, blobX, blobY, 1f, (ratioSP * (float) BAR_HEIGHT) / spBlob.getHeight());
 		
-		int hpTextX = HP_TEXT_X;
-		int hpTextY = (MGlobal.window.getHeight() - HP_TEXT_Y);
-		int digits = String.valueOf(hp).length();
-		hpTextX -= digits * 8;
-		if (ratioHP > .31) {
-			numbersBig.renderNumberAt((int) hp, hpTextX, hpTextY,
-					.8f, 1, .8f);
-		} else if (ratioHP > .11) {
-			numbersBig.renderNumberAt((int) hp, hpTextX, hpTextY,
-					1, 1, .6f);
-		} else if (ratioHP > 0) {
-			numbersBig.renderNumberAt((int) hp, hpTextX, hpTextY,
-					1, .6f, .6f);
+		if (ratioHP > 0) {
+			int hpTextX = HP_TEXT_X;
+			int hpTextY = (MGlobal.window.getHeight() - HP_TEXT_Y);
+			int digits = String.valueOf(hp).length();
+			hpTextX -= digits * 8;
+			if (ratioHP > .31) {
+				numbersBig.renderNumberAt((int) hp, hpTextX, hpTextY,
+						.8f, 1, .8f);
+			} else if (ratioHP > .11) {
+				numbersBig.renderNumberAt((int) hp, hpTextX, hpTextY,
+						1, 1, .6f);
+			} else if (ratioHP > 0) {
+				numbersBig.renderNumberAt((int) hp, hpTextX, hpTextY,
+						1, .6f, .6f);
+			}
 		}
 		
 		batch.begin();

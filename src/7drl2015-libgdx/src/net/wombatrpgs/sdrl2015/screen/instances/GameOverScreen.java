@@ -19,6 +19,7 @@ public class GameOverScreen extends Screen {
 	protected DeathSettingsMDO mdo;
 	
 	protected Picture screen;
+	protected float sinceIntroduce;
 	protected boolean shouldIntroduce;
 
 	/**
@@ -26,7 +27,6 @@ public class GameOverScreen extends Screen {
 	 */
 	public GameOverScreen() {
 		super();
-		tint = new Color(1, 1, 1, 1);
 		mdo = MGlobal.data.getEntryFor(Constants.KEY_DEATH, DeathSettingsMDO.class);
 		screen = new Picture(mdo.bg, 0, 0, 0);
 		assets.add(screen);
@@ -51,7 +51,10 @@ public class GameOverScreen extends Screen {
 			Gdx.app.exit();
 			return true;
 		case INTENT_CONFIRM:
-			shouldIntroduce = true;
+			if (!shouldIntroduce) {
+				tintTo(new Color(0, 0, 0, 1));
+				shouldIntroduce = true;
+			}
 			return true;
 		default:
 			return false;
@@ -65,8 +68,20 @@ public class GameOverScreen extends Screen {
 	public void update(float elapsed) {
 		super.update(elapsed);
 		if (shouldIntroduce) {
-			MGlobal.newGame();
+			sinceIntroduce += elapsed;
+			if (sinceIntroduce > .5f) {
+				MGlobal.newGame();
+			}
 		}
+	}
+
+	/**
+	 * @see net.wombatrpgs.sdrl2015.screen.Screen#onFocusGained()
+	 */
+	@Override
+	public void onFocusGained() {
+		super.onFocusGained();
+		tintTo(new Color(1, 1, 1, 0));
 	}
 
 }

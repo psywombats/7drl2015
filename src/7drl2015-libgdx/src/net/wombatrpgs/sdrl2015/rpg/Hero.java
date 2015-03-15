@@ -55,6 +55,8 @@ public class Hero extends CharacterEvent implements CommandListener {
 	protected Pixmap p;
 	protected Texture viewTex;
 	protected Ability blockingAbil;
+	protected float sinceDeath;
+	protected boolean tinted;
 	
 	// 7DRL hacky stuff about nights goes here
 	protected int turnsSinceNight;
@@ -137,9 +139,16 @@ public class Hero extends CharacterEvent implements CommandListener {
 			actAndWait(wait);
 		}
 		if (unit.isDead()) {
-			MGlobal.screens.pop();
-			MGlobal.screens.push(new GameOverScreen());
-			MGlobal.screens.playMusic(null, false);
+			sinceDeath += elapsed;
+			if (sinceDeath > 1.5f && !tinted) {
+				tinted = true;
+				MGlobal.screens.peek().tintTo(new Color(0, 0, 0, 1));
+			}
+			if (sinceDeath > 2f) {
+				MGlobal.screens.pop();
+				MGlobal.screens.push(new GameOverScreen());
+				MGlobal.screens.playMusic(null, false);
+			}
 		}
 		if (blockingAbil != null) {
 			if (blockingAbil.useAndBlock()) {
@@ -154,6 +163,8 @@ public class Hero extends CharacterEvent implements CommandListener {
 	 */
 	@Override
 	public boolean onCommand(InputCommand command) {
+		
+		if (unit.isDead()) return true;
 		
 		switch (command) {
 		
