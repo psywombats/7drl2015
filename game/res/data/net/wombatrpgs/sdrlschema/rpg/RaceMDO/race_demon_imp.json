@@ -1,0 +1,36 @@
+{
+	"key" : "race_demon_imp",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Imp",
+	"appearance" : "4dir_eye",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : "1-99"
+	},
+	"spawnType" : "NO_UNITS",
+	"rivalry" : "REQUIRES_RIVAL",
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 6.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 50.0
+			},
+			{
+				"stat" : "SPEED",
+				"value" : 50.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ]
+}

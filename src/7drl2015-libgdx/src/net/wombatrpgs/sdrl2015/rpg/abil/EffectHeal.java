@@ -67,7 +67,9 @@ public class EffectHeal extends AbilEffect {
 		
 		for (GameUnit target : targets) {
 			int healt = target.heal(healPower);
-			GameUnit.out().msg(target.getName() + " healed " + healt + " HP.");
+			if (MGlobal.hero.inLoS(target.getParent())) {
+				GameUnit.out().msg(target.getName() + " healed " + healt + " HP.");
+			}
 		}
 	}
 

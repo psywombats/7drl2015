@@ -71,7 +71,9 @@ public class EffectHackBack extends AbilEffect {
 				actor.setTileY(tileY);
 				target.ensureAlive();
 			} else {
-				GameUnit.out().msg(actor.getName() + " misses.");
+				if (MGlobal.hero.inLoS(target.getParent())) {
+					GameUnit.out().msg(actor.getName() + " misses.");
+				}
 			}
 			actor.faceToward(target.getParent());
 			target.onAttackBy(actor.getUnit());

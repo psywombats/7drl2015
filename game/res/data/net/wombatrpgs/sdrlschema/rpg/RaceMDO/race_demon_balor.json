@@ -1,0 +1,38 @@
+{
+	"key" : "race_demon_balor",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Demon",
+	"appearance" : "4dir_demon",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : "1-99"
+	},
+	"spawnType" : "USE_UNITS",
+	"rivalry" : "NO_REQUIREMENT",
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 100.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 5.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 5.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 13.0
+			}
+		],
+		"flags" : [
+			"RESIST_FIRE"
+		]
+	},
+	"abilities" : [ ]
+}

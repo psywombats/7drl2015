@@ -56,6 +56,9 @@ public class EffectTeleport extends AbilEffect {
 			maxR += getLevel() * 2;
 		}
 		for (GameUnit target : targets) {
+			if (MGlobal.hero.inLoS(target.getParent())) {
+				GameUnit.out().msg(target.getName() + " vanishes.");
+			}
 			int origX = target.getParent().getTileX();
 			int origY = target.getParent().getTileY();
 			int tries = 0;
@@ -68,6 +71,9 @@ public class EffectTeleport extends AbilEffect {
 					target.getParent().getTileY())
 					|| target.getParent().euclideanTileDistanceTo(origX, origY) < minR)
 					&& tries < 50);
+			if (MGlobal.hero.inLoS(target.getParent())) {
+				GameUnit.out().msg(target.getName() + " appears.");
+			}
 		}
 	}
 

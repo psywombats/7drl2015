@@ -89,7 +89,7 @@ public class EffectCharge extends AbilEffect {
 				tileX += oppDir.getVector().x;
 				tileY += oppDir.getVector().y;
 				if (!parent.isTilePassable(actor, tileX, tileY)) {
-					return;
+					break;
 				}
 				for (MapEvent event : parent.getEventsAt(tileX, tileY)) {
 					if (!event.isPassable() && event != target.getParent()) {
@@ -107,10 +107,14 @@ public class EffectCharge extends AbilEffect {
 			}
 			int dmg = (int) (actor.getUnit().calcMeleeDamage() * ratio);
 			if (target.calcDodgeChance(0) > MGlobal.rand.nextFloat()) {
-				GameUnit.out().msg(actor.getName() + " misses.");
+				if (MGlobal.hero.inLoS(target.getParent())) {
+					GameUnit.out().msg(actor.getName() + " misses.");
+				}
 			} else {
 				int dealt = target.takePhysicalDamage(dmg);
-				GameUnit.out().msg(target.getName() + " takes " + dealt + " damage.");
+				if (MGlobal.hero.inLoS(target.getParent())) {
+					GameUnit.out().msg(target.getName() + " takes " + dealt + " damage.");
+				}
 				target.ensureAlive();
 			}
 			target.onAttackBy(actor.getUnit());

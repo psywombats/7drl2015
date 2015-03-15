@@ -1,0 +1,20 @@
+{
+	"key" : "abil_summon_undead",
+	"subfolder" : "summon",
+	"name" : "Summon",
+	"description" : "",
+	"abilDesc" : "",
+	"levelDesc" : "",
+	"uses" : 10,
+	"target" : "USER",
+	"range" : 7.0,
+	"useChance" : 0.7,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectSummonMDO",
+		"key" : "anon_AbilityMDO_597716305"
+	},
+	"icon" : "None",
+	"energyCost" : 1000,
+	"leveling" : [ ],
+	"fx" : "None"
+}

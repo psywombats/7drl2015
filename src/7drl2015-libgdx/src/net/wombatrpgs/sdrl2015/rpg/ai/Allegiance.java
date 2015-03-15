@@ -75,7 +75,7 @@ public class Allegiance implements Turnable {
 			return Relation.ALLIED;
 		} else {
 			// TODO: maybe only ally with certain races?
-			return Relation.NEUTRAL;
+			return Relation.FRIENDLY;
 		}
 	}
 	

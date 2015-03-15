@@ -1,0 +1,34 @@
+{
+	"key" : "race_demon_cultist",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Cultist",
+	"appearance" : "4dir_man",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"spawnType" : "NO_UNITS",
+	"rivalry" : "REQUIRES_RIVAL",
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 15.0
+			},
+			{
+				"stat" : "FIRE_DMG",
+				"value" : 20.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 8.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_touch_fire"
+	]
+}

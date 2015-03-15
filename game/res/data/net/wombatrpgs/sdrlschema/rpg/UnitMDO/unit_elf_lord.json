@@ -1,0 +1,35 @@
+{
+	"key" : "unit_elf_lord",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Lord",
+	"appearance" : "None",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : "1-99"
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 20.0
+			},
+			{
+				"stat" : "SPEED",
+				"value" : 100.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 5.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_charge",
+		"abil_hackback",
+		"abil_shoot"
+	],
+	"rivalry" : "NO_REQUIREMENT"
+}

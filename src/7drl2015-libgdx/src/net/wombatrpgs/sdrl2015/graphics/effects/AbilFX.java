@@ -66,7 +66,7 @@ public abstract class AbilFX extends MapEvent implements Disposable {
 	 */
 	public void spawn() {
 		final AbilFX fx = this;
-		final Level parent = abil.getActor().getParent();
+		parent = abil.getActor().getParent();
 		parent.addEvent(this);
 		totalElapsed = 0;
 		

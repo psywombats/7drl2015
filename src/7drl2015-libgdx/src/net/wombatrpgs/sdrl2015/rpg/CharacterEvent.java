@@ -310,6 +310,28 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	}
 	
 	/**
+	 * Spawns this character somewhere near another map event.
+	 * @param	near				The parent to generate near
+	 */
+	public void spawnNear(MapEvent near) {
+		near.getParent().addEvent(this);
+		for (int r = 1; r < 10; r += 1) {
+			for (int i = 0; i < 10; i += 1) {
+				int tileX = near.getTileX() + MGlobal.rand.nextInt(r*2) - r;
+				int tileY = near.getTileY() + MGlobal.rand.nextInt(r*2) - r;
+				if (parent.isTilePassable(this, tileX, tileY)
+						&& parent.getEventsAt(tileX, tileY).size() == 0) {
+					setTileX(tileX);
+					setTileY(tileY);
+					setX(tileX * parent.getTileWidth());
+					setY(tileY * parent.getTileHeight());
+					return;
+				}
+			}
+		}
+	}
+	
+	/**
 	 * @see net.wombatrpgs.mrogue.maps.events.MapEvent#halt()
 	 */
 	@Override

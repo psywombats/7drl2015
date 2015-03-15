@@ -1,0 +1,40 @@
+{
+	"key" : "race_demon_moloch",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"prefix" : "",
+	"appearance" : "4dir_moloch",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : "1-99"
+	},
+	"spawnType" : "NO_UNITS",
+	"rivalry" : "REQUIRES_RIVAL",
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 80.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 12.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 40.0
+			},
+			{
+				"stat" : "SPEED",
+				"value" : -50.0
+			}
+		],
+		"flags" : [
+			"RESIST_FIRE",
+			"RESIST_ICE",
+			"RESIST_EARTH"
+		]
+	},
+	"abilities" : [ ]
+}

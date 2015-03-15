@@ -1,0 +1,34 @@
+{
+	"key" : "race_dragon_turtle",
+	"subfolder" : "dragon",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Turtle",
+	"appearance" : "4dir_turtle",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"spawnType" : "NO_UNITS",
+	"rivalry" : "REQUIRES_RIVAL",
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 30.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 100.0
+			},
+			{
+				"stat" : "SPEED",
+				"value" : -50.0
+			}
+		],
+		"flags" : [
+			"RESIST_EARTH"
+		]
+	},
+	"abilities" : [ ]
+}

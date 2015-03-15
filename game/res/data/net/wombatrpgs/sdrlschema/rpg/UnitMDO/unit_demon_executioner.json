@@ -1,0 +1,21 @@
+{
+	"key" : "unit_demon_executioner",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Executioner",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_sword",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_armorpierce",
+		"abil_spinattack"
+	],
+	"rivalry" : "NO_REQUIREMENT"
+}

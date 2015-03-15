@@ -1,0 +1,38 @@
+{
+	"key" : "unit_demon_archmage",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Archmage",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_robe",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "ICE_DMG",
+				"value" : 11.0
+			},
+			{
+				"stat" : "EARTH_DMG",
+				"value" : 11.0
+			},
+			{
+				"stat" : "FIRE_DMG",
+				"value" : 11.0
+			}
+		],
+		"flags" : [
+			"RESIST_FIRE",
+			"RESIST_ICE",
+			"RESIST_EARTH"
+		]
+	},
+	"abilities" : [
+		"abil_heal",
+		"abil_proj_fire"
+	],
+	"rivalry" : "NO_REQUIREMENT"
+}

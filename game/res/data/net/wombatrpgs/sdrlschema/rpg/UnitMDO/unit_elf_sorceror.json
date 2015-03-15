@@ -1,0 +1,20 @@
+{
+	"key" : "unit_elf_sorceror",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Sorceror",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_robe",
+	"dangerLevel" : {
+		"boundsString" : "1-99"
+	},
+	"statsMod" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_summon_elves"
+	],
+	"rivalry" : "REQUIRES_RIVAL"
+}

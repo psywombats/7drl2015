@@ -56,11 +56,15 @@ public class EffectMagic extends AbilEffect {
 	@Override
 	protected void internalAct(List<GameUnit> targets) {
 		for (GameUnit target : targets) {
-			if (target.calcDodgeChance(0) > MGlobal.rand.nextFloat()) {
-				GameUnit.out().msg(target.getName() + " dodges.");
+			if (target.calcDodgeChance(target.get(Stat.DV) / -2) > MGlobal.rand.nextFloat()) {
+				if (MGlobal.hero.inLoS(target.getParent())) {
+					GameUnit.out().msg(target.getName() + " dodges.");
+				}
 				target.onAttackBy(actor.getUnit());
 			} else if (target.resists(mdo.element)) {
-				GameUnit.out().msg(target.getName() + " resists.");
+				if (MGlobal.hero.inLoS(target.getParent())) {
+					GameUnit.out().msg(target.getName() + " resists.");
+				}
 			} else {
 				int dmg = (int) (actor.getUnit().calcMagicDamage(mdo.element) *
 						((float) mdo.damageRatio));
@@ -68,7 +72,9 @@ public class EffectMagic extends AbilEffect {
 					dmg *= 1f + (.2f * (float) getLevel());
 				}
 				if (target.isWeakTo(mdo.element)) {
-					GameUnit.out().msg(target.getName() + " is weak to the atack.");
+					if (MGlobal.hero.inLoS(target.getParent())) {
+						GameUnit.out().msg(target.getName() + " is weak to the atack.");
+					}
 					dmg *= 2;
 				}
 				int dealt = target.takeMagicDamage(dmg);

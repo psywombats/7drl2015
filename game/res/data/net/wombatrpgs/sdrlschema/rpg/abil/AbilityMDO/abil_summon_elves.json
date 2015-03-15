@@ -1,0 +1,20 @@
+{
+	"key" : "abil_summon_elves",
+	"subfolder" : "summon",
+	"name" : "Summon",
+	"description" : "",
+	"abilDesc" : "enemy only",
+	"levelDesc" : "enemy only",
+	"uses" : 4,
+	"target" : "USER",
+	"range" : 7.0,
+	"useChance" : 0.5,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectSummonMDO",
+		"key" : "anon_AbilityMDO_-368438318"
+	},
+	"icon" : "None",
+	"energyCost" : 1000,
+	"leveling" : [ ],
+	"fx" : "None"
+}

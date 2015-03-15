@@ -21,8 +21,6 @@ import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.rpg.act.ActStep;
 import net.wombatrpgs.sdrl2015.rpg.act.ActWander;
 import net.wombatrpgs.sdrl2015.rpg.ai.AStarPathfinder;
-import net.wombatrpgs.sdrl2015.rpg.ai.BTNode;
-import net.wombatrpgs.sdrl2015.rpg.ai.IntelligenceFactory;
 import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
 import net.wombatrpgs.sdrl2015.rpg.stats.SdrlStats;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
@@ -39,10 +37,11 @@ import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
  */
 public class EnemyEvent extends CharacterEvent {
 	
-	protected static final String KEY_DEFAULT_BEHAVIOR = "behavior_default";
 	protected static final String KEY_DEFAULT_STATS = "stats_default";
 	
-	protected BTNode intelligence;
+	protected SpeciesMDO species;
+	protected RaceMDO race;
+	protected UnitMDO unit;
 	
 	protected CharacterEvent lastTarget;
 	protected int targetX, targetY;
@@ -55,8 +54,10 @@ public class EnemyEvent extends CharacterEvent {
 	 */
 	public EnemyEvent(SpeciesMDO species, RaceMDO race, UnitMDO unit) {
 		super(generateUnit(species, race, unit), generateAppearance(species, race, unit));
+		this.species = species;
+		this.race = race;
+		this.unit = unit;
 		getUnit().setParent(this);
-		this.intelligence = IntelligenceFactory.createIntelligence(KEY_DEFAULT_BEHAVIOR, this);
 		String name = species.raceName;
 		if (race != null && MapThing.mdoHasProperty(race.prefix)) {
 			if (name.length() > 0) {
@@ -95,12 +96,21 @@ public class EnemyEvent extends CharacterEvent {
 		getUnit().innatelyLearnAbilities(abilities);
 	}
 	
+	/** @return The unit data this enemy was created with */
+	public UnitMDO getUnitMDO() { return unit; }
+	
+	/** @return The race data this enemy was created with */
+	public RaceMDO getRaceMDO() { return race; }
+	
+	/** @return The species data this enemy was created with */
+	public SpeciesMDO getSpeciesMDO() { return species; }
+	
 	/**
 	 * @see net.wombatrpgs.mrogue.rpg.CharacterEvent#act()
 	 */
 	@Override
 	public void act() {
-		if (unit.get(Stat.HP) <= 0) {
+		if (getUnit().get(Stat.HP) <= 0) {
 			// this hack sucks, don't quite remember the reasoning here...
 			this.ticksRemaining += 100000;
 			return;
@@ -276,10 +286,10 @@ public class EnemyEvent extends CharacterEvent {
 	 * @return					The AnimationMDO key string for this combination
 	 */
 	protected static String generateAppearance(SpeciesMDO species, RaceMDO race, UnitMDO unit) {
-		if (MapThing.mdoHasProperty(unit.appearance)) {
+		if (unit != null && MapThing.mdoHasProperty(unit.appearance)) {
 			return unit.appearance;
 		}
-		if (MapThing.mdoHasProperty(race.appearance)) {
+		if (race != null && MapThing.mdoHasProperty(race.appearance)) {
 			return race.appearance;
 		}
 		return species.appearance;

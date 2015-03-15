@@ -22,6 +22,13 @@
 		"flags" : [ ]
 	},
 	"abilities" : [ ],
-	"races" : [ ],
-	"units" : [ ]
+	"races" : [
+		"race_demon_hellhound",
+		"race_demon_incubus",
+		"race_demon_succubus"
+	],
+	"units" : [
+		"unit_demon_mage",
+		"unit_demon_servant"
+	]
 }

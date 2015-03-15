@@ -1,0 +1,16 @@
+{
+	"key" : "anon_AbilityMDO_597716305",
+	"subfolder" : "",
+	"name" : "anon_AbilityMDO_597716305",
+	"description" : "auto-generated anonymous polymorph",
+	"race" : [
+		"race_undead_skeleton",
+		"race_undead_ghost"
+	],
+	"unit" : [
+		"unit_undead_solider",
+		"unit_undead_knight"
+	],
+	"summonMin" : 1,
+	"summonMax" : 2
+}

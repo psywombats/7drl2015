@@ -1,0 +1,50 @@
+{
+	"key" : "unit_dragon_wyrm",
+	"subfolder" : "dragon",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Wyrm",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_dragon",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 100.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 10.0
+			},
+			{
+				"stat" : "FIRE_DMG",
+				"value" : 7.0
+			},
+			{
+				"stat" : "ICE_DMG",
+				"value" : 7.0
+			},
+			{
+				"stat" : "EARTH_DMG",
+				"value" : 7.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 10.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_bolt_earth",
+		"abil_bolt_fire",
+		"abil_bolt_ice",
+		"abil_touch_ice",
+		"abil_ball_earth",
+		"abil_proj_fire"
+	],
+	"rivalry" : "NO_REQUIREMENT"
+}

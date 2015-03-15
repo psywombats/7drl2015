@@ -170,6 +170,9 @@ public class Ability extends Action implements Queueable, CommandListener {
 	/** @return How the AI should use this ability */
 	public TacticType getTactic() { return effect.getTactic(); }
 	
+	/** @return The number of times this ability has been used in the night */
+	public int getUsed() { return used; }
+	
 	/**
 	 * Checks if an attribute is raised when this abil levels.
 	 * @param	attribute		The attribute to check
@@ -349,6 +352,7 @@ public class Ability extends Action implements Queueable, CommandListener {
 	 * @return					True if any targets are in range
 	 */
 	public boolean anyInRange() {
+		if (getTactic() == TacticType.RANDOM || getTactic() == TacticType.SUPPORT) return true;
 		acquireTargets();
 		if (targets == null || targets.size() == 0) return false;
 		for (GameUnit target : targets) {

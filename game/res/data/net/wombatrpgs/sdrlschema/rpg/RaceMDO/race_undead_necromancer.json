@@ -1,0 +1,37 @@
+{
+	"key" : "race_undead_necromancer",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Necromancer",
+	"appearance" : "4dir_darkelf",
+	"overlay" : "4dir_overlay_robe",
+	"dangerLevel" : {
+		"boundsString" : "1-99"
+	},
+	"spawnType" : "NO_UNITS",
+	"rivalry" : "REQUIRES_RIVAL",
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 40.0
+			},
+			{
+				"stat" : "ICE_DMG",
+				"value" : 10.0
+			},
+			{
+				"stat" : "VISION",
+				"value" : 3.0
+			}
+		],
+		"flags" : [
+			"RESIST_ICE"
+		]
+	},
+	"abilities" : [
+		"abil_proj_ice",
+		"abil_accurate"
+	]
+}

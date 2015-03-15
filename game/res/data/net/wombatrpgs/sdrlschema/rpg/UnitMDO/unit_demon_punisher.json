@@ -1,0 +1,20 @@
+{
+	"key" : "unit_demon_punisher",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Punisher",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_mace",
+	"dangerLevel" : {
+		"boundsString" : "4-99"
+	},
+	"statsMod" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_smash"
+	],
+	"rivalry" : "NO_REQUIREMENT"
+}

@@ -1,0 +1,13 @@
+{
+	"key" : "anon_AbilityMDO_-368438318",
+	"subfolder" : "",
+	"name" : "anon_AbilityMDO_-368438318",
+	"description" : "auto-generated anonymous polymorph",
+	"race" : [ ],
+	"unit" : [
+		"unit_elf_archer",
+		"unit_elf_spearman"
+	],
+	"summonMin" : 1,
+	"summonMax" : 1
+}
