@@ -1,0 +1,22 @@
+{
+	"key" : "race_undead_ghost",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Ghost",
+	"appearance" : "4dir_ghostknight",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "SPEED",
+				"value" : 15.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ]
+}

@@ -1,0 +1,29 @@
+{
+	"key" : "unit_elf_myrmidon",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Myrimidon",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_sword",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : -10.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 1.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_hackback"
+	],
+	"rivalry" : "REQUIRES_RIVAL"
+}

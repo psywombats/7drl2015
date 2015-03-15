@@ -1,0 +1,29 @@
+{
+	"key" : "unit_elf_duelist",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Duelist",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_rapier",
+	"dangerLevel" : {
+		"boundsString" : "2-100"
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : -15.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 50.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_accurate"
+	],
+	"rivalry" : "REQUIRES_RIVAL"
+}

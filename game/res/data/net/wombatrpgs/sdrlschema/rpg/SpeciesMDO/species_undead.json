@@ -1,0 +1,41 @@
+{
+	"key" : "species_undead",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"raceName" : "",
+	"appearance" : "4dir_darkelf",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 20.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 7.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 1.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ],
+	"races" : [
+		"race_undead_ghost",
+		"race_undead_shadow",
+		"race_undead_skeleton"
+	],
+	"units" : [
+		"unit_undead_archer",
+		"unit_undead_knight",
+		"unit_undead_axeman",
+		"unit_undead_solider",
+		"unit_undead_halberdier"
+	]
+}

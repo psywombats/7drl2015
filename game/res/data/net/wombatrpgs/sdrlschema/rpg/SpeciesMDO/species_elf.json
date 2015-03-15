@@ -32,7 +32,9 @@
 	],
 	"units" : [
 		"unit_elf_archer",
-		"unit_elf_lord",
+		"unit_elf_duelist",
+		"unit_elf_myrmidon",
+		"unit_elf_rogue",
 		"unit_elf_spearman"
 	]
 }

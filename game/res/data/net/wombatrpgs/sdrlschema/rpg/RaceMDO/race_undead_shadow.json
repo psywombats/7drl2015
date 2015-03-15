@@ -1,0 +1,22 @@
+{
+	"key" : "race_undead_shadow",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Shadow",
+	"appearance" : "4dir_shadow",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "DV",
+				"value" : 15.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ]
+}

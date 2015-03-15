@@ -1,0 +1,22 @@
+{
+	"key" : "race_undead_skeleton",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Skeleton",
+	"appearance" : "4dir_skeleton",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "PV",
+				"value" : 5.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ]
+}

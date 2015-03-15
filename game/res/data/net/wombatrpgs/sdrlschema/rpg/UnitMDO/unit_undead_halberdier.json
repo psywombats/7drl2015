@@ -1,0 +1,29 @@
+{
+	"key" : "unit_undead_halberdier",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Halberdier",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_spear",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 3.0
+			},
+			{
+				"stat" : "MHP",
+				"value" : -10.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_charge"
+	],
+	"rivalry" : "REQUIRES_RIVAL"
+}

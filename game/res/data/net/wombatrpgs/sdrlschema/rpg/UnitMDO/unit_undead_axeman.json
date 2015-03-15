@@ -1,0 +1,25 @@
+{
+	"key" : "unit_undead_axeman",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Axeman",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_axe",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 2.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_spinattack"
+	],
+	"rivalry" : "NO_REQUIREMENT"
+}

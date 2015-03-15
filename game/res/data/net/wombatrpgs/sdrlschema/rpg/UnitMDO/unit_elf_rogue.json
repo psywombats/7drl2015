@@ -1,0 +1,33 @@
+{
+	"key" : "unit_elf_rogue",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Rogue",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_knife",
+	"dangerLevel" : {
+		"boundsString" : "2-100"
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : -15.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 25.0
+			},
+			{
+				"stat" : "SPEED",
+				"value" : 25.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_armorpierce"
+	],
+	"rivalry" : "REQUIRES_RIVAL"
+}

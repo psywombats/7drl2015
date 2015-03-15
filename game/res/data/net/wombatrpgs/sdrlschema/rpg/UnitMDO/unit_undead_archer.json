@@ -1,0 +1,23 @@
+{
+	"key" : "unit_undead_archer",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Archer",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_bow",
+	"dangerLevel" : {
+		"boundsString" : "2-100"
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 1.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ],
+	"rivalry" : "REQUIRES_RIVAL"
+}
