@@ -43,7 +43,7 @@ public class InventoryMenu extends Popup {
 	protected Graphic backer, cursor;
 	protected TextBoxFormat slotFormat, descFormat, equipFormat,
 			inventoryFormat, tabHintFormat;
-	protected SelectionDialog dialog;
+	protected SelectionDialog equippableDialog, unequippableDialog;
 	protected int selected;
 	protected boolean equipped;
 	protected boolean equippedSide;
@@ -97,9 +97,12 @@ public class InventoryMenu extends Popup {
 		tabHintFormat.x = MGlobal.window.getWidth() - tabHintFormat.width;
 		tabHintFormat.y = tabHintFormat.height;
 		
-		String options[] = { "Equip", "Use", "Drop" };
-		dialog = new SelectionDialog(SELECTION_DIALOG_FILE, options);
-		assets.add(dialog);
+		String equippableOptions[] = { "Use", "Drop", "Equip" };
+		equippableDialog = new SelectionDialog(SELECTION_DIALOG_FILE, equippableOptions);
+		String unequippableOptions[] = { "Use", "Drop" };
+		unequippableDialog = new SelectionDialog(SELECTION_DIALOG_FILE, unequippableOptions);
+		assets.add(equippableDialog);
+		assets.add(unequippableDialog);
 	}
 	
 	/** @return True if this inventory menu is up on the screen */
@@ -258,6 +261,9 @@ public class InventoryMenu extends Popup {
 				int selectX = inventoryFormat.x;
 				int selectY = inventoryFormat.y + LINE_HEIGHT * -selected;
 				asking = true;
+				
+				SelectionDialog dialog = item.isEquippable()? equippableDialog: unequippableDialog;
+				
 				dialog.ask(new SelectionListener() {
 					@Override public void onResult(int selection) {
 						switch (selection) {
