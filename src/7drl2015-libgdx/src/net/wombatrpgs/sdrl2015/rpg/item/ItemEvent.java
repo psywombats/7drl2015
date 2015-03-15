@@ -98,7 +98,11 @@ public class ItemEvent extends MapEvent {
 	@Override
 	public boolean onInteract() {
 		if (super.onInteract()) return true;
-		pickUpBy(MGlobal.hero);
+		if (MGlobal.hero.getUnit().getInventory().isFull()) {
+			GameUnit.out().msg("Inventory full.");
+		} else {
+			pickUpBy(MGlobal.hero);
+		}
 		return true;
 	}
 

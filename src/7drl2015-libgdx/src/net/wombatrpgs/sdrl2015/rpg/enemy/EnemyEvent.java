@@ -59,7 +59,11 @@ public class EnemyEvent extends CharacterEvent {
 		this.intelligence = IntelligenceFactory.createIntelligence(KEY_DEFAULT_BEHAVIOR, this);
 		String name = species.raceName;
 		if (race != null && MapThing.mdoHasProperty(race.prefix)) {
-			name = race.prefix + " " + name;
+			if (name.length() > 0) {
+				name = race.prefix + " " + name;
+			} else {
+				name = race.prefix;
+			}
 		}
 		if (unit != null && MapThing.mdoHasProperty(unit.suffix)) {
 			name = name + " " + unit.suffix;
@@ -117,7 +121,7 @@ public class EnemyEvent extends CharacterEvent {
 		for (Ability abil : abilities) {
 			if (abil.getTactic() == TacticType.SUPPORT && abil.anyInRange()) {
 				// this ability is potentially valid
-				if (!abil.aiShouldUse()) {
+				if (!abil.aiShouldUse(this)) {
 					continue;
 				} else {
 					actAndWait(abil);
@@ -130,7 +134,7 @@ public class EnemyEvent extends CharacterEvent {
 		for (Ability abil : abilities) {
 			if (abil.getTactic() == TacticType.RANDOM && abil.anyInRange()) {
 				// this ability is potentially valid
-				if (!abil.aiShouldUse()) {
+				if (!abil.aiShouldUse(this)) {
 					continue;
 				} else {
 					actAndWait(abil);
@@ -158,7 +162,7 @@ public class EnemyEvent extends CharacterEvent {
 				if (abil.getTactic() == TacticType.OFFENSE && abil.anyInRange()
 						&& abil.getTargets().contains(targetUnit)) {
 					// this ability is potentially valid
-					if (!abil.aiShouldUse()) {
+					if (!abil.aiShouldUse(this)) {
 						continue;
 					} else {
 						actAndWait(abil);
@@ -215,6 +219,21 @@ public class EnemyEvent extends CharacterEvent {
 				}
 				
 				// no friends, no enemies... damn
+				
+				// check again for junk...
+				for (Ability abil : abilities) {
+					if (abil.getTactic() == TacticType.RANDOM && abil.anyInRange()) {
+						// this ability is potentially valid
+						if (!abil.aiShouldUse(this)) {
+							continue;
+						} else {
+							actAndWait(abil);
+							return;
+						}
+					}
+				}
+				
+				// welp time to wander around
 				ActWander wander = new ActWander(this);
 				actAndWait(wander);
 			}

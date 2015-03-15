@@ -1,0 +1,31 @@
+{
+	"key" : "unit_dragon_spawn",
+	"subfolder" : "dragon",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Lizardspawn",
+	"appearance" : "None",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 7.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 2.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 1.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [ ],
+	"rivalry" : "REQUIRES_RIVAL"
+}

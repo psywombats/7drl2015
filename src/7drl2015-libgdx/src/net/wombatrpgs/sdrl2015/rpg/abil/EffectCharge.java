@@ -12,6 +12,7 @@ import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
+import net.wombatrpgs.sdrl2015.rpg.enemy.EnemyEvent;
 import net.wombatrpgs.sdrl2015.rpg.travel.StepMove;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectChargeMDO;
@@ -41,8 +42,9 @@ public class EffectCharge extends AbilEffect {
 	 * @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#aiShouldUse()
 	 */
 	@Override
-	public boolean aiShouldUse() {
-		if (!super.aiShouldUse()) return false;
+	public boolean aiShouldUse(EnemyEvent actor) {
+		parent = actor.getParent();
+		if (!super.aiShouldUse(actor)) return false;
 		abil.acquireTargets();
 		for (GameUnit target : abil.getTargets()) {
 			// hack, should only check hostiles

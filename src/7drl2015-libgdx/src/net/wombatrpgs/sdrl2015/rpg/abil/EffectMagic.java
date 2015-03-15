@@ -11,8 +11,10 @@ import java.util.List;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
+import net.wombatrpgs.sdrl2015.rpg.enemy.EnemyEvent;
 import net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO;
 import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
+import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
 /**
  * Offensive magic.
@@ -35,6 +37,20 @@ public class EffectMagic extends AbilEffect {
 	@Override public TacticType getTactic() { return TacticType.OFFENSE; }
 
 	/**
+	 * @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#aiShouldUse
+	 * (net.wombatrpgs.sdrl2015.rpg.enemy.EnemyEvent)
+	 */
+	@Override
+	public boolean aiShouldUse(EnemyEvent actor) {
+		switch (mdo.element) {
+		case EARTH:		return actor.getUnit().get(Stat.EARTH_DMG) > 0;
+		case FIRE:		return actor.getUnit().get(Stat.FIRE_DMG) > 0;
+		case ICE:		return actor.getUnit().get(Stat.ICE_DMG) > 0;
+		default:		return true;
+		}
+	}
+
+	/**
 	 * @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#internalAct(java.util.List)
 	 */
 	@Override
@@ -42,6 +58,7 @@ public class EffectMagic extends AbilEffect {
 		for (GameUnit target : targets) {
 			if (target.calcDodgeChance(0) > MGlobal.rand.nextFloat()) {
 				GameUnit.out().msg(target.getName() + " dodges.");
+				target.onAttackBy(actor.getUnit());
 			} else if (target.resists(mdo.element)) {
 				GameUnit.out().msg(target.getName() + " resists.");
 			} else {
@@ -50,13 +67,17 @@ public class EffectMagic extends AbilEffect {
 				if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {
 					dmg *= 1f + (.2f * (float) getLevel());
 				}
+				if (target.isWeakTo(mdo.element)) {
+					GameUnit.out().msg(target.getName() + " is weak to the atack.");
+					dmg *= 2;
+				}
 				int dealt = target.takeMagicDamage(dmg);
 				if (MGlobal.hero.inLoS(target.getParent())) {
 					GameUnit.out().msg(target.getName() + " took " + dealt + " damage.");
 				}
 				target.ensureAlive();
+				target.onAttackBy(actor.getUnit());
 			}
-			target.onAttackBy(actor.getUnit());
 		}
 	}
 

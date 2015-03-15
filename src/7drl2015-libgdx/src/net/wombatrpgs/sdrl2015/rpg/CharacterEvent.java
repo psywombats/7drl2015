@@ -63,7 +63,7 @@ public class CharacterEvent extends MapEvent implements Turnable {
 		overlays = new ArrayList<FacesAnimation>();
 		setPacing(true);
 		
-		ticksRemaining = 0;
+		ticksRemaining = MGlobal.rand.nextInt(Action.BASE_COST - 2) + 1;
 		
 		// ugly static stuff left over from MRogue -- ew
 		if (defaultWait == null) {

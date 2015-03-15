@@ -13,8 +13,11 @@ public enum Flag implements FlagStatLinkable {
 	
 	RESIST_FIRE,
 	RESIST_ICE,
-	RESIST_EARTH;
-	// etc
+	RESIST_EARTH,
+	
+	WEAK_FIRE,
+	WEAK_ICE,
+	WEAK_EARTH;
 
 	private FlagStat flag;
 	

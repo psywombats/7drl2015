@@ -61,7 +61,11 @@ public class EffectHackBack extends AbilEffect {
 				for (int i = 0; i < retreat; i += 1) {
 					tileX += dir.getVector().x;
 					tileY += dir.getVector().y;
-					actor.addStep(new StepMove(actor, tileX, tileY));
+					if (parent.isTilePassable(actor, tileX, tileY)) {
+						actor.addStep(new StepMove(actor, tileX, tileY));
+					} else {
+						break;
+					}
 				}
 				actor.setTileX(tileX);
 				actor.setTileY(tileY);

@@ -5,9 +5,12 @@
 	"description" : "",
 	"prefix" : "Dark",
 	"appearance" : "4dir_darkelf",
+	"overlay" : "None",
 	"dangerLevel" : {
 		"boundsString" : ""
 	},
+	"spawnType" : "USE_UNITS",
+	"rivalry" : "NO_REQUIREMENT",
 	"statsMod" : {
 		"stats" : [
 			{

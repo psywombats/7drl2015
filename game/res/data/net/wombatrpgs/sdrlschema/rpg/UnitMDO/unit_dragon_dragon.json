@@ -1,0 +1,31 @@
+{
+	"key" : "unit_dragon_dragon",
+	"subfolder" : "dragon",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Dragon",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_dragon",
+	"dangerLevel" : {
+		"boundsString" : "4-99"
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 80.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 8.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_bolt_earth",
+		"abil_bolt_fire",
+		"abil_bolt_ice"
+	],
+	"rivalry" : "NO_REQUIREMENT"
+}

@@ -12,6 +12,7 @@ import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
+import net.wombatrpgs.sdrl2015.rpg.enemy.EnemyEvent;
 import net.wombatrpgs.sdrl2015.rpg.travel.Step;
 import net.wombatrpgs.sdrl2015.rpg.travel.StepWait;
 import net.wombatrpgs.sdrlschema.rpg.abil.AbilityEffectMDO;
@@ -53,7 +54,7 @@ public abstract class AbilEffect {
 	 * and maybe use the RNG. By default returns true.
 	 * @return					True if AI should use when valid.
 	 */
-	public boolean aiShouldUse() {
+	public boolean aiShouldUse(EnemyEvent actor) {
 		return true;
 	}
 	

@@ -1,0 +1,18 @@
+{
+	"key" : "unit_demon_servant",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Servant",
+	"appearance" : "None",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	},
+	"abilities" : [ ],
+	"rivalry" : "REQUIRES_RIVAL"
+}

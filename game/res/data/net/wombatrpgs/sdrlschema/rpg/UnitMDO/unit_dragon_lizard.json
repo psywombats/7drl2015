@@ -1,0 +1,39 @@
+{
+	"key" : "unit_dragon_lizard",
+	"subfolder" : "dragon",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Lizard",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_lizard",
+	"dangerLevel" : {
+		"boundsString" : "2-99"
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 7.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 4.0
+			},
+			{
+				"stat" : "SPEED",
+				"value" : -20.0
+			},
+			{
+				"stat" : "VISION",
+				"value" : -1.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_proj_earth",
+		"abil_proj_ice",
+		"abil_proj_fire"
+	],
+	"rivalry" : "NO_REQUIREMENT"
+}

@@ -640,6 +640,20 @@ public class GameUnit implements Turnable, Queueable {
 	}
 	
 	/**
+	 * Checks if this unit is weak to a given element. Checks flag stats.
+	 * @param	element			The element to check
+	 * @return					True if the given element is weak
+	 */
+	public boolean isWeakTo(MagicElement element) {
+		switch (element) {
+		case EARTH:		return is(Flag.WEAK_EARTH);
+		case FIRE:		return is(Flag.WEAK_FIRE);
+		case ICE:		return is(Flag.WEAK_ICE);
+		default:		return false;
+		}
+	}
+	
+	/**
 	 * Calculates how fast this unit should move compared to average. Does this
 	 * with the speed stat.
 	 * @return					The speed mod, a multiplier centered around 1.0

@@ -15,6 +15,8 @@ import net.wombatrpgs.mgns.core.Annotations.SchemaLink;
 import net.wombatrpgs.mgns.core.MainSchema;
 import net.wombatrpgs.sdrlschema.graphics.FourDirMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.AbilityMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.RivalryRequirementType;
+import net.wombatrpgs.sdrlschema.rpg.data.UnitUseType;
 import net.wombatrpgs.sdrlschema.rpg.stats.StatModMDO;
 
 /**
@@ -39,6 +41,14 @@ public class RaceMDO extends MainSchema {
 	
 	@InlineSchema(DangerRequirementMDO.class)
 	public DangerRequirementMDO dangerLevel;
+	
+	@Desc("Unit use")
+	@DefaultValue("USE_UNITS")
+	public UnitUseType spawnType;
+	
+	@Desc("Rivalry requirement - does this unit require rivalry to be generated?")
+	@DefaultValue("NO_REQUIREMENT")
+	public RivalryRequirementType rivalry;
 	
 	@Desc("Stats modifier - applied to the default statset for enemies")
 	@InlineSchema(StatModMDO.class)

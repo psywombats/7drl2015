@@ -30,6 +30,7 @@ import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent.RayCheck;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
+import net.wombatrpgs.sdrl2015.rpg.enemy.EnemyEvent;
 import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.rpg.travel.Step;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
@@ -391,10 +392,11 @@ public class Ability extends Action implements Queueable, CommandListener {
 	 * RNG-based check to see if this ability should be used by the AI. At this
 	 * point, the ability is known to be valid. The idea is that AI might want
 	 * to do something other than spam valid abilities.
+	 * @param	actor			The actor doing the acting
 	 * @return					True if AI should use this ability now
 	 */
-	public boolean aiShouldUse() {
-		return (effect.aiShouldUse()) && (MGlobal.rand.nextFloat() < mdo.useChance);
+	public boolean aiShouldUse(EnemyEvent actor) {
+		return (effect.aiShouldUse(actor)) && (MGlobal.rand.nextFloat() < mdo.useChance);
 	}
 	
 	/**
@@ -479,8 +481,10 @@ public class Ability extends Action implements Queueable, CommandListener {
 							if (mdo.target == AbilityTargetType.BEAM) {
 								int tileX = actor.getTileX();
 								int tileY = actor.getTileY();
-								EightDir dir = actor.directionTo(targetCursor);
-								for (int i = 0; i <= actor.tileDistanceTo(targetCursor); i += 1) {
+								int origX = tileX;
+								int origY = tileY;
+								for (int i = 0; i <= actor.euclideanTileDistanceTo(targetCursor); i += 1) {
+									EightDir dir = actor.directionTo(targetCursor);
 									tileX += dir.getVector().x;
 									tileY += dir.getVector().y;
 									for (CharacterEvent other : actor.getParent().getCharacters()) {
@@ -488,7 +492,11 @@ public class Ability extends Action implements Queueable, CommandListener {
 											targets.add(other.getUnit());
 										}
 									}
+									actor.setTileX(tileX);
+									actor.setTileY(tileY);
 								}
+								actor.setTileX(origX);
+								actor.setTileY(origY);
 							} else {
 								if (targetCursor.getLastTarget() != null) {
 									targets.add(targetCursor.getLastTarget().getUnit());

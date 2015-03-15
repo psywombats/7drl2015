@@ -1,0 +1,38 @@
+{
+	"key" : "race_demon_hellhound",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Hellhound",
+	"appearance" : "4dir_hound",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"spawnType" : "NO_UNITS",
+	"rivalry" : "NO_REQUIREMENT",
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 30.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 5.0
+			},
+			{
+				"stat" : "VISION",
+				"value" : 3.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 7.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_teleport"
+	]
+}

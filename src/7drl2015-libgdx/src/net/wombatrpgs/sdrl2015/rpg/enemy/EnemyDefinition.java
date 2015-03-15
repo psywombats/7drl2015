@@ -49,9 +49,9 @@ public class EnemyDefinition {
 	 * @return					True if this definition can ever be created
 	 */
 	public boolean isValid(SpeciesMDO rivalSpecies) {
-		if (unitMDO != null && 
-				unitMDO.rivalry == RivalryRequirementType.REQUIRES_RIVAL
-				&& rivalSpecies != speciesMDO) {
+		boolean rivalRace = raceMDO != null && raceMDO.rivalry == RivalryRequirementType.REQUIRES_RIVAL;
+		boolean rivalUnit = unitMDO != null && unitMDO.rivalry == RivalryRequirementType.REQUIRES_RIVAL;
+		if (rivalRace || rivalUnit && rivalSpecies != speciesMDO) {
 			return false;
 		}
 		if (!dangerCondition.canBeMet()) {

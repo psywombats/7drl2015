@@ -1,0 +1,27 @@
+{
+	"key" : "species_dragon",
+	"subfolder" : "dragon",
+	"name" : "",
+	"description" : "",
+	"raceName" : "",
+	"appearance" : "4dir_creeper_blue",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	},
+	"abilities" : [ ],
+	"races" : [
+		"race_dragon_blue",
+		"race_dragon_green",
+		"race_dragon_red"
+	],
+	"units" : [
+		"unit_dragon_dragon",
+		"unit_dragon_hatchling",
+		"unit_dragon_lizard",
+		"unit_dragon_spawn"
+	]
+}

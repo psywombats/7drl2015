@@ -1,0 +1,27 @@
+{
+	"key" : "race_dragon_blue",
+	"subfolder" : "dragon",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Blue",
+	"appearance" : "4dir_creeper_blue",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"spawnType" : "USE_UNITS",
+	"rivalry" : "NO_REQUIREMENT",
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "ICE_DMG",
+				"value" : 7.0
+			}
+		],
+		"flags" : [
+			"RESIST_ICE",
+			"WEAK_EARTH"
+		]
+	},
+	"abilities" : [ ]
+}

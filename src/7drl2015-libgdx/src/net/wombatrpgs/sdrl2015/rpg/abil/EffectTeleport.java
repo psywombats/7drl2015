@@ -11,6 +11,7 @@ import java.util.List;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
+import net.wombatrpgs.sdrl2015.rpg.enemy.EnemyEvent;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectTeleportMDO;
 import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
 
@@ -38,9 +39,9 @@ public class EffectTeleport extends AbilEffect {
 	 * @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#aiShouldUse()
 	 */
 	@Override
-	public boolean aiShouldUse() {
+	public boolean aiShouldUse(EnemyEvent actor) {
 		// fuck it
-		return super.aiShouldUse() && MGlobal.rand.nextFloat() < .05;
+		return super.aiShouldUse(actor) && MGlobal.rand.nextFloat() < .05;
 	}
 
 	/**

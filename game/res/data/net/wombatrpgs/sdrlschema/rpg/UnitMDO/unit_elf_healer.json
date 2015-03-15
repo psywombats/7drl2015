@@ -1,0 +1,20 @@
+{
+	"key" : "unit_elf_healer",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Healer",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_robe",
+	"dangerLevel" : {
+		"boundsString" : "2-99"
+	},
+	"statsMod" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_heal"
+	],
+	"rivalry" : "REQUIRES_RIVAL"
+}

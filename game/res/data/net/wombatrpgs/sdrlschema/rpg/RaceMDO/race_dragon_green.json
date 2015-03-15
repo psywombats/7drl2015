@@ -1,0 +1,27 @@
+{
+	"key" : "race_dragon_green",
+	"subfolder" : "dragon",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Green",
+	"appearance" : "4dir_creeper_green",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"spawnType" : "USE_UNITS",
+	"rivalry" : "NO_REQUIREMENT",
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "EARTH_DMG",
+				"value" : 7.0
+			}
+		],
+		"flags" : [
+			"RESIST_EARTH",
+			"WEAK_FIRE"
+		]
+	},
+	"abilities" : [ ]
+}

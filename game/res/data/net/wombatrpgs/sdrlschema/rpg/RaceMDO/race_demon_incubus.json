@@ -1,0 +1,30 @@
+{
+	"key" : "race_demon_incubus",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Succubus",
+	"appearance" : "4dir_red_male",
+	"overlay" : "None",
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"spawnType" : "USE_UNITS",
+	"rivalry" : "NO_REQUIREMENT",
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 30.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 5.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_touch_fire"
+	]
+}

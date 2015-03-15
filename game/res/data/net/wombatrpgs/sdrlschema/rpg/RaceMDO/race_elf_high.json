@@ -5,9 +5,12 @@
 	"description" : "",
 	"prefix" : "High",
 	"appearance" : "4dir_highelf",
+	"overlay" : "None",
 	"dangerLevel" : {
 		"boundsString" : ""
 	},
+	"spawnType" : "USE_UNITS",
+	"rivalry" : "NO_REQUIREMENT",
 	"statsMod" : {
 		"stats" : [
 			{

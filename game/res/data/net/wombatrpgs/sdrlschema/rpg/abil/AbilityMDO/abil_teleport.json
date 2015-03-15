@@ -8,7 +8,7 @@
 	"uses" : 2,
 	"target" : "USER",
 	"range" : 1.0,
-	"useChance" : 1.0,
+	"useChance" : 0.1,
 	"warhead" : {
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectTeleportMDO",
 		"key" : "anon_AbilityMDO_-1374879458"

@@ -1,0 +1,25 @@
+{
+	"key" : "unit_demon_mage",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Mage",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_robe",
+	"dangerLevel" : {
+		"boundsString" : "3-99"
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : -15.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_bolt_fire"
+	],
+	"rivalry" : "NO_REQUIREMENT"
+}

@@ -15,6 +15,7 @@ import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrlschema.rpg.RaceMDO;
 import net.wombatrpgs.sdrlschema.rpg.SpeciesMDO;
 import net.wombatrpgs.sdrlschema.rpg.UnitMDO;
+import net.wombatrpgs.sdrlschema.rpg.data.UnitUseType;
 
 /**
  * Spawns enemies for levels. Owned by a level generator.
@@ -39,12 +40,19 @@ public class EnemyGenerator {
 		allDefinitions = new ArrayList<EnemyDefinition>();
 		for (SpeciesMDO species : allSpecies) {
 			for (String raceKey : species.races) {
-				for (String unitKey : species.units) {
+				if (MGlobal.data.getEntryFor(raceKey, RaceMDO.class).spawnType == UnitUseType.NO_UNITS) {
 					EnemyDefinition def = new EnemyDefinition(species,
 							MGlobal.data.getEntryFor(raceKey, RaceMDO.class),
-							MGlobal.data.getEntryFor(unitKey, UnitMDO.class));
-					if (def.isValid(rivalSpecies)) {
-						allDefinitions.add(def);
+							null);
+					allDefinitions.add(def);
+				} else {
+					for (String unitKey : species.units) {
+						EnemyDefinition def = new EnemyDefinition(species,
+								MGlobal.data.getEntryFor(raceKey, RaceMDO.class),
+								MGlobal.data.getEntryFor(unitKey, UnitMDO.class));
+						if (def.isValid(rivalSpecies)) {
+							allDefinitions.add(def);
+						}
 					}
 				}
 			}
