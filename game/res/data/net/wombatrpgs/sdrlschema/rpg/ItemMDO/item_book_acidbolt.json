@@ -6,7 +6,8 @@
 	"itemName" : "book of Acid Bolt",
 	"itemDescription" : "A spellbook. Grants the Acid Bolt skill.",
 	"icon" : "book1_earth.png",
-	"carriedAbility" : "abil_bolt_ice",
+	"uses" : 0,
+	"carriedAbility" : "abil_bolt_earth",
 	"equippedAbility" : "None",
 	"slot" : null,
 	"stats" : {
