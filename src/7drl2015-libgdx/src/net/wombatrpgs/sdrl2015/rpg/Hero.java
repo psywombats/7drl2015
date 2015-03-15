@@ -86,7 +86,7 @@ public class Hero extends CharacterEvent implements CommandListener {
 	@Override
 	public void onAddedToMap(Level map) {
 		super.onAddedToMap(map);
-		seenCache = new boolean[map.getHeight()][map.getWidth()];
+		seenCache = map.getSeenCache();
 	}
 
 	/**
