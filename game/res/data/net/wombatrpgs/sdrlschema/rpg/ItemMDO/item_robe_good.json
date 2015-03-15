@@ -4,7 +4,7 @@
 	"name" : "",
 	"description" : "",
 	"itemName" : "wizard's robe",
-	"itemDescription" : "An enchanted robe. Increases magic damage by 6.",
+	"itemDescription" : "An enchanted robe. Increases magic damage by 9.",
 	"icon" : "robes2.png",
 	"uses" : 0,
 	"carriedAbility" : "None",
@@ -14,15 +14,15 @@
 		"stats" : [
 			{
 				"stat" : "FIRE_DMG",
-				"value" : 6.0
+				"value" : 9.0
 			},
 			{
 				"stat" : "ICE_DMG",
-				"value" : 6.0
+				"value" : 9.0
 			},
 			{
 				"stat" : "EARTH_DMG",
-				"value" : 6.0
+				"value" : 9.0
 			}
 		],
 		"flags" : [ ]

@@ -14,5 +14,8 @@
 	"pathsDown" : [
 		"map_02"
 	],
-	"scene" : "instructions.scene"
+	"scene" : "instructions.scene",
+	"items" : [
+		"item_macguffin"
+	]
 }

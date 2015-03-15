@@ -1,0 +1,17 @@
+{
+	"key" : "item_macguffin",
+	"subfolder" : "misc",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Statue of MacGuffin",
+	"itemDescription" : "You win!",
+	"icon" : "mcguffin.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

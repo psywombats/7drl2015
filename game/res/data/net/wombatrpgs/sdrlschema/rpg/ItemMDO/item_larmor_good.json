@@ -4,7 +4,7 @@
 	"name" : "",
 	"description" : "",
 	"itemName" : "gi",
-	"itemDescription" : "An evasive robe. Increase defense by 12.",
+	"itemDescription" : "An evasive robe. Increase defense by 14.",
 	"icon" : "light2.png",
 	"uses" : 0,
 	"carriedAbility" : "None",
@@ -14,7 +14,7 @@
 		"stats" : [
 			{
 				"stat" : "DV",
-				"value" : 12.0
+				"value" : 14.0
 			}
 		],
 		"flags" : [ ]

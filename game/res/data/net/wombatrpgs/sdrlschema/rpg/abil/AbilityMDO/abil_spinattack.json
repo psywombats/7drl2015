@@ -17,6 +17,7 @@
 	"energyCost" : 1000,
 	"leveling" : [
 		"INCREASE_USES",
+		"INCREASE_RANGE",
 		"INCREASE_DAMAGE"
 	],
 	"fx" : "None"
