@@ -53,7 +53,9 @@ public class EnemyGenerator {
 					EnemyDefinition def = new EnemyDefinition(species,
 							MGlobal.data.getEntryFor(raceKey, RaceMDO.class),
 							null);
-					allDefinitions.add(def);
+					if (def.isValid(rivalSpecies)) {
+						allDefinitions.add(def);
+					}
 				} else {
 					for (String unitKey : species.units) {
 						EnemyDefinition def = new EnemyDefinition(species,

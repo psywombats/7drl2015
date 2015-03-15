@@ -13,5 +13,6 @@
 	"pathsUp" : [ ],
 	"pathsDown" : [
 		"map_02"
-	]
+	],
+	"scene" : "instructions.scene"
 }
