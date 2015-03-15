@@ -436,6 +436,13 @@ public class Level extends ScreenObject implements Turnable {
 	}
 	
 	/**
+	 * Returns all the events on the map.
+	 * 
+	 * @return                   All the events on the map
+	 */
+	public List<MapEvent> getEvents() { return eventLayer.getEvents(); }
+	
+	/**
 	 * Looks up where to teleport in were a hero to try and warp from the
 	 * designated map.
 	 * @param	mapID			The MDO key of the map to look up

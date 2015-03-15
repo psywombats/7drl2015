@@ -6,6 +6,8 @@
  */
 package net.wombatrpgs.sdrl2015.screen.instances;
 
+import java.util.List;
+
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 
@@ -14,6 +16,8 @@ import net.wombatrpgs.sdrl2015.io.command.CMapGame;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.Loc;
 import net.wombatrpgs.sdrl2015.maps.events.Cursor;
+import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
+import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
 import net.wombatrpgs.sdrlschema.settings.IntroSettingsMDO;
@@ -86,6 +90,23 @@ public class GameScreen extends Screen {
 				MGlobal.hero.setTileX(MGlobal.rand.nextInt(map.getWidth()));
 				MGlobal.hero.setTileY(MGlobal.rand.nextInt(map.getHeight()));
 			}
+			
+			/* This is super hacky, but is easier than redoing the spawn ordering. */
+			Level map = MGlobal.hero.getParent();
+			List<MapEvent> events = map.getEvents();
+			int hx = MGlobal.hero.getTileX();
+			int hy = MGlobal.hero.getTileY();
+			for (MapEvent event : events) {
+				int ex = event.getTileX();
+				int ey = event.getTileY();
+				
+				if (event instanceof CharacterEvent && 
+						(Math.abs(ex - hx) <= 10 && Math.abs(ey - hy) <= 10) &&
+						(ex != hx  && ey != hy)) {
+					map.removeEvent(event);
+				}
+			}
+			
 			MGlobal.hero.setUpCamp();
 			map.setTeleInLoc("hero", new Loc(MGlobal.hero.getTileX(), MGlobal.hero.getTileY()));
 			MGlobal.hero.setX(MGlobal.hero.getTileX()*map.getTileWidth());
