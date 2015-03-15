@@ -48,7 +48,7 @@ public class EnemyDefinition {
 	 * @param	rivalSpecies	The rivalry species for the game
 	 * @return					True if this definition can ever be created
 	 */
-	public boolean isValid(SpeciesMDO rivalSpecies) {
+	public boolean isValid(SpeciesMDO rivalSpecies) {		
 		boolean rivalRace = raceMDO != null && raceMDO.rivalry == RivalryRequirementType.REQUIRES_RIVAL;
 		boolean rivalUnit = unitMDO != null && unitMDO.rivalry == RivalryRequirementType.REQUIRES_RIVAL;
 		if (rivalRace || rivalUnit && rivalSpecies != speciesMDO) {

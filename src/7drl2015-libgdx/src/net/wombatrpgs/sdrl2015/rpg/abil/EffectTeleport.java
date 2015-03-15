@@ -65,6 +65,13 @@ public class EffectTeleport extends AbilEffect {
 					target.getParent().getTileY())
 					|| target.getParent().euclideanTileDistanceTo(origX, origY) < minR)
 					&& tries < 50);
+			
+			if (tries == 50) {
+				target.getParent().setTileX(origX);
+				target.getParent().setTileY(origY);
+				return;
+			}
+			
 			if (MGlobal.hero.inLoS(target.getParent())) {
 				GameUnit.out().msg(target.getName() + " appears.");
 			}
