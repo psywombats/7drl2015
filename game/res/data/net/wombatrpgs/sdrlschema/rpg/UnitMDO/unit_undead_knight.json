@@ -31,8 +31,6 @@
 		"abil_smash"
 	],
 	"rivalry" : "NO_REQUIREMENT",
-	"heldItems" : [
-		"item_mace_bad"
-	],
+	"heldItems" : [ ],
 	"lootTable" : "None"
 }

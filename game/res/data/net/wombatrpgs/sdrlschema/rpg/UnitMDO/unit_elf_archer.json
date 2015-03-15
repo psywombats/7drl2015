@@ -27,8 +27,6 @@
 		"abil_shoot"
 	],
 	"rivalry" : "NO_REQUIREMENT",
-	"heldItems" : [
-		"item_bow_bad"
-	],
+	"heldItems" : [ ],
 	"lootTable" : "None"
 }

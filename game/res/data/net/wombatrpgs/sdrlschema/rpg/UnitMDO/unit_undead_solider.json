@@ -27,8 +27,6 @@
 		"abil_hackback"
 	],
 	"rivalry" : "REQUIRES_RIVAL",
-	"heldItems" : [
-		"item_sword_bad"
-	],
+	"heldItems" : [ ],
 	"lootTable" : "None"
 }

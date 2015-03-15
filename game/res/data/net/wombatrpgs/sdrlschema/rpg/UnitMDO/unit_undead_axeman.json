@@ -23,8 +23,6 @@
 		"abil_spinattack"
 	],
 	"rivalry" : "NO_REQUIREMENT",
-	"heldItems" : [
-		"item_axe_bad"
-	],
+	"heldItems" : [ ],
 	"lootTable" : "None"
 }

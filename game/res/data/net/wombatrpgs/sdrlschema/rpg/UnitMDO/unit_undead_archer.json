@@ -21,8 +21,6 @@
 	},
 	"abilities" : [ ],
 	"rivalry" : "REQUIRES_RIVAL",
-	"heldItems" : [
-		"item_bow_bad"
-	],
+	"heldItems" : [ ],
 	"lootTable" : "None"
 }

@@ -31,8 +31,6 @@
 		"abil_armorpierce"
 	],
 	"rivalry" : "REQUIRES_RIVAL",
-	"heldItems" : [
-		"item_knife_bad"
-	],
+	"heldItems" : [ ],
 	"lootTable" : "None"
 }

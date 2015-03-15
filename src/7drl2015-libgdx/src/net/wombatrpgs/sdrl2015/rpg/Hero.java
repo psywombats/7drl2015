@@ -46,7 +46,7 @@ public class Hero extends CharacterEvent implements CommandListener {
 	protected static final String HERO_DEFAULT = "hero_default";
 	
 	protected static final String START_PACK_DEFAULT = "itemlist_starter";
-	protected static final int STARTER_ITEMS = 6;
+	protected static final int STARTER_ITEMS = 7;
 	
 	protected ActStep step;
 	// to facilitate shader calls, viewtex is like a b/w image version of cache

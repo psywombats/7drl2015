@@ -27,8 +27,6 @@
 		"abil_accurate"
 	],
 	"rivalry" : "REQUIRES_RIVAL",
-	"heldItems" : [
-		"item_rapier_bad"
-	],
+	"heldItems" : [ ],
 	"lootTable" : "None"
 }

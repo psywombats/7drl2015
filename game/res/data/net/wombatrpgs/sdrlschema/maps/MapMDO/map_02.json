@@ -15,5 +15,9 @@
 	],
 	"pathsDown" : [
 		"map_03"
+	],
+	"scene" : "None",
+	"items" : [
+		"item_pot_heal"
 	]
 }

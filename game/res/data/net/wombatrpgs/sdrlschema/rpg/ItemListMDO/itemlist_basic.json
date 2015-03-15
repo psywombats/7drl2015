@@ -42,6 +42,8 @@
 		"item_larmor_bad",
 		"item_ring_fire",
 		"item_ring_ice",
-		"item_ring_earth"
+		"item_ring_earth",
+		"item_larmor_bad",
+		"item_robe_bad"
 	]
 }

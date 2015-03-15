@@ -27,8 +27,6 @@
 		"abil_charge"
 	],
 	"rivalry" : "NO_REQUIREMENT",
-	"heldItems" : [
-		"item_spear_bad"
-	],
+	"heldItems" : [ ],
 	"lootTable" : "None"
 }

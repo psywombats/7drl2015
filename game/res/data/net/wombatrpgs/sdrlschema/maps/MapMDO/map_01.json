@@ -16,6 +16,6 @@
 	],
 	"scene" : "instructions.scene",
 	"items" : [
-		"item_macguffin"
+		"item_pot_heal"
 	]
 }

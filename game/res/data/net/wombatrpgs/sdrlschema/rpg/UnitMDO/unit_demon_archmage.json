@@ -37,8 +37,6 @@
 		"abil_teleport"
 	],
 	"rivalry" : "NO_REQUIREMENT",
-	"heldItems" : [
-		"item_book_fireball"
-	],
+	"heldItems" : [ ],
 	"lootTable" : "None"
 }

@@ -55,11 +55,11 @@ import net.wombatrpgs.sdrlschema.rpg.ItemMDO;
  */
 public class Level extends ScreenObject implements Turnable {
 	
-	protected static final int LOOT_PIECES = 2;
+	protected static final int LOOT_PIECES = 3;
 	protected static final String LOOT_LIST_LOW = "itemlist_basic";
 	protected static final String LOOT_LIST_MED = "itemlist_goodstuff";
 	protected static final String LOOT_LIST_HIGH = "itemlist_artifacts";
-	protected static final float LOOT_IMPROVE_CHANCE = .03f;
+	protected static final float LOOT_IMPROVE_CHANCE = .04f;
 	protected static final float RESPAWN_CHANCE = .02f;
 	
 	public static final int TILE_WIDTH = 32;
@@ -236,10 +236,12 @@ public class Level extends ScreenObject implements Turnable {
 		if (pass == 0) {
 			mapGen.generateMe();
 			spawnToCapacity();
-			for (String itemKey : mdo.items) {
-				Item item = new Item(MGlobal.data.getEntryFor(itemKey, ItemMDO.class));
-				MGlobal.assetManager.loadAsset(item, "req item " + item.getName());
-				item.spawnUnseen(this);
+			if (mdo.items != null) {
+				for (String itemKey : mdo.items) {
+					Item item = new Item(MGlobal.data.getEntryFor(itemKey, ItemMDO.class));
+					MGlobal.assetManager.loadAsset(item, "req item " + item.getName());
+					item.spawnUnseen(this);
+				}
 			}
 		}
 	}
