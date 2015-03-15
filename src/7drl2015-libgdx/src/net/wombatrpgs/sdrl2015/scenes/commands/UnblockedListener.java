@@ -13,7 +13,8 @@ public interface UnblockedListener {
 	
 	/**
 	 * Called when a command stops blocking.
+	 * @param	cancelRequested		True if played tried to quit the scene
 	 */
-	public void onUnblock();
+	public void onUnblock(boolean cancelRequested);
 
 }

@@ -42,7 +42,7 @@ public class CommandBlock extends SceneCommand {
 		} else {
 			running = true;
 			block(new UnblockedListener() {
-				@Override public void onUnblock() { }
+				@Override public void onUnblock(boolean canceled) { }
 			});
 			return false;
 		}

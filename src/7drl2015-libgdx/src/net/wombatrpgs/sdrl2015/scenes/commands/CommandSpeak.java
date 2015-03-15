@@ -114,11 +114,11 @@ public class CommandSpeak extends SceneCommand implements UnblockedListener {
 	}
 
 	/**
-	 * @see net.wombatrpgs.mrogue.scenes.commands.UnblockedListener#onUnblock()
+	 * @see net.wombatrpgs.sdrl2015.scenes.commands.UnblockedListener#onUnblock(boolean)
 	 */
 	@Override
-	public void onUnblock() {
-		if (MGlobal.ui.getBox().isFinished()) {
+	public void onUnblock(boolean cancelRequested) {
+		if (MGlobal.ui.getBox().isFinished() || cancelRequested) {
 			if (facePic != null) {
 				facePic.tweenTo(new Color(1, 1, 1, 0), FADE_TIME);
 			}

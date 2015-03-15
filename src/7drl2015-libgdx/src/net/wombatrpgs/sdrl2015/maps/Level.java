@@ -202,6 +202,9 @@ public class Level extends ScreenObject implements Turnable {
 	
 	/** @return The UI floor of this level */
 	public String getFloor() { return mdo.floor; }
+	
+	/** @return True if a cutscene is present on this screen */
+	public boolean isPlayingScene() { return scene != null && scene.isRunning(); }
 
 	/**
 	 * @see net.wombatrpgs.mrogue.graphics.Renderable#render(

@@ -39,6 +39,7 @@ public class Hud extends UIElement {
 	protected static final String NUMSET_BIG = "numberset_ghost";
 	protected static final String NUMSET_SMALL = "numberset_small";
 	
+	protected static final String SKIP_STRING = "press esc to skip";
 	protected static final String CAMP_STRING = "press c to camp";
 	protected static final String CAST_STRING = "casts: ";
 	protected static final String LEFT_STRING = "left:  ";
@@ -231,6 +232,10 @@ public class Hud extends UIElement {
 		
 		if (MGlobal.hero.isEligibleForCamp(true)) {
 			font.draw(batch, campFormat, CAMP_STRING, 0);
+		}
+		
+		if (MGlobal.hero.getParent().isPlayingScene()) {
+			font.draw(batch, campFormat, SKIP_STRING, 0);
 		}
 		
 //		format.align = HAlignment.LEFT;
