@@ -102,7 +102,7 @@ public class GameScreen extends Screen {
 				
 				if (event instanceof CharacterEvent && 
 						(Math.abs(ex - hx) <= 10 && Math.abs(ey - hy) <= 10) &&
-						(ex != hx  && ey != hy)) {
+						!(ex == hx  && ey == hy)) {
 					map.removeEvent(event);
 				}
 			}
