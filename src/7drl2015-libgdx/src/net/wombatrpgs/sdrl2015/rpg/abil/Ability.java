@@ -174,6 +174,9 @@ public class Ability extends Action implements Queueable, CommandListener {
 	/** @return The number of times this ability has been used in the night */
 	public int getUsed() { return used; }
 	
+	/** @return True if this item works via consumables rather than nightly */
+	public boolean isConsumableBased() { return item != null && item.getUses() > 0; }
+	
 	/**
 	 * Checks if an attribute is raised when this abil levels.
 	 * @param	attribute		The attribute to check
@@ -271,7 +274,7 @@ public class Ability extends Action implements Queueable, CommandListener {
 		
 		// awful hack for stacking consumables
 		used += 1;
-		if (item != null && item.getUses() > 0 && used >= item.getUses()) {
+		if (isConsumableBased() && used >= item.getUses()) {
 			actor.getUnit().getInventory().removeItem(item);
 			for (Item item : actor.getUnit().getInventory().getItems()) {
 				if (item != this.item && item.getCarryAbilityKey().equals(getKey())) {

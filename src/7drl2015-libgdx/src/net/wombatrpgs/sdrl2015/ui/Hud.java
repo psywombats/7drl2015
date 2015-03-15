@@ -40,6 +40,8 @@ public class Hud extends UIElement {
 	protected static final String NUMSET_SMALL = "numberset_small";
 	
 	protected static final String CAMP_STRING = "press c to camp";
+	protected static final String CAST_STRING = "casts: ";
+	protected static final String LEFT_STRING = "left:  ";
 
 	protected static final String IMG_FRAME = "hud.png";
 	protected static final String IMG_FRAME_BACK = "hud_backer.png";
@@ -220,7 +222,8 @@ public class Hud extends UIElement {
 			abilFormat.height = 50;
 			abilFormat.x = ABIL_START_X + ABIL_WIDTH*i + ABIL_TEXT_X;
 			abilFormat.y = MGlobal.window.getHeight() - (ABIL_START_Y + ABIL_TEXT_Y);
-			String useString = "left: " + abil.getUses(MGlobal.hero.getUnit());
+			String usePre = abil.isConsumableBased() ? LEFT_STRING : CAST_STRING;
+			String useString = usePre + abil.getUses(MGlobal.hero.getUnit());
 			font.draw(batch, abilFormat, useString, 0);
 			font.draw(batch, abilFormat, pre+(i+1), (int) font.getLineHeight());
 			batch.setColor(1, 1, 1, 1);
