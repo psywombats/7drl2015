@@ -1,0 +1,28 @@
+{
+	"key" : "hoard_undead_high_1",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"entries" : [
+		{
+			"enemy" : "enemy_undead_necromancer",
+			"quantity" : "1"
+		},
+		{
+			"enemy" : "enemy_undead_skeleton_mage",
+			"quantity" : "2"
+		},
+		{
+			"enemy" : "enemy_undead_shadow_soldier",
+			"quantity" : "2-3"
+		},
+		{
+			"enemy" : "enemy_undead_ghost_knight",
+			"quantity" : "2-3"
+		}
+	],
+	"danger" : {
+		"boundsString" : ""
+	},
+	"rivalSpecies" : "species_undead"
+}

@@ -1,0 +1,28 @@
+{
+	"key" : "hoard_dragon_red_high",
+	"subfolder" : "dragon",
+	"name" : "",
+	"description" : "",
+	"entries" : [
+		{
+			"enemy" : "enemy_dragon_red_lizard",
+			"quantity" : "2-3"
+		},
+		{
+			"enemy" : "enemy_dragon_red_hatchling",
+			"quantity" : "2-3"
+		},
+		{
+			"enemy" : "enemy_dragon_red_dragon",
+			"quantity" : "1-2"
+		},
+		{
+			"enemy" : "enemy_dragon_red_wyrm",
+			"quantity" : "1"
+		}
+	],
+	"danger" : {
+		"boundsString" : ""
+	},
+	"rivalSpecies" : "species_dragon"
+}

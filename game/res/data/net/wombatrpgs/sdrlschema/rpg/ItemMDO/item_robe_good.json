@@ -9,7 +9,7 @@
 	"uses" : 0,
 	"carriedAbility" : "None",
 	"equippedAbility" : "None",
-	"slot" : null,
+	"slot" : "ARMOR",
 	"stats" : {
 		"stats" : [
 			{

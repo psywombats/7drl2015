@@ -1,0 +1,24 @@
+{
+	"key" : "hoard_dragon_red_med",
+	"subfolder" : "dragon",
+	"name" : "",
+	"description" : "",
+	"entries" : [
+		{
+			"enemy" : "enemy_dragon_red_hatchling",
+			"quantity" : "2-3"
+		},
+		{
+			"enemy" : "enemy_dragon_red_lizard",
+			"quantity" : "1-3"
+		},
+		{
+			"enemy" : "enemy_dragon_red_dragon",
+			"quantity" : "1"
+		}
+	],
+	"danger" : {
+		"boundsString" : ""
+	},
+	"rivalSpecies" : "species_dragon"
+}

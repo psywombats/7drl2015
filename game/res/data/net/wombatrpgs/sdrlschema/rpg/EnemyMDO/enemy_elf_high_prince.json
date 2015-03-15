@@ -1,0 +1,9 @@
+{
+	"key" : "enemy_elf_high_prince",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"species" : "species_elf",
+	"race" : "race_elf_high",
+	"unit" : "unit_elf_prince"
+}

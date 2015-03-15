@@ -1,0 +1,38 @@
+{
+	"key" : "unit_elf_woodsman",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Woodsman",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_axe",
+	"effect" : null,
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 30.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 4.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 4.0
+			}
+		],
+		"flags" : [
+			"RESIST_EARTH"
+		]
+	},
+	"abilities" : [
+		"abil_spinattack"
+	],
+	"rivalry" : "NO_REQUIREMENT",
+	"heldItems" : [ ],
+	"lootTable" : "itemlist_basic"
+}

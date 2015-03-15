@@ -1,0 +1,24 @@
+{
+	"key" : "hoard_undead_med_2",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"entries" : [
+		{
+			"enemy" : "enemy_undead_ghost_mage",
+			"quantity" : "1"
+		},
+		{
+			"enemy" : "enemy_undead_skeleton_mage",
+			"quantity" : "1"
+		},
+		{
+			"enemy" : "enemy_undead_shadow_mage",
+			"quantity" : "1"
+		}
+	],
+	"danger" : {
+		"boundsString" : ""
+	},
+	"rivalSpecies" : "species_undead"
+}

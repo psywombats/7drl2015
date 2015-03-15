@@ -64,6 +64,8 @@ public class EffectHackBack extends AbilEffect {
 					if (parent.isTilePassable(actor, tileX, tileY)) {
 						actor.addStep(new StepMove(actor, tileX, tileY));
 					} else {
+						tileX -= dir.getVector().x;
+						tileY -= dir.getVector().y;
 						break;
 					}
 				}

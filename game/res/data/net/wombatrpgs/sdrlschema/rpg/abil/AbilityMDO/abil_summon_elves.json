@@ -13,7 +13,7 @@
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectSummonMDO",
 		"key" : "anon_AbilityMDO_-368438318"
 	},
-	"icon" : "None",
+	"icon" : "axe1.png",
 	"energyCost" : 1000,
 	"leveling" : [ ],
 	"fx" : "None"

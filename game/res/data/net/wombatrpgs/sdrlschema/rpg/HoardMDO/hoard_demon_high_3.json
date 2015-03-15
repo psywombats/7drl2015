@@ -1,0 +1,24 @@
+{
+	"key" : "hoard_demon_high_3",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"entries" : [
+		{
+			"enemy" : "enemy_demon_balor_punisher",
+			"quantity" : "1"
+		},
+		{
+			"enemy" : "enemy_demon_moloch",
+			"quantity" : "1"
+		},
+		{
+			"enemy" : "enemy_demon_hellhound",
+			"quantity" : "3-4"
+		}
+	],
+	"danger" : {
+		"boundsString" : ""
+	},
+	"rivalSpecies" : "species_demon"
+}

@@ -1,0 +1,24 @@
+{
+	"key" : "hoard_elf_dark_high",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"entries" : [
+		{
+			"enemy" : "enemy_elf_dark_sorceror",
+			"quantity" : "3"
+		},
+		{
+			"enemy" : "enemy_elf_dark_prince",
+			"quantity" : "1"
+		},
+		{
+			"enemy" : "enemy_elf_dark_spearman",
+			"quantity" : "0-4"
+		}
+	],
+	"danger" : {
+		"boundsString" : ""
+	},
+	"rivalSpecies" : "None"
+}

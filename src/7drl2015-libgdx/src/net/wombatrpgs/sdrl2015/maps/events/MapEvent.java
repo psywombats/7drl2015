@@ -467,6 +467,28 @@ public abstract class MapEvent extends MapThing implements	PositionSetable,
 	}
 	
 	/**
+	 * Adds itself to its parent map in a position not viewable by the hero.
+	 * This is kind of a dumb implementation that relies on rand, be warned.
+	 * @param	parent			The level to spawn on
+	 */
+	public void spawnUnseen(Level parent) {
+		// 100 tries max
+		for (int i = 0; i < 100; i++) {
+			int tileX = MGlobal.rand.nextInt(parent.getWidth());
+			int tileY = MGlobal.rand.nextInt(parent.getHeight());
+			if (MGlobal.hero != null &&
+					MGlobal.hero.getParent() == parent &&
+					MGlobal.hero.inLoS(tileX, tileY)) {
+				continue;
+			}
+			if (!parent.isTilePassable(this, tileX, tileY)) continue;
+			parent.addEvent(this, tileX, tileY);
+			return;
+		}
+		MGlobal.reporter.warn("Waited 100 turns to spawn a " + this);
+	}
+	
+	/**
 	 * Calculates the z-sort for this event.
 	 * @return					The z-layer of this event
 	 */

@@ -1,0 +1,47 @@
+{
+	"key" : "unit_undead_hero",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Hero",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_rapier",
+	"effect" : null,
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 25.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 3.0
+			},
+			{
+				"stat" : "VISION",
+				"value" : 1.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 5.0
+			},
+			{
+				"stat" : "ICE_DMG",
+				"value" : 10.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_touch_ice",
+		"abil_accurate",
+		"abil_armorpierce",
+		"abil_hackback"
+	],
+	"rivalry" : "NO_REQUIREMENT",
+	"heldItems" : [ ],
+	"lootTable" : "None"
+}

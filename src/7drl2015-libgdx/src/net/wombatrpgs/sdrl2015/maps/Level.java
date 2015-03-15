@@ -26,7 +26,9 @@ import net.wombatrpgs.sdrl2015.maps.gen.MapGeneratorFactory;
 import net.wombatrpgs.sdrl2015.maps.layers.EventLayer;
 import net.wombatrpgs.sdrl2015.maps.layers.GridLayer;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
-import net.wombatrpgs.sdrl2015.rpg.enemy.EnemyEvent;
+import net.wombatrpgs.sdrl2015.rpg.enemy.Encounter;
+import net.wombatrpgs.sdrl2015.rpg.item.Item;
+import net.wombatrpgs.sdrl2015.rpg.item.ItemList;
 import net.wombatrpgs.sdrl2015.scenes.SceneParser;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrl2015.screen.ScreenObject;
@@ -51,6 +53,12 @@ import net.wombatrpgs.sdrlschema.maps.MapMDO;
  * Also note that there is only one z layer for objects.
  */
 public class Level extends ScreenObject implements Turnable {
+	
+	protected static final int LOOT_PIECES = 2;
+	protected static final String LOOT_LIST_LOW = "itemlist_basic";
+	protected static final String LOOT_LIST_MED = "itemlist_goodstuff";
+	protected static final String LOOT_LIST_HIGH = "itemlist_artifacts";
+	protected static final float LOOT_IMPROVE_CHANCE = .03f;
 	
 	public static final int TILE_WIDTH = 32;
 	public static final int TILE_HEIGHT = 32;
@@ -539,9 +547,31 @@ public class Level extends ScreenObject implements Turnable {
 	 */
 	protected void spawnToCapacity() {
 		while (getPopulation() < getCapacity()) {
-			EnemyEvent enemy = MGlobal.levelManager.getEnemyGen().generate(getDanger());
-			MGlobal.assetManager.loadAsset(enemy, enemy.getName());
-			enemy.spawnUnseen(this);
+			Encounter encounter = MGlobal.levelManager.getEnemyGen().generateEncounter(getDanger());
+			MGlobal.assetManager.loadAsset(encounter, "encounter");
+			encounter.spawn(this);
+		}
+		ItemList lootLow = new ItemList(LOOT_LIST_LOW);
+		ItemList lootMed = new ItemList(LOOT_LIST_MED);
+		ItemList lootHigh = new ItemList(LOOT_LIST_HIGH);
+		for (int i = 0; i < LOOT_PIECES; i += 1) {
+			// high dl gets more shot at better stuff
+			int checks = 0;
+			for (int check = 0; check < getDanger(); check += 1) {
+				if (MGlobal.rand.nextFloat() < LOOT_IMPROVE_CHANCE) {
+					checks += 1;
+				}
+			}
+			Item item;
+			if (checks >= 2) {
+				item = lootHigh.generateItem();
+			} else if (checks >= 1) {
+				item = lootMed.generateItem();
+			} else {
+				item = lootLow.generateItem();
+			}
+			MGlobal.assetManager.loadAsset(item, "spawn item");
+			item.spawnUnseen(this);
 		}
 	}
 	

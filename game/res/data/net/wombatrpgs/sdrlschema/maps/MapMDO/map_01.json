@@ -5,7 +5,7 @@
 	"description" : "",
 	"mapWidth" : 35,
 	"mapHeight" : 30,
-	"danger" : 0,
+	"danger" : 1,
 	"generator" : "generator_furnished",
 	"effect" : "effect_los",
 	"floor" : "1",

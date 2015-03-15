@@ -1,0 +1,23 @@
+{
+	"key" : "abil_item_firebolt",
+	"subfolder" : "item",
+	"name" : "Fire Bolt",
+	"description" : "",
+	"abilDesc" : "Fires a bolt of fire that can hit multiple targets",
+	"levelDesc" : "Leveling increases damage by 20%",
+	"uses" : 2,
+	"target" : "BEAM",
+	"range" : 5.0,
+	"useChance" : 0.7,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO",
+		"key" : "anon_AbilityMDO_-994489449"
+	},
+	"icon" : "staff3.png",
+	"energyCost" : 1000,
+	"leveling" : [
+		"INCREASE_USES",
+		"INCREASE_DAMAGE"
+	],
+	"fx" : "abilfx_flames"
+}

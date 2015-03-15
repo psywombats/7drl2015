@@ -7,7 +7,7 @@
 	"itemDescription" : "A magical staff. Grants 6 uses of the Firebolt skill.",
 	"icon" : "staff3.png",
 	"uses" : 6,
-	"carriedAbility" : "abil_bolt_fire",
+	"carriedAbility" : "abil_item_firebolt",
 	"equippedAbility" : "None",
 	"slot" : null,
 	"stats" : {

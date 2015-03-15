@@ -1,0 +1,24 @@
+{
+	"key" : "hoard_elf_garbage",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"entries" : [
+		{
+			"enemy" : "enemy_elf_dark_sorceror",
+			"quantity" : "1"
+		},
+		{
+			"enemy" : "enemy_elf_dark_archer",
+			"quantity" : "1-2"
+		},
+		{
+			"enemy" : "enemy_elf_dark_spearman",
+			"quantity" : "1-2"
+		}
+	],
+	"danger" : {
+		"boundsString" : ""
+	},
+	"rivalSpecies" : "None"
+}

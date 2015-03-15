@@ -1,0 +1,43 @@
+{
+	"key" : "race_demon_fire",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"prefix" : "Hellfire",
+	"appearance" : "4dir_fire",
+	"overlay" : "None",
+	"effect" : null,
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"spawnType" : "NO_UNITS",
+	"rivalry" : "NO_REQUIREMENT",
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 60.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 20.0
+			},
+			{
+				"stat" : "FIRE_DMG",
+				"value" : 15.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 2.0
+			}
+		],
+		"flags" : [
+			"RESIST_FIRE",
+			"WEAK_ICE"
+		]
+	},
+	"abilities" : [
+		"abil_ball_fire"
+	],
+	"lootTable" : "None"
+}

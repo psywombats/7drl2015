@@ -18,7 +18,6 @@ import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Turnable;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimation;
 import net.wombatrpgs.sdrl2015.graphics.FacesAnimationFactory;
-import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.maps.layers.EventLayer;
 import net.wombatrpgs.sdrl2015.rpg.act.ActWait;
@@ -285,28 +284,6 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	 */
 	public void faceAway(MapEvent event) {
 		setFacing(EightDir.getOpposite(directionTo(event)).toOrtho(getFacing()));
-	}
-	
-	/**
-	 * Adds itself to its parent map in a position not viewable by the hero.
-	 * This is kind of a dumb implementation that relies on rand, be warned.
-	 * @param	parent			The level to spawn on
-	 */
-	public void spawnUnseen(Level parent) {
-		// 100 tries max
-		for (int i = 0; i < 100; i++) {
-			int tileX = MGlobal.rand.nextInt(parent.getWidth());
-			int tileY = MGlobal.rand.nextInt(parent.getHeight());
-			if (MGlobal.hero != null &&
-					MGlobal.hero.getParent() == parent &&
-					MGlobal.hero.inLoS(tileX, tileY)) {
-				continue;
-			}
-			if (!parent.isTilePassable(this, tileX, tileY)) continue;
-			parent.addEvent(this, tileX, tileY);
-			return;
-		}
-		MGlobal.reporter.warn("Waited 100 turns to spawn a " + this);
 	}
 	
 	/**

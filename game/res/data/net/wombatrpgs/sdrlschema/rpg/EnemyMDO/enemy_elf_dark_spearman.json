@@ -1,0 +1,9 @@
+{
+	"key" : "enemy_elf_dark_spearman",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"species" : "species_elf",
+	"race" : "race_elf_dark",
+	"unit" : "unit_elf_spearman"
+}

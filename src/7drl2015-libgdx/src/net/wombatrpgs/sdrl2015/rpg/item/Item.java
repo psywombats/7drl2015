@@ -125,6 +125,23 @@ public class Item implements Queueable {
 	}
 	
 	/**
+	 * Spawns this item unseen on the map.
+	 * @param	map				The map to spawn on
+	 */
+	public void spawnUnseen(Level map) {
+		if (parent == null) {
+			parent = new ItemEvent(null, this, 0, 0);
+			MGlobal.assetManager.loadAsset(parent, "new item parent");
+		}
+		if (map != parent.getParent()) {
+			if (parent.getParent() != null) {
+				parent.getParent().removeEvent(parent);
+			}
+		}
+		parent.spawnUnseen(map);
+	}
+	
+	/**
 	 * Spawns this item on the map in the vicinity of the given location.
 	 * @param	map				The parent map to spawn on
 	 * @param	tileX			The x-coord to spawn nearby

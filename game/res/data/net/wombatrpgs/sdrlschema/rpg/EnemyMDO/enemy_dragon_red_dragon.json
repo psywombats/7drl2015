@@ -1,0 +1,9 @@
+{
+	"key" : "enemy_dragon_red_dragon",
+	"subfolder" : "dragon",
+	"name" : "",
+	"description" : "",
+	"species" : "species_dragon",
+	"race" : "race_dragon_red",
+	"unit" : "unit_dragon_dragon"
+}

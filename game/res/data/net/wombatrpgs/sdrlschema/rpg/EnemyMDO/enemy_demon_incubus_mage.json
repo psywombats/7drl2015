@@ -1,0 +1,9 @@
+{
+	"key" : "enemy_demon_incubus_mage",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"species" : "species_demon",
+	"race" : "race_demon_incubus",
+	"unit" : "unit_demon_mage"
+}

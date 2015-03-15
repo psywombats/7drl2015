@@ -1,0 +1,37 @@
+{
+	"key" : "unit_elf_ranger",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Ranger",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_bow",
+	"effect" : null,
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 20.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 4.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 2.0
+			}
+		],
+		"flags" : [ ]
+	},
+	"abilities" : [
+		"abil_hackback",
+		"abil_shoot"
+	],
+	"rivalry" : "NO_REQUIREMENT",
+	"heldItems" : [ ],
+	"lootTable" : "itemlist_basic"
+}

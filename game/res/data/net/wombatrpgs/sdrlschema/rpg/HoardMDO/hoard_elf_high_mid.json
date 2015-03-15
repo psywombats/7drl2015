@@ -1,0 +1,28 @@
+{
+	"key" : "hoard_elf_high_mid",
+	"subfolder" : "elf",
+	"name" : "",
+	"description" : "",
+	"entries" : [
+		{
+			"enemy" : "enemy_elf_high_spearman",
+			"quantity" : "1-2"
+		},
+		{
+			"enemy" : "enemy_elf_high_archer",
+			"quantity" : "1-2"
+		},
+		{
+			"enemy" : "enemy_elf_high_healer",
+			"quantity" : "0-1"
+		},
+		{
+			"enemy" : "enemy_elf_high_lord",
+			"quantity" : "1"
+		}
+	],
+	"danger" : {
+		"boundsString" : ""
+	},
+	"rivalSpecies" : "species_elf"
+}

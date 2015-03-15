@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
+import net.wombatrpgs.sdrlschema.rpg.HoardMDO;
 import net.wombatrpgs.sdrlschema.rpg.RaceMDO;
 import net.wombatrpgs.sdrlschema.rpg.SpeciesMDO;
 import net.wombatrpgs.sdrlschema.rpg.UnitMDO;
@@ -22,11 +23,18 @@ import net.wombatrpgs.sdrlschema.rpg.data.UnitUseType;
  */
 public class EnemyGenerator {
 	
+	protected static final float HOARD_CHANCE = .5f;
+	protected static final float PATROL_CHANCE = .5f;
+	protected static final float OUT_OF_DEPTH_CHANCE = .1f;
+	protected static final int OUT_OF_DEPTH_OFFSET = 5;
+	
 	protected SpeciesMDO rivalSpecies;
 	
 	// I have no doubt this isn't scaleable but #yolo #7drl 
 	protected List<EnemyDefinition> allDefinitions;
+	protected List<EncounterHoard> allHoards;
 	protected Map<Integer, List<EnemyDefinition>> definitionsByDL;
+	protected Map<Integer, List<EncounterHoard>> hoardsByDL;
 	
 	/**
 	 * Creates a new generator. Probably only called once per game?
@@ -34,6 +42,7 @@ public class EnemyGenerator {
 	public EnemyGenerator() {
 		
 		definitionsByDL = new HashMap<Integer, List<EnemyDefinition>>();
+		hoardsByDL = new HashMap<Integer, List<EncounterHoard>>();
 		List<SpeciesMDO> allSpecies = MGlobal.data.getAll(SpeciesMDO.class);
 		rivalSpecies = allSpecies.get(MGlobal.rand.nextInt(allSpecies.size()));
 		
@@ -57,6 +66,37 @@ public class EnemyGenerator {
 				}
 			}
 		}
+		
+		List<HoardMDO> allHoardMDOs = MGlobal.data.getAll(HoardMDO.class);
+		allHoards = new ArrayList<EncounterHoard>();
+		for (HoardMDO hoardMDO : allHoardMDOs) {
+			EncounterHoard hoard = new EncounterHoard(hoardMDO);
+			if (hoard.meetsRivalry(rivalSpecies)) {
+				allHoards.add(hoard);
+			}
+		}
+	}
+	
+	/**
+	 * Generates an encounter appropriate for the given danger level.
+	 * @param	dangerLevel		The DL to generate for
+	 * @return					An appropriate encounter instance for that DL
+	 */
+	public Encounter generateEncounter(int dangerLevel) {
+		int dl = dangerLevel;
+		if (MGlobal.rand.nextFloat() < OUT_OF_DEPTH_CHANCE) {
+			dangerLevel += OUT_OF_DEPTH_OFFSET;
+		}
+		if (MGlobal.rand.nextFloat() < HOARD_CHANCE) {
+			EncounterHoard hoard = generateHoard(dl);
+			hoard.generate();
+			return hoard;
+		} else if (MGlobal.rand.nextFloat() < PATROL_CHANCE) {
+			int quantity = MGlobal.rand.nextInt(1)+2;
+			return new EncounterPatrol(generateEnemy(dl), quantity);
+		} else {
+			return new EncounterSingle(generateEnemy(dl));
+		}
 	}
 	
 	/**
@@ -64,7 +104,7 @@ public class EnemyGenerator {
 	 * @param	dangerLevel		The DL to generate for
 	 * @return					An appropriate enemy instance for that DL
 	 */
-	public EnemyEvent generate(int dangerLevel) {
+	protected EnemyEvent generateEnemy(int dangerLevel) {
 		List<EnemyDefinition> definitions = definitionsByDL.get(dangerLevel);
 		if (definitions == null) {
 			// no entry in the cache yet, so generate it
@@ -77,6 +117,26 @@ public class EnemyGenerator {
 			definitionsByDL.put(dangerLevel, definitions);
 		}
 		return definitions.get(MGlobal.rand.nextInt(definitions.size())).instantiate();
+	}
+	
+	/**
+	 * Generates an appropriate hoard for a given danger level.
+	 * @param	dangerLevel		The DL to generate for
+	 * @return					An appropriate hoard instance for that DL
+	 */
+	protected EncounterHoard generateHoard(int dangerLevel) {
+		List<EncounterHoard> hoards = hoardsByDL.get(dangerLevel);
+		if (hoards == null) {
+			// no entry in the cache yet, so generate it
+			hoards = new ArrayList<EncounterHoard>();
+			for (EncounterHoard hoard : allHoards) {
+				if (hoard.isAvailable(dangerLevel)) {
+					hoards.add(hoard);
+				}
+			}
+			hoardsByDL.put(dangerLevel, hoards);
+		}
+		return hoards.get(MGlobal.rand.nextInt(hoards.size()));
 	}
 
 }

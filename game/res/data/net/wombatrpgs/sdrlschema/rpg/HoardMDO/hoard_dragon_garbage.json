@@ -1,0 +1,36 @@
+{
+	"key" : "hoard_dragon_garbage",
+	"subfolder" : "dragon",
+	"name" : "",
+	"description" : "",
+	"entries" : [
+		{
+			"enemy" : "enemy_dragon_blue_lizard",
+			"quantity" : "0-1"
+		},
+		{
+			"enemy" : "enemy_dragon_blue_spawn",
+			"quantity" : "2-3"
+		},
+		{
+			"enemy" : "enemy_dragon_green_lizard",
+			"quantity" : "0-1"
+		},
+		{
+			"enemy" : "enemy_dragon_green_spawn",
+			"quantity" : "2-3"
+		},
+		{
+			"enemy" : "enemy_dragon_red_lizard",
+			"quantity" : "0-1"
+		},
+		{
+			"enemy" : "enemy_dragon_red_spawn",
+			"quantity" : "2-3"
+		}
+	],
+	"danger" : {
+		"boundsString" : ""
+	},
+	"rivalSpecies" : "None"
+}

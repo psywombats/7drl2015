@@ -1,0 +1,9 @@
+{
+	"key" : "enemy_demon_hellhound",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"species" : "species_demon",
+	"race" : "race_demon_hellhound",
+	"unit" : "None"
+}

@@ -491,7 +491,7 @@ public class Ability extends Action implements Queueable, CommandListener {
 								int tileY = actor.getTileY();
 								int origX = tileX;
 								int origY = tileY;
-								for (int i = 0; i <= actor.euclideanTileDistanceTo(targetCursor); i += 1) {
+								for (int i = 0; i <= actor.tileDistanceTo(targetCursor); i += 1) {
 									EightDir dir = actor.directionTo(targetCursor);
 									tileX += dir.getVector().x;
 									tileY += dir.getVector().y;

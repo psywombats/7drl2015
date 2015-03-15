@@ -1,0 +1,16 @@
+{
+	"key" : "hoard_undead_low_1",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"entries" : [
+		{
+			"enemy" : "enemy_undead_skeleton_archer",
+			"quantity" : "3-4"
+		}
+	],
+	"danger" : {
+		"boundsString" : ""
+	},
+	"rivalSpecies" : "species_undead"
+}

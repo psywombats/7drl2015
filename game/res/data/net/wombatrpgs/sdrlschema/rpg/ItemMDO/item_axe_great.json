@@ -5,7 +5,7 @@
 	"description" : "",
 	"itemName" : "Labrys",
 	"itemDescription" : "A mythological axe. Grants the Spin Attack skill. Inflicts +10 damage.",
-	"icon" : "axe2.png",
+	"icon" : "axe3.png",
 	"uses" : 0,
 	"carriedAbility" : "None",
 	"equippedAbility" : "abil_spinattack",

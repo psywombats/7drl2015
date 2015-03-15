@@ -1,0 +1,9 @@
+{
+	"key" : "enemy_undead_shadow_mage",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"species" : "species_undead",
+	"race" : "race_undead_shadow",
+	"unit" : "unit_undead_mage"
+}

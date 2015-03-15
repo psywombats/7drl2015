@@ -1,0 +1,9 @@
+{
+	"key" : "enemy_undead_ghost_mage",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"species" : "species_undead",
+	"race" : "race_undead_ghost",
+	"unit" : "unit_undead_mage"
+}

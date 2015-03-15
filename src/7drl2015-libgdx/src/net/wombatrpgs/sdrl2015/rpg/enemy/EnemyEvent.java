@@ -31,6 +31,7 @@ import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.rpg.item.ItemList;
 import net.wombatrpgs.sdrl2015.rpg.stats.SdrlStats;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
+import net.wombatrpgs.sdrlschema.rpg.EnemyMDO;
 import net.wombatrpgs.sdrlschema.rpg.ItemMDO;
 import net.wombatrpgs.sdrlschema.rpg.RaceMDO;
 import net.wombatrpgs.sdrlschema.rpg.SpeciesMDO;
@@ -46,7 +47,10 @@ import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
  */
 public class EnemyEvent extends CharacterEvent {
 	
+	protected static final Float LOOT_CHANCE = .05f;
+	
 	protected static final String KEY_DEFAULT_STATS = "stats_default";
+	protected static final String GENERIC_LOOT_DEFAULT = "itemlist_basic";
 	
 	protected SpeciesMDO species;
 	protected RaceMDO race;
@@ -135,6 +139,25 @@ public class EnemyEvent extends CharacterEvent {
 				getUnit().getInventory().addItem(item);
 			}
 		}
+		
+		if (getUnit().getInventory().getItems().size() == 0 &&
+				MGlobal.rand.nextFloat() < LOOT_CHANCE) {
+			ItemList loot = new ItemList(GENERIC_LOOT_DEFAULT);
+			Item item = loot.generateItem();
+			assets.add(item);
+			getUnit().getInventory().addItem(item);
+		}
+	}
+	
+	/**
+	 * Creates an enemy from a serialized s/r/u combo.
+	 * @param	mdo				The data to load from
+	 */
+	public EnemyEvent(EnemyMDO mdo) {
+		this(MGlobal.data.getEntryFor(mdo.species, SpeciesMDO.class),
+				MapThing.mdoHasProperty(mdo.race) ? MGlobal.data.getEntryFor(mdo.race, RaceMDO.class) : null,
+				MapThing.mdoHasProperty(mdo.unit) ? MGlobal.data.getEntryFor(mdo.unit, UnitMDO.class) : null);
+						
 	}
 	
 	/** @return The unit data this enemy was created with */
@@ -285,8 +308,24 @@ public class EnemyEvent extends CharacterEvent {
 					// we're at their location and they escaped! damn!!
 					lastTarget = null;
 					ai();
+					return;
 				} else {
-					ActStep step = new ActStep(this, directionTo(targetX, targetY));
+					// no abilities found, advance towards target
+					AStarPathfinder finder = new AStarPathfinder();
+					finder.setMap(this.getParent());
+					finder.setStart(getTileX(), getTileY());
+					finder.setTarget(targetX, targetY);
+					List<EightDir> path = finder.getPath(this);
+					ActStep step = new ActStep(this);
+					if (path == null) {
+						// there was no path so we'll just blindly walk in that direction
+						step.setDirection(directionTo(target));
+					} else if (path.size() == 0) {
+						MGlobal.reporter.warn("Pathfinding to self?");
+						step.setDirection(getFacing().toEight());
+					} else {
+						step.setDirection(path.get(0));
+					}
 					actAndWait(step);
 				}
 				

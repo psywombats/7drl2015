@@ -1,0 +1,20 @@
+{
+	"key" : "hoard_undead_trash",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"entries" : [
+		{
+			"enemy" : "enemy_undead_shadow_soldier",
+			"quantity" : "2-3"
+		},
+		{
+			"enemy" : "enemy_undead_shadow_halberdier",
+			"quantity" : "1"
+		}
+	],
+	"danger" : {
+		"boundsString" : ""
+	},
+	"rivalSpecies" : "None"
+}

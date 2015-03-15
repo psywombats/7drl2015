@@ -1,0 +1,16 @@
+{
+	"key" : "hoard_demon_low_1",
+	"subfolder" : "demon",
+	"name" : "",
+	"description" : "",
+	"entries" : [
+		{
+			"enemy" : "enemy_demon_imp",
+			"quantity" : "5-6"
+		}
+	],
+	"danger" : {
+		"boundsString" : ""
+	},
+	"rivalSpecies" : "species_demon"
+}

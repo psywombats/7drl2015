@@ -7,7 +7,7 @@
 	"itemDescription" : "A magical staff. Grants 6 uses of the Teleport skill.",
 	"icon" : "staff2.png",
 	"uses" : 6,
-	"carriedAbility" : "abil_teleport",
+	"carriedAbility" : "abil_item_teleport",
 	"equippedAbility" : "None",
 	"slot" : null,
 	"stats" : {

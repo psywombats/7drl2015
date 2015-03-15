@@ -5,7 +5,7 @@
 	"description" : "",
 	"itemName" : "Ollerus",
 	"itemDescription" : "A Norse bow. Grants the Shoot skill. Inflicts +10 damage.",
-	"icon" : "bow2.png",
+	"icon" : "bow3.png",
 	"uses" : 0,
 	"carriedAbility" : "None",
 	"equippedAbility" : "abil_shoot",
