@@ -19,12 +19,12 @@ import net.wombatrpgs.sdrlschema.settings.IntroSettingsMDO;
 import net.wombatrpgs.sdrlschema.settings.TitleSettingsMDO;
 
 /**
- * FALL INTO MADNESS.
+ * FALL INTO <strikethrough>MADNESS.</strikethrough> 7DRL.
  */
 public class TitleScreen extends Screen {
 	
 	protected TitleSettingsMDO mdo;
-	protected Picture screen, prompt;
+	protected Picture screen, prompt, title;
 	protected TimerObject timer;
 	protected MusicObject music;
 	protected boolean shouldIntroduce;
@@ -100,6 +100,23 @@ public class TitleScreen extends Screen {
 		}
 	}
 	
+	/**
+	 * @see net.wombatrpgs.sdrl2015.screen.Screen#render()
+	 */
+	@Override
+	public void render() {
+		super.render();
+//		TextBoxFormat format = new TextBoxFormat();
+//		format.align = HAlignment.CENTER;
+//		format.height = 100;
+//		format.width = 500;
+//		format.x = MGlobal.window.getWidth() / 2;
+//		format.y = 300;
+//		
+//		MGlobal.ui.getFont().draw(getViewBatch(), format, "ACADEMIC ROGUE", 0);
+//		MGlobal.ui.getFont().draw(getViewBatch(), format, "7drl2015 - WombatRPGs team", -16);
+	}
+
 	/**
 	 * @see net.wombatrpgs.mrogue.screen.Screen#update(float)
 	 */

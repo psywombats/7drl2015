@@ -116,6 +116,10 @@ public class Level extends ScreenObject implements Turnable {
 			bgm = new MusicObject(MGlobal.data.getEntryFor(mdo.bgm, MusicMDO.class));
 			assets.add(bgm);
 		}
+		if (MapThing.mdoHasProperty(mdo.scene)) {
+			scene = new SceneParser(mdo.scene, getScreen());
+			assets.add(scene);
+		}
 		reseting = false;
 		moving = false;
 		

@@ -264,14 +264,14 @@ public class Hero extends CharacterEvent implements CommandListener {
 			}
 			return false;
 		}
-		if (turnsSinceNight < TURNS_PER_NIGHT) {
-			int turnsNeeded = TURNS_PER_NIGHT - turnsSinceNight;
-			if (!silent) {
-				GameUnit.out().msg("Can't camp -- need to wait another " + 
-						turnsNeeded + " turns");
-			}
-			return false;
-		}
+//		if (turnsSinceNight < TURNS_PER_NIGHT) {
+//			int turnsNeeded = TURNS_PER_NIGHT - turnsSinceNight;
+//			if (!silent) {
+//				GameUnit.out().msg("Can't camp -- need to wait another " + 
+//						turnsNeeded + " turns");
+//			}
+//			return false;
+//		}
 		if (unit.getTurnsSinceCombat() < PEACEFUL_TURNS_REQUIRED) {
 			int turnsNeeded = PEACEFUL_TURNS_REQUIRED - unit.getTurnsSinceCombat();
 			if (!silent) {

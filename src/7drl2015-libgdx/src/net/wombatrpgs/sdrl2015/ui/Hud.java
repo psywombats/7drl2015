@@ -156,7 +156,7 @@ public class Hud extends UIElement {
 	public void render(OrthographicCamera camera) {
 		SpriteBatch batch = getBatch();
 		float ratioHP = hp/mhp;
-		float ratioCamp = MGlobal.hero.getCampRatio();
+//		float ratioCamp = MGlobal.hero.getCampRatio();
 		
 		frameBacker.renderAt(batch, 0, 0);
 		
@@ -168,11 +168,11 @@ public class Hud extends UIElement {
 		blobY = MGlobal.window.getHeight() - blobY;
 		hpBlob.renderAt(batch, blobX, blobY, ratioHP, ratioHP);
 		
-		blobX = BAR1_X;
-		blobY = BAR1_Y;
-		blobY = MGlobal.window.getHeight() - blobY;
-		mpBlob.renderAt(batch, blobX, blobY, 1f,
-				(ratioCamp * (float) BAR_HEIGHT) / mpBlob.getHeight());
+//		blobX = BAR1_X;
+//		blobY = BAR1_Y;
+//		blobY = MGlobal.window.getHeight() - blobY;
+//		mpBlob.renderAt(batch, blobX, blobY, 1f,
+//				(ratioCamp * (float) BAR_HEIGHT) / mpBlob.getHeight());
 		
 //		blobX = BAR2_X;
 //		blobY = BAR2_Y;

@@ -6,6 +6,7 @@
  */
 package net.wombatrpgs.sdrlschema.maps;
 
+import net.wombatrpgs.mgns.core.Annotations.FileLink;
 import net.wombatrpgs.mgns.core.Annotations.Nullable;
 import net.wombatrpgs.mgns.core.Annotations.Path;
 import net.wombatrpgs.mgns.core.Annotations.SchemaLink;
@@ -54,5 +55,10 @@ public class MapMDO extends MainSchema {
 	@Desc("All levels that can be reached by descending")
 	@SchemaLink(MapMDO.class)
 	public String[] pathsDown;
+	
+	@Desc("Scene - plays on entering this level")
+	@FileLink("scenes")
+	@Nullable
+	public String scene;
 
 }
