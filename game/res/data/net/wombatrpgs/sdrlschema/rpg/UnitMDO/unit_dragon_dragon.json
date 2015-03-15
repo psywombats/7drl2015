@@ -19,6 +19,10 @@
 			{
 				"stat" : "PV",
 				"value" : 8.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 16.0
 			}
 		],
 		"flags" : [ ]

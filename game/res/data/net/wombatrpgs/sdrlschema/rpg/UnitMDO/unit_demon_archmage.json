@@ -33,7 +33,8 @@
 	},
 	"abilities" : [
 		"abil_heal",
-		"abil_proj_fire"
+		"abil_proj_fire",
+		"abil_teleport"
 	],
 	"rivalry" : "NO_REQUIREMENT",
 	"heldItems" : [

@@ -252,6 +252,10 @@ public class Ability extends Action implements Queueable, CommandListener {
 	@Override
 	final public void act() {
 		actor.getUnit().onAbilityUsed(this);
+		if (item != null && item.getEquipAbilityKey().equals(getKey())
+				&& !actor.getUnit().getEquipment().isEquipped(item)) {
+			actor.getUnit().getEquipment().equip(item);
+		}
 		if (actor != MGlobal.hero) {
 			acquireTargets();
 		}

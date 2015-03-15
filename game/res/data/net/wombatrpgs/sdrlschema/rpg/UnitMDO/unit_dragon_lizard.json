@@ -6,6 +6,7 @@
 	"suffix" : "Lizard",
 	"appearance" : "None",
 	"overlay" : "4dir_overlay_lizard",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : "2-99"
 	},
@@ -26,6 +27,10 @@
 			{
 				"stat" : "VISION",
 				"value" : -1.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 6.0
 			}
 		],
 		"flags" : [ ]
@@ -35,5 +40,7 @@
 		"abil_proj_ice",
 		"abil_proj_fire"
 	],
-	"rivalry" : "NO_REQUIREMENT"
+	"rivalry" : "NO_REQUIREMENT",
+	"heldItems" : [ ],
+	"lootTable" : "None"
 }

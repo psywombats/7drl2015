@@ -96,5 +96,15 @@ public class EquippedItems {
 		}
 		return items;
 	}
+	
+	/**
+	 * Checks if a given item is equipped.
+	 * @param	item			True if this item is equipped
+	 * @return
+	 */
+	public boolean isEquipped(Item item) {
+		if (item.getSlot() == null) return false;
+		return at(item.getSlot()) == item;
+	}
 
 }

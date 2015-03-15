@@ -6,6 +6,7 @@
 	"suffix" : "Lizardspawn",
 	"appearance" : "None",
 	"overlay" : "None",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : ""
 	},
@@ -22,10 +23,16 @@
 			{
 				"stat" : "DV",
 				"value" : 1.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 6.0
 			}
 		],
 		"flags" : [ ]
 	},
 	"abilities" : [ ],
-	"rivalry" : "REQUIRES_RIVAL"
+	"rivalry" : "REQUIRES_RIVAL",
+	"heldItems" : [ ],
+	"lootTable" : "None"
 }

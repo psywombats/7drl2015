@@ -21,6 +21,7 @@ import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.rpg.act.ActStep;
+import net.wombatrpgs.sdrl2015.rpg.act.ActWait;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
 import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.rpg.item.ItemEvent;
@@ -128,6 +129,12 @@ public class Hero extends CharacterEvent implements CommandListener {
 	@Override
 	public void update(float elapsed) {
 		super.update(elapsed);
+		if (MGlobal.ui.getInventory().wasEquipped()
+				&& !MGlobal.ui.getInventory().isDisplaying()) {
+			MGlobal.ui.getInventory().acknowledge();
+			ActWait wait = new ActWait();
+			actAndWait(wait);
+		}
 		if (unit.isDead()) {
 			MGlobal.screens.pop();
 			MGlobal.screens.push(new GameOverScreen());

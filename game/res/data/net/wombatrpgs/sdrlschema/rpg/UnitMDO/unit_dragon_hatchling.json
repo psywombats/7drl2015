@@ -25,8 +25,8 @@
 				"value" : -20.0
 			},
 			{
-				"stat" : "VISION",
-				"value" : -1.0
+				"stat" : "MELEE_DMG",
+				"value" : 7.0
 			}
 		],
 		"flags" : [ ]

@@ -45,6 +45,7 @@ public class InventoryMenu extends Popup {
 			inventoryFormat, tabHintFormat;
 	protected SelectionDialog dialog;
 	protected int selected;
+	protected boolean equipped;
 	protected boolean equippedSide;
 	protected boolean asking;
 	
@@ -103,6 +104,12 @@ public class InventoryMenu extends Popup {
 	
 	/** @return True if this inventory menu is up on the screen */
 	public boolean isDisplaying() { return active; }
+	
+	/** @return True if an item was equipped this showing */
+	public boolean wasEquipped() { return equipped; }
+	
+	/** acknowledge the equip state */
+	public void acknowledge() { equipped = false; }
 
 	/**
 	 * @see net.wombatrpgs.mrogue.ui.Popup#show()
@@ -110,6 +117,7 @@ public class InventoryMenu extends Popup {
 	@Override
 	public void show() {
 		super.show();
+		equipped = false;
 		MGlobal.screens.peek().addObject(this);
 		equippedSide = false;
 		selected = 2;
@@ -257,6 +265,7 @@ public class InventoryMenu extends Popup {
 							// equip
 							if (item.isEquippable()) {
 								equipment.equip(item);
+								equipped = true;
 							}
 							break;
 						case 1:

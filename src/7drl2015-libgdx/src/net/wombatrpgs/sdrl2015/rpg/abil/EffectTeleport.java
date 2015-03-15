@@ -11,7 +11,6 @@ import java.util.List;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
-import net.wombatrpgs.sdrl2015.rpg.enemy.EnemyEvent;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectTeleportMDO;
 import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
 
@@ -33,16 +32,7 @@ public class EffectTeleport extends AbilEffect {
 	}
 	
 	/** @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#getTactic() */
-	@Override public TacticType getTactic() { return TacticType.OFFENSE; }
-
-	/**
-	 * @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#aiShouldUse()
-	 */
-	@Override
-	public boolean aiShouldUse(EnemyEvent actor) {
-		// fuck it
-		return super.aiShouldUse(actor) && MGlobal.rand.nextFloat() < .05;
-	}
+	@Override public TacticType getTactic() { return TacticType.RANDOM; }
 
 	/**
 	 * @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#internalAct(java.util.List)
@@ -63,8 +53,12 @@ public class EffectTeleport extends AbilEffect {
 			int origY = target.getParent().getTileY();
 			int tries = 0;
 			do {
-				target.getParent().setTileX(origX + MGlobal.rand.nextInt(maxR*2) - maxR);
-				target.getParent().setTileY(origY + MGlobal.rand.nextInt(maxR*2) - maxR);
+				int tx = origX + MGlobal.rand.nextInt(maxR*2) - maxR;
+				int ty = origY + MGlobal.rand.nextInt(maxR*2) - maxR;
+				if (tx < 0 || tx > parent.getWidth()) continue;
+				if (ty < 0 || ty > parent.getHeight()) continue;
+				target.getParent().setTileX(tx);
+				target.getParent().setTileY(ty);
 				tries += 1;
 			} while ((!target.getParent().getParent().isTilePassable(target.getParent(),
 					target.getParent().getTileX(),

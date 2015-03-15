@@ -612,8 +612,10 @@ public class GameUnit implements Turnable, Queueable {
 	 */
 	public void innatelyLearnAbilities(List<String> abilityKeys) {
 		for (String mdoKey : abilityKeys) {
-			abilities.add(new AbilityEntry(new Ability(parent, null,
-					MGlobal.data.getEntryFor(mdoKey, AbilityMDO.class))));
+			Ability abil = new Ability(parent, null,
+					MGlobal.data.getEntryFor(mdoKey, AbilityMDO.class));
+			abilities.add(new AbilityEntry(abil));
+			assets.add(abil);
 		}
 	}
 	

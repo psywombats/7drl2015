@@ -17,7 +17,7 @@ import net.wombatrpgs.sdrl2015.rpg.GameUnit;
  */
 public class Inventory {
 	
-	protected static final int CAPACITY = 10;
+	protected static final int CAPACITY = 9;
 	
 	protected GameUnit parent;
 	protected List<Item> items;
@@ -61,8 +61,8 @@ public class Inventory {
 			MGlobal.reporter.warn("Adding to an inventory past capacity: " + item);
 		}
 		items.add(item);
-		// TODO: 7DRL: melee fastswap
 		parent.grantAbility(item.getCarryAbilityKey(), item);
+		parent.grantAbility(item.getEquipAbilityKey(), item);
 	}
 	
 	/**
