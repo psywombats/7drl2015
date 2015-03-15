@@ -7,8 +7,11 @@
 package net.wombatrpgs.sdrl2015.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
@@ -71,6 +74,8 @@ public class MGlobal {
 	public static TileManager tiles;
 	/** Desktop mode */
 	public static Platform platform;
+	/** Loaded from config file */
+	public static Map<String, Boolean> config;
 	
 	private static List<Queueable> toLoad;
 	
@@ -90,10 +95,22 @@ public class MGlobal {
 			MGlobal.rand = new Random(seed);
 			MGlobal.reporter.inform("Using global seed " + seed);
 			MGlobal.data = new Database();
-			MGlobal.keymap = new DefaultKeymap();
+			MGlobal.loader = new FileLoader();
+			
+			// this is terrible
+			config = new HashMap<String, Boolean>();
+			String result = loader.getText(Constants.CONFIG_FILE);
+			Scanner scanner = new Scanner(result);
+			while (scanner.hasNext()) {
+				String configString = scanner.next();
+				String[] tokens = configString.split("=");
+				config.put(tokens[0], Boolean.valueOf(tokens[1]));
+			}
+			scanner.close();
 			
 			// load up data marked essential, this will always be ugly
 			MGlobal.reporter.inform("Loading essential data");
+			MGlobal.keymap = new DefaultKeymap();
 			setHandlers();
 			MGlobal.data.queueData(assetManager, Constants.PRELOAD_SCHEMA);
 			long assetStart = System.currentTimeMillis();
@@ -108,7 +125,6 @@ public class MGlobal {
 			MGlobal.reporter.inform("Intializing secondary globals");
 			MGlobal.constants = new Constants();
 			MGlobal.screens = new ScreenStack();
-			MGlobal.loader = new FileLoader();
 			MGlobal.tiles = new TileManager();
 			MGlobal.levelManager = new LevelManager();
 			
@@ -145,8 +161,8 @@ public class MGlobal {
 			// initializing graphics
 			MGlobal.reporter.inform("Creating level-dependant data");
 			toLoad.clear();
-			String result = loader.getText(Constants.CONFIG_FILE);
-			boolean fullscreen = result.indexOf("true") != -1;
+			
+			boolean fullscreen = config.get("fullscreen");
 			Gdx.graphics.setDisplayMode(
 					MGlobal.window.getResolutionWidth(),
 					MGlobal.window.getResolutionHeight(), 

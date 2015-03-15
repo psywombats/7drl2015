@@ -61,7 +61,7 @@ public class EquippedItems {
 			unequip(slot);
 		}
 		equipment.put(slot, item);
-		System.out.println("APPLYING " + item.getName());
+		MGlobal.reporter.inform("APPLYING " + item.getName());
 		owner.applyStatset(item.getStats(), false);
 	}
 	
@@ -77,7 +77,7 @@ public class EquippedItems {
 		if (equipped != null && !owner.getInventory().isFull()) {
 			equipment.put(slot, null);
 			owner.getInventory().addItem(equipped);
-			System.out.println("UNAPPLYING " + equipped.getName());
+			MGlobal.reporter.inform("UNAPPLYING " + equipped.getName());
 			owner.applyStatset(equipped.getStats(), true);
 			owner.revokeAbility(equipped.getEquipAbilityKey());
 			return true;

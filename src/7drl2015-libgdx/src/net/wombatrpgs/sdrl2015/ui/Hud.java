@@ -39,7 +39,7 @@ public class Hud extends UIElement {
 	protected static final String NUMSET_BIG = "numberset_ghost";
 	protected static final String NUMSET_SMALL = "numberset_small";
 	
-	protected static final String CAMP_STRING = "press x to camp";
+	protected static final String CAMP_STRING = "press c to camp";
 
 	protected static final String IMG_FRAME = "hud.png";
 	protected static final String IMG_FRAME_BACK = "hud_backer.png";
@@ -204,6 +204,7 @@ public class Hud extends UIElement {
 		frame.renderAt(batch, 0, 0);
 		
 		List<Ability> abilities = MGlobal.hero.getUnit().getAbilities();
+		String pre = MGlobal.config.get("use_function_keys") ? "F" : "";
 		for (int i = 0; i < abilities.size(); i += 1) {
 			Ability abil = abilities.get(i);
 			if (abil.getUses(MGlobal.hero.getUnit()) <= 0) {
@@ -219,7 +220,7 @@ public class Hud extends UIElement {
 			abilFormat.y = MGlobal.window.getHeight() - (ABIL_START_Y + ABIL_TEXT_Y);
 			String useString = "left: " + abil.getUses(MGlobal.hero.getUnit());
 			font.draw(batch, abilFormat, useString, 0);
-			font.draw(batch, abilFormat, "F"+(i+1), (int) font.getLineHeight());
+			font.draw(batch, abilFormat, pre+(i+1), (int) font.getLineHeight());
 			batch.setColor(1, 1, 1, 1);
 		}
 		

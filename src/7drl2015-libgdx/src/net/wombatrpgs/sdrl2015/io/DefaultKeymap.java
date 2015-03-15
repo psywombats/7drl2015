@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrlschema.io.data.InputButton;
 
 import com.badlogic.gdx.Gdx;
@@ -36,54 +37,97 @@ public class DefaultKeymap extends Keymap {
 		constantButtons = new ArrayList<InputButton>();
 		
 		// movamant
-		map.put(Keys.UP, 		InputButton.UP);
-		map.put(Keys.DOWN, 		InputButton.DOWN);
-		map.put(Keys.LEFT, 		InputButton.LEFT);
-		map.put(Keys.RIGHT, 	InputButton.RIGHT);
+		map.put(Keys.UP, 			InputButton.UP);
+		map.put(Keys.DOWN, 			InputButton.DOWN);
+		map.put(Keys.LEFT, 			InputButton.LEFT);
+		map.put(Keys.RIGHT, 		InputButton.RIGHT);
 		
-		map.put(Keys.NUM_1,		InputButton.DIR_SW);
-		map.put(Keys.NUM_2,		InputButton.DIR_S);
-		map.put(Keys.NUM_3,		InputButton.DIR_SE);
-		map.put(Keys.NUM_4,		InputButton.DIR_W);
-		map.put(Keys.NUM_5,		InputButton.WAIT);
-		map.put(Keys.NUM_6,		InputButton.DIR_E);
-		map.put(Keys.NUM_7,		InputButton.DIR_NW);
-		map.put(Keys.NUM_8,		InputButton.DIR_N);
-		map.put(Keys.NUM_9,		InputButton.DIR_NE);
+		if (MGlobal.config.get("use_function_keys")) {
+			map.put(Keys.NUM_1,		InputButton.DIR_SW);
+			map.put(Keys.NUM_2,		InputButton.DIR_S);
+			map.put(Keys.NUM_3,		InputButton.DIR_SE);
+			map.put(Keys.NUM_4,		InputButton.DIR_W);
+			map.put(Keys.NUM_5,		InputButton.WAIT);
+			map.put(Keys.NUM_6,		InputButton.DIR_E);
+			map.put(Keys.NUM_7,		InputButton.DIR_NW);
+			map.put(Keys.NUM_8,		InputButton.DIR_N);
+			map.put(Keys.NUM_9,		InputButton.DIR_NE);
+		}
+		if (MGlobal.config.get("use_vikeys")) {
+			map.put(Keys.B,			InputButton.DIR_SW);
+			map.put(Keys.J,			InputButton.DIR_S);
+			map.put(Keys.N,			InputButton.DIR_SE);
+			map.put(Keys.H,			InputButton.DIR_W);
+			map.put(Keys.PLUS,		InputButton.WAIT);
+			map.put(Keys.L,			InputButton.DIR_E);
+			map.put(Keys.Y,			InputButton.DIR_NW);
+			map.put(Keys.K,			InputButton.DIR_N);
+			map.put(Keys.U,			InputButton.DIR_NE);
+		}
+		if (MGlobal.config.get("use_iop")) {	
+			map.put(Keys.COMMA,		InputButton.DIR_SW);
+			map.put(Keys.PERIOD,	InputButton.DIR_S);
+			map.put(Keys.SLASH,		InputButton.DIR_SE);
+			map.put(Keys.K,			InputButton.DIR_W);
+			map.put(Keys.L,			InputButton.WAIT);
+			map.put(Keys.SEMICOLON,	InputButton.DIR_E);
+			map.put(Keys.I,			InputButton.DIR_NW);
+			map.put(Keys.O,			InputButton.DIR_N);
+			map.put(Keys.O,			InputButton.DIR_NE);
+		}
+		map.put(Keys.NUMPAD_1,		InputButton.DIR_SW);
+		map.put(Keys.NUMPAD_2,		InputButton.DIR_S);
+		map.put(Keys.NUMPAD_3,		InputButton.DIR_SE);
+		map.put(Keys.NUMPAD_4,		InputButton.DIR_W);
+		map.put(Keys.NUMPAD_5,		InputButton.WAIT);
+		map.put(Keys.NUMPAD_6,		InputButton.DIR_E);
+		map.put(Keys.NUMPAD_7,		InputButton.DIR_NW);
+		map.put(Keys.NUMPAD_8,		InputButton.DIR_N);
+		map.put(Keys.NUMPAD_9,		InputButton.DIR_NE);
 		
 		// buttans
-		map.put(Keys.Z, 		InputButton.BUTTON_1);
-		map.put(Keys.SPACE, 	InputButton.BUTTON_1);
-		map.put(Keys.ENTER, 	InputButton.BUTTON_1);
-		map.put(Keys.P,			InputButton.BUTTON_1);
-		map.put(Keys.COMMA,		InputButton.BUTTON_1);
-		map.put(Keys.X, 		InputButton.BUTTON_2);
-		map.put(Keys.BACKSPACE,	InputButton.BUTTON_2);
-		map.put(Keys.C, 		InputButton.BUTTON_3);
-		map.put(Keys.V, 		InputButton.BUTTON_4);
-		map.put(Keys.S, 		InputButton.BUTTON_5);
-		map.put(Keys.D, 		InputButton.BUTTON_6);
+		if (MGlobal.config.get("use_function_keys")) {
+			map.put(Keys.Z, 		InputButton.BUTTON_1);
+			map.put(Keys.P,			InputButton.BUTTON_1);
+			map.put(Keys.COMMA,		InputButton.BUTTON_1);
+			map.put(Keys.BACKSPACE,	InputButton.BUTTON_2);
+		}
+		map.put(Keys.SPACE, 		InputButton.BUTTON_1);
+		map.put(Keys.ENTER, 		InputButton.BUTTON_1);
 		
 		// etc
-		map.put(Keys.L,			InputButton.LOOK);
-		map.put(Keys.X,			InputButton.CAMP);
+		map.put(Keys.X,				InputButton.LOOK);
+		map.put(Keys.C,				InputButton.CAMP);
 		
 		// attax
-		map.put(Keys.F1,		InputButton.ABIL_1);
-		map.put(Keys.F2,		InputButton.ABIL_2);
-		map.put(Keys.F3,		InputButton.ABIL_3);
-		map.put(Keys.F4,		InputButton.ABIL_4);
-		map.put(Keys.F5,		InputButton.ABIL_5);
-		map.put(Keys.F6,		InputButton.ABIL_6);
-		map.put(Keys.F7,		InputButton.ABIL_7);
-		map.put(Keys.F8,		InputButton.ABIL_8);
-		map.put(Keys.F9,		InputButton.ABIL_9);
-		map.put(Keys.F10,		InputButton.ABIL_10);
+		if (MGlobal.config.get("use_function_keys")) {
+			map.put(Keys.F1,		InputButton.ABIL_1);
+			map.put(Keys.F2,		InputButton.ABIL_2);
+			map.put(Keys.F3,		InputButton.ABIL_3);
+			map.put(Keys.F4,		InputButton.ABIL_4);
+			map.put(Keys.F5,		InputButton.ABIL_5);
+			map.put(Keys.F6,		InputButton.ABIL_6);
+			map.put(Keys.F7,		InputButton.ABIL_7);
+			map.put(Keys.F8,		InputButton.ABIL_8);
+			map.put(Keys.F9,		InputButton.ABIL_9);
+			map.put(Keys.F10,		InputButton.ABIL_10);
+		} else {
+			map.put(Keys.NUM_1,		InputButton.ABIL_1);
+			map.put(Keys.NUM_2,		InputButton.ABIL_2);
+			map.put(Keys.NUM_3,		InputButton.ABIL_3);
+			map.put(Keys.NUM_4,		InputButton.ABIL_4);
+			map.put(Keys.NUM_5,		InputButton.ABIL_5);
+			map.put(Keys.NUM_6,		InputButton.ABIL_6);
+			map.put(Keys.NUM_7,		InputButton.ABIL_7);
+			map.put(Keys.NUM_8,		InputButton.ABIL_8);
+			map.put(Keys.NUM_9,		InputButton.ABIL_9);
+			map.put(Keys.NUM_0,		InputButton.ABIL_10);
+		}
 		
-		map.put(Keys.ESCAPE, 	InputButton.MENU);
-		map.put(Keys.F12,		InputButton.FULLSCREEN);
-		map.put(Keys.TAB,		InputButton.TAB);
-		
+		map.put(Keys.ESCAPE, 		InputButton.MENU);
+		map.put(Keys.F12,			InputButton.FULLSCREEN);
+		map.put(Keys.TAB,			InputButton.TAB);
+			
 		for (Object key : map.keySet()) {
 			backmap.put(map.get(key), (Integer) key);
 		}
