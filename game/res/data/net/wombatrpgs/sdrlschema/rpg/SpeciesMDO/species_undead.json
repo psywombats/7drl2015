@@ -29,13 +29,16 @@
 	"races" : [
 		"race_undead_ghost",
 		"race_undead_shadow",
-		"race_undead_skeleton"
+		"race_undead_skeleton",
+		"race_undead_necromancer"
 	],
 	"units" : [
 		"unit_undead_archer",
 		"unit_undead_knight",
 		"unit_undead_axeman",
 		"unit_undead_solider",
-		"unit_undead_halberdier"
+		"unit_undead_halberdier",
+		"unit_undead_mage",
+		"unit_undead_hero"
 	]
 }

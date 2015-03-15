@@ -35,6 +35,11 @@
 		"unit_elf_duelist",
 		"unit_elf_myrmidon",
 		"unit_elf_rogue",
-		"unit_elf_spearman"
+		"unit_elf_spearman",
+		"unit_elf_healer",
+		"unit_elf_lord",
+		"unit_elf_prince",
+		"unit_elf_woodsman",
+		"unit_elf_ranger"
 	]
 }

@@ -16,10 +16,18 @@
 	"races" : [
 		"race_demon_hellhound",
 		"race_demon_incubus",
-		"race_demon_succubus"
+		"race_demon_succubus",
+		"race_demon_cultist",
+		"race_demon_fire",
+		"race_demon_imp",
+		"race_demon_balor",
+		"race_demon_moloch"
 	],
 	"units" : [
 		"unit_demon_mage",
-		"unit_demon_servant"
+		"unit_demon_servant",
+		"unit_demon_archmage",
+		"unit_demon_punisher",
+		"unit_demon_executioner"
 	]
 }

@@ -16,7 +16,8 @@
 	"races" : [
 		"race_dragon_blue",
 		"race_dragon_green",
-		"race_dragon_red"
+		"race_dragon_red",
+		"race_dragon_turtle"
 	],
 	"units" : [
 		"unit_dragon_dragon",
