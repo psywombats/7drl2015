@@ -1,0 +1,22 @@
+{
+	"key" : "item_harmor_good",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "plate mail",
+	"itemDescription" : "A set of heavy armor. Increases armor by 4.",
+	"icon" : "heavy2.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "ARMOR",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "PV",
+				"value" : 4.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

@@ -57,4 +57,13 @@ public class UnitMDO extends MainSchema {
 	@Desc("Rivalry requirement - does this unit require rivalry to be generated?")
 	@DefaultValue("NO_REQUIREMENT")
 	public RivalryRequirementType rivalry;
+	
+	@Desc("Held items - these will always be dropped when this unit dies")
+	@SchemaLink(ItemMDO.class)
+	public String heldItems[];
+	
+	@Desc("Loot table - one of these will always be dropped on death")
+	@SchemaLink(ItemListMDO.class)
+	@Nullable
+	public String lootTable;
 }

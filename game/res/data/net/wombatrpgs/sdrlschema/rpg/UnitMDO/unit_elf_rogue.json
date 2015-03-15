@@ -6,6 +6,7 @@
 	"suffix" : "Rogue",
 	"appearance" : "None",
 	"overlay" : "4dir_overlay_knife",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : "2-100"
 	},
@@ -29,5 +30,9 @@
 	"abilities" : [
 		"abil_armorpierce"
 	],
-	"rivalry" : "REQUIRES_RIVAL"
+	"rivalry" : "REQUIRES_RIVAL",
+	"heldItems" : [
+		"item_knife_bad"
+	],
+	"lootTable" : "None"
 }

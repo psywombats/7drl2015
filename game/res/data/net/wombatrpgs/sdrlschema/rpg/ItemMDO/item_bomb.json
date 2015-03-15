@@ -1,0 +1,17 @@
+{
+	"key" : "item_bomb",
+	"subfolder" : "item",
+	"name" : "",
+	"description" : "",
+	"itemName" : "alchemical bomb",
+	"itemDescription" : "A one-use item. Unleashes a fireball.",
+	"icon" : "pot3.png",
+	"uses" : 1,
+	"carriedAbility" : "abil_firebomb",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

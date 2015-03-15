@@ -6,6 +6,7 @@
 	"suffix" : "Hatchling",
 	"appearance" : "None",
 	"overlay" : "4dir_overlay_hatchling",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : "3-99"
 	},
@@ -38,5 +39,7 @@
 		"abil_touch_fire",
 		"abil_touch_ice"
 	],
-	"rivalry" : "REQUIRES_RIVAL"
+	"rivalry" : "REQUIRES_RIVAL",
+	"heldItems" : [ ],
+	"lootTable" : "itemlist_basic"
 }

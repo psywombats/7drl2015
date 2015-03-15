@@ -1,0 +1,19 @@
+{
+	"key" : "item_ring_ice",
+	"subfolder" : "ring",
+	"name" : "",
+	"description" : "",
+	"itemName" : "ring of ice",
+	"itemDescription" : "A magical ring. Grants resistance to ice.",
+	"icon" : "ring7.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "RING",
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [
+			"RESIST_ICE"
+		]
+	}
+}

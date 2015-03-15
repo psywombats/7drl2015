@@ -1,0 +1,22 @@
+{
+	"key" : "item_rapier_great",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Mithril Rapier",
+	"itemDescription" : "An expertly-forged rapier. Grants the Thrust skill. Inflicts +10 damage.",
+	"icon" : "rapier3.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_accurate",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 10.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

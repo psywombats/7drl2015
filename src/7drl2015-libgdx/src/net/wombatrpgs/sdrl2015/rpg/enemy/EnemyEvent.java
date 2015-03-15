@@ -27,8 +27,11 @@ import net.wombatrpgs.sdrl2015.rpg.act.ActStep;
 import net.wombatrpgs.sdrl2015.rpg.act.ActWander;
 import net.wombatrpgs.sdrl2015.rpg.ai.AStarPathfinder;
 import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
+import net.wombatrpgs.sdrl2015.rpg.item.Item;
+import net.wombatrpgs.sdrl2015.rpg.item.ItemList;
 import net.wombatrpgs.sdrl2015.rpg.stats.SdrlStats;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
+import net.wombatrpgs.sdrlschema.rpg.ItemMDO;
 import net.wombatrpgs.sdrlschema.rpg.RaceMDO;
 import net.wombatrpgs.sdrlschema.rpg.SpeciesMDO;
 import net.wombatrpgs.sdrlschema.rpg.UnitMDO;
@@ -107,6 +110,30 @@ public class EnemyEvent extends CharacterEvent {
 				(unit != null && unit.effect == UniqueEffect.HOLY)) {
 			fx = AbilFxFactory.createFX("abilfx_holy_sfx", null);
 			assets.add(fx);
+		}
+		
+		if (unit != null) {
+			if (unit.heldItems != null) {
+				for (String key : unit.heldItems) {
+					Item item = new Item(MGlobal.data.getEntryFor(key, ItemMDO.class));
+					assets.add(item);
+					getUnit().getInventory().addItem(item);
+				}
+			}
+			if (MapThing.mdoHasProperty(unit.lootTable)) {
+				ItemList lootTable = new ItemList(unit.lootTable);
+				Item item = lootTable.generateItem();
+				assets.add(item);
+				getUnit().getInventory().addItem(item);
+			}
+		}
+		if (race != null) {
+			if (MapThing.mdoHasProperty(race.lootTable)) {
+				ItemList lootTable = new ItemList(unit.lootTable);
+				Item item = lootTable.generateItem();
+				assets.add(item);
+				getUnit().getInventory().addItem(item);
+			}
 		}
 	}
 	

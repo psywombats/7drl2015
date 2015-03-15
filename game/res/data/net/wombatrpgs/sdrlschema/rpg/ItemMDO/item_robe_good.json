@@ -1,0 +1,30 @@
+{
+	"key" : "item_robe_good",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "wizard's robe",
+	"itemDescription" : "An enchanted robe. Increases magic damage by 6.",
+	"icon" : "robes2.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "FIRE_DMG",
+				"value" : 6.0
+			},
+			{
+				"stat" : "ICE_DMG",
+				"value" : 6.0
+			},
+			{
+				"stat" : "EARTH_DMG",
+				"value" : 6.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

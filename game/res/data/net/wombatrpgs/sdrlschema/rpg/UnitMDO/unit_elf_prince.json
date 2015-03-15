@@ -32,5 +32,9 @@
 		"abil_hackback",
 		"abil_shoot"
 	],
-	"rivalry" : "NO_REQUIREMENT"
+	"rivalry" : "NO_REQUIREMENT",
+	"heldItems" : [
+		"item_spear_good"
+	],
+	"lootTable" : "itemlist_artifacts"
 }

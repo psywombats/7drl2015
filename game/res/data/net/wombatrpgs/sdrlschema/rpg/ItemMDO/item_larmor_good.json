@@ -1,0 +1,22 @@
+{
+	"key" : "item_larmor_good",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "gi",
+	"itemDescription" : "An evasive robe. Increase defense by 12.",
+	"icon" : "light2.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "ARMOR",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "DV",
+				"value" : 12.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

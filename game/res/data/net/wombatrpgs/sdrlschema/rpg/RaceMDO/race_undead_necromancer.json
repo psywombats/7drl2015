@@ -34,5 +34,6 @@
 	"abilities" : [
 		"abil_proj_ice",
 		"abil_accurate"
-	]
+	],
+	"lootTable" : "itemlist_artifacts"
 }

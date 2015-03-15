@@ -1,0 +1,22 @@
+{
+	"key" : "item_sword_great",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Muramasa",
+	"itemDescription" : "A cursed sword. Grants the Hack 'n Back skill. Inflicts +10 damage.",
+	"icon" : "sword13.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_hackback",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 10.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

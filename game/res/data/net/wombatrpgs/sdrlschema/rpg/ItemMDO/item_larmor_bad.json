@@ -1,0 +1,22 @@
+{
+	"key" : "item_larmor_bad",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "leather armor",
+	"itemDescription" : "A set of worn armor. Increases defense by 5.",
+	"icon" : "light1.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "ARMOR",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "DV",
+				"value" : 5.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

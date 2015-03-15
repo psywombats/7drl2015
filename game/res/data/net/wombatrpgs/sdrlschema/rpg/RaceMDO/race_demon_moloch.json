@@ -6,6 +6,7 @@
 	"prefix" : "",
 	"appearance" : "4dir_moloch",
 	"overlay" : "None",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : "1-99"
 	},
@@ -36,5 +37,6 @@
 			"RESIST_EARTH"
 		]
 	},
-	"abilities" : [ ]
+	"abilities" : [ ],
+	"lootTable" : "itemlist_goodstuff"
 }

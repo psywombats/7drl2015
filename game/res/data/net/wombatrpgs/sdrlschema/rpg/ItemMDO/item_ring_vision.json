@@ -1,0 +1,22 @@
+{
+	"key" : "item_ring_vision",
+	"subfolder" : "ring",
+	"name" : "",
+	"description" : "",
+	"itemName" : "ring of vision",
+	"itemDescription" : "Increases sight radius by 2.",
+	"icon" : "ring2.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "RING",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "VISION",
+				"value" : 2.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

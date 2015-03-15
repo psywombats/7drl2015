@@ -6,6 +6,7 @@
 	"suffix" : "Axeman",
 	"appearance" : "None",
 	"overlay" : "4dir_overlay_axe",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : ""
 	},
@@ -21,5 +22,9 @@
 	"abilities" : [
 		"abil_spinattack"
 	],
-	"rivalry" : "NO_REQUIREMENT"
+	"rivalry" : "NO_REQUIREMENT",
+	"heldItems" : [
+		"item_axe_bad"
+	],
+	"lootTable" : "None"
 }

@@ -1,0 +1,22 @@
+{
+	"key" : "item_axe_great",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Labrys",
+	"itemDescription" : "A mythological axe. Grants the Spin Attack skill. Inflicts +10 damage.",
+	"icon" : "axe2.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_spinattack",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 10.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

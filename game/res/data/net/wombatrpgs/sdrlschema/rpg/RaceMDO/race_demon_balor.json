@@ -35,5 +35,6 @@
 			"RESIST_FIRE"
 		]
 	},
-	"abilities" : [ ]
+	"abilities" : [ ],
+	"lootTable" : "itemlist_artifacts"
 }

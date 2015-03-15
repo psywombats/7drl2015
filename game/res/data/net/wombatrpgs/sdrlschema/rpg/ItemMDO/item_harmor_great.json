@@ -1,0 +1,22 @@
+{
+	"key" : "item_harmor_great",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Musashi's Mail",
+	"itemDescription" : "A set of legendary armor. Increases armor by 8.",
+	"icon" : "heavy2.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "ARMOR",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "PV",
+				"value" : 8.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

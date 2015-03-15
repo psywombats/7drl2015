@@ -1,0 +1,17 @@
+{
+	"key" : "item_book_iceproj",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Ice Spear",
+	"itemDescription" : "A spellbook. Grants the Ice Spear skill.",
+	"icon" : "book2_ice.png",
+	"uses" : 0,
+	"carriedAbility" : "abil_proj_ice",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

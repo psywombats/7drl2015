@@ -1,0 +1,34 @@
+{
+	"key" : "item_ring_power",
+	"subfolder" : "ring",
+	"name" : "",
+	"description" : "",
+	"itemName" : "ring of power",
+	"itemDescription" : "Increase all damage by 2.",
+	"icon" : "ring6.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "RING",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "FIRE_DMG",
+				"value" : 2.0
+			},
+			{
+				"stat" : "ICE_DMG",
+				"value" : 2.0
+			},
+			{
+				"stat" : "EARTH_DMG",
+				"value" : 2.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 2.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

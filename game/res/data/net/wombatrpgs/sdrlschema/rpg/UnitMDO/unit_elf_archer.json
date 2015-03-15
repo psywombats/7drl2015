@@ -6,6 +6,7 @@
 	"suffix" : "Archer",
 	"appearance" : "None",
 	"overlay" : "4dir_overlay_bow",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : ""
 	},
@@ -25,5 +26,9 @@
 	"abilities" : [
 		"abil_shoot"
 	],
-	"rivalry" : "NO_REQUIREMENT"
+	"rivalry" : "NO_REQUIREMENT",
+	"heldItems" : [
+		"item_bow_bad"
+	],
+	"lootTable" : "None"
 }

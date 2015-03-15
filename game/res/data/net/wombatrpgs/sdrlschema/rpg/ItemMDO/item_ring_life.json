@@ -1,0 +1,30 @@
+{
+	"key" : "item_ring_life",
+	"subfolder" : "ring",
+	"name" : "",
+	"description" : "",
+	"itemName" : "ring of life",
+	"itemDescription" : "A magical ring. Increases defense and armor by 2 and health by 20.",
+	"icon" : "ring3.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "RING",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MHP",
+				"value" : 20.0
+			},
+			{
+				"stat" : "PV",
+				"value" : 2.0
+			},
+			{
+				"stat" : "DV",
+				"value" : 2.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

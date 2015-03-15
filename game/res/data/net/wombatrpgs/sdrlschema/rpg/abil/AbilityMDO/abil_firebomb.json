@@ -1,0 +1,20 @@
+{
+	"key" : "abil_firebomb",
+	"subfolder" : "item",
+	"name" : "Alchemical Bomb",
+	"description" : "",
+	"abilDesc" : "Uncork an explosive potion to unleash a powerful fireball.",
+	"levelDesc" : "",
+	"uses" : 1,
+	"target" : "BALL",
+	"range" : 7.0,
+	"useChance" : 0.0,
+	"warhead" : {
+		"clazz" : "net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO",
+		"key" : "anon_AbilityMDO_-2120601267"
+	},
+	"icon" : "pot3.png",
+	"energyCost" : 1000,
+	"leveling" : [ ],
+	"fx" : "None"
+}

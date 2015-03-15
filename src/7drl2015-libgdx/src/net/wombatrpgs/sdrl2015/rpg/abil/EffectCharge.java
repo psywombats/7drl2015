@@ -49,7 +49,7 @@ public class EffectCharge extends AbilEffect {
 		for (GameUnit target : abil.getTargets()) {
 			// hack, should only check hostiles
 			if (target == MGlobal.hero.getUnit()) {
-				if (abil.getActor().euclideanTileDistanceTo(MGlobal.hero) <= 1) {
+				if (abil.getActor().euclideanTileDistanceTo(MGlobal.hero) < 2) {
 					return false;
 				}
 				int tileX = actor.getTileX();

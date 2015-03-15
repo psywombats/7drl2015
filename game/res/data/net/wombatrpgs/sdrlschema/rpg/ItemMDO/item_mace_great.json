@@ -1,0 +1,22 @@
+{
+	"key" : "item_mace_great",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Oro Mace",
+	"itemDescription" : "A sacred mace. Grants the Smash skill. Inflicts +10 damage.",
+	"icon" : "mace2.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_smash",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 10.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

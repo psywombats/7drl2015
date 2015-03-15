@@ -62,5 +62,10 @@ public class RaceMDO extends MainSchema {
 	@Desc("Skills - innate, non-item-granted skills")
 	@SchemaLink(AbilityMDO.class)
 	public String[] abilities;
+	
+	@Desc("Loot table - one of these will always be dropped on death")
+	@SchemaLink(ItemListMDO.class)
+	@Nullable
+	public String lootTable;
 
 }

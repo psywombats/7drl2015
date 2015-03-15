@@ -1,0 +1,21 @@
+{
+	"key" : "item_ring_elements",
+	"subfolder" : "ring",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Ring of the Magi",
+	"itemDescription" : "An artifact ring. Grants resistance to the elements.",
+	"icon" : "ring4.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "RING",
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [
+			"RESIST_FIRE",
+			"RESIST_ICE",
+			"RESIST_EARTH"
+		]
+	}
+}

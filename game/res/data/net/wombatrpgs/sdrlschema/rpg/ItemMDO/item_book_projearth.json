@@ -1,0 +1,17 @@
+{
+	"key" : "item_book_projearth",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Acid Bomb",
+	"itemDescription" : "A spellbook. Grants the Acid Bomb skill.",
+	"icon" : "book2_earth.png",
+	"uses" : 0,
+	"carriedAbility" : "abil_proj_earth",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

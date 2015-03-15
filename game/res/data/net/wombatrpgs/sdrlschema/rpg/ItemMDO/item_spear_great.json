@@ -1,0 +1,22 @@
+{
+	"key" : "item_spear_great",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Dragon Lance",
+	"itemDescription" : "A wyrmic spear. Grants the Charge skill. Inflicts +10 damage.",
+	"icon" : "spear3.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_charge",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 10.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

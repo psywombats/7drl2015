@@ -1,0 +1,22 @@
+{
+	"key" : "itemlist_artifacts",
+	"subfolder" : "",
+	"name" : "",
+	"description" : "",
+	"items" : [
+		"item_axe_great",
+		"item_bow_great",
+		"item_knife_great",
+		"item_mace_great",
+		"item_axe_great",
+		"item_rapier_great",
+		"item_spear_great",
+		"item_sword_great",
+		"item_harmor_great",
+		"item_larmor_great",
+		"item_robe_great",
+		"item_robe_great",
+		"item_robe_great",
+		"item_ring_elements"
+	]
+}

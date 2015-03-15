@@ -47,5 +47,7 @@
 		"abil_ball_earth",
 		"abil_proj_fire"
 	],
-	"rivalry" : "NO_REQUIREMENT"
+	"rivalry" : "NO_REQUIREMENT",
+	"heldItems" : [ ],
+	"lootTable" : "itemlist_artifacts"
 }

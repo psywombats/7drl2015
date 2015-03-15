@@ -1,0 +1,19 @@
+{
+	"key" : "item_ring_earth",
+	"subfolder" : "ring",
+	"name" : "",
+	"description" : "",
+	"itemName" : "ring of earth",
+	"itemDescription" : "A magical ring. Grants resistance to acid.",
+	"icon" : "ring5.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "RING",
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [
+			"RESIST_EARTH"
+		]
+	}
+}

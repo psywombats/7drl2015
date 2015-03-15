@@ -1,0 +1,30 @@
+{
+	"key" : "item_robe_bad",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "robe",
+	"itemDescription" : "An old robe. Increases magic damage by 3.",
+	"icon" : "robes1.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "FIRE_DMG",
+				"value" : 3.0
+			},
+			{
+				"stat" : "ICE_DMG",
+				"value" : 3.0
+			},
+			{
+				"stat" : "EARTH_DMG",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

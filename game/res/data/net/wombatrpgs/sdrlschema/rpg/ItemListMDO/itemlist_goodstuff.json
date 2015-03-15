@@ -1,0 +1,27 @@
+{
+	"key" : "itemlist_goodstuff",
+	"subfolder" : "",
+	"name" : "",
+	"description" : "",
+	"items" : [
+		"item_axe_good",
+		"item_bow_good",
+		"item_knife_good",
+		"item_mace_good",
+		"item_rapier_good",
+		"item_spear_good",
+		"item_sword_good",
+		"item_book_banish",
+		"item_book_teleport",
+		"item_harmor_good",
+		"item_larmor_good",
+		"item_shield_elemental",
+		"item_ring_vision",
+		"item_ring_power",
+		"item_ring_life",
+		"item_staff_teleport",
+		"item_book_banish",
+		"item_book_teleport",
+		"item_robe_good"
+	]
+}

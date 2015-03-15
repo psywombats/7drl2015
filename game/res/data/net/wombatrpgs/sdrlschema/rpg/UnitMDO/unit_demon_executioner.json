@@ -6,6 +6,7 @@
 	"suffix" : "Executioner",
 	"appearance" : "None",
 	"overlay" : "4dir_overlay_sword",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : ""
 	},
@@ -17,5 +18,9 @@
 		"abil_armorpierce",
 		"abil_spinattack"
 	],
-	"rivalry" : "NO_REQUIREMENT"
+	"rivalry" : "NO_REQUIREMENT",
+	"heldItems" : [
+		"item_sword_good"
+	],
+	"lootTable" : "None"
 }

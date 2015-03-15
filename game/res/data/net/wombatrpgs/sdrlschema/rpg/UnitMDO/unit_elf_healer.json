@@ -6,6 +6,7 @@
 	"suffix" : "Healer",
 	"appearance" : "None",
 	"overlay" : "4dir_overlay_robe",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : "2-99"
 	},
@@ -16,5 +17,7 @@
 	"abilities" : [
 		"abil_heal"
 	],
-	"rivalry" : "REQUIRES_RIVAL"
+	"rivalry" : "REQUIRES_RIVAL",
+	"heldItems" : [ ],
+	"lootTable" : "itemlist_basic"
 }

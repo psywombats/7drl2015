@@ -1,0 +1,39 @@
+{
+	"key" : "unit_undead_mage",
+	"subfolder" : "undead",
+	"name" : "",
+	"description" : "",
+	"suffix" : "Mage",
+	"appearance" : "None",
+	"overlay" : "4dir_overlay_robe",
+	"effect" : null,
+	"dangerLevel" : {
+		"boundsString" : ""
+	},
+	"statsMod" : {
+		"stats" : [
+			{
+				"stat" : "ICE_DMG",
+				"value" : 12.0
+			},
+			{
+				"stat" : "FIRE_DMG",
+				"value" : 15.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : -1.0
+			}
+		],
+		"flags" : [
+			"WEAK_FIRE"
+		]
+	},
+	"abilities" : [
+		"abil_touch_ice",
+		"abil_bolt_fire"
+	],
+	"rivalry" : "REQUIRES_RIVAL",
+	"heldItems" : [ ],
+	"lootTable" : "itemlist_goodstuff"
+}

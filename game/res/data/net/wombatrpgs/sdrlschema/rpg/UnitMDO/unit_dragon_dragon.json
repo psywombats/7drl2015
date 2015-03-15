@@ -6,6 +6,7 @@
 	"suffix" : "Dragon",
 	"appearance" : "None",
 	"overlay" : "4dir_overlay_dragon",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : "4-99"
 	},
@@ -27,5 +28,7 @@
 		"abil_bolt_fire",
 		"abil_bolt_ice"
 	],
-	"rivalry" : "NO_REQUIREMENT"
+	"rivalry" : "NO_REQUIREMENT",
+	"heldItems" : [ ],
+	"lootTable" : "itemlist_goodstuff"
 }

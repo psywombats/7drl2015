@@ -1,0 +1,22 @@
+{
+	"key" : "item_harmor_bad",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "cuirass",
+	"itemDescription" : "A set of weighty armor. Increases armor by 2.",
+	"icon" : "heavy1.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "ARMOR",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "PV",
+				"value" : 2.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

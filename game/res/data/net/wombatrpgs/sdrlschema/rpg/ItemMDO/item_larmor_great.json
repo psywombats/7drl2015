@@ -1,0 +1,22 @@
+{
+	"key" : "item_larmor_great",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Golden Shirt",
+	"itemDescription" : "An enchanted shirt. Increase defense by 24.",
+	"icon" : "light3.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "ARMOR",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "DV",
+				"value" : 24.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

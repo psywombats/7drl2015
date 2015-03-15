@@ -1,0 +1,17 @@
+{
+	"key" : "item_book_fireproj",
+	"subfolder" : "book",
+	"name" : "",
+	"description" : "",
+	"itemName" : "book of Fire Bomb",
+	"itemDescription" : "A spellbook. Grants the Fire Bomb skill.",
+	"icon" : "book2_fire.png",
+	"uses" : 0,
+	"carriedAbility" : "abil_proj_fire",
+	"equippedAbility" : "None",
+	"slot" : null,
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [ ]
+	}
+}

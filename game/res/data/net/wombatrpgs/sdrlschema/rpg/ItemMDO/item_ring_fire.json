@@ -1,0 +1,19 @@
+{
+	"key" : "item_ring_fire",
+	"subfolder" : "ring",
+	"name" : "",
+	"description" : "",
+	"itemName" : "ring of fire",
+	"itemDescription" : "A magical ring. Grants resistance to fire.",
+	"icon" : "ring1.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "RING",
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [
+			"RESIST_FIRE"
+		]
+	}
+}

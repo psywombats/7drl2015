@@ -1,0 +1,22 @@
+{
+	"key" : "item_knife_great",
+	"subfolder" : "weapon",
+	"name" : "",
+	"description" : "",
+	"itemName" : "Goemon's Knife",
+	"itemDescription" : "A samurai's knife. Grants the Armor Pierce skill. Inflicts +6 damage.",
+	"icon" : "knife4.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "abil_armorpierce",
+	"slot" : "WEAPON",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 10.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

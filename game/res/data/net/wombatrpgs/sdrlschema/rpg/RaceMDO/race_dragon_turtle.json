@@ -6,6 +6,7 @@
 	"prefix" : "Turtle",
 	"appearance" : "4dir_turtle",
 	"overlay" : "None",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : ""
 	},
@@ -30,5 +31,6 @@
 			"RESIST_EARTH"
 		]
 	},
-	"abilities" : [ ]
+	"abilities" : [ ],
+	"lootTable" : "itemlist_goodstuff"
 }

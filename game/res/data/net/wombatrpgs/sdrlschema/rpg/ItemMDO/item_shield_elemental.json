@@ -1,0 +1,19 @@
+{
+	"key" : "item_shield_elemental",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "dragon shield",
+	"itemDescription" : "A reflective shield. Grants immunity to fire.",
+	"icon" : "shield4.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "ARMOR",
+	"stats" : {
+		"stats" : [ ],
+		"flags" : [
+			"RESIST_FIRE"
+		]
+	}
+}

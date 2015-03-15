@@ -6,6 +6,7 @@
 	"suffix" : "Knight",
 	"appearance" : "None",
 	"overlay" : "4dir_overlay_axe",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : "2-100"
 	},
@@ -29,5 +30,9 @@
 	"abilities" : [
 		"abil_smash"
 	],
-	"rivalry" : "NO_REQUIREMENT"
+	"rivalry" : "NO_REQUIREMENT",
+	"heldItems" : [
+		"item_mace_bad"
+	],
+	"lootTable" : "None"
 }

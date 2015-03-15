@@ -2,10 +2,11 @@
 	"key" : "unit_demon_archmage",
 	"subfolder" : "demon",
 	"name" : "",
-	"description" : "",
+	"description" : "for balors",
 	"suffix" : "Archmage",
 	"appearance" : "None",
 	"overlay" : "4dir_overlay_robe",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : ""
 	},
@@ -34,5 +35,9 @@
 		"abil_heal",
 		"abil_proj_fire"
 	],
-	"rivalry" : "NO_REQUIREMENT"
+	"rivalry" : "NO_REQUIREMENT",
+	"heldItems" : [
+		"item_book_fireball"
+	],
+	"lootTable" : "None"
 }
