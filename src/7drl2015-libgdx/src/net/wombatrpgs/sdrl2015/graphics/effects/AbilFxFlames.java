@@ -16,6 +16,7 @@ import net.wombatrpgs.sdrl2015.core.Constants;
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.graphics.ShaderFromData;
+import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.screen.Screen;
 import net.wombatrpgs.sdrlschema.graphics.ShaderMDO;
@@ -67,67 +68,75 @@ public class AbilFxFlames extends AbilFX {
 		Screen sc = MGlobal.screens.peek();
 		getParent().getBatch().end();
 		
-		Texture t = flames.getTexture();
-		
-		float scale, restrict, atX, atY;
-		AbilityTargetType type;
-		
-		// ew
-		if (abil == null) {
-			type = AbilityTargetType.USER;
-			scale = .7f * 2.5f * ((float) parent.getTileWidth() / (float) t.getWidth());
-		} else {
-			type = abil.getType();
-			scale = abil.getRadius() * 2.5f * ((float) parent.getTileWidth() / (float) t.getWidth());
-		}
-		
-		switch(type) {
-		case BALL: case MELEE: case PROJECTILE: case BEAM: case USER:
-			restrict = 1.f;
-			if (totalElapsed < mdo.fadein) {
-				//restrict = totalElapsed/mdo.fadein;
-				scale *= (totalElapsed/mdo.fadein);
-			} else if (totalElapsed > (mdo.duration-mdo.fadein)) {
-				restrict = (mdo.duration-totalElapsed) / mdo.fadein;
+		for (CharacterEvent target : targets) {
+			Texture t = flames.getTexture();
+			
+			tileX = target.getTileX();
+			tileY = target.getTileY();
+			x = target.getX();
+			y = target.getY();
+			
+			float scale, restrict, atX, atY;
+			AbilityTargetType type;
+			
+			// ew
+			if (abil == null) {
+				type = AbilityTargetType.USER;
+				scale = .7f * 2.5f * ((float) parent.getTileWidth() / (float) t.getWidth());
 			} else {
-				//restrict = 1f;
+				type = abil.getType();
+				scale = abil.getRadius() * 2.5f * ((float) parent.getTileWidth() / (float) t.getWidth());
 			}
-			atX = getX() + parent.getTileWidth()/2f - t.getWidth()*scale/2f;
-			atY = getY() + parent.getTileHeight()/2f - t.getHeight()*scale/2f;
-			break;
-		default:
-			atX = 0; atY = 0; restrict = 0; scale = 1;
+			
+			switch(type) {
+			case BALL: case MELEE: case PROJECTILE: case BEAM: case USER:
+				restrict = 1.f;
+				if (totalElapsed < mdo.fadein) {
+					//restrict = totalElapsed/mdo.fadein;
+					scale *= (totalElapsed/mdo.fadein);
+				} else if (totalElapsed > (mdo.duration-mdo.fadein)) {
+					restrict = (mdo.duration-totalElapsed) / mdo.fadein;
+				} else {
+					//restrict = 1f;
+				}
+				atX = getX() + parent.getTileWidth()/2f - t.getWidth()*scale/2f;
+				atY = getY() + parent.getTileHeight()/2f - t.getHeight()*scale/2f;
+				break;
+			default:
+				atX = 0; atY = 0; restrict = 0; scale = 1;
+			}
+			
+			shader.begin();
+			shader.setUniformf("u_restrict", restrict);
+			shader.setUniformi("u_mask", 1);
+			shader.setUniformi("u_noise1", 2);
+			shader.setUniformi("u_noise2", 3);
+			shader.setUniformi("u_noise3", 4);
+			shader.setUniformf("u_elapsed", totalElapsed);
+			shader.end();
+			
+			privateBatch.begin();
+			privateBatch.setProjectionMatrix(sc.getCamera().combined);
+			
+			Texture maskTex = mask.getTexture();
+			Texture noise1Tex = noise1.getTexture();
+			Texture noise2Tex = noise2.getTexture();
+			Texture noise3Tex = noise3.getTexture();
+			maskTex.setWrap(TextureWrap.ClampToEdge, TextureWrap.ClampToEdge);
+			noise1Tex.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
+			noise2Tex.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
+			noise3Tex.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
+			maskTex.bind(1);
+			noise1Tex.bind(2);
+			noise2Tex.bind(3);
+			noise3Tex.bind(4);
+			Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
+			
+			privateBatch.draw(t, atX, atY, scale*t.getWidth(), scale*t.getHeight());
+			
+			privateBatch.end();
+			
 		}
-		
-		shader.begin();
-		shader.setUniformf("u_restrict", restrict);
-		shader.setUniformi("u_mask", 1);
-		shader.setUniformi("u_noise1", 2);
-		shader.setUniformi("u_noise2", 3);
-		shader.setUniformi("u_noise3", 4);
-		shader.setUniformf("u_elapsed", totalElapsed);
-		shader.end();
-		
-		privateBatch.begin();
-		privateBatch.setProjectionMatrix(sc.getCamera().combined);
-		
-		Texture maskTex = mask.getTexture();
-		Texture noise1Tex = noise1.getTexture();
-		Texture noise2Tex = noise2.getTexture();
-		Texture noise3Tex = noise3.getTexture();
-		maskTex.setWrap(TextureWrap.ClampToEdge, TextureWrap.ClampToEdge);
-		noise1Tex.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
-		noise2Tex.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
-		noise3Tex.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
-		maskTex.bind(1);
-		noise1Tex.bind(2);
-		noise2Tex.bind(3);
-		noise3Tex.bind(4);
-		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
-		
-		privateBatch.draw(t, atX, atY, scale*t.getWidth(), scale*t.getHeight());
-		
-		privateBatch.end();
 		parent.getBatch().begin();
 	}
 

@@ -18,7 +18,7 @@
 		}
 	],
 	"danger" : {
-		"boundsString" : ""
+		"boundsString" : "4-10"
 	},
 	"rivalSpecies" : "species_undead"
 }

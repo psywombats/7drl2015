@@ -8,7 +8,7 @@
 	"overlay" : "4dir_overlay_knife",
 	"effect" : null,
 	"dangerLevel" : {
-		"boundsString" : "2-100"
+		"boundsString" : "1-7"
 	},
 	"statsMod" : {
 		"stats" : [

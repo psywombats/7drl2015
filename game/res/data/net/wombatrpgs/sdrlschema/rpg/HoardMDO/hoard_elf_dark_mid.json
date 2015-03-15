@@ -18,7 +18,7 @@
 		}
 	],
 	"danger" : {
-		"boundsString" : ""
+		"boundsString" : "5-10"
 	},
 	"rivalSpecies" : "species_elf"
 }

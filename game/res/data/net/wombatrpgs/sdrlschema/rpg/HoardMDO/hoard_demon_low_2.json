@@ -14,7 +14,7 @@
 		}
 	],
 	"danger" : {
-		"boundsString" : ""
+		"boundsString" : "3-8"
 	},
 	"rivalSpecies" : "species_demon"
 }

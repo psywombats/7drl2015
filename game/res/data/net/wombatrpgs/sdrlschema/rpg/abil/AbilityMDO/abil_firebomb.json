@@ -16,5 +16,5 @@
 	"icon" : "pot3.png",
 	"energyCost" : 1000,
 	"leveling" : [ ],
-	"fx" : "None"
+	"fx" : "abilfx_flames"
 }

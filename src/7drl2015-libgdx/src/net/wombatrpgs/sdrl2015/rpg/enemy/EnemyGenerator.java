@@ -23,8 +23,8 @@ import net.wombatrpgs.sdrlschema.rpg.data.UnitUseType;
  */
 public class EnemyGenerator {
 	
-	protected static final float HOARD_CHANCE = .5f;
-	protected static final float PATROL_CHANCE = .5f;
+	protected static final float HOARD_CHANCE = .05f;
+	protected static final float PATROL_CHANCE = .1f;
 	protected static final float OUT_OF_DEPTH_CHANCE = .1f;
 	protected static final int OUT_OF_DEPTH_OFFSET = 5;
 	

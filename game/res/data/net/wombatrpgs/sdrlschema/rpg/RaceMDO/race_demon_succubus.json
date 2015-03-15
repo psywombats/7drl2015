@@ -6,8 +6,9 @@
 	"prefix" : "Succubus",
 	"appearance" : "4dir_red_female",
 	"overlay" : "None",
+	"effect" : null,
 	"dangerLevel" : {
-		"boundsString" : ""
+		"boundsString" : "1-10"
 	},
 	"spawnType" : "USE_UNITS",
 	"rivalry" : "NO_REQUIREMENT",
@@ -20,11 +21,20 @@
 			{
 				"stat" : "MELEE_DMG",
 				"value" : 5.0
+			},
+			{
+				"stat" : "FIRE_DMG",
+				"value" : 10.0
+			},
+			{
+				"stat" : "ICE_DMG",
+				"value" : 10.0
 			}
 		],
 		"flags" : [ ]
 	},
 	"abilities" : [
 		"abil_touch_ice"
-	]
+	],
+	"lootTable" : "None"
 }

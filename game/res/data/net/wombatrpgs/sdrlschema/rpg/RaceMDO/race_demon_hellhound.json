@@ -6,8 +6,9 @@
 	"prefix" : "Hellhound",
 	"appearance" : "4dir_hound",
 	"overlay" : "None",
+	"effect" : null,
 	"dangerLevel" : {
-		"boundsString" : ""
+		"boundsString" : "1-99"
 	},
 	"spawnType" : "NO_UNITS",
 	"rivalry" : "NO_REQUIREMENT",
@@ -34,5 +35,6 @@
 	},
 	"abilities" : [
 		"abil_teleport"
-	]
+	],
+	"lootTable" : "None"
 }

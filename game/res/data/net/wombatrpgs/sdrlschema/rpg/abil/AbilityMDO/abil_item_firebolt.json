@@ -15,9 +15,6 @@
 	},
 	"icon" : "staff3.png",
 	"energyCost" : 1000,
-	"leveling" : [
-		"INCREASE_USES",
-		"INCREASE_DAMAGE"
-	],
+	"leveling" : [ ],
 	"fx" : "abilfx_flames"
 }

@@ -6,13 +6,16 @@
 	"suffix" : "Servant",
 	"appearance" : "None",
 	"overlay" : "None",
+	"effect" : null,
 	"dangerLevel" : {
-		"boundsString" : ""
+		"boundsString" : "1-6"
 	},
 	"statsMod" : {
 		"stats" : [ ],
 		"flags" : [ ]
 	},
 	"abilities" : [ ],
-	"rivalry" : "REQUIRES_RIVAL"
+	"rivalry" : "REQUIRES_RIVAL",
+	"heldItems" : [ ],
+	"lootTable" : "None"
 }

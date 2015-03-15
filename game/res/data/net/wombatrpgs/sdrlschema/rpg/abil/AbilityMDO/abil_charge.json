@@ -3,7 +3,7 @@
 	"subfolder" : "weapon",
 	"name" : "Charge",
 	"description" : "",
-	"abilDesc" : "Rush across open up to 3 tiles and attack the enemy",
+	"abilDesc" : "Rush across up to 3 tiles and attack the enemy",
 	"levelDesc" : "Leveling increases range by 1 tile",
 	"uses" : 2,
 	"target" : "PROJECTILE",

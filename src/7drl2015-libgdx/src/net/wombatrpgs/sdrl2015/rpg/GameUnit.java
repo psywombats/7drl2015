@@ -419,6 +419,7 @@ public class GameUnit implements Turnable, Queueable {
 	public int heal(int healAmount) {
 		int healt = Math.min(get(Stat.MHP) - get(Stat.HP), healAmount);
 		stats.add(Stat.HP, healt);
+		parent.flash(Color.BLUE, MGlobal.constants.getDelay()*1.6f);
 		return healt;
 	}
 	
@@ -624,6 +625,7 @@ public class GameUnit implements Turnable, Queueable {
 	 */
 	public void onNight() {
 		abilityUses.clear();
+		heal(10000);
 	}
 	
 	/**

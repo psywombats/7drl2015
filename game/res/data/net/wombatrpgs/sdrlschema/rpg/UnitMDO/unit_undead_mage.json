@@ -8,7 +8,7 @@
 	"overlay" : "4dir_overlay_robe",
 	"effect" : null,
 	"dangerLevel" : {
-		"boundsString" : ""
+		"boundsString" : "5-13"
 	},
 	"statsMod" : {
 		"stats" : [

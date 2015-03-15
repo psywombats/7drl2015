@@ -54,14 +54,15 @@ public class EquippedItems {
 		if (slot == null) {
 			MGlobal.reporter.err("Equipping non-equipment: " + item);
 		}
-		Item previous = equipment.get(slot);
-		equipment.put(slot, item);
-		owner.applyStatset(item.getStats(), false);
-		owner.getInventory().removeItem(item);
-		if (previous != null) {
-			owner.getInventory().addItem(previous);
-		}
 		owner.grantAbility(item.getEquipAbilityKey(), item);
+		owner.getInventory().removeItem(item);
+		Item previous = equipment.get(slot);
+		if (previous != null) {
+			unequip(slot);
+		}
+		equipment.put(slot, item);
+		System.out.println("APPLYING " + item.getName());
+		owner.applyStatset(item.getStats(), false);
 	}
 	
 	/**
@@ -76,6 +77,7 @@ public class EquippedItems {
 		if (equipped != null && !owner.getInventory().isFull()) {
 			equipment.put(slot, null);
 			owner.getInventory().addItem(equipped);
+			System.out.println("UNAPPLYING " + equipped.getName());
 			owner.applyStatset(equipped.getStats(), true);
 			owner.revokeAbility(equipped.getEquipAbilityKey());
 			return true;

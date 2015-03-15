@@ -8,7 +8,7 @@
 	"overlay" : "None",
 	"effect" : null,
 	"dangerLevel" : {
-		"boundsString" : ""
+		"boundsString" : "4-10"
 	},
 	"spawnType" : "NO_UNITS",
 	"rivalry" : "REQUIRES_RIVAL",

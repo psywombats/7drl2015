@@ -132,6 +132,8 @@ public class SelectionDialog extends Popup {
 		default:
 			break;
 		}
+		if (selected < 0) selected = 0;
+		if (selected >= options.size()) selected = options.size()-1;
 		return true;
 	}
 

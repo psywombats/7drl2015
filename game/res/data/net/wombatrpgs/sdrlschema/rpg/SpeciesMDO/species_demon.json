@@ -9,16 +9,7 @@
 		"boundsString" : ""
 	},
 	"statsMod" : {
-		"stats" : [
-			{
-				"stat" : "FIRE_DMG",
-				"value" : 10.0
-			},
-			{
-				"stat" : "ICE_DMG",
-				"value" : 10.0
-			}
-		],
+		"stats" : [ ],
 		"flags" : [ ]
 	},
 	"abilities" : [ ],

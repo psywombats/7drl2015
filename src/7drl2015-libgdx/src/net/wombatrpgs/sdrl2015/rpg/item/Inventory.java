@@ -76,6 +76,7 @@ public class Inventory {
 		}
 		items.remove(item);
 		parent.revokeAbility(item.getCarryAbilityKey());
+		parent.revokeAbility(item.getEquipAbilityKey());
 	}
 	
 	/**

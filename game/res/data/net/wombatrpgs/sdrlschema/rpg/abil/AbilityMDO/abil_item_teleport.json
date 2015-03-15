@@ -15,9 +15,6 @@
 	},
 	"icon" : "staff2.png",
 	"energyCost" : 1000,
-	"leveling" : [
-		"INCREASE_USES",
-		"INCREASE_SECONDARY"
-	],
+	"leveling" : [ ],
 	"fx" : "abilfx_distort"
 }

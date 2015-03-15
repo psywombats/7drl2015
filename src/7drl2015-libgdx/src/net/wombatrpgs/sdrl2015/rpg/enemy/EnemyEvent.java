@@ -319,7 +319,7 @@ public class EnemyEvent extends CharacterEvent {
 					ActStep step = new ActStep(this);
 					if (path == null) {
 						// there was no path so we'll just blindly walk in that direction
-						step.setDirection(directionTo(target));
+						step.setDirection(directionTo(lastTarget));
 					} else if (path.size() == 0) {
 						MGlobal.reporter.warn("Pathfinding to self?");
 						step.setDirection(getFacing().toEight());

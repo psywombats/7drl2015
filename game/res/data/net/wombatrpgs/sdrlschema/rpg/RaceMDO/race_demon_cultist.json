@@ -6,8 +6,9 @@
 	"prefix" : "Cultist",
 	"appearance" : "4dir_man",
 	"overlay" : "None",
+	"effect" : null,
 	"dangerLevel" : {
-		"boundsString" : ""
+		"boundsString" : "3-12"
 	},
 	"spawnType" : "NO_UNITS",
 	"rivalry" : "REQUIRES_RIVAL",
@@ -30,5 +31,6 @@
 	},
 	"abilities" : [
 		"abil_touch_fire"
-	]
+	],
+	"lootTable" : "None"
 }

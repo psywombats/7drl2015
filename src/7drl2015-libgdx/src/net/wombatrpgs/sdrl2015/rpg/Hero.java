@@ -39,13 +39,13 @@ import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 public class Hero extends CharacterEvent implements CommandListener {
 	
 	// terrible place to put these
-	public static final int TURNS_PER_NIGHT = 10;
+	public static final int TURNS_PER_NIGHT = 100;
 	public static final int PEACEFUL_TURNS_REQUIRED = 10;
 	
 	protected static final String HERO_DEFAULT = "hero_default";
 	
 	protected static final String START_PACK_DEFAULT = "itemlist_starter";
-	protected static final int STARTER_ITEMS = 20;
+	protected static final int STARTER_ITEMS = 6;
 	
 	protected ActStep step;
 	// to facilitate shader calls, viewtex is like a b/w image version of cache
@@ -176,6 +176,10 @@ public class Hero extends CharacterEvent implements CommandListener {
 		case ABIL_4:			abil(3);					break;
 		case ABIL_5:			abil(4);					break;
 		case ABIL_6:			abil(5);					break;
+		case ABIL_7:			abil(6);					break;
+		case ABIL_8:			abil(7);					break;
+		case ABIL_9:			abil(8);					break;
+		case ABIL_10:			abil(9);					break;
 		
 		// ETC
 		case INTENT_CAMP:		tryCamp();					break;
@@ -253,6 +257,12 @@ public class Hero extends CharacterEvent implements CommandListener {
 	 * @return					True if PC is can camp at the moment
 	 */
 	public boolean isEligibleForCamp(boolean silent) {
+		if (getParent().getKey().equals(baseMapKey)) {
+			if (!silent) {
+				GameUnit.out.msg("Can't camp -- already have a camp this map");
+			}
+			return false;
+		}
 		if (turnsSinceNight < TURNS_PER_NIGHT) {
 			int turnsNeeded = TURNS_PER_NIGHT - turnsSinceNight;
 			if (!silent) {

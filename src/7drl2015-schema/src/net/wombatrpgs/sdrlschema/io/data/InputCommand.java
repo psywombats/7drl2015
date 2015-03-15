@@ -29,6 +29,10 @@ public enum InputCommand {
 	ABIL_4,
 	ABIL_5,
 	ABIL_6,
+	ABIL_7,
+	ABIL_8,
+	ABIL_9,
+	ABIL_10,
 	
 	INTENT_CONFIRM,
 	INTENT_CANCEL,

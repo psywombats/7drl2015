@@ -14,7 +14,7 @@
 		}
 	],
 	"danger" : {
-		"boundsString" : ""
+		"boundsString" : "2-7"
 	},
 	"rivalSpecies" : "species_dragon"
 }

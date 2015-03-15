@@ -38,6 +38,7 @@ import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 import net.wombatrpgs.sdrlschema.rpg.abil.AbilityMDO;
 import net.wombatrpgs.sdrlschema.rpg.abil.AbilityTargetType;
 import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
+import net.wombatrpgs.sdrlschema.rpg.data.Relation;
 
 /**
  * An ability is a special sort of action. It can be used by a character or a
@@ -491,13 +492,14 @@ public class Ability extends Action implements Queueable, CommandListener {
 								int tileY = actor.getTileY();
 								int origX = tileX;
 								int origY = tileY;
-								for (int i = 0; i <= actor.tileDistanceTo(targetCursor); i += 1) {
+								while (tileX != targetCursor.getTileX() || tileY != targetCursor.getTileY()) {
 									EightDir dir = actor.directionTo(targetCursor);
 									tileX += dir.getVector().x;
 									tileY += dir.getVector().y;
-									for (CharacterEvent other : actor.getParent().getCharacters()) {
-										if (other.getTileX() == tileX && other.getTileY() == tileY) {
-											targets.add(other.getUnit());
+									for (MapEvent other : actor.getParent().getEventsAt(tileX, tileY)) {
+										// hax
+										if (other instanceof CharacterEvent) {
+											targets.add(((CharacterEvent) other).getUnit());
 										}
 									}
 									actor.setTileX(tileX);
@@ -517,12 +519,23 @@ public class Ability extends Action implements Queueable, CommandListener {
 				}
 			} else {
 				targets = new ArrayList<GameUnit>();
-				for (GameUnit enemy : actor.getUnit().getVisibleEnemies()) {
-					if (actor.euclideanTileDistanceTo(enemy.getParent()) <= mdo.range &&
-							actor != enemy.getParent() &&
-							actor.getUnit().getRelationTo(enemy).attackIfBored) {
-						targets.add(enemy);
-						break;
+				if (getTactic() == TacticType.OFFENSE) {
+					for (GameUnit enemy : actor.getUnit().getVisibleEnemies()) {
+						if (actor.euclideanTileDistanceTo(enemy.getParent()) <= mdo.range &&
+								actor != enemy.getParent() &&
+								actor.getUnit().getRelationTo(enemy).attackIfBored) {
+							targets.add(enemy);
+							break;
+						}
+					}
+				} else {
+					for (GameUnit unit : actor.getUnit().getVisibleUnits()) {
+						if (actor.euclideanTileDistanceTo(unit.getParent()) <= mdo.range &&
+								actor != unit.getParent() &&
+								actor.getUnit().getRelationTo(unit) == Relation.ALLIED) {
+							targets.add(unit);
+							break;
+						}
 					}
 				}
 			}

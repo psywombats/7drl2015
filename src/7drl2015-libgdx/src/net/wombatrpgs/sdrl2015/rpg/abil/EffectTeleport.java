@@ -55,8 +55,8 @@ public class EffectTeleport extends AbilEffect {
 			do {
 				int tx = origX + MGlobal.rand.nextInt(maxR*2) - maxR;
 				int ty = origY + MGlobal.rand.nextInt(maxR*2) - maxR;
-				if (tx < 0 || tx > parent.getWidth()) continue;
-				if (ty < 0 || ty > parent.getHeight()) continue;
+				if (tx < 0 || tx >= parent.getWidth()) continue;
+				if (ty < 0 || ty >= parent.getHeight()) continue;
 				target.getParent().setTileX(tx);
 				target.getParent().setTileY(ty);
 				tries += 1;

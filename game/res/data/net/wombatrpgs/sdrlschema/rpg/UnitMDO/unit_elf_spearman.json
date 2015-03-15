@@ -8,7 +8,7 @@
 	"overlay" : "4dir_overlay_spear",
 	"effect" : null,
 	"dangerLevel" : {
-		"boundsString" : ""
+		"boundsString" : "1-11"
 	},
 	"statsMod" : {
 		"stats" : [

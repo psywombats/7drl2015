@@ -8,7 +8,7 @@
 	"overlay" : "None",
 	"effect" : "HOLY",
 	"dangerLevel" : {
-		"boundsString" : "1-99"
+		"boundsString" : "11"
 	},
 	"spawnType" : "USE_UNITS",
 	"rivalry" : "NO_REQUIREMENT",
@@ -28,7 +28,7 @@
 			},
 			{
 				"stat" : "MELEE_DMG",
-				"value" : 13.0
+				"value" : 16.0
 			}
 		],
 		"flags" : [

@@ -14,7 +14,7 @@
 		}
 	],
 	"danger" : {
-		"boundsString" : ""
+		"boundsString" : "1-5"
 	},
 	"rivalSpecies" : "None"
 }

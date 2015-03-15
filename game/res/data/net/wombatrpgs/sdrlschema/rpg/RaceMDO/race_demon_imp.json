@@ -6,8 +6,9 @@
 	"prefix" : "Imp",
 	"appearance" : "4dir_eye",
 	"overlay" : "None",
+	"effect" : null,
 	"dangerLevel" : {
-		"boundsString" : "1-99"
+		"boundsString" : "1-8"
 	},
 	"spawnType" : "NO_UNITS",
 	"rivalry" : "REQUIRES_RIVAL",
@@ -32,5 +33,6 @@
 		],
 		"flags" : [ ]
 	},
-	"abilities" : [ ]
+	"abilities" : [ ],
+	"lootTable" : "None"
 }

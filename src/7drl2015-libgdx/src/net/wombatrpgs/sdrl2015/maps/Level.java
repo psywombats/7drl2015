@@ -59,6 +59,7 @@ public class Level extends ScreenObject implements Turnable {
 	protected static final String LOOT_LIST_MED = "itemlist_goodstuff";
 	protected static final String LOOT_LIST_HIGH = "itemlist_artifacts";
 	protected static final float LOOT_IMPROVE_CHANCE = .03f;
+	protected static final float RESPAWN_CHANCE = .02f;
 	
 	public static final int TILE_WIDTH = 32;
 	public static final int TILE_HEIGHT = 32;
@@ -236,6 +237,13 @@ public class Level extends ScreenObject implements Turnable {
 	@Override
 	public void update(float elapsed) {
 		updating = true;
+		for (int i = 0; i < getCapacity() - getPopulation(); i += 1) {
+			if (MGlobal.rand.nextFloat() < RESPAWN_CHANCE) {
+				Encounter encounter = MGlobal.levelManager.getEnemyGen().generateEncounter(getDanger());
+				MGlobal.assetManager.loadAsset(encounter, "encounter");
+				encounter.spawn(this);
+			}
+		}
 		if (scene != null && !scene.hasExecuted()) {
 			scene.run();
 		}
@@ -580,7 +588,7 @@ public class Level extends ScreenObject implements Turnable {
 	 * @return					The max monsters supported by this map
 	 */
 	protected int getCapacity() {
-		int density = 30; // not quite sure what the meaning is here
+		int density = 48; // not quite sure what the meaning is here
 		return (int) Math.ceil(density * (float)(getWidth()*getHeight() / (100f*100f)));
 	}
 

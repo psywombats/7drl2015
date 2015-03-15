@@ -13,5 +13,7 @@
 	"pathsUp" : [
 		"map_02"
 	],
-	"pathsDown" : [ ]
+	"pathsDown" : [
+		"map_04"
+	]
 }
