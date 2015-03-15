@@ -7,6 +7,7 @@
 package net.wombatrpgs.sdrl2015.maps.events;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -168,7 +169,9 @@ public class Cursor extends MapEvent implements CommandListener {
 				}
 			}
 		} else {
-			for (MapEvent event : parent.getEventsAt(targetX, targetY)) {
+			List<MapEvent> events = parent.getEventsAt(targetX, targetY);
+			Collections.reverse(events);
+			for (MapEvent event : events) {
 				String text = null;
 				text = event.mouseoverMessage();
 				if (text != null && text.length() > 0) {

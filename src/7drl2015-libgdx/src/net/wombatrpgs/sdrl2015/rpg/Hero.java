@@ -6,6 +6,7 @@
  */
 package net.wombatrpgs.sdrl2015.rpg;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.Color;
@@ -411,7 +412,9 @@ public class Hero extends CharacterEvent implements CommandListener {
 	 * Try to interact with things on the map by picking them up etc.
 	 */
 	protected void interact() {
-		for (MapEvent event : parent.getEventsAt(getTileX(), getTileY())) {
+		List<MapEvent> events = parent.getEventsAt(getTileX(), getTileY());
+		Collections.reverse(events);
+		for (MapEvent event : events) {
 			if (event.onInteract()) break;
 		}
 	}
