@@ -412,6 +412,19 @@ public abstract class MapEvent extends MapThing implements	PositionSetable,
 	}
 	
 	/**
+	 * Calculates the minimum x or y distance to a tile.
+	 * @param   tileX           The x-coord to calc distance to, in tiles
+	 * @param	tileY			The y-coord to calc distance to, in tiles
+	 * @return					The distance between the two, in tiles
+	 */
+	public int minTileDistanceTo(int tileX, int tileY) {
+		return Math.min(
+				Math.abs(tileX - this.tileX),
+				Math.abs(tileY - this.tileY)
+			);
+	}
+	
+	/**
 	 * Calculates the manhattan distance between this and some other event.
 	 * @param	other			The event to calculate distance from
 	 * @return					The distance between the two, in tiles
