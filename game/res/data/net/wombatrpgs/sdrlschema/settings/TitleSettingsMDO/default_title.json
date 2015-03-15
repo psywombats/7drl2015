@@ -5,7 +5,7 @@
 	"description" : "Looked up by key",
 	"bg" : "titlescreen.png",
 	"prompt" : "prompt.png",
-	"promptX" : 668,
+	"promptX" : 788,
 	"promptY" : 8,
 	"cycle" : 0.8
 }

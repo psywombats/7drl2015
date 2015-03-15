@@ -438,7 +438,7 @@ public class Ability extends Action implements Queueable, CommandListener {
 					targets = null;
 					MGlobal.levelManager.getScreen().registerCommandListener(this);
 					MGlobal.levelManager.getScreen().pushCommandContext(new CMapDirections());
-					MGlobal.ui.getNarrator().msg("Enter a direction (012346789)...");
+					MGlobal.ui.getNarrator().msg("Enter a direction...");
 					blocking = true;
 				}
 			} else {

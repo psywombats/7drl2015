@@ -419,7 +419,7 @@ public class GameUnit implements Turnable, Queueable {
 	public int heal(int healAmount) {
 		int healt = Math.min(get(Stat.MHP) - get(Stat.HP), healAmount);
 		stats.add(Stat.HP, healt);
-		parent.flash(Color.BLUE, MGlobal.constants.getDelay()*1.6f);
+		parent.flash(Color.BLUE, .8f);
 		return healt;
 	}
 	
