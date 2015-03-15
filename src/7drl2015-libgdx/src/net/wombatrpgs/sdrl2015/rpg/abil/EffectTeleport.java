@@ -10,6 +10,7 @@ import java.util.List;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
+import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectTeleportMDO;
 import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
 
@@ -28,6 +29,18 @@ public class EffectTeleport extends AbilEffect {
 	public EffectTeleport(EffectTeleportMDO mdo, Ability abil) {
 		super(mdo, abil);
 		this.mdo = mdo;
+	}
+	
+	/** @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#getTactic() */
+	@Override public TacticType getTactic() { return TacticType.OFFENSE; }
+
+	/**
+	 * @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#aiShouldUse()
+	 */
+	@Override
+	public boolean aiShouldUse() {
+		// fuck it
+		return super.aiShouldUse() && MGlobal.rand.nextFloat() < .05;
 	}
 
 	/**

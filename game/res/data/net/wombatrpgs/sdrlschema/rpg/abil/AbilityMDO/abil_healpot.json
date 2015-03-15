@@ -8,6 +8,7 @@
 	"uses" : 1,
 	"target" : "USER",
 	"range" : 0.0,
+	"useChance" : 0.3,
 	"warhead" : {
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectHealMDO",
 		"key" : "anon_AbilityMDO_1978444986"

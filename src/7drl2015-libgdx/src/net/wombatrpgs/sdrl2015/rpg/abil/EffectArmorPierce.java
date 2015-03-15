@@ -10,6 +10,7 @@ import java.util.List;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
+import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectArmorPierceMDO;
 import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
 import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
@@ -30,6 +31,9 @@ public class EffectArmorPierce extends AbilEffect {
 		super(mdo, abil);
 		this.mdo = mdo;
 	}
+
+	/** @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#getTactic() */
+	@Override public TacticType getTactic() { return TacticType.OFFENSE; }
 
 	/**
 	 * @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#internalAct(java.util.List)

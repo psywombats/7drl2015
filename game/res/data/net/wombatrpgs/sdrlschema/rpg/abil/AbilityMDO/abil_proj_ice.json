@@ -8,6 +8,7 @@
 	"uses" : 5,
 	"target" : "PROJECTILE",
 	"range" : 5.0,
+	"useChance" : 0.6,
 	"warhead" : {
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO",
 		"key" : "anon_AbilityMDO_954389011"

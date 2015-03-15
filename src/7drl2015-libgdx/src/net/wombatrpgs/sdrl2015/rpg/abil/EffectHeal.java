@@ -10,8 +10,10 @@ import java.util.List;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
+import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectHealMDO;
 import net.wombatrpgs.sdrlschema.rpg.data.LevelingAttribute;
+import net.wombatrpgs.sdrlschema.rpg.stats.Stat;
 
 /**
  * Heals?
@@ -28,6 +30,25 @@ public class EffectHeal extends AbilEffect {
 	public EffectHeal(EffectHealMDO mdo, Ability abil) {
 		super(mdo, abil);
 		this.mdo = mdo;
+	}
+	
+	/** @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#getTactic() */
+	@Override public TacticType getTactic() { return TacticType.SUPPORT; }
+
+	/**
+	 * @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#aiShouldUse()
+	 */
+	@Override
+	public boolean aiShouldUse() {
+		abil.acquireTargets();
+		for (GameUnit target : abil.getTargets()) {
+			// hack, we should actually just make sure healed targets are friendly
+			if (target == MGlobal.hero.getUnit()) continue;
+			if (target.get(Stat.HP) < target.get(Stat.MHP)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

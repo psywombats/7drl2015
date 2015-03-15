@@ -36,11 +36,14 @@ public class AbilityMDO extends MainSchema {
 	@Desc("Uses - can be used this many times per night at level 0")
 	public Integer uses;
 	
-	@Desc("Target - What or where this ability targets")
+	@Desc("Target - what or where this ability targets")
 	public AbilityTargetType target;
 	
-	@Desc("Range - In tiles, could be used for some targeting types")
+	@Desc("Range - in tiles, could be used for some targeting types")
 	public Float range;
+	
+	@Desc("AI preference - how likely AI is to use this, 0-1, 1 is always use when valid, 0 is never")
+	public Float useChance;
 	
 	@Desc("Effect - what happens when this applies")
 	@InlinePolymorphic(AbilityEffectMDO.class)
@@ -52,14 +55,14 @@ public class AbilityMDO extends MainSchema {
 	@Nullable
 	public String icon;
 	
-	@Desc("Energy cost - How long it takes to use this action (1000 default, 2000 is twice as long, etc")
+	@Desc("Energy cost - how long it takes to use this action (1000 default, 2000 is twice as long, etc")
 	@DefaultValue("1000")
 	public Integer energyCost;
 	
-	@Desc("Leveling effects - Each level will have the following effects")
+	@Desc("Leveling effects - each level will have the following effects")
 	public LevelingAttribute[] leveling;
 	
-	@Desc("Graphical fx - Special animations for this ability!!")
+	@Desc("Graphical fx - special animations for this ability!!")
 	@SchemaLink(AbilFxMDO.class)
 	@Nullable
 	public String fx;

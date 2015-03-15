@@ -11,6 +11,7 @@ import java.util.List;
 import net.wombatrpgs.sdrl2015.maps.Level;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
+import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
 import net.wombatrpgs.sdrl2015.rpg.travel.Step;
 import net.wombatrpgs.sdrl2015.rpg.travel.StepWait;
 import net.wombatrpgs.sdrlschema.rpg.abil.AbilityEffectMDO;
@@ -48,6 +49,15 @@ public abstract class AbilEffect {
 	}
 	
 	/**
+	 * Should the AI use this ability, if targets exist? Apply extra conditions
+	 * and maybe use the RNG. By default returns true.
+	 * @return					True if AI should use when valid.
+	 */
+	public boolean aiShouldUse() {
+		return true;
+	}
+	
+	/**
 	 * Wrapper for an internal abstract method. Performs the universal
 	 * abileffect functionality, which should be minimal. The fancy stuff
 	 * belongs in the Ability owner.
@@ -58,6 +68,12 @@ public abstract class AbilEffect {
 		this.parent = actor.getParent();
 		internalAct(targets);
 	}
+	
+	/**
+	 * Determines how the AI uses this effect.
+	 * @return					The tactic this effect accomplishes
+	 */
+	public abstract TacticType getTactic();
 	
 	/**
 	 * Returns the numerical level of the parent ability as known by the owner.

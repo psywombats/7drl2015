@@ -108,17 +108,12 @@ public class GameUnit implements Turnable, Queueable {
 	 * Creates a new character from a list of its stats and abilities. Meant to
 	 * be called by enemies.
 	 * @param	stats			The stats of the unit
-	 * @param	abilityKeys		The keys to AbilityMDOs of the unit
 	 * @param	race			The race of this game unit, or null for no care
 	 */
-	public GameUnit(SdrlStats stats, List<String> abilityKeys, RaceMDO race) {
+	public GameUnit(SdrlStats stats, RaceMDO race) {
 		this();
 		this.race = race;
 		this.stats = stats;
-		for (String mdoKey : abilityKeys) {
-			abilities.add(new AbilityEntry(new Ability(parent, null,
-					MGlobal.data.getEntryFor(mdoKey, AbilityMDO.class))));
-		}
 	}
 	
 	/** @return Laziness personified */
@@ -609,6 +604,17 @@ public class GameUnit implements Turnable, Queueable {
 		Integer used = abilityUses.get(key);
 		if (used == null) return 0;
 		return used;
+	}
+	
+	/**
+	 * EnemyEvent hacky thing to add abilities.
+	 * @param	abilityKeys		The AbilityMDO keys of everything to add
+	 */
+	public void innatelyLearnAbilities(List<String> abilityKeys) {
+		for (String mdoKey : abilityKeys) {
+			abilities.add(new AbilityEntry(new Ability(parent, null,
+					MGlobal.data.getEntryFor(mdoKey, AbilityMDO.class))));
+		}
 	}
 	
 	/**

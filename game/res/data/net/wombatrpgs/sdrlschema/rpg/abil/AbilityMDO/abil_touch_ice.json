@@ -8,6 +8,7 @@
 	"uses" : 4,
 	"target" : "MELEE",
 	"range" : 1.0,
+	"useChance" : 0.9,
 	"warhead" : {
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO",
 		"key" : "anon_AbilityMDO_954389011"

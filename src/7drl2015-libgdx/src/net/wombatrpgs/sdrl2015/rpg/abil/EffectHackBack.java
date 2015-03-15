@@ -10,6 +10,7 @@ import java.util.List;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
+import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
 import net.wombatrpgs.sdrl2015.rpg.travel.StepMove;
 import net.wombatrpgs.sdrlschema.maps.data.EightDir;
 import net.wombatrpgs.sdrlschema.rpg.abil.EffectHackBackMDO;
@@ -31,6 +32,9 @@ public class EffectHackBack extends AbilEffect {
 		super(mdo, abil);
 		this.mdo = mdo;
 	}
+	
+	/** @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#getTactic() */
+	@Override public TacticType getTactic() { return TacticType.OFFENSE; }
 
 	/**
 	 * @see net.wombatrpgs.sdrl2015.rpg.abil.AbilEffect#internalAct(java.util.List)

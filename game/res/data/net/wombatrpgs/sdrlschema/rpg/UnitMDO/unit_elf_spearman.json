@@ -22,6 +22,8 @@
 		],
 		"flags" : [ ]
 	},
-	"abilities" : [ ],
+	"abilities" : [
+		"abil_charge"
+	],
 	"rivalry" : "NO_REQUIREMENT"
 }

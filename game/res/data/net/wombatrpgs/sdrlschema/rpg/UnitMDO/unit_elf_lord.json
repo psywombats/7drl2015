@@ -5,6 +5,7 @@
 	"description" : "",
 	"suffix" : "Lord",
 	"appearance" : "None",
+	"overlay" : "None",
 	"dangerLevel" : {
 		"boundsString" : "1-100"
 	},

@@ -29,6 +29,7 @@ import net.wombatrpgs.sdrl2015.rpg.CharacterEvent;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.CharacterEvent.RayCheck;
 import net.wombatrpgs.sdrl2015.rpg.act.Action;
+import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
 import net.wombatrpgs.sdrl2015.rpg.item.Item;
 import net.wombatrpgs.sdrl2015.rpg.travel.Step;
 import net.wombatrpgs.sdrlschema.io.data.InputCommand;
@@ -164,6 +165,9 @@ public class Ability extends Action implements Queueable, CommandListener {
 	
 	/** @return The actor's level of this ability */
 	public int getLevel() { return actor.getUnit().getAbilityLevel(getKey()); }
+	
+	/** @return How the AI should use this ability */
+	public TacticType getTactic() { return effect.getTactic(); }
 	
 	/**
 	 * Checks if an attribute is raised when this abil levels.
@@ -381,6 +385,16 @@ public class Ability extends Action implements Queueable, CommandListener {
 	 */
 	public void resetUses() {
 		used = 0;
+	}
+	
+	/**
+	 * RNG-based check to see if this ability should be used by the AI. At this
+	 * point, the ability is known to be valid. The idea is that AI might want
+	 * to do something other than spam valid abilities.
+	 * @return					True if AI should use this ability now
+	 */
+	public boolean aiShouldUse() {
+		return (effect.aiShouldUse()) && (MGlobal.rand.nextFloat() < mdo.useChance);
 	}
 	
 	/**
