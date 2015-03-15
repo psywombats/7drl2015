@@ -293,7 +293,7 @@ public class Hero extends CharacterEvent implements CommandListener {
 		}
 		for (int x = getTileX()-1; x <= getTileX()+1; x += 1) {
 			for (int y = getTileY() - 1; y <= getTileY()+1; y += 1) {
-				if (!parent.isTilePassable(this, x, y)) {
+				if (!parent.isChipPassable(this, x, y)) {
 					if (!silent) {
 						GameUnit.out().msg("Can't camp next to a wall -- try "
 								+ "the middle of a room");
@@ -301,6 +301,12 @@ public class Hero extends CharacterEvent implements CommandListener {
 					return false;
 				}
 			}
+		}
+		if (unit.getVisibleEnemies().size() > 0) {
+			if (!silent) {
+				GameUnit.out().msg("Can't camp with enemies in sight");
+			}
+			return false;
 		}
 		return true;
 	}

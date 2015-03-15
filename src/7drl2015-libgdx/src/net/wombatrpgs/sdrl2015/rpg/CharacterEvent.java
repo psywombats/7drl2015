@@ -296,8 +296,7 @@ public class CharacterEvent extends MapEvent implements Turnable {
 			for (int i = 0; i < 10; i += 1) {
 				int tileX = near.getTileX() + MGlobal.rand.nextInt(r*2) - r;
 				int tileY = near.getTileY() + MGlobal.rand.nextInt(r*2) - r;
-				if (parent.isTilePassable(this, tileX, tileY)
-						&& parent.getEventsAt(tileX, tileY).size() == 0) {
+				if (parent.isTilePassable(this, tileX, tileY)) {
 					setTileX(tileX);
 					setTileY(tileY);
 					setX(tileX * parent.getTileWidth());
@@ -397,7 +396,7 @@ public class CharacterEvent extends MapEvent implements Turnable {
 	 */
 	public void attemptStep(int targetX, int targetY) {
 		faceToward(targetX, targetY);
-		if (parent.isTilePassable(this, targetX, targetY)) {
+		if (parent.isChipPassable(this, targetX, targetY)) {
 			List<MapEvent> events = parent.getEventsAt(targetX, targetY);
 			boolean colliding = false;
 			for (MapEvent event : events) {
