@@ -9,7 +9,6 @@ package net.wombatrpgs.sdrl2015.rpg.abil;
 import java.util.List;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
-import net.wombatrpgs.sdrl2015.maps.events.MapEvent;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.ai.TacticType;
 import net.wombatrpgs.sdrl2015.rpg.enemy.EnemyEvent;
@@ -62,11 +61,6 @@ public class EffectCharge extends AbilEffect {
 					if (!parent.isTilePassable(actor, tileX, tileY)) {
 						return false;
 					}
-					for (MapEvent event : parent.getEventsAt(tileX, tileY)) {
-						if (!event.isPassable() && event != target.getParent()) {
-							return false;
-						}
-					}
 				}
 				return true;
 			}
@@ -89,12 +83,9 @@ public class EffectCharge extends AbilEffect {
 				tileX += oppDir.getVector().x;
 				tileY += oppDir.getVector().y;
 				if (!parent.isTilePassable(actor, tileX, tileY)) {
+					tileX -= oppDir.getVector().x;
+					tileY -= oppDir.getVector().y;
 					break;
-				}
-				for (MapEvent event : parent.getEventsAt(tileX, tileY)) {
-					if (!event.isPassable() && event != target.getParent()) {
-						return;
-					}
 				}
 				actor.addStep(new StepMove(actor, tileX, tileY));
 			}

@@ -64,9 +64,9 @@ public class EffectTeleport extends AbilEffect {
 					target.getParent().getTileX(),
 					target.getParent().getTileY())
 					|| target.getParent().euclideanTileDistanceTo(origX, origY) < minR)
-					&& tries < 50);
+					&& tries < 100);
 			
-			if (tries == 50) {
+			if (tries == 100) {
 				target.getParent().setTileX(origX);
 				target.getParent().setTileY(origY);
 				return;

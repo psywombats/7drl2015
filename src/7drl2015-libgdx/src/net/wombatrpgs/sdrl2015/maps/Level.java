@@ -335,11 +335,31 @@ public class Level extends ScreenObject implements Turnable {
 	 * @param	actor			The character that will be trying to pass
 	 * @param 	tileX			The checked x-coord (in tiles)
 	 * @param 	tileY			The checked y-coord (in tiles)
-	 * @return 					True if layer is passable, false otherwise
+	 * @return 					True if chip is passable, false otherwise
 	 */
-	public boolean isTilePassable(MapEvent actor, int tileX, int tileY) {
+	public boolean isChipPassable(MapEvent actor, int tileX, int tileY) {
 		for (GridLayer layer : gridLayers) {
 			if (!layer.isPassable(actor, tileX, tileY)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Checks if a certain tile can be occupied by the given actor. Takes into
+	 * account both chip and tile passability.
+	 * @param	actor			The character that will be trying to pass
+	 * @param 	tileX			The checked x-coord (in tiles)
+	 * @param 	tileY			The checked y-coord (in tiles)
+	 * @return 					True if tile is passable, false otherwise
+	 */
+	public boolean isTilePassable(MapEvent actor, int tileX, int tileY) {
+		if (!isChipPassable(actor, tileX, tileY)) {
+			return false;
+		}
+		for (MapEvent event : eventLayer.getEventsAt(tileX, tileY)) {
+			if (event != actor && !event.isPassable()) {
 				return false;
 			}
 		}

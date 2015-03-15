@@ -114,7 +114,7 @@ public class Ability extends Action implements Queueable, CommandListener {
 		case BALL: case BEAM:
 			check = actor.new RayCheck() {
 				@Override public boolean bad(int tileX, int tileY) {
-					if (!actor2.getParent().isTilePassable(actor2, tileX, tileY)) {
+					if (!actor2.getParent().isChipPassable(actor2, tileX, tileY)) {
 						return true;
 					}
 					return false;
