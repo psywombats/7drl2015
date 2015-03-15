@@ -27,6 +27,7 @@ public class TitleScreen extends Screen {
 	protected Picture screen, prompt, title;
 	protected TimerObject timer;
 	protected MusicObject music;
+	protected float sinceIntroduce;
 	protected boolean shouldIntroduce;
 
 	/**
@@ -34,7 +35,6 @@ public class TitleScreen extends Screen {
 	 */
 	public TitleScreen() {
 		super();
-		tint = new Color(1, 1, 1, 1);
 		mdo = MGlobal.data.getEntryFor(Constants.KEY_TITLE, TitleSettingsMDO.class);
 		screen = new Picture(mdo.bg, 0, 0, 0);
 		assets.add(screen);
@@ -93,13 +93,25 @@ public class TitleScreen extends Screen {
 			Gdx.app.exit();
 			return true;
 		case INTENT_CONFIRM:
-			shouldIntroduce = true;
+			if (!shouldIntroduce) {
+				shouldIntroduce = true;
+				tintTo(new Color(0, 0, 0, 1));
+			}
 			return true;
 		default:
 			return false;
 		}
 	}
 	
+	/**
+	 * @see net.wombatrpgs.sdrl2015.screen.Screen#onFocusGained()
+	 */
+	@Override
+	public void onFocusGained() {
+		super.onFocusGained();
+		tintTo(new Color(1, 1, 1, 1));
+	}
+
 	/**
 	 * @see net.wombatrpgs.sdrl2015.screen.Screen#render()
 	 */
@@ -124,10 +136,13 @@ public class TitleScreen extends Screen {
 	public void update(float elapsed) {
 		super.update(elapsed);
 		if (shouldIntroduce) {
-			MGlobal.screens.pop();
-			Screen gameScreen = new GameScreen();
-			MGlobal.screens.push(gameScreen);
-			gameScreen.init();
+			sinceIntroduce += elapsed;
+			if (sinceIntroduce > .5f) {
+				MGlobal.screens.pop();
+				Screen gameScreen = new GameScreen();
+				MGlobal.screens.push(gameScreen);
+				gameScreen.init();
+			}
 		}
 	}
 

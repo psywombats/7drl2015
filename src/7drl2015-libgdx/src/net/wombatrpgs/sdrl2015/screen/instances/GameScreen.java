@@ -34,7 +34,6 @@ public class GameScreen extends Screen {
 	public GameScreen() {
 		super();
 		MGlobal.levelManager.setScreen(this);
-		tint = new Color(1, 1, 1, 1);
 		
 		IntroSettingsMDO introMDO=MGlobal.data.getEntryFor("default_intro", IntroSettingsMDO.class);
 		map = MGlobal.levelManager.getLevel(introMDO.map);
@@ -95,6 +94,15 @@ public class GameScreen extends Screen {
 			getCamera().update(0);
 			MGlobal.hero.refreshVisibilityMap();
 		}
+	}
+
+	/**
+	 * @see net.wombatrpgs.sdrl2015.screen.Screen#onFocusGained()
+	 */
+	@Override
+	public void onFocusGained() {
+		super.onFocusGained();
+		tintTo(new Color(1, 1, 1, 1));
 	}
 
 }

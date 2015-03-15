@@ -59,9 +59,10 @@ public abstract class Screen implements CommandListener,
 	protected SpriteBatch uiBatch;
 	protected ShaderProgram mapShader;
 	protected FrameBuffer buffer, lastBuffer;
-	protected Color tint;
+	protected Color tint, tintTarget, oldTint;
 	protected ShapeRenderer shapes;
 	protected BitmapFont defaultFont;
+	protected float sinceTint;
 	
 	protected List<Queueable> assets;
 	protected List<PostRenderable> postRenders;
@@ -337,6 +338,21 @@ public abstract class Screen implements CommandListener,
 			updateChildren.remove(up);
 		}
 		removeChildren.clear();
+		
+		if (tintTarget != null) {
+			sinceTint += elapsed;
+			float r = sinceTint / .5f;			// all tint tweens .5s! welp
+			if (r < 1) {
+				tint = new Color(
+						tintTarget.r * r + oldTint.r * (1f-r),
+						tintTarget.g * r + oldTint.g * (1f-r),
+						tintTarget.b * r + oldTint.b * (1f-r),
+						tintTarget.a * r + oldTint.a * (1f-r));
+			} else {
+				tint = tintTarget;
+				tintTarget = null;
+			}
+		}
 	}
 
 	/**
@@ -415,6 +431,16 @@ public abstract class Screen implements CommandListener,
 		MGlobal.assetManager.finishLoading();
 		this.postProcessing(MGlobal.assetManager, 0);
 		initialized = true;
+	}
+	
+	/**
+	 * Tints to a new color over time.
+	 * @param	color			The tint to become
+	 */
+	public void tintTo(Color color) {
+		sinceTint = 0;
+		tintTarget = color;
+		oldTint = this.tint;
 	}
 	
 	/**
