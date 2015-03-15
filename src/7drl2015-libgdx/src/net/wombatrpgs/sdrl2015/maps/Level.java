@@ -69,6 +69,7 @@ public class Level extends ScreenObject implements Turnable {
 
 	protected EventLayer eventLayer;
 	protected List<GridLayer> gridLayers;
+	protected boolean[][] seenCache;
 	
 	protected List<MapThing> objects;
 	protected List<MapEvent> removalEvents;
@@ -104,6 +105,7 @@ public class Level extends ScreenObject implements Turnable {
 		removalObjects = new ArrayList<MapThing>();
 		removalEvents = new ArrayList<MapEvent>();
 		teleLocations = new HashMap<String, Loc>();
+		seenCache = new boolean[mdo.mapHeight][mdo.mapWidth];
 		
 		// etc
 		if (MapThing.mdoHasProperty(mdo.effect)) {
@@ -169,6 +171,8 @@ public class Level extends ScreenObject implements Turnable {
 	
 	/** @return All the characters currently on this map */
 	public List<CharacterEvent> getCharacters() { return eventLayer.getCharacters(); }
+	
+	public boolean[][] getSeenCache() { return seenCache; }
 	
 	/** @return The key to this map's mdo */
 	public String getKey() { return mdo.key; }
