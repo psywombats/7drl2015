@@ -13,5 +13,9 @@
 	"pathsUp" : [
 		"map_12"
 	],
-	"pathsDown" : [ ]
+	"pathsDown" : [ ],
+	"scene" : "None",
+	"items" : [
+		"item_macguffin"
+	]
 }

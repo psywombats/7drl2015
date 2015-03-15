@@ -26,6 +26,8 @@ import net.wombatrpgs.sdrlschema.rpg.data.EquipmentSlot;
  */
 public class Item implements Queueable {
 	
+	protected static final String KEY_MACGUFFIN = "item_macguffin";
+	
 	protected ItemMDO mdo;
 	
 	protected ItemEvent parent;
@@ -105,6 +107,11 @@ public class Item implements Queueable {
 	 */
 	public void onPickup(GameUnit unit) {
 		unit.pickUp(this);
+		
+		// victory condition hack
+		if (unit == MGlobal.hero.getUnit() && mdo.key.equals(KEY_MACGUFFIN)) {
+			MGlobal.hero.win();
+		}
 	}
 	
 	/**

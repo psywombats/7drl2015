@@ -35,6 +35,7 @@ import net.wombatrpgs.sdrl2015.screen.ScreenObject;
 import net.wombatrpgs.sdrlschema.audio.MusicMDO;
 import net.wombatrpgs.sdrlschema.maps.MapGeneratorMDO;
 import net.wombatrpgs.sdrlschema.maps.MapMDO;
+import net.wombatrpgs.sdrlschema.rpg.ItemMDO;
 
 /**
  * A Level is comprised of a .tmx tiled map background and a bunch of events
@@ -235,7 +236,11 @@ public class Level extends ScreenObject implements Turnable {
 		if (pass == 0) {
 			mapGen.generateMe();
 			spawnToCapacity();
-			// any required characters should spawn here
+			for (String itemKey : mdo.items) {
+				Item item = new Item(MGlobal.data.getEntryFor(itemKey, ItemMDO.class));
+				MGlobal.assetManager.loadAsset(item, "req item " + item.getName());
+				item.spawnUnseen(this);
+			}
 		}
 	}
 	

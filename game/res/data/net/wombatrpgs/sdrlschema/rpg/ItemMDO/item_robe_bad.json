@@ -4,7 +4,7 @@
 	"name" : "",
 	"description" : "",
 	"itemName" : "robe",
-	"itemDescription" : "An old robe. Increases magic damage by 3.",
+	"itemDescription" : "An old robe. Increases magic damage by 4.",
 	"icon" : "robes1.png",
 	"uses" : 0,
 	"carriedAbility" : "None",
@@ -14,15 +14,15 @@
 		"stats" : [
 			{
 				"stat" : "FIRE_DMG",
-				"value" : 3.0
+				"value" : 4.0
 			},
 			{
 				"stat" : "ICE_DMG",
-				"value" : 3.0
+				"value" : 4.0
 			},
 			{
 				"stat" : "EARTH_DMG",
-				"value" : 3.0
+				"value" : 4.0
 			}
 		],
 		"flags" : [ ]

@@ -4,7 +4,7 @@
 	"name" : "",
 	"description" : "",
 	"itemName" : "Phoenix Down",
-	"itemDescription" : "A misleading robe. Increases magic damage by 10.",
+	"itemDescription" : "A misleading robe. Increases magic damage by 15.",
 	"icon" : "robes3.png",
 	"uses" : 0,
 	"carriedAbility" : "None",
@@ -14,15 +14,15 @@
 		"stats" : [
 			{
 				"stat" : "FIRE_DMG",
-				"value" : 10.0
+				"value" : 15.0
 			},
 			{
 				"stat" : "ICE_DMG",
-				"value" : 10.0
+				"value" : 15.0
 			},
 			{
 				"stat" : "EARTH_DMG",
-				"value" : 10.0
+				"value" : 15.0
 			}
 		],
 		"flags" : [ ]

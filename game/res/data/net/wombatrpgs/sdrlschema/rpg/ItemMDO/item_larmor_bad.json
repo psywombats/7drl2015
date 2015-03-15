@@ -4,7 +4,7 @@
 	"name" : "",
 	"description" : "",
 	"itemName" : "leather armor",
-	"itemDescription" : "A set of worn armor. Increases defense by 5.",
+	"itemDescription" : "A set of worn armor. Increases defense by 6.",
 	"icon" : "light1.png",
 	"uses" : 0,
 	"carriedAbility" : "None",
@@ -14,7 +14,7 @@
 		"stats" : [
 			{
 				"stat" : "DV",
-				"value" : 5.0
+				"value" : 6.0
 			}
 		],
 		"flags" : [ ]

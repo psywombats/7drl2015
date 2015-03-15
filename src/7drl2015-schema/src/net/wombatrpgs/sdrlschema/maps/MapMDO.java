@@ -14,6 +14,7 @@ import net.wombatrpgs.mgns.core.MainSchema;
 import net.wombatrpgs.mgns.core.Annotations.Desc;
 import net.wombatrpgs.sdrlschema.audio.MusicMDO;
 import net.wombatrpgs.sdrlschema.graphics.effects.data.EffectMDO;
+import net.wombatrpgs.sdrlschema.rpg.ItemMDO;
 
 /**
  * A map contains not only a TMX but other vital data as well!
@@ -60,5 +61,9 @@ public class MapMDO extends MainSchema {
 	@FileLink("scenes")
 	@Nullable
 	public String scene;
+	
+	@Desc("Items - guaranteed to be found as loot on the floor somewhere")
+	@SchemaLink(ItemMDO.class)
+	public String[] items;
 
 }

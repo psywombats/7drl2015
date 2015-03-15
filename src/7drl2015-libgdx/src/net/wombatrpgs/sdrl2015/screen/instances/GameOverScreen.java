@@ -25,10 +25,15 @@ public class GameOverScreen extends Screen {
 	/**
 	 * Creates the title screen by looking up default title screen settings.
 	 */
-	public GameOverScreen() {
+	public GameOverScreen(boolean victory) {
 		super();
 		mdo = MGlobal.data.getEntryFor(Constants.KEY_DEATH, DeathSettingsMDO.class);
-		screen = new Picture(mdo.bg, 0, 0, 0);
+		if (!victory) {
+			screen = new Picture(mdo.bg, 0, 0, 0);
+		} else {
+			// 8 hours to go, hack away
+			screen = new Picture("victoryscreen.png", 0, 0, 0);
+		}
 		assets.add(screen);
 		addObject(screen);
 		pushCommandContext(new CMapSplash());
@@ -81,7 +86,7 @@ public class GameOverScreen extends Screen {
 	@Override
 	public void onFocusGained() {
 		super.onFocusGained();
-		tintTo(new Color(1, 1, 1, 0));
+		tintTo(new Color(1, 1, 1, 1));
 	}
 
 }
