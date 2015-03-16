@@ -144,12 +144,16 @@ public class AbilityMenu extends Popup {
 		if (levelMode) {
 			font.draw(getBatch(), descFormat, LEVEL_STRING, LINE_HEIGHT/2);
 			font.draw(getBatch(), descFormat, selectedAbil.getLevelText(), -LINE_HEIGHT/2);
+			if (selectedAbil.canBeLeveled()) {
+				String desc = (selectedAbil == null) ? "" : selectedAbil.getDescription();
+				font.draw(getBatch(), descFormat, desc, 0);
+			}
 		} else {
 			font.draw(getBatch(), descFormat, TITLE_STRING, LINE_HEIGHT/2);
 			font.draw(getBatch(), tabHintFormat, HINT_STRING, 0);
+			String desc = (selectedAbil == null) ? "" : selectedAbil.getDescription();
+			font.draw(getBatch(), descFormat, desc, 0);
 		}
-		String desc = (selectedAbil == null) ? "" : selectedAbil.getDescription();
-		font.draw(getBatch(), descFormat, desc, 0);
 	}
 
 	/**
@@ -205,7 +209,7 @@ public class AbilityMenu extends Popup {
 	protected boolean confirm() {
 		if (levelMode) {
 			Ability selectedAbil = MGlobal.hero.getUnit().abilityAt(selected);
-			if (selectedAbil == null) return true;
+			if (selectedAbil == null || !selectedAbil.canBeLeveled()) return true;
 			MGlobal.hero.getUnit().increaseAbilityLevel(selectedAbil.getKey());
 			levelMode = false;
 		} else {
