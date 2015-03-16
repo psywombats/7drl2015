@@ -232,10 +232,10 @@ public class Hud extends UIElement {
 		
 		if (MGlobal.hero.isEligibleForCamp(true)) {
 			font.draw(batch, campFormat, CAMP_STRING, 0);
-		}
-		
-		if (MGlobal.hero.getParent().isPlayingScene()) {
+		} else if (MGlobal.hero.getParent().isPlayingScene()) {
 			font.draw(batch, campFormat, SKIP_STRING, 0);
+		} else {
+			font.draw(batch, campFormat, "floor: " + MGlobal.hero.getParent().getFloor(), 0);
 		}
 		
 //		format.align = HAlignment.LEFT;

@@ -265,15 +265,20 @@ public class Level extends ScreenObject implements Turnable {
 		if (scene != null && !scene.hasExecuted()) {
 			scene.run();
 		}
-		for (MapThing toRemove : removalObjects) {
-			toRemove.onRemovedFromMap(this);
+		
+		List<MapThing> thisFrameObjects = new ArrayList<MapThing>();
+		thisFrameObjects.addAll(removalObjects);
+		removalObjects.clear();
+		for (MapThing toRemove : thisFrameObjects) {
 			internalRemoveObject(toRemove);
 		}
-		for (MapEvent toRemove : removalEvents) {
+		
+		List<MapEvent> thisFrameEvents = new ArrayList<MapEvent>();
+		thisFrameEvents.addAll(removalEvents);
+		removalEvents.clear();
+		for (MapEvent toRemove : thisFrameEvents) {
 			internalRemoveEvent(toRemove);
 		}
-		removalObjects.clear();
-		removalEvents.clear();
 		for (int i = 0; i < objects.size(); i++) {
 			MapThing object = objects.get(i);
 			object.update(elapsed);
@@ -583,6 +588,7 @@ public class Level extends ScreenObject implements Turnable {
 	 */
 	protected void internalRemoveEvent(MapEvent toRemove) {
 		internalRemoveObject(toRemove);
+		toRemove.onRemovedFromMap(this);
 		eventLayer.remove(toRemove);
 	}
 	

@@ -133,7 +133,7 @@ public class EnemyEvent extends CharacterEvent {
 		}
 		if (race != null) {
 			if (MapThing.mdoHasProperty(race.lootTable)) {
-				ItemList lootTable = new ItemList(unit.lootTable);
+				ItemList lootTable = new ItemList(race.lootTable);
 				Item item = lootTable.generateItem();
 				assets.add(item);
 				getUnit().getInventory().addItem(item);

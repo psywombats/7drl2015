@@ -23,8 +23,8 @@ import net.wombatrpgs.sdrlschema.rpg.data.UnitUseType;
  */
 public class EnemyGenerator {
 	
-	protected static final float HOARD_CHANCE = .05f;
-	protected static final float PATROL_CHANCE = .1f;
+	protected static final float HOARD_CHANCE = .06f;
+	protected static final float PATROL_CHANCE = .08f;
 	protected static final float OUT_OF_DEPTH_CHANCE = .1f;
 	protected static final int OUT_OF_DEPTH_OFFSET = 5;
 	
@@ -55,6 +55,9 @@ public class EnemyGenerator {
 							null);
 					if (def.isValid(rivalSpecies)) {
 						allDefinitions.add(def);
+						if (def.isRival()) {
+							allDefinitions.add(def);
+						}
 					}
 				} else {
 					for (String unitKey : species.units) {

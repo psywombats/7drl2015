@@ -51,13 +51,20 @@ public class EnemyDefinition {
 	public boolean isValid(SpeciesMDO rivalSpecies) {		
 		boolean rivalRace = raceMDO != null && raceMDO.rivalry == RivalryRequirementType.REQUIRES_RIVAL;
 		boolean rivalUnit = unitMDO != null && unitMDO.rivalry == RivalryRequirementType.REQUIRES_RIVAL;
-		if (rivalRace || rivalUnit && rivalSpecies != speciesMDO) {
+		if ((rivalRace || rivalUnit) && rivalSpecies != speciesMDO) {
 			return false;
 		}
 		if (!dangerCondition.canBeMet()) {
 			return false;
 		}
 		return true;
+	}
+	
+	/** @return True if this is requires a rival species */
+	public boolean isRival() {
+		boolean rivalRace = raceMDO != null && raceMDO.rivalry == RivalryRequirementType.REQUIRES_RIVAL;
+		boolean rivalUnit = unitMDO != null && unitMDO.rivalry == RivalryRequirementType.REQUIRES_RIVAL;
+		return rivalRace || rivalUnit;
 	}
 	
 	/**
