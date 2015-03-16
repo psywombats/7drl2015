@@ -6,6 +6,7 @@
 	"prefix" : "Dark",
 	"appearance" : "4dir_darkelf",
 	"overlay" : "None",
+	"effect" : null,
 	"dangerLevel" : {
 		"boundsString" : ""
 	},
@@ -24,5 +25,6 @@
 		],
 		"flags" : [ ]
 	},
-	"abilities" : [ ]
+	"abilities" : [ ],
+	"lootTable" : "None"
 }

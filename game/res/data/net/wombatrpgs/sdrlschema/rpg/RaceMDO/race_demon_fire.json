@@ -37,7 +37,8 @@
 		]
 	},
 	"abilities" : [
-		"abil_ball_fire"
+		"abil_ball_fire",
+		"abil_touch_fire"
 	],
 	"lootTable" : "None"
 }

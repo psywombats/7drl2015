@@ -8,12 +8,14 @@
 	"danger" : 8,
 	"generator" : "generator_furnished",
 	"effect" : "effect_los",
-	"floor" : "3",
+	"floor" : "8",
 	"bgm" : "None",
 	"pathsUp" : [
 		"map_07"
 	],
 	"pathsDown" : [
 		"map_09"
-	]
+	],
+	"scene" : "None",
+	"items" : [ ]
 }

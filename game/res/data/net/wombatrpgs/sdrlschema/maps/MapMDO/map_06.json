@@ -8,7 +8,7 @@
 	"danger" : 6,
 	"generator" : "generator_furnished",
 	"effect" : "effect_los",
-	"floor" : "3",
+	"floor" : "6",
 	"bgm" : "None",
 	"pathsUp" : [
 		"map_05"

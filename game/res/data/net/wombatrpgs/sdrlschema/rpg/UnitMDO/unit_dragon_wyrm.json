@@ -14,7 +14,7 @@
 		"stats" : [
 			{
 				"stat" : "MHP",
-				"value" : 100.0
+				"value" : 90.0
 			},
 			{
 				"stat" : "PV",
@@ -38,7 +38,7 @@
 			},
 			{
 				"stat" : "MAGIC_DMG",
-				"value" : 15.0
+				"value" : 11.0
 			}
 		],
 		"flags" : [ ]
