@@ -21,6 +21,7 @@ public enum Stat implements NumericStatLinkable {
 	FIRE_DMG			("fire magic"),
 	ICE_DMG				("ice magic"),
 	EARTH_DMG			("earth magic"),
+	MAGIC_DMG			("magic base"),
 	MELEE_DMG			("melee damage");
 	
 	private NumericStat stat;

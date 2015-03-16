@@ -7,11 +7,11 @@
 	"levelDesc" : "Leveling increases damage by 20%",
 	"uses" : 2,
 	"target" : "BALL",
-	"range" : 4.0,
+	"range" : 4.5,
 	"useChance" : 0.4,
 	"warhead" : {
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO",
-		"key" : "anon_AbilityMDO_954389011"
+		"key" : "anon_AbilityMDO_512551785"
 	},
 	"icon" : "book4_ice.png",
 	"energyCost" : 1000,

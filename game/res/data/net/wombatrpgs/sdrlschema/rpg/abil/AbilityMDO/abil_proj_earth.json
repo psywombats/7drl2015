@@ -5,13 +5,13 @@
 	"description" : "",
 	"abilDesc" : "Fires a projectile of caustic gas at a single enemy",
 	"levelDesc" : "Leveling increases damage by 20%",
-	"uses" : 3,
+	"uses" : 4,
 	"target" : "PROJECTILE",
 	"range" : 5.0,
 	"useChance" : 0.6,
 	"warhead" : {
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO",
-		"key" : "anon_AbilityMDO_954389011"
+		"key" : "anon_AbilityMDO_1836430728"
 	},
 	"icon" : "book2_earth.png",
 	"energyCost" : 1000,

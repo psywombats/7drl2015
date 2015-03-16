@@ -68,6 +68,7 @@ public class EffectMagic extends AbilEffect {
 			} else {
 				int dmg = (int) (actor.getUnit().calcMagicDamage(mdo.element) *
 						((float) mdo.damageRatio));
+				dmg += actor.getUnit().get(Stat.MAGIC_DMG);
 				if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {
 					dmg *= 1f + (.2f * (float) getLevel());
 				}

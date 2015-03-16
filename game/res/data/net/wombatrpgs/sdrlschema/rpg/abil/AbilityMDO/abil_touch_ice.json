@@ -11,7 +11,7 @@
 	"useChance" : 0.9,
 	"warhead" : {
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.EffectMagicMDO",
-		"key" : "anon_AbilityMDO_954389011"
+		"key" : "anon_AbilityMDO_1032361634"
 	},
 	"icon" : "book3_ice.png",
 	"energyCost" : 1000,

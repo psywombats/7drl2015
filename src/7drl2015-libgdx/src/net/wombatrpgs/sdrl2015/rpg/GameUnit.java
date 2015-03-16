@@ -663,7 +663,7 @@ public class GameUnit implements Turnable, Queueable {
 	 * @return					The speed mod, a multiplier centered around 1.0
 	 */
 	public float calcSpeedMod() {
-		return get(Stat.SPEED) / 100f;
+		return 100f / get(Stat.SPEED);
 	}
 	
 	/**

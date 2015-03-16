@@ -48,23 +48,18 @@ public class EffectCharge extends AbilEffect {
 		for (GameUnit target : abil.getTargets()) {
 			// hack, should only check hostiles
 			if (target == MGlobal.hero.getUnit()) {
-				if (abil.getActor().euclideanTileDistanceTo(MGlobal.hero) < 2) {
-					return false;
-				}
 				int tileX = actor.getTileX();
 				int tileY = actor.getTileY();
-				EightDir dir = target.getParent().directionTo(tileX, tileY);
-				EightDir oppDir = EightDir.getOpposite(dir);
-				while (target.getParent().minTileDistanceTo(tileX, tileY) > 1) {
+				while (target.getParent().tileDistanceTo(tileX, tileY) >=2) {
+					EightDir oppDir = actor.directionTo(target.getParent());
 					tileX += oppDir.getVector().x;
 					tileY += oppDir.getVector().y;
 					if (!parent.isTilePassable(actor, tileX, tileY)) {
 						return false;
 					}
 				}
-				return true;
 			}
-			
+			return true;
 		}
 		return false;
 	}
@@ -75,22 +70,19 @@ public class EffectCharge extends AbilEffect {
 	@Override
 	protected void internalAct(List<GameUnit> targets) {
 		for (final GameUnit target : targets) {
-			int tileX = actor.getTileX();
-			int tileY = actor.getTileY();
-			EightDir dir = target.getParent().directionTo(tileX, tileY);
-			EightDir oppDir = EightDir.getOpposite(dir);
-			while (target.getParent().tileDistanceTo(tileX, tileY) >=2) {
+			while (actor.tileDistanceTo(target.getParent()) >=2) {
+				EightDir oppDir = actor.directionTo(target.getParent());
+				int tileX = actor.getTileX();
+				int tileY = actor.getTileY();
 				tileX += oppDir.getVector().x;
 				tileY += oppDir.getVector().y;
 				if (!parent.isTilePassable(actor, tileX, tileY)) {
-					tileX -= oppDir.getVector().x;
-					tileY -= oppDir.getVector().y;
 					break;
 				}
+				actor.setTileX(tileX);
+				actor.setTileY(tileY);
 				actor.addStep(new StepMove(actor, tileX, tileY));
 			}
-			actor.setTileX(tileX);
-			actor.setTileY(tileY);
 			actor.faceToward(target.getParent());
 			float ratio = mdo.damageRatio;
 			if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {

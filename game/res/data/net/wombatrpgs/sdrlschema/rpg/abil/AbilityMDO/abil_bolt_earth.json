@@ -5,7 +5,7 @@
 	"description" : "",
 	"abilDesc" : "Fires a bolt of caustic gas that can hit multiple targets",
 	"levelDesc" : "Leveling increases damage by 20%",
-	"uses" : 2,
+	"uses" : 3,
 	"target" : "BEAM",
 	"range" : 5.0,
 	"useChance" : 0.7,

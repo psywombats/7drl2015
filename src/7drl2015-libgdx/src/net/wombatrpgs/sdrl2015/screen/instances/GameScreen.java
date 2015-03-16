@@ -91,6 +91,8 @@ public class GameScreen extends Screen {
 				MGlobal.hero.setTileY(MGlobal.rand.nextInt(map.getHeight()));
 			}
 			
+			MGlobal.screens.getCamera().constrainMaps(map);
+			
 			/* This is super hacky, but is easier than redoing the spawn ordering. */
 			Level map = MGlobal.hero.getParent();
 			List<MapEvent> events = map.getEvents();

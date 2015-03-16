@@ -6,6 +6,7 @@
 	"itemName" : "book of Burning Hands",
 	"itemDescription" : "A spellbook. Grants the Burning Hands skill.",
 	"icon" : "book2_fire.png",
+	"uses" : 0,
 	"carriedAbility" : "abil_touch_fire",
 	"equippedAbility" : "None",
 	"slot" : null,

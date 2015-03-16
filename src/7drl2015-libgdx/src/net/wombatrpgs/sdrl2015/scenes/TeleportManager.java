@@ -95,7 +95,7 @@ public class TeleportManager implements Queueable {
 			MGlobal.ui.getHud().setOverlayTintIgnore(true);
 		}
 
-		//MGlobal.screens.getCamera().constrainMaps(map);
+		MGlobal.screens.getCamera().constrainMaps(map);
 		
 		MGlobal.levelManager.getScreen().addObject(map);
 		MGlobal.levelManager.getScreen().removeObject(old);

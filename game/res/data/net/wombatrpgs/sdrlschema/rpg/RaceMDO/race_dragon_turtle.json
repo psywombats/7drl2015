@@ -25,6 +25,10 @@
 			{
 				"stat" : "SPEED",
 				"value" : -50.0
+			},
+			{
+				"stat" : "MELEE_DMG",
+				"value" : 12.0
 			}
 		],
 		"flags" : [

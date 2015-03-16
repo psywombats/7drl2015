@@ -18,7 +18,7 @@
 			},
 			{
 				"stat" : "PV",
-				"value" : 10.0
+				"value" : 8.0
 			},
 			{
 				"stat" : "FIRE_DMG",
@@ -35,6 +35,10 @@
 			{
 				"stat" : "MELEE_DMG",
 				"value" : 18.0
+			},
+			{
+				"stat" : "MAGIC_DMG",
+				"value" : 15.0
 			}
 		],
 		"flags" : [ ]

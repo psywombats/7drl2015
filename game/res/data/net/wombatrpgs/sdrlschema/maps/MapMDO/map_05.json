@@ -11,9 +11,11 @@
 	"floor" : "3",
 	"bgm" : "None",
 	"pathsUp" : [
-		"map_03"
+		"map_04"
 	],
 	"pathsDown" : [
-		"map_05"
-	]
+		"map_06"
+	],
+	"scene" : "None",
+	"items" : [ ]
 }

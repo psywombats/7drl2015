@@ -5,11 +5,11 @@
 	"description" : "",
 	"itemName" : "heavy helmet",
 	"itemDescription" : "A full-face helmet. Increases armor by 1.",
-	"icon" : "axe1.png",
+	"icon" : "helm2.png",
 	"uses" : 0,
 	"carriedAbility" : "None",
 	"equippedAbility" : "None",
-	"slot" : "ARMOR",
+	"slot" : "HELM",
 	"stats" : {
 		"stats" : [
 			{

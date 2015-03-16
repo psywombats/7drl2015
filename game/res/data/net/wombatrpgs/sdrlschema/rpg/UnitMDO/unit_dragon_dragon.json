@@ -22,7 +22,11 @@
 			},
 			{
 				"stat" : "MELEE_DMG",
-				"value" : 16.0
+				"value" : 12.0
+			},
+			{
+				"stat" : "MAGIC_DMG",
+				"value" : 4.0
 			}
 		],
 		"flags" : [ ]

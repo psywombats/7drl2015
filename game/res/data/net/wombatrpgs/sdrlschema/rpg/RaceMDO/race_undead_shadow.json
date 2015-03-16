@@ -6,8 +6,9 @@
 	"prefix" : "Shadow",
 	"appearance" : "4dir_shadow",
 	"overlay" : "None",
+	"effect" : null,
 	"dangerLevel" : {
-		"boundsString" : ""
+		"boundsString" : "2-13"
 	},
 	"spawnType" : "USE_UNITS",
 	"rivalry" : "NO_REQUIREMENT",
@@ -20,5 +21,6 @@
 		],
 		"flags" : [ ]
 	},
-	"abilities" : [ ]
+	"abilities" : [ ],
+	"lootTable" : "None"
 }

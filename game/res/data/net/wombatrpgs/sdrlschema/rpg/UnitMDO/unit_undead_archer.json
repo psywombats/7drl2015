@@ -15,11 +15,17 @@
 			{
 				"stat" : "MELEE_DMG",
 				"value" : 1.0
+			},
+			{
+				"stat" : "MHP",
+				"value" : -5.0
 			}
 		],
 		"flags" : [ ]
 	},
-	"abilities" : [ ],
+	"abilities" : [
+		"abil_shoot"
+	],
 	"rivalry" : "REQUIRES_RIVAL",
 	"heldItems" : [ ],
 	"lootTable" : "None"
