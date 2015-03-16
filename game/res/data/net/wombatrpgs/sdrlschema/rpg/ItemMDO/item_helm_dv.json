@@ -1,0 +1,22 @@
+{
+	"key" : "item_helm_dv",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "light helmet",
+	"itemDescription" : "A feathered helment. Increases defense by 3.",
+	"icon" : "helm3.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "HELM",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "DV",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

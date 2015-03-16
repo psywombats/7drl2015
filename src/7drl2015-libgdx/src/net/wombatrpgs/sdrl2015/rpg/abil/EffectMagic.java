@@ -58,12 +58,12 @@ public class EffectMagic extends AbilEffect {
 		for (GameUnit target : targets) {
 			if (target.calcDodgeChance(target.get(Stat.DV) / -2) > MGlobal.rand.nextFloat()) {
 				if (MGlobal.hero.inLoS(target.getParent())) {
-					GameUnit.out().msg(target.getName() + " dodges.");
+					GameUnit.out().msg(target.getName() + " dodged.");
 				}
 				target.onAttackBy(actor.getUnit());
 			} else if (target.resists(mdo.element)) {
 				if (MGlobal.hero.inLoS(target.getParent())) {
-					GameUnit.out().msg(target.getName() + " resists.");
+					GameUnit.out().msg(target.getName() + " resisted.");
 				}
 			} else {
 				int dmg = (int) (actor.getUnit().calcMagicDamage(mdo.element) *

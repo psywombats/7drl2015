@@ -92,7 +92,7 @@ public class DoorEvent extends MapEvent {
 			MGlobal.ui.getNarrator().msg(character.getUnit().getName() + 
 					" opened the door.");
 		} else {
-			MGlobal.ui.getNarrator().msg("Something creaked open in the distance...");
+			// MGlobal.ui.getNarrator().msg("Something creaks open in the distance...");
 		}
 		opening = true;
 	}

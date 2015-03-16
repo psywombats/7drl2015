@@ -1,0 +1,22 @@
+{
+	"key" : "item_glove_dv",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "gloves",
+	"itemDescription" : "A pair of leather gloves. Increases defense by 3.",
+	"icon" : "glove1.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "GLOVE",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "DV",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

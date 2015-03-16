@@ -42,18 +42,25 @@ public class EffectArmorPierce extends AbilEffect {
 	protected void internalAct(List<GameUnit> targets) {
 		for (GameUnit target : targets) {
 			actor.faceToward(target.getParent());
-			int dmg = actor.getUnit().calcMeleeDamage();
-			float pierce = mdo.pierce;
-			dmg -= Math.floor((float) target.get(Stat.PV) * (1f-pierce));
-			if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {
-				dmg *= 1f + (.2f * (float) getLevel());
+			if (target.calcDodgeChance(0) > MGlobal.rand.nextFloat()) {
+				if (MGlobal.hero.inLoS(target.getParent())) {
+					GameUnit.out().msg(actor.getName() + " missed.");
+				}
+			} else {
+				int dmg = actor.getUnit().calcMeleeDamage();
+				float pierce = mdo.pierce;
+				dmg -= Math.floor((float) target.get(Stat.PV) * (1f-pierce));
+				if (abil.isLeveled(LevelingAttribute.INCREASE_DAMAGE)) {
+					dmg *= 1f + (.2f * (float) getLevel());
+				}
+				target.takeRawDamage(dmg);
+				if (MGlobal.hero.inLoS(target.getParent())) {
+					GameUnit.out().msg(target.getName() + " took " + dmg +
+							" damage through armor.");
+				}
+				target.onAttackBy(actor.getUnit());
+				target.ensureAlive();
 			}
-			target.takeRawDamage(dmg);
-			if (MGlobal.hero.inLoS(target.getParent())) {
-				GameUnit.out().msg(target.getName() + " took " + dmg + " damage through armor.");
-			}
-			target.onAttackBy(actor.getUnit());
-			target.ensureAlive();
 		}
 	}
 

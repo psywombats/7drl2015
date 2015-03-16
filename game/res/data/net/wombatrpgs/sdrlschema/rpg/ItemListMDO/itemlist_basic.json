@@ -44,6 +44,20 @@
 		"item_ring_ice",
 		"item_ring_earth",
 		"item_larmor_bad",
-		"item_robe_bad"
+		"item_robe_bad",
+		"item_helm_dv",
+		"item_helm_pv",
+		"item_glove_dv",
+		"item_glove_pv",
+		"item_axe_bad",
+		"item_bow_bad",
+		"item_knife_bad",
+		"item_mace_bad",
+		"item_rapier_bad",
+		"item_spear_bad",
+		"item_sword_bad",
+		"item_pot_heal",
+		"item_pot_heal",
+		"item_pot_heal"
 	]
 }

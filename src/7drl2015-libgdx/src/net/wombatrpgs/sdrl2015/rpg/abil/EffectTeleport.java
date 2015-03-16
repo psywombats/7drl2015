@@ -47,7 +47,7 @@ public class EffectTeleport extends AbilEffect {
 		}
 		for (GameUnit target : targets) {
 			if (MGlobal.hero.inLoS(target.getParent())) {
-				GameUnit.out().msg(target.getName() + " vanishes.");
+				GameUnit.out().msg(target.getName() + " vanished.");
 			}
 			int origX = target.getParent().getTileX();
 			int origY = target.getParent().getTileY();
@@ -73,7 +73,7 @@ public class EffectTeleport extends AbilEffect {
 			}
 			
 			if (MGlobal.hero.inLoS(target.getParent())) {
-				GameUnit.out().msg(target.getName() + " appears.");
+				GameUnit.out().msg(target.getName() + " appeared.");
 			}
 		}
 	}

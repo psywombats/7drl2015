@@ -13,7 +13,9 @@ public enum EquipmentSlot {
 	
 	WEAPON		("Weapon"),
 	ARMOR		("Armor"),
-	RING		("Ring");
+	RING		("Ring"),
+	GLOVE		("Glove"),
+	HELM		("Helmet");
 	
 	private String displayName;
 	

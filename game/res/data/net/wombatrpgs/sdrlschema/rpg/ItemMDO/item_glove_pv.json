@@ -1,0 +1,22 @@
+{
+	"key" : "item_glove_pv",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "gauntlets",
+	"itemDescription" : "A pair of gauntlets. Increases armor by 1.",
+	"icon" : "glove2.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "GLOVE",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "DV",
+				"value" : 3.0
+			}
+		],
+		"flags" : [ ]
+	}
+}

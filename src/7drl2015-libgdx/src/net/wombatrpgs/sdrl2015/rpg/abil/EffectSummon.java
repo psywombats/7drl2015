@@ -87,7 +87,7 @@ public class EffectSummon extends AbilEffect {
 			MGlobal.assetManager.loadAsset(summon, summon.getName());
 			summon.spawnNear(actor);
 			if (MGlobal.hero.inLoS(summon)) {
-				GameUnit.out().msg(summon.getName() + " appears.");
+				GameUnit.out().msg(summon.getName() + " appeared.");
 			}
 		}
 	}

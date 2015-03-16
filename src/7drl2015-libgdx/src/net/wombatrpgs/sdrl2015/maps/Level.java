@@ -60,7 +60,7 @@ public class Level extends ScreenObject implements Turnable {
 	protected static final String LOOT_LIST_MED = "itemlist_goodstuff";
 	protected static final String LOOT_LIST_HIGH = "itemlist_artifacts";
 	protected static final float LOOT_IMPROVE_CHANCE = .04f;
-	protected static final float RESPAWN_CHANCE = .02f;
+	protected static final float RESPAWN_CHANCE = .01f;
 	
 	public static final int TILE_WIDTH = 32;
 	public static final int TILE_HEIGHT = 32;

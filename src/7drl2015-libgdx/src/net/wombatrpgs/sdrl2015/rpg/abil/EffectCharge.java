@@ -99,12 +99,12 @@ public class EffectCharge extends AbilEffect {
 			int dmg = (int) (actor.getUnit().calcMeleeDamage() * ratio);
 			if (target.calcDodgeChance(0) > MGlobal.rand.nextFloat()) {
 				if (MGlobal.hero.inLoS(target.getParent())) {
-					GameUnit.out().msg(actor.getName() + " misses.");
+					GameUnit.out().msg(actor.getName() + " missed.");
 				}
 			} else {
 				int dealt = target.takePhysicalDamage(dmg);
 				if (MGlobal.hero.inLoS(target.getParent())) {
-					GameUnit.out().msg(target.getName() + " takes " + dealt + " damage.");
+					GameUnit.out().msg(target.getName() + " took " + dealt + " damage.");
 				}
 				target.ensureAlive();
 			}

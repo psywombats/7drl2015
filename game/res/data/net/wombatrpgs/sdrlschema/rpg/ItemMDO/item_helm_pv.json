@@ -1,0 +1,22 @@
+{
+	"key" : "item_helm_pv",
+	"subfolder" : "armor",
+	"name" : "",
+	"description" : "",
+	"itemName" : "heavy helmet",
+	"itemDescription" : "A full-face helmet. Increases armor by 1.",
+	"icon" : "axe1.png",
+	"uses" : 0,
+	"carriedAbility" : "None",
+	"equippedAbility" : "None",
+	"slot" : "ARMOR",
+	"stats" : {
+		"stats" : [
+			{
+				"stat" : "PV",
+				"value" : 1.0
+			}
+		],
+		"flags" : [ ]
+	}
+}
