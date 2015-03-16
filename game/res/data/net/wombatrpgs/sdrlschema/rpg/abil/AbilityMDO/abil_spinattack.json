@@ -7,7 +7,7 @@
 	"levelDesc" : "Leveling increases damage by 20% and range by 1 tile",
 	"uses" : 4,
 	"target" : "BALL",
-	"range" : 1.0,
+	"range" : 1.7,
 	"useChance" : 0.3,
 	"warhead" : {
 		"clazz" : "net.wombatrpgs.sdrlschema.rpg.abil.EffectMeleeMDO",

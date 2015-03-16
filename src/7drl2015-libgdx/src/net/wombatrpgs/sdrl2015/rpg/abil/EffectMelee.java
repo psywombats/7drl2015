@@ -43,7 +43,7 @@ public class EffectMelee extends AbilEffect {
 			actor.faceToward(target.getParent());
 			if (target.calcDodgeChance(-1 * mdo.accuracy) > MGlobal.rand.nextFloat()) {
 				if (MGlobal.hero.inLoS(target.getParent())) {
-					GameUnit.out().msg(actor.getName() + " misses.");
+					GameUnit.out().msg(actor.getName() + " missed.");
 				}
 			} else {
 				int dmg = (int) (actor.getUnit().calcMeleeDamage() * (float) mdo.damageRatio);
