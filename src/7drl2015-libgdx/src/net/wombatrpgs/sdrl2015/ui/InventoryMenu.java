@@ -6,11 +6,15 @@
  */
 package net.wombatrpgs.sdrl2015.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont.HAlignment;
 
 import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
+import net.wombatrpgs.sdrl2015.rpg.abil.Ability;
 import net.wombatrpgs.sdrl2015.rpg.item.EquippedItems;
 import net.wombatrpgs.sdrl2015.rpg.item.Inventory;
 import net.wombatrpgs.sdrl2015.rpg.item.Item;
@@ -35,6 +39,10 @@ public class InventoryMenu extends Popup {
 	protected static final String EQUIP_DESC = "EQUIPMENT";
 	protected static final String INVENTORY_DESC = "INVENTORY";
 	
+	protected static final String OPTION_EQUIP = "Equip";
+	protected static final String OPTION_USE = "Use";
+	protected static final String OPTION_DROP = "Drop";
+	
 	protected static final int EQUIP_WIDTH = 200;
 	protected static final int SLOT_NAME_WIDTH = 120;
 	protected static final int INVENTORY_HORIZ_MARGIN = 20;
@@ -43,7 +51,7 @@ public class InventoryMenu extends Popup {
 	protected Graphic backer, cursor;
 	protected TextBoxFormat slotFormat, descFormat, equipFormat,
 			inventoryFormat, tabHintFormat;
-	protected SelectionDialog equippableDialog, unequippableDialog;
+	protected List<String> optionStrings;
 	protected int selected;
 	protected boolean equipped;
 	protected boolean equippedSide;
@@ -96,13 +104,6 @@ public class InventoryMenu extends Popup {
 		tabHintFormat.height = 50;
 		tabHintFormat.x = MGlobal.window.getWidth() - tabHintFormat.width;
 		tabHintFormat.y = tabHintFormat.height;
-		
-		String equippableOptions[] = { "Use", "Drop", "Equip" };
-		equippableDialog = new SelectionDialog(SELECTION_DIALOG_FILE, equippableOptions);
-		String unequippableOptions[] = { "Use", "Drop" };
-		unequippableDialog = new SelectionDialog(SELECTION_DIALOG_FILE, unequippableOptions);
-		assets.add(equippableDialog);
-		assets.add(unequippableDialog);
 	}
 	
 	/** @return True if this inventory menu is up on the screen */
@@ -262,26 +263,49 @@ public class InventoryMenu extends Popup {
 				int selectY = inventoryFormat.y + LINE_HEIGHT * -selected;
 				asking = true;
 				
-				SelectionDialog dialog = item.isEquippable()? equippableDialog: unequippableDialog;
+				optionStrings = new ArrayList<String>();
+				if (item.isEquippable()) optionStrings.add(OPTION_EQUIP);
+				if (item.hasAbility()) optionStrings.add(OPTION_USE);
+				optionStrings.add(OPTION_DROP);
+				SelectionDialog dialog = new SelectionDialog(SELECTION_DIALOG_FILE,
+						optionStrings.toArray(new String[optionStrings.size()]));
+				MGlobal.assetManager.loadAsset(dialog, "selection dialog");
 				
 				dialog.ask(new SelectionListener() {
 					@Override public void onResult(int selection) {
-						switch (selection) {
-						case 0:
-							// equip
+						String option = optionStrings.get(selection);
+						switch (option) {
+						case OPTION_USE:
+							String carryKey = item.getCarryAbilityKey();
+							for (Ability abil : MGlobal.hero.getUnit().getAbilities()) {
+								if (abil.getKey().equals(carryKey)) {
+									hide();
+									MGlobal.hero.useAbility(abil);
+									asking = false;
+									return;
+								}
+							}
+							String equipKey = item.getEquipAbilityKey();
+							for (Ability abil : MGlobal.hero.getUnit().getAbilities()) {
+								if (abil.getKey().equals(equipKey)) {
+									hide();
+									MGlobal.hero.useAbility(abil);
+									asking = false;
+									return;
+								}
+							}
+							MGlobal.reporter.warn("Hero doesn't know abil from "
+									+ "abil-granting item " + item.getName());
+							break;
+						case OPTION_DROP:
+							inventory.removeItem(item);
+							item.onDrop(MGlobal.hero.getUnit());
+							break;
+						case OPTION_EQUIP:
 							if (item.isEquippable()) {
 								equipment.equip(item);
 								equipped = true;
 							}
-							break;
-						case 1:
-							// use
-							// TODO
-							break;
-						case 2:
-							// drop
-							inventory.removeItem(item);
-							item.onDrop(MGlobal.hero.getUnit());
 							break;
 						}
 						asking = false;

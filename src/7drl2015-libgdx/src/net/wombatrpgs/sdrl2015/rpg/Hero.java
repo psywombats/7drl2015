@@ -182,16 +182,16 @@ public class Hero extends CharacterEvent implements CommandListener {
 		case MOVE_NORTHWEST:	move(EightDir.NORTHWEST);	break;
 		
 		// ABIL
-		case ABIL_1:			abil(0);					break;
-		case ABIL_2:			abil(1);					break;
-		case ABIL_3:			abil(2);					break;
-		case ABIL_4:			abil(3);					break;
-		case ABIL_5:			abil(4);					break;
-		case ABIL_6:			abil(5);					break;
-		case ABIL_7:			abil(6);					break;
-		case ABIL_8:			abil(7);					break;
-		case ABIL_9:			abil(8);					break;
-		case ABIL_10:			abil(9);					break;
+		case ABIL_1:			useAbilityAt(0);					break;
+		case ABIL_2:			useAbilityAt(1);					break;
+		case ABIL_3:			useAbilityAt(2);					break;
+		case ABIL_4:			useAbilityAt(3);					break;
+		case ABIL_5:			useAbilityAt(4);					break;
+		case ABIL_6:			useAbilityAt(5);					break;
+		case ABIL_7:			useAbilityAt(6);					break;
+		case ABIL_8:			useAbilityAt(7);					break;
+		case ABIL_9:			useAbilityAt(8);					break;
+		case ABIL_10:			useAbilityAt(9);					break;
 		
 		// ETC
 		case INTENT_CAMP:		tryCamp();					break;
@@ -396,6 +396,34 @@ public class Hero extends CharacterEvent implements CommandListener {
 	}
 	
 	/**
+	 * Ability subcommand. There's some logic for blocking abilities included,
+	 * ie, an ability must first be set active, then told to act. The idea here
+	 * is that an ability should be able to ask the player for further input
+	 * before forcing the world to move around it.
+	 * @param	no				The index of the ability ordered
+	 */
+	public void useAbilityAt(int no) {
+		if (getUnit().getAbilities().size() <= no) {
+			// ability out of range
+			return;
+		}
+		useAbility(getUnit().getAbilities().get(no));
+	}
+	
+	/**
+	 * Uses a specific ability known by the hero. Assumes the hero actually
+	 * knows the given ability.
+	 * @param	abil			The ability to use
+	 */
+	public void useAbility(Ability abil) {
+		if (!getUnit().canUse(abil)) {
+			GameUnit.out().msg("ability not available.");
+			return;
+		}
+		blockingAbil = abil;
+	}
+	
+	/**
 	 * Called when the player tries to set up camp.
 	 */
 	protected void tryCamp() {
@@ -411,26 +439,6 @@ public class Hero extends CharacterEvent implements CommandListener {
 	protected void move(EightDir dir) {
 		step.setDirection(dir);
 		actAndWait(step);
-	}
-	
-	/**
-	 * Ability subcommand. There's some logic for blocking abilities included,
-	 * ie, an ability must first be set active, then told to act. The idea here
-	 * is that an ability should be able to ask the player for further input
-	 * before forcing the world to move around it.
-	 * @param	no				The index of the ability ordered
-	 */
-	protected void abil(int no) {
-		if (getUnit().getAbilities().size() <= no) {
-			// ability out of range
-			return;
-		}
-		Ability abil = getUnit().getAbilities().get(no);
-		if (!getUnit().canUse(abil)) {
-			GameUnit.out().msg("ability not available.");
-			return;
-		}
-		blockingAbil = abil;
 	}
 	
 	/**

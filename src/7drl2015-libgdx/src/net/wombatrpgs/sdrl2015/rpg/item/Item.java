@@ -16,6 +16,7 @@ import net.wombatrpgs.sdrl2015.core.MGlobal;
 import net.wombatrpgs.sdrl2015.core.Queueable;
 import net.wombatrpgs.sdrl2015.graphics.Graphic;
 import net.wombatrpgs.sdrl2015.maps.Level;
+import net.wombatrpgs.sdrl2015.maps.MapThing;
 import net.wombatrpgs.sdrl2015.rpg.GameUnit;
 import net.wombatrpgs.sdrl2015.rpg.stats.SdrlStats;
 import net.wombatrpgs.sdrlschema.rpg.ItemMDO;
@@ -77,6 +78,12 @@ public class Item implements Queueable {
 	
 	/** @return The key of the ability granted by carrying this item */
 	public String getCarryAbilityKey() { return mdo.carriedAbility; }
+	
+	/** @return True if this item grants an ability */
+	public boolean hasAbility() {
+		return	MapThing.mdoHasProperty(getEquipAbilityKey()) ||
+				MapThing.mdoHasProperty(getCarryAbilityKey());
+	}
 	
 	/**
 	 * @see net.wombatrpgs.mrogue.core.Queueable#queueRequiredAssets

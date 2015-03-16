@@ -203,11 +203,18 @@ public class AbilityMenu extends Popup {
 	 */
 	@Override
 	protected boolean confirm() {
-		if (!levelMode) return true;
-		Ability selectedAbil = MGlobal.hero.getUnit().abilityAt(selected);
-		if (selectedAbil == null) return true;
-		MGlobal.hero.getUnit().increaseAbilityLevel(selectedAbil.getKey());
-		levelMode = false;
+		if (levelMode) {
+			Ability selectedAbil = MGlobal.hero.getUnit().abilityAt(selected);
+			if (selectedAbil == null) return true;
+			MGlobal.hero.getUnit().increaseAbilityLevel(selectedAbil.getKey());
+			levelMode = false;
+		} else {
+			Ability abil = MGlobal.hero.getUnit().abilityAt(selected);
+			if (abil != null) {
+				hide();
+				MGlobal.hero.useAbilityAt(selected);
+			}
+		}
 		return true;
 	}
 	
